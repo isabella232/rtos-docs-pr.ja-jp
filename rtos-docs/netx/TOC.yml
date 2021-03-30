@@ -1,0 +1,159 @@
+- name: NetX のドキュメント
+  href: index.yml
+- name: NetX の概要
+  href: overview-netx.md
+- name: NetX ユーザー ガイド
+  expanded: true
+  items:
+    - name: このガイドについて
+      href: about-this-guide.md
+    - name: 第 1 章 - NetX の概要
+      href: chapter1.md
+    - name: 第 2 章 - NetX のインストールと使用
+      href: chapter2.md
+    - name: 第 3 章 - NetX の機能コンポーネント
+      href: chapter3.md
+    - name: 第 4 章 - NetX サービスの説明
+      href: chapter4.md
+    - name: 第 5 章 - NetX ネットワーク ドライバー
+      href: chapter5.md
+    - name: 付録 A - NetX サービス
+      href: appendix-a.md
+    - name: 付録 B - NetX 定数
+      href: appendix-b.md
+    - name: 付録 C - NetX データ型
+      href: appendix-c.md
+    - name: 付録 D - BSD 互換のソケット API
+      href: appendix-d.md
+    - name: 付録 E - ASCII 文字コード
+      href: appendix-e.md
+- name: NetX アドオン
+  items:
+    - name: NetX AutoIP ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX AutoIP の概要
+          href: netx-auto-ip/chapter1.md
+        - name: 第 2 章 - NetX AutoIP のインストールと使用
+          href: netx-auto-ip/chapter2.md
+        - name: 第 3 章 - NetX AutoIP サービスの説明
+          href: netx-auto-ip/chapter3.md
+    - name: NetX BSD ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX BSD の概要
+          href: netx-bsd/chapter1.md
+        - name: 第 2 章 - NetX BSD のインストールと使用
+          href: netx-bsd/chapter2.md
+        - name: 第 3 章 - NetX BSD サービス
+          href: netx-bsd/chapter3.md
+    - name: NetX DHCP クライアント
+      items:
+        - name: 第 1 章 - NetX DHCP クライアントの概要
+          href: netx-dhcp-client/chapter1.md
+        - name: 第 2 章 - NetX DHCP クライアントのインストールと使用
+          href: netx-dhcp-client/chapter2.md
+        - name: 第 3 章 - NetX DHCP クライアント サービスの説明
+          href: netx-dhcp-client/chapter3.md
+        - name: 付録 A - 状態の復元機能の説明
+          href: netx-dhcp-client/appendix-a.md
+    - name: NetX DHCP サーバー ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX DHCP サーバーの概要
+          href: netx-dhcp-server/chapter1.md
+        - name: 第 2 章 - NetX DHCP サーバーのインストールと使用
+          href: netx-dhcp-server/chapter2.md
+        - name: 第 3 章 - NetX DHCP サーバー サービスの説明
+          href: netx-dhcp-server/chapter3.md
+    - name: NetX DNS クライアント ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX DNS クライアントの概要
+          href: netx-dns/chapter1.md
+        - name: 第 2 章 - NetX DNS クライアントのインストールと使用
+          href: netx-dns/chapter2.md
+        - name: 第 3 章 - NetX DNS クライアント サービスの説明
+          href: netx-dns/chapter3.md
+    - name: NetX FTP ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX FTP の概要
+          href: netx-ftp/chapter1.md
+        - name: 第 2 章 - NetX FTP のインストールと使用
+          href: netx-ftp/chapter2.md
+        - name: 第 3 章 - NetX FTP サービスの説明
+          href: netx-ftp/chapter3.md
+    - name: NetX HTTP
+      items:
+        - name: 第 1 章 - NetX HTTP の概要
+          href: netx-http/chapter1.md
+        - name: 第 2 章 - NetX HTTP のインストールと使用
+          href: netx-http/chapter2.md
+        - name: 第 3 章 - NetX HTTP サービスの説明
+          href: netx-http/chapter3.md
+    - name: NetX LWM2M ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX LWM2M の概要
+          href: netx-lwm2m/chapter1.md
+        - name: 第 2 章 - NetX LWM2M のインストールと使用
+          href: netx-lwm2m/chapter2.md
+        - name: 第 3 章 - NetX LWM2M の機能の説明
+          href: netx-lwm2m/chapter3.md
+        - name: 第 4 章 - NetX LWM2M サービスの説明
+          href: netx-lwm2m/chapter4.md
+    - name: NetX POP3 クライアント ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX POP3 の概要
+          href: netx-pop3-client/chapter1.md
+        - name: 第 2 章 - NetX POP3 クライアントのインストールと使用
+          href: netx-pop3-client/chapter2.md
+        - name: 第 3 章 - NetX POP3 クライアント サービスの説明
+          href: netx-pop3-client/chapter3.md
+    - name: NetX PPP ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Point-to-Point プロトコル (PPP) の概要
+          href: netx-ppp/chapter1.md
+        - name: 第 2 章 - NetX Point-to-Point プロトコル (PPP) のインストールと使用
+          href: netx-ppp/chapter2.md
+        - name: 第 3 章 - NetX Point-to-Point プロトコル (PPP) サービスの説明
+          href: netx-ppp/chapter3.md
+    - name: NetX PPPoE クライアント ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX PPPoE クライアントの概要
+          href: netx-pppoe-client/chapter1.md
+        - name: 第 2 章 - NetX PPPoE クライアントのインストールと使用
+          href: netx-pppoe-client/chapter2.md
+        - name: 第 3 章 - NetX PPPoE クライアント サービスの説明
+          href: netx-pppoe-client/chapter3.md
+    - name: NetX PPPoE サーバー ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX PPPoE サーバーの概要
+          href: netx-pppoe-server/chapter1.md
+        - name: 第 2 章 - NetX PPPoE サーバーのインストールと使用
+          href: netx-pppoe-server/chapter2.md
+        - name: 第 3 章 - NetX PPPoE サーバー サービスの説明
+          href: netx-pppoe-server/chapter3.md
+- name: NetX リポジトリ
+  href: 'https://github.com/azure-rtos/netx'
+- name: 関連サービス
+  items:
+    - name: Defender for IoT - RTOS (プレビュー)
+      href: /azure/asc-for-iot
+- name: Microsoft コンポーネント
+  items:
+    - name: Microsoft Azure RTOS
+      href: ../index.yml
+    - name: ThreadX
+      href: ../threadx/index.yml
+    - name: ThreadX Modules
+      href: ../threadx-modules/index.yml
+    - name: NetX Duo
+      href: ../netx-duo/index.yml
+    - name: NetX
+      href: ../netx/index.yml
+    - name: GUIX
+      href: ../guix/index.yml
+    - name: FileX
+      href: ../filex/index.yml
+    - name: LevelX
+      href: ../levelx/index.yml
+    - name: USBX
+      href: ../usbx/index.yml
+    - name: TraceX
+      href: ../tracex/index.yml

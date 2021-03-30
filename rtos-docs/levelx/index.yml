@@ -1,0 +1,31 @@
+### YamlMime:Landing
+title: Azure RTOS LevelX のドキュメント
+summary: Azure RTOS LevelX は、埋め込みアプリケーションに対して、NAND と NOR フラッシュのウェア レベリング機能を提供します。
+metadata:
+  title: Azure RTOS LevelX とは
+  description: Azure RTOS LevelX は、埋め込みアプリケーションに対して、NAND と NOR フラッシュのウェア レベリング機能を提供します。
+  services: rtos
+  ms.service: rtos
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 07/10/2020
+  ms.openlocfilehash: 27ce4d34d53b2a6daec651dd83c648024aad0291
+  ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+  ms.translationtype: HT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104797528"
+landingContent:
+- title: Azure RTOS LevelX の概要
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure RTOS LevelX とは
+      url: chapter1.md
+- title: Azure RTOS LevelX をインストールして使用する
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Azure RTOS LevelX ユーザー ガイド
+      url: chapter2.md

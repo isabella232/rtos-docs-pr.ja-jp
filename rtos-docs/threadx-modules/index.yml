@@ -1,0 +1,25 @@
+### YamlMime:Landing
+title: Azure RTOS ThreadX Modules のドキュメント
+summary: Azure RTOS ThreadX Modules コンポーネントは、アプリケーションの常駐部分とは別に構築されたモジュールをアプリケーションが動的に読み込むためのインフラストラクチャを提供します。
+metadata:
+  title: Azure RTOS ThreadX Modules とは
+  description: Azure RTOS ThreadX Modules は、アプリケーションとは別に構築された、動的に読み込まれるモジュールを提供します。
+  services: rtos
+  ms.service: rtos
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 07/10/2020
+  ms.openlocfilehash: 40958716dfaa14813279fbce3b63d696e3dc21d2
+  ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+  ms.translationtype: HT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104797480"
+landingContent:
+- title: Azure RTOS ThreadX Modules の概要
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure RTOS ThreadX Modules とは
+      url: chapter1.md

@@ -1,0 +1,10 @@
+- name: Azure RTOS NetX Duo ネットワーク アドレス変換ユーザー ガイド
+  items:
+    - name: 第 1 章 - ネットワーク アドレス変換の概要
+      href: chapter1.md
+    - name: 第 2 章 - NAT のインストールと使用
+      href: chapter2.md
+    - name: 第 3 章 - NAT 構成オプション
+      href: chapter3.md
+    - name: 第 4 章 - NAT サービスの説明
+      href: chapter4.md
