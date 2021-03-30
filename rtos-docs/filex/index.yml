@@ -1,0 +1,31 @@
+### YamlMime:Landing
+title: Azure RTOS FileX のドキュメント
+summary: Azure RTO FileX は、ファイル アロケーション テーブル (FAT) 互換のハイ パフォーマンスのファイル システムであり、Azure RTOS ThreadX と完全に統合されており、サポートされるすべてのプロセッサで利用できます。 Azure RTOS ThreadX と同様に、Azure RTOS FileX は、小さいフットプリントでハイ パフォーマンスを実現するように設計されているため、ファイル管理操作を必要とする昨今の深い埋め込み型のアプリケーションに最適です。 FileX は、RAM、Azure RTOS USBX、SD カード、および Azure RTOS LevelX 経由の NAND と NOR フラッシュ メモリなど、ほとんどの物理メディアをサポートしています。
+metadata:
+  title: Azure RTOS FileX とは
+  description: Azure RTO FileX は、ファイル アロケーション テーブル (FAT) 互換のハイ パフォーマンスのファイル システムであり、Azure RTOS ThreadX と完全に統合されており、サポートされるすべてのプロセッサで利用できます。 Azure RTOS ThreadX と同様に、Azure RTOS FileX は、小さいフットプリントでハイ パフォーマンスを実現するように設計されているため、ファイル管理操作を必要とする昨今の深い埋め込み型のアプリケーションに最適です。 FileX は、RAM、Azure RTOS USBX、SD カード、および Azure RTOS LevelX 経由の NAND と NOR フラッシュ メモリなど、ほとんどの物理メディアをサポートしています。
+  services: rtos
+  ms.service: rtos
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 05/19/2020
+  ms.openlocfilehash: bf7fd9f842c363b753f8acd52f54b9f8e462616c
+  ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+  ms.translationtype: HT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104797546"
+landingContent:
+- title: Azure RTOS FileX の概要
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure RTOS FileX とは
+      url: overview-filex.md
+- title: Azure RTOS FileX の使用を開始する
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Azure RTOS FileX ユーザー ガイド
+      url: about-this-guide.md

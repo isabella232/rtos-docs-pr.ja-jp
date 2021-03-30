@@ -1,0 +1,34 @@
+- name: Microsoft Azure RTOS のドキュメント
+  href: index.yml
+- name: Microsoft Azure RTOS の概要
+  href: overview-rtos.md
+- name: 概要ガイド
+  href: getting-started.md
+- name: Microsoft Azure RTOS リポジトリ
+  href: 'https://github.com/azure-rtos/'
+- name: 関連サービス
+  items:
+    - name: Defender for IoT - RTOS (プレビュー)
+      href: 'https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos'
+- name: Microsoft Azure RTOS コンポーネント
+  items:
+    - name: Microsoft Azure RTOS
+      href: ./index.yml
+    - name: ThreadX
+      href: ./threadx/index.yml
+    - name: ThreadX Modules
+      href: ./threadx-modules/index.yml
+    - name: NetX Duo
+      href: ./netx-duo/index.yml
+    - name: NetX
+      href: ./netx/index.yml
+    - name: GUIX
+      href: ./guix/index.yml
+    - name: FileX
+      href: ./filex/index.yml
+    - name: LevelX
+      href: ./levelx/index.yml
+    - name: USBX
+      href: ./usbx/index.yml
+    - name: TraceX
+      href: ./tracex/index.yml

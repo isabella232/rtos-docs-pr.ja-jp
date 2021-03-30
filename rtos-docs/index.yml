@@ -1,0 +1,121 @@
+### YamlMime:Hub
+title: Microsoft Azure RTOS のドキュメント
+summary: Azure RTOS のドキュメントを確認します。
+brand: azure
+metadata:
+  title: Microsoft Azure RTOS のドキュメント ハブ
+  description: Azure RTOS のドキュメントを確認します。
+  ms.service: rtos
+  ms.topic: hub-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 5/19/2020
+  ms.openlocfilehash: 12f6535be21d072fd9500c43d7a10f5f7bf0b10a
+  ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+  ms.translationtype: HT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104797534"
+highlightedContent:
+  items:
+  - title: Azure RTOS とは
+    itemType: overview
+    url: overview-rtos.md
+  - title: 埋め込みデバイス開発の概要
+    itemType: quickstart
+    url: https://docs.microsoft.com/azure/iot-develop/quickstart-device-development
+  - title: GitHub でのソース コードのダウンロード
+    itemType: download
+    url: https://github.com/azure-rtos/
+  - title: Defender for IoT - RTOS (プレビュー)
+    itemType: overview
+    url: https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos
+conceptualContent:
+  title: Azure RTOS
+  summary: 深い埋め込み型の IoT アプリケーションとエッジ デバイスを構築します。
+  items:
+  - title: 埋め込みアプリケーションの構築
+    links:
+    - url: ./threadx/overview-threadx.md
+      itemType: overview
+      text: Azure RTOS ThreadX とは
+    - url: ./threadx/about-this-guide.md
+      itemType: how-to-guide
+      text: ユーザー ガイドの確認
+    footerLink:
+      url: ./threadx/index.yml
+      text: 詳細情報
+  - title: ファイル管理の有効化
+    links:
+    - url: ./filex/overview-filex.md
+      itemType: overview
+      text: Azure RTOS FileX とは
+    - url: ./filex/about-this-guide.md
+      itemType: how-to-guide
+      text: ユーザー ガイドの確認
+    footerLink:
+      url: ./filex/index.yml
+      text: 詳細情報
+  - title: グラフィック要素の統合
+    links:
+    - url: ./guix/overview-guix.md
+      itemType: overview
+      text: Azure RTOS GUIX とは
+    - url: ./guix/about-guix.md
+      itemType: how-to-guide
+      text: ユーザー ガイドの確認
+    footerLink:
+      url: ./guix/index.yml
+      text: 詳細情報
+  - title: 問題のデバッグと解決
+    links:
+    - url: ./tracex/overview-tracex.md
+      itemType: overview
+      text: Azure RTOS TraceX とは
+    footerLink:
+      url: ./tracex/index.yml
+      text: 詳細情報
+  - title: ネットワーク接続の有効化
+    links:
+    - url: ./netx/overview-netx.md
+      itemType: overview
+      text: Azure RTOS NetX とは
+    - url: ./netx/about-this-guide.md
+      itemType: how-to-guide
+      text: ユーザー ガイドの確認
+    footerLink:
+      url: ./netx/index.yml
+      text: 詳細情報
+  - title: ネットワーク接続と IPv6 機能の有効化
+    links:
+    - url: ./netx-duo/overview-netx-duo.md
+      itemType: overview
+      text: Azure RTOS NetX Duo とは
+    - url: ./netx-duo/about-this-guide.md
+      itemType: how-to-guide
+      text: ユーザー ガイドの確認
+    footerLink:
+      url: ./netx-duo/index.yml
+      text: 詳細情報
+  - title: USB デバイスとのインターフェイス
+    links:
+    - url: ./usbx/overview-usbx.md
+      itemType: overview
+      text: Azure RTOS USBX とは
+    - url: ./usbx/usbx-device-stack-about.md
+      itemType: how-to-guide
+      text: デバイス スタック ユーザー ガイドの確認
+    - url: ./usbx/usbx-host-stack-about.md
+      itemType: how-to-guide
+      text: ホスト スタック ユーザー ガイドの確認
+    footerLink:
+      url: ./usbx/index.yml
+      text: 詳細情報
+  - title: フフラッシュ メモリのウェア レベリングの提供
+    links:
+    - url: ./levelx/chapter1.md
+      itemType: overview
+      text: Azure RTOS LevelX とは
+    footerLink:
+      url: ./levelx/index.yml
+      text: 詳細情報

@@ -1,0 +1,31 @@
+### YamlMime:Landing
+title: Azure RTOS NetX Duo のドキュメント
+summary: Azure RTOS NetX Duo は、深い埋め込み型のリアルタイムの IoT アプリケーション用に特に設計された高度な商用 TCP/IP ネットワーク スタックです。
+metadata:
+  title: Azure RTOS NetX Duo とは
+  description: Azure RTOS NetX Duo は、深い埋め込み型のリアルタイムの IoT アプリケーション用に特に設計された高度な商用 TCP/IP ネットワーク スタックです。
+  services: rtos
+  ms.service: rtos
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 5/19/2020
+  ms.openlocfilehash: 6eca4b135a5cfa3413fc0828de4caeffa734d90a
+  ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+  ms.translationtype: HT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104797552"
+landingContent:
+- title: Azure RTOS NetX Duo の概要
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure RTOS NetX Duo とは
+      url: overview-netx-duo.md
+- title: Azure RTOS NetX Duo の使用を開始する
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Azure RTOS NetX Duo ユーザー ガイド
+      url: about-this-guide.md

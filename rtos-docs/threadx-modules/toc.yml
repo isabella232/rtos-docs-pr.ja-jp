@@ -1,0 +1,45 @@
+- name: Azure RTOS ThreadX Modules のドキュメント
+  href: index.yml
+- name: ThreadX Modules ユーザー ガイド
+  expanded: true
+  items:
+    - name: 第 1 章 - 概要
+      href: chapter1.md
+    - name: 第 2 章 - モジュールの要件
+      href: chapter2.md
+    - name: 第 3 章 - モジュール マネージャーの要件
+      href: chapter3.md
+    - name: 第 4 章 - モジュール API
+      href: chapter4.md
+    - name: 第 5 章 - モジュール マネージャー API
+      href: chapter5.md
+    - name: 付録 - ポート固有の例
+      href: appendix.md
+- name: ThreadX リポジトリ
+  href: 'https://github.com/azure-rtos/threadx'
+- name: 関連サービス
+  items:
+    - name: Defender for IoT - RTOS (プレビュー)
+      href: 'https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos'
+- name: Microsoft Azure RTOS コンポーネント
+  items:
+    - name: Microsoft Azure RTOS
+      href: ../index.yml
+    - name: ThreadX
+      href: ../threadx/index.yml
+    - name: ThreadX Modules
+      href: ../threadx-modules/index.yml
+    - name: NetX Duo
+      href: ../netx-duo/index.yml
+    - name: NetX
+      href: ../netx/index.yml
+    - name: GUIX
+      href: ../guix/index.yml
+    - name: FileX
+      href: ../filex/index.yml
+    - name: LevelX
+      href: ../levelx/index.yml
+    - name: USBX
+      href: ../usbx/index.yml
+    - name: TraceX
+      href: ../tracex/index.yml

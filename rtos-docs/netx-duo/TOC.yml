@@ -1,0 +1,275 @@
+- name: Azure RTOS NetX Duo のドキュメント
+  href: index.yml
+- name: NetX Duo の概要
+  href: overview-netx-duo.md
+- name: NetX Duo ユーザー ガイド
+  expanded: true
+  items:
+    - name: このガイドについて
+      href: about-this-guide.md
+    - name: 第 1 章 - NetX Duo の概要
+      href: chapter1.md
+    - name: 第 2 章 - NetX Duo のインストールと使用
+      href: chapter2.md
+    - name: 第 3 章 - NetX Duo の機能コンポーネント
+      href: chapter3.md
+    - name: 第 4 章 - NetX Duo サービスの説明
+      href: chapter4.md
+    - name: 第 5 章 - NetX Duo ネットワーク ドライバー
+      href: chapter5.md
+    - name: 付録 A - NetX Duo サービス
+      href: appendix-a.md
+    - name: 付録 B - NetX Duo 定数
+      href: appendix-b.md
+    - name: 付録 C - NetX Duo データ型
+      href: appendix-c.md
+    - name: 付録 D - BSD 互換のソケット API
+      href: appendix-d.md
+    - name: 付録 E - ASCII 文字コード
+      href: appendix-e.md
+- name: NetX Duo アドオン
+  items:
+    - name: NetX Duo AutoIP ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo AutoIP の概要
+          href: netx-duo-auto-ip/chapter1.md
+        - name: 第 2 章 - NetX Duo AutoIP のインストールと使用
+          href: netx-duo-auto-ip/chapter2.md
+        - name: 第 3 章 - NetX Duo AutoIP サービスの説明
+          href: netx-duo-auto-ip/chapter3.md
+    - name: NetX Duo BSD サービス ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo BSD の概要
+          href: netx-duo-bsd/chapter1.md
+        - name: 第 2 章 - NetX Duo BSD のインストールと使用
+          href: netx-duo-bsd/chapter2.md
+        - name: 第 3 章 - NetX Duo BSD サービス
+          href: netx-duo-bsd/chapter3.md
+    - name: NetX Crypto ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Crypto の概要
+          href: ../netx/netx-crypto/chapter1.md
+        - name: 第 2 章 - NetX Crypto のインストールと使用
+          href: ../netx/netx-crypto/chapter2.md
+        - name: 第 3 章 - NetX Crypto の機能コンポーネント
+          href: ../netx/netx-crypto/chapter3.md
+        - name: 第 3 - NetX Crypto API の説明
+          href: ../netx/netx-crypto/chapter4.md
+    - name: NetX Duo DHCP クライアント ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo DHCP クライアントの概要
+          href: netx-duo-dhcp-client/chapter1.md
+        - name: 第 2 章 - NetX Duo DHCP クライアントのインストールと使用
+          href: netx-duo-dhcp-client/chapter2.md
+        - name: 第 3 章 - NetX Duo DHCP クライアント サービスの説明
+          href: netx-duo-dhcp-client/chapter3.md
+        - name: 付録 A - NetX Duo DHCP クライアント サービスの状態の復元機能の説明
+          href: netx-duo-dhcp-client/appendixA.md
+    - name: NetX Duo DHCP サーバー ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo DHCP サーバーの概要
+          href: netx-duo-dhcp-server/chapter1.md
+        - name: 第 2 章 - NetX Duo DHCP サーバーのインストールと使用
+          href: netx-duo-dhcp-server/chapter2.md
+        - name: 第 3 章 - NetX Duo DHCP サーバー サービスの説明
+          href: netx-duo-dhcp-server/chapter3.md
+    - name: NetX Duo DHCPv6 クライアント ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo DHCPv6 クライアントの概要
+          href: netx-duo-dhcpv6-client/chapter1.md
+        - name: 第 2 章 - NetX Duo DHCPv6 クライアントのインストールと使用
+          href: netx-duo-dhcpv6-client/chapter2.md
+        - name: 第 3 章 - NetX Duo DHCPv6 構成オプション
+          href: netx-duo-dhcpv6-client/chapter3.md
+        - name: 第 4 章 - NetX Duo DHCPv6 クライアント サービス
+          href: netx-duo-dhcpv6-client/chapter4.md
+        - name: 付録 A - 状態の復元機能の説明
+          href: netx-duo-dhcpv6-client/appendix-a.md
+    - name: NetX Duo DHCPv6 サーバー ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo DHCPv6 サーバーの概要
+          href: netx-duo-dhcpv6-server/chapter1.md
+        - name: 第 2 章 - NetX Duo DHCPv6 サーバーのインストールと使用
+          href: netx-duo-dhcpv6-server/chapter2.md
+        - name: 第 3 章 - NetX Duo DHCPv6 サーバー構成オプション
+          href: netx-duo-dhcpv6-server/chapter3.md
+        - name: 第 4 章 - NetX Duo DHCPv6 サーバー サービス
+          href: netx-duo-dhcpv6-server/chapter4.md
+        - name: 付録 A - NetX Duo DHCPv6 オプション コード
+          href: netx-duo-dhcpv6-server/appendix-a.md
+        - name: 付録 B - NetX Duo DHCPv6 サーバーの状態コード
+          href: netx-duo-dhcpv6-server/appendix-b.md
+        - name: 付録 C - NetX Duo DHCPv6 の一意識別子 (DUID)
+          href: netx-duo-dhcpv6-server/appendix-c.md
+        - name: 付録 D - 高度な NetX Duo DHCPv6 サーバーの例
+          href: netx-duo-dhcpv6-server/appendix-d.md
+    - name: NetX Duo DNS クライアント ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo DNS クライアントの概要
+          href: netx-duo-dns/chapter1.md
+        - name: 第 2 章 - NetX Duo DNS クライアントのインストールと使用
+          href: netx-duo-dns/chapter2.md
+        - name: 第 3 章 - NetX Duo DNS クライアント サービスの説明
+          href: netx-duo-dns/chapter3.md
+    - name: NetX Duo FTP ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo FTP の概要
+          href: netx-duo-ftp/chapter1.md
+        - name: 第 2 章 - FTP のインストールと使用
+          href: netx-duo-ftp/chapter2.md
+        - name: 第 3 章 - FTP サービスの説明
+          href: netx-duo-ftp/chapter3.md
+    - name: NetX Duo HTTP ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo HTTP の概要
+          href: netx-duo-http/chapter1.md
+        - name: 第 2 章 - NetX Duo HTTP のインストールと使用
+          href: netx-duo-http/chapter2.md
+        - name: 章 3 章 - NetX HTTP サービスの説明
+          href: netx-duo-http/chapter3.md
+    - name: NetX Duo mDNS および DNS-SD のユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo mDNS および DNS-SD の概要
+          href: netx-duo-mdns/chapter1.md
+        - name: 第 2 章 - mDNS のインストールと使用
+          href: netx-duo-mdns/chapter2.md
+        - name: 第 3 章 - 内部サービス キャッシュの説明
+          href: netx-duo-mdns/chapter3.md
+        - name: 第 4 章 - mDNS サービスの説明
+          href: netx-duo-mdns/chapter4.md
+    - name: NetX Duo MQTT クライアント ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo MQTT クライアントの概要
+          href: netx-duo-mqtt/chapter1.md
+        - name: 第 2 章 - NetX Duo MQTT クライアントのインストールと使用
+          href: netx-duo-mqtt/chapter2.md
+        - name: 第 3 章 - NetX Duo MQTT クライアント サービスの説明
+          href: netx-duo-mqtt/chapter3.md
+    - name: NetX Duo NAT ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo NAT の概要
+          href: chapter1.md
+        - name: 第 2 章 - NAT のインストールと使用
+          href: chapter2.md
+        - name: 第 3 章 - NAT 構成オプション
+          href: chapter3.md
+        - name: 第 4 章 - NAT サービスの説明
+          href: chapter4.md
+    - name: NetX Duo POP3 クライアント ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo POP3 クライアントの概要
+          href: netx-duo-pop3-client/chapter1.md
+        - name: 第 2 章 - NetX Duo POP3 クライアントのインストールと使用
+          href: netx-duo-pop3-client/chapter2.md
+        - name: 第 3 章 - POP3 クライアント サービスの説明
+          href: netx-duo-pop3-client/chapter3.md
+    - name: NetX Duo PPP ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo PPP の概要
+          href: netx-duo-ppp/chapter1.md
+        - name: 第 2 章 - NetX Duo PPP のインストールと使用
+          href: netx-duo-ppp/chapter2.md
+        - name: 第 3 章 - NetX Duo PPP サービスの説明
+          href: netx-duo-ppp/chapter3.md
+    - name: NetX Duo SMTP クライアント ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo SMTP クライアントの概要
+          href: netx-duo-smtp-client/chapter1.md
+        - name: 第 2 章 - NetX Duo SMTP クライアントのインストールと使用
+          href: netx-duo-smtp-client/chapter2.md
+        - name: 第 3 章 - SMTP クライアント サービスのクライアントの説明
+          href: netx-duo-smtp-client/chapter3.md
+    - name: NetX Duo SNMP ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo SNMP の概要
+          href: netx-duo-snmp/chapter1.md
+        - name: 第 2 章 - NetX Duo SNMP エージェントのインストールと使用
+          href: netx-duo-snmp/chapter2.md
+        - name: 第 3 章 - NetX Duo SNMP エージェント サービスの説明
+          href: netx-duo-snmp/chapter3.md
+    - name: NetX Duo SNTP クライアント
+      items:
+        - name: 第 1 章 - NetX Duo SNTP クライアントの概要
+          href: netx-duo-sntp-client/chapter1.md
+        - name: 第 2 章 - NetX Duo SNTP クライアントのインストールと使用
+          href: netx-duo-sntp-client/chapter2.md
+        - name: 第 3 章 - NetX Duo SNTP クライアント サービスの説明
+          href: netx-duo-sntp-client/chapter3.md
+        - name: 付録 A - NetX Duo SNTP の致命的なエラー コード
+          href: netx-duo-sntp-client/appendix-a.md
+    - name: NetX Duo Telnet ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo Telnet の概要
+          href: netx-duo-telnet/chapter1.md
+        - name: 第 2 章 - NetX Duo Telnet のインストールと使用
+          href: netx-duo-telnet/chapter2.md
+        - name: 第 3 章 - NetX Duo Telnet サービスの説明
+          href: netx-duo-telnet/chapter3.md
+    - name: NetX Duo TFTP
+      items:
+        - name: 第 1 章 - NetX Duo TFTP の概要
+          href: netx-duo-tftp/chapter1.md
+        - name: 第 2 章 - NetX Duo TFTP のインストールと使用
+          href: netx-duo-tftp/chapter2.md
+        - name: 第 3 章 - NetX Duo TFTP サービスの説明
+          href: netx-duo-tftp/chapter3.md
+    - name: NetX Duo Web HTTP および HTTPS のユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo HTTP および HTTPS の概要
+          href: netx-duo-web-http/chapter1.md
+        - name: 第 2 章 - NetX Duo HTTP および HTTPS のインストールと使用
+          href: netx-duo-web-http/chapter2.md
+        - name: 第 3 章 - HTTP サービスの説明
+          href: netx-duo-web-http/chapter3.md
+    - name: NetX Secure DTLS ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Secure DTLS の概要
+          href: netx-secure-dtls/chapter1.md
+        - name: 第 2 章 - NetX Secure DTLS のインストールと使用
+          href: netx-secure-dtls/chapter2.md
+        - name: 第 3 章 - NetX Secure DTLS の機能の説明
+          href: netx-secure-dtls/chapter3.md
+        - name: 第 4 章 - NetX Secure DTLS サービスの説明
+          href: netx-secure-dtls/chapter4.md
+        - name: 付録 A - NetX Secure DTLS のリターンおよびエラー コード
+          href: netx-secure-dtls/appendix-a.md
+    - name: NetX Secure TLS ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Secure の概要
+          href: netx-secure-tls/chapter1.md
+        - name: 第 2 章 - NetX Secure のインストールと使用
+          href: netx-secure-tls/chapter2.md
+        - name: 第 3 章 - NetX Secure の機能の説明
+          href: netx-secure-tls/chapter3.md
+        - name: 第 4 章 - NetX Secure サービスの説明
+          href: netx-secure-tls/chapter4.md
+        - name: 付録 A - NetX Secure のリターンおよびエラー コード
+          href: netx-secure-tls/appendix-a.md
+- name: NetX Duo リポジトリ
+  href: 'https://github.com/azure-rtos/netxduo'
+- name: 関連サービス
+  items:
+    - name: Defender for IoT - RTOS (プレビュー)
+      href: 'https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos'
+- name: Microsoft Azure RTOS コンポーネント
+  items:
+    - name: Microsoft Azure RTOS
+      href: ../index.yml
+    - name: ThreadX
+      href: ../threadx/index.yml
+    - name: ThreadX Modules
+      href: ../threadx-modules/index.yml
+    - name: NetX Duo
+      href: ../netx-duo/index.yml
+    - name: NetX
+      href: ../netx/index.yml
+    - name: GUIX
+      href: ../guix/index.yml
+    - name: FileX
+      href: ../filex/index.yml
+    - name: LevelX
+      href: ../levelx/index.yml
+    - name: USBX
+      href: ../usbx/index.yml
+    - name: TraceX
+      href: ../tracex/index.yml

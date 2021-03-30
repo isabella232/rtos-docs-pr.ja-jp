@@ -1,0 +1,81 @@
+- name: Azure RTOS ThreadX のドキュメント
+  href: index.yml
+- name: ThreadX の概要
+  href: overview-threadx.md
+- name: ThreadX ユーザー ガイド
+  expanded: true
+  items:
+    - name: このガイドについて
+      href: about-this-guide.md
+    - name: 第 1 章 - ThreadX の概要
+      href: chapter1.md
+    - name: 第 2 章 - ThreadX のインストールと使用
+      href: chapter2.md
+    - name: 第 3 章 - ThreadX の機能コンポーネント
+      href: chapter3.md
+    - name: 第 4 章 - ThreadX サービスの説明
+      href: chapter4.md
+    - name: 第 5 章 - ThreadX のデバイス ドライバー
+      href: chapter5.md
+    - name: 第 6 章 - ThreadX のデモンストレーション システム
+      href: chapter6.md
+    - name: 付録 A - ThreadX API サービス
+      href: appendix-a.md
+    - name: 付録 B - ThreadX 定数
+      href: appendix-b.md
+    - name: 付録 C - ThreadX データ型
+      href: appendix-c.md
+    - name: 付録 D - ASCII 文字コード
+      href: appendix-d.md
+- name: ThreadX SMP ユーザー ガイド
+  items:
+    - name: このガイドについて
+      href: ./threadx-smp/about-this-guide.md
+    - name: 第 1 章 - ThreadX SMP の概要
+      href: ./threadx-smp/chapter1.md
+    - name: 第 2 章 - ThreadX SMP のインストールと使用
+      href: ./threadx-smp/chapter2.md
+    - name: 第 3 章 - ThreadX SMP の機能コンポーネント
+      href: ./threadx-smp/chapter3.md
+    - name: 第 4 章 - ThreadX SMP サービスの説明
+      href: ./threadx-smp/chapter4.md
+    - name: 第 5 章 - ThreadX SMP のデバイス ドライバー
+      href: ./threadx-smp/chapter5.md
+    - name: 第 6 章 - ThreadX SMP のデモンストレーション システム
+      href: ./threadx-smp/chapter6.md
+    - name: 付録 A - ThreadX SMP API サービス
+      href: ./threadx-smp/appendix-a.md
+    - name: 付録 B - ThreadX SMP 定数
+      href: ./threadx-smp/appendix-b.md
+    - name: 付録 C - ThreadX SMP データ型
+      href: ./threadx-smp/appendix-c.md
+    - name: 付録 D - ASCII 文字コード
+      href: ./threadx-smp/appendix-d.md
+- name: ThreadX リポジトリ
+  href: 'https://github.com/azure-rtos/threadx'
+- name: 関連サービス
+  items:
+    - name: Defender for IoT - RTOS (プレビュー)
+      href: 'https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos'
+- name: Microsoft Azure RTOS コンポーネント
+  items:
+    - name: Microsoft Azure RTOS
+      href: ../index.yml
+    - name: ThreadX
+      href: ../threadx/index.yml
+    - name: ThreadX Modules
+      href: ../threadx-modules/index.yml
+    - name: NetX Duo
+      href: ../netx-duo/index.yml
+    - name: NetX
+      href: ../netx/index.yml
+    - name: GUIX
+      href: ../guix/index.yml
+    - name: FileX
+      href: ../filex/index.yml
+    - name: LevelX
+      href: ../levelx/index.yml
+    - name: USBX
+      href: ../usbx/index.yml
+    - name: TraceX
+      href: ../tracex/index.yml

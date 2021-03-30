@@ -1,0 +1,93 @@
+- name: Azure RTOS GUIX のドキュメント
+  href: index.yml
+- name: GUIX の概要
+  href: overview-guix.md
+- name: GUIX Studio クイック スタート ガイド
+  href: guix-studio-quick-start.md
+- name: GUIX ユーザー ガイド
+  expanded: true
+  items:
+    - name: このガイドについて
+      href: about-guix.md
+    - name: 第 1 章 - GUIX の概要
+      href: chapter-1.md
+    - name: 第 2 章 - GUIX のインストールと使用
+      href: chapter-2.md
+    - name: 第 3 章 - GUIX の機能の概要
+      href: chapter-3.md
+    - name: 第 4 章 - GUIX サービスの説明
+      href: chapter-4.md
+    - name: 第 5 章 - GUIX ディスプレイ ドライバー
+      href: chapter-5.md
+    - name: GUIX の例
+      href: guix-example.md
+    - name: 付録 A - GUIX の色の定義
+      href: appendix-a.md
+    - name: 付録 B - GUIX の色の形式
+      href: appendix-b.md
+    - name: 付録 C - GUIX のウィジェットのスタイル
+      href: appendix-c.md
+    - name: 付録 D - GUIX のブラシ、キャンバス、グラデーションの属性
+      href: appendix-d.md
+    - name: 付録 E - GUIX イベントの説明
+      href: appendix-e.md
+    - name: 付録 F - GUIX RTOS バインド サービス
+      href: appendix-f.md
+    - name: 付録 G - GUIX フォント構造体
+      href: appendix-g.md
+    - name: 付録 H - GUIX のビルド時の構成フラグ
+      href: appendix-h.md
+    - name: 付録 I - GUIX 情報構造体
+      href: appendix-i.md
+- name: GUIX Studio ユーザー ガイド
+  items:
+    - name: GUIX Studio について
+      href: about-guix-studio.md
+    - name: 第 1 章 - GUIX Studio の概要
+      href: guix-studio-1.md
+    - name: 第 2 章 - GUIX Studio のインストールと使用
+      href: guix-studio-2.md
+    - name: 第 3 章 - GUIX Studio の説明
+      href: guix-studio-3.md
+    - name: 第 4 章 - GUIX Studio リソース
+      href: guix-studio-4.md
+    - name: 第 5 章 - GUIX Studio 画面デザイナー
+      href: guix-studio-5.md
+    - name: 第 6 章 - GUIX Studio で生成されるコード
+      href: guix-studio-6.md
+    - name: 第 7 章 - 画面フローの定義
+      href: guix-studio-7.md
+    - name: 第 8 章 - 特定のウィジェットの種類の編集に関する注意事項
+      href: guix-studio-8.md
+    - name: 第 9 章 - GUIX Studio コマンド ライン
+      href: guix-studio-9.md
+    - name: 第 10 章 - 単純なサンプル プロジェクト
+      href: guix-studio-10.md
+- name: GUIX リポジトリ
+  href: 'https://github.com/azure-rtos/guix'
+- name: 関連サービス
+  items:
+    - name: Defender for IoT - RTOS (プレビュー)
+      href: 'https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos'
+- name: Microsoft Azure RTOS コンポーネント
+  items:
+    - name: Microsoft Azure RTOS
+      href: ../index.yml
+    - name: ThreadX
+      href: ../threadx/index.yml
+    - name: ThreadX Modules
+      href: ../threadx-modules/index.yml
+    - name: NetX Duo
+      href: ../netx-duo/index.yml
+    - name: NetX
+      href: ../netx/index.yml
+    - name: GUIX
+      href: ../guix/index.yml
+    - name: FileX
+      href: ../filex/index.yml
+    - name: LevelX
+      href: ../levelx/index.yml
+    - name: USBX
+      href: ../usbx/index.yml
+    - name: TraceX
+      href: ../tracex/index.yml
