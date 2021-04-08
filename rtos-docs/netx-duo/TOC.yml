@@ -137,6 +137,16 @@
           href: netx-duo-mdns/chapter3.md
         - name: 第 4 章 - mDNS サービスの説明
           href: netx-duo-mdns/chapter4.md
+    - name: NetX Duo LWM2M クライアント ユーザー ガイド
+      items:
+        - name: 第 1 章 - LWM2M クライアントの概要
+          href: netx-duo-lwm2m/chapter1.md
+        - name: 第 2 章 - LWM2M クライアントのインストールと使用
+          href: netx-duo-lwm2m/chapter2.md
+        - name: 第 3 章 - LWM2M クライアントの機能の説明
+          href: netx-duo-lwm2m/chapter3.md
+        - name: 第 4 章 - LWM2M クライアント サービスの説明
+          href: netx-duo-lwm2m/chapter4.md
     - name: NetX Duo MQTT クライアント ユーザー ガイド
       items:
         - name: 第 1 章 - NetX Duo MQTT クライアントの概要
@@ -171,6 +181,14 @@
           href: netx-duo-ppp/chapter2.md
         - name: 第 3 章 - NetX Duo PPP サービスの説明
           href: netx-duo-ppp/chapter3.md
+    - name: NetX Duo PTP ユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo PTP クライアントの概要
+          href: netx-duo-ptp-client/chapter1.md
+        - name: 第 2 章 - NetX Duo PTP クライアントのインストールと使用
+          href: netx-duo-ptp-client/chapter2.md
+        - name: 第 3 章 - NetX Duo PTP クライアント サービスの説明
+          href: netx-duo-ptp-client/chapter3.md
     - name: NetX Duo SMTP クライアント ユーザー ガイド
       items:
         - name: 第 1 章 - NetX Duo SMTP クライアントの概要
