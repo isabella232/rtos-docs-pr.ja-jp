@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 457eca2144bb0cba7cae63aa007e9cb658bbcd96
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 8ee9d16c71d6c207de2098d688d49e6482c8b780
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811846"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550152"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-duo"></a>第 2 章 - Azure RTOS NetX Duo のインストールと使用
 
@@ -71,6 +71,7 @@ NetX Duo は簡単に使用できます。 基本的に、コンパイル中に�
 NetX Duo アプリケーションの構築に必要な 4 つの簡単な手順を次に示します。
 
 [!div class="mx-tdCol2BreakAll"]
+
 | 手順  | 説明  |
 |---|---|
 |手順&nbsp;1: |***nx_api .h*** ファイルを、NetX Duo サービスまたはデータ構造を使用するすべてのアプリケーション ファイル内に追加します。|

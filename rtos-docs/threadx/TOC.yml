@@ -59,12 +59,6 @@
       href: ./threadx-smp/appendix-c.md
     - name: 付録 D - ASCII 文字コード
       href: ./threadx-smp/appendix-d.md
-- name: ARMv8-M 用 ThreadX 実行プロファイル キットのユーザー ガイド補遺
-  items:
-    - name: 第 1 章 - 実行プロファイル キットの概要
-      href: ./epk_user_guide/chapter1.md
-    - name: 第 2 章 - 実行プロファイル キット API リファレンス
-      href: ./epk_user_guide/chapter2.md
 - name: ThreadX リポジトリ
   href: 'https://github.com/azure-rtos/threadx'
 - name: 関連サービス
