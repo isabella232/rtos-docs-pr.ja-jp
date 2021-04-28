@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 03a10aeb65017befaf5e7b440046dbff9f9252ef
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: dc7775cdde8f1aa89ca650561713f54ac6c069eb
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812026"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550220"
 ---
 # <a name="appendix-i---guix-information-structures"></a>別表 I - GUIX 情報構造体 
 
@@ -27,10 +27,7 @@ typedef struct GX_BIDI_TEXT_INFO_STRUCT
     GX_VALUE  gx_bidi_text_info_display_width;
 } GX_BIDI_TEXT_INFO;
 ```
-
-### <a name="members"></a>メンバー
-
-|                                    |                                                            |
+| メンバー | 説明 |
 | ---------------------------------- | ---------------------------------------------------------- |
 | **gx_bidi_text_info_text**               | 並べ替えを行うテキスト |
 | **gx_bidi_text_info_font**               | テキストの表示に使用するフォント。改行が必要ない場合は GX_NULL に設定します。 |
@@ -49,9 +46,7 @@ typedef struct GX_BIDI_RESOLVED_TEXT_INFO_STRUCT
 } GX_BIDI_RESOLVED_TEXT_INFO;
 ```
 
-### <a name="members"></a>メンバー
-
-|                                    |                                                            |
+| メンバー | 説明 |
 | ---------------------------------- | ---------------------------------------------------------- |
 | **gx_bidi_resolved_text_info_text**             | 並べ替えた bidi テキストの配列へのポインター |
 | **gx_bidi_resolved_text_info_total_lines**      | 処理済み bidi テキストの 1 段落の合計行数 |
@@ -73,9 +68,8 @@ typedef struct GX_CIRCULAR_GAUGE_INFO_STRUCT
     GX_RESOURCE_ID  gx_circular_gauge_info_needle_pixelmap;
 } GX_CIRCULAR_GAUGE_INFO;
 ```
-### <a name="members"></a>メンバー
 
-|                                                  |                                              |
+| メンバー | 説明 |
 | ------------------------------------------------ | -------------------------------------------- |
 | **gx_circular_gauge_info_animation_steps**       | 現在の角度から新たに割り当てられる角度まで針が回るときに経る合計ステップ数 |
 | **gx_circular_gauge_info_animation_delay**       | アニメーションのステップ間で GUIX の時計の針が動く回数 |
@@ -112,9 +106,7 @@ typedef struct GX_LINE_CHART_INFO_STRUCT
 } GX_LINE_CHART_INFO;
 ```
 
-### <a name="members"></a>メンバー
-
-|                                    |                                                            |
+| メンバー | 説明 |
 | ---------------------------------- | ---------------------------------------------------------- |
 | **gx_line_chart_min_val**          | データの最小値。拡大率の計算に使用します。
 | **gx_line_chart_max_val**          | 拡大率の計算に使用されるデータの最大値。 |
@@ -140,9 +132,7 @@ typedef struct GX_MOUSE_CURSOR_INFO_STRUCT
 } GX_MOUSE_CURSOR_INFO;
 ```
 
-### <a name="members"></a>メンバー
-
-|                                    |                                                            |
+| メンバー | 説明 |
 | ---------------------------------- | ---------------------------------------------------------- |
 | **gx_mouse_cursor_image_id**       | マウス画像のリソース ID |
 | **gx_mouse_cursor_hotspot_x**      | マウス画像の左端とマウス画像のホット スポットの間のオフセット |
@@ -160,9 +150,7 @@ typedef struct GX_PEN_CONFIGURATION_STRUCT
 }GX_PEN_CONFIGURATION;
 ```
 
-### <a name="members"></a>メンバー
-
-|                                              |                                                  |
+| メンバー | 説明 |
 | -------------------------------------------- | ------------------------------------------------ |
 | **gx_pen_configuration_min_drag_dist**       | FLICK イベントを発生させる、GUIX タイマー刻みあたりの最小ドラッグ距離。 GX_FIXED_VAL_MAKE を呼び出して固定点データの値を設定します |
 | **gx_pen_configuration_max_pen_speed_ticks** | FLICK イベントを発生させる、GUIX タイマー刻み単位の最大ドラッグ速度 | 
@@ -180,9 +168,7 @@ typedef struct GX_PIXELMAP_SLIDER_INFO_STRUCT
 } GX_PIXELMAP_SLIDER_INFO;
 ```
 
-### <a name="members"></a>メンバー
-
-|                                                       |                                          |
+| メンバー | 説明 |
 | ----------------------------------------------------- | ---------------------------------------- |
 | **gx_pixelmap_slider_info_lower_background_pixelmap** | 針の手前側の背景を塗りつぶすピクセルマップのリソース ID。 手前側の背景のピクセルマップを設定していない場合は、針の手前側と奥側両方の背景を塗りつぶすのに使用します |
 | **gx_pixelmap_slider_info_upper_background_pixelmap** | 針の奥側の背景を塗りつぶすピクセルマップのリソース ID |
@@ -206,9 +192,7 @@ typedef struct GX_PROGRESS_BAR_INFO_STRUCT
 } GX_PROGRESS_BAR_INFO;
 ```
 
-### <a name="members"></a>メンバー
-
-|                                              |                                                  |
+| メンバー | 説明 |
 | -------------------------------------------- | ------------------------------------------------ |
 | **gx_progress_bar_info_min_val**             | 最小報告値 |
 | **gx_progress_bar_info_max_val**             | 最大報告値 |
@@ -242,9 +226,7 @@ typedef struct GX_RADIAL_PROGRESS_BAR_INFO_STRUCT
 } GX_RADIAL_PROGRESS_BAR_INFO;
 ```
 
-### <a name="members"></a>メンバー
-
-|                                                   |                                              |
+| メンバー | 説明 |
 | ------------------------------------------------- | -------------------------------------------- |
 | **gx_radial_progress_bar_info_xcenter**           | ウィジェットの x 座標上の位置 |
 | **gx_radial_progress_bar_info_ycenter**           | ウィジェットの y 座標上の位置  |
@@ -281,9 +263,7 @@ typedef struct GX_RADIAL_SLIDER_INFO_STRUCT
 } GX_RADIAL_SLIDER_INFO;
 ```
 
-### <a name="members"></a>メンバー
-
-|                                               |                                                  |
+| メンバー | 説明 |
 | --------------------------------------------- | ------------------------------------------------ |
 **gx_radial_slider_info_xcenter**               | スライダー ウィジェットの左端からスライダーの針の回転中心までの距離 |
 | **gx_radial_slider_info_ycenter**             | スライダー ウィジェットの上端からスライダーの針の回転中心までの距離 |
@@ -311,9 +291,7 @@ typedef struct GX_RECTANGLE_STRUCT
 } GX_RECTANGLE;
 ```
 
-### <a name="members"></a>メンバー
-
-|                                  |                         |
+| メンバー | 説明 |
 | -------------------------------- | ------------------------|
 | **gx_rectangle_left**            | 長方形の左端   |  
 | **gx_rectangle_top**             | 長方形の上端    | 
@@ -334,9 +312,7 @@ typedef struct GX_RICH_TEXT_FONTS_STRUCT
 } GX_RICH_TEXT_FONTS;
 ```
 
-### <a name="members"></a>メンバー
-
-|                                    |                                                            |
+| メンバー | 説明 |
 | ---------------------------------- | ---------------------------------------------------------- |
 | **gx_rich_text_fonts_normal_id**   | 通常のフォントのリソース ID |
 | **gx_rich_text_fonts_bold_id**     | 太字のフォントのリソース ID |
@@ -357,9 +333,7 @@ typedef struct GX_SCROLL_INFO_STRUCT
 } GX_SCROLL_INFO;
 ```
 
-### <a name="members"></a>メンバー
-
-|                         |                               |
+| メンバー | 説明 |
 | ----------------------- | ----------------------------- |
 | **gx_scroll_value**     | 現在のスクロール位置       |
 | **gx_scroll_minimum**   | 最小報告位置     |
@@ -389,9 +363,7 @@ typedef struct GX_SCROLLBAR_APPEARANCE_STRUCT
 } GX_SCROLLBAR_APPEARANCE;
 ```
 
-### <a name="members"></a>メンバー
-
-|                                          |                                                       |
+| メンバー | 説明 |
 | ---------------------------------------- | ----------------------------------------------------- |
 | **gx_scroll_width**                      | スクロールバー ウィジェットの幅 (ピクセル単位) |
 | **gx_scroll_thumb_width**                | スクロールバー上をスライドするつまみの幅 (ピクセル単位)。 通常この値は、スクロールバーの全体の幅よりも小さいピクセル数です |
@@ -426,9 +398,7 @@ typedef struct GX_SLIDER_INFO_STRUCT
 } GX_SLIDER_INFO;
 ```
 
-### <a name="members"></a>メンバー
-
-|                                         |                                                        |
+| メンバー | 説明 |
 | --------------------------------------- | ------------------------------------------------------ |
 | **gx_slider_info_min_val**              | 最小報告値 |
 | **gx_slider_info_max_val**              | 最大報告値 |
@@ -456,9 +426,7 @@ typedef struct GX_SPRITE_FRAME_STRUCT
 } GX_SPRITE_FRAME;
 ```
 
-### <a name="members"></a>メンバー
-
-|                                          |                                                       |
+| メンバー | 説明 |
 | ---------------------------------------- | ----------------------------------------------------- |
 | **gx_sprite_frame_pixelmap**             | このフレームに表示するピクセルマップのリソース ID。 ID には 0 も指定できます。 |
 | **gx_sprite_frame_x_offset**             | スプライト ウィジェット左端と表示するピクセルマップの間のオフセット |
