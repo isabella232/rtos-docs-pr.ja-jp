@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 468f1dc8a8334dc89064594b29dc8cfabd7d8fae
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 347bd83fa8c72ced2e8678a92ec5c5f8393c136d
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811795"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550203"
 ---
 # <a name="chapter-3-functional-description-of-azure-rtos-netx-secure-dtls"></a>第 3 章: Azure RTOS NetX Secure DTLS の機能の説明
 
@@ -64,14 +64,14 @@ TLS レコードのヘッダーのフィールドは、次のように定義さ�
 
 DTLS ハンドシェイク レコードのヘッダーのフィールドは、次のように定義されています。
 
-| TLS ヘッダーのフィールド | 目的 |
+| TLS ヘッダーのフィールド | 目的  |
 | ---------------- | ------------------------------------------------ |
 | **8 ビットでのメッセージの種類** | このフィールドには、送信されている DTLS レコードの種類が含まれています。 有効な種類は次のとおりです。<br />- ChangeCipherSpec: 0x14<br />- Alert: 0x15<br />- Handshake: 0x16<br />- Application Data: 0x17 |
 |  **16 ビットのエポック** | このフィールドには、DTLS の "エポック" が含まれています。これは、暗号化の状態が変更される (新しいセッション キーが生成されるときなど) たびに増分されるカウンターです。 |
 |  **48 ビットのシーケンス番号** | このフィールドには、この特定のレコードを識別するシーケンス番号が含まれています。 レコードの順序を維持し、再転送の必要性を確認するために、DTLS によって使用されます。 |
 |  **16 ビットでのプロトコル バージョン** | このフィールドには、DTLS プロトコルのバージョンが含まれています。 有効な値は次のとおりです。<br />- DTLS 1.1: 0xFEFD |
 | **16 ビットでの長さ** | このフィールドには、DTLS レコードにカプセル化されたデータの長さが含まれています。 |
-| **8 ビットでのハンドシェイクの種類** | このフィールドには、ハンドシェイク メッセージの種類が含まれています。 有効な値は次のとおりです。<br />- HelloRequest: 0x00<br />- ClientHello: 0x01<br />- ServerHello: 0x02<br />- Certificate: 0x0B<br />- ServerKeyExchange: 0x0C<br />- CertificateRequest: 0x0D<br />- ServerHelloDone: 0x0E<br />- CertificateVerify: 0x0F<br />- ClientKeyExchange: 0x10<br />- 完了しました | 0x14 |
+| **8 ビットでのハンドシェイクの種類** | このフィールドには、ハンドシェイク メッセージの種類が含まれています。 有効な値は次のとおりです。<br />- HelloRequest: 0x00<br />- ClientHello: 0x01<br />- ServerHello: 0x02<br />- Certificate: 0x0B<br />- ServerKeyExchange: 0x0C<br />- CertificateRequest: 0x0D<br />- ServerHelloDone: 0x0E<br />- CertificateVerify: 0x0F<br />- ClientKeyExchange: 0x10<br />- Finished: 0x14 |
 | **24 ビットでの長さ** | このフィールドには、ハンドシェイク メッセージのデータの長さが含まれています。 |
 | **16 ビットのシーケンス番号** | このフィールドには、シーケンス番号が含まれています。 |
 
