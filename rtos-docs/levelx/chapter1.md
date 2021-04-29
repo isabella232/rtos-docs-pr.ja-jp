@@ -1,0 +1,30 @@
+---
+title: 第 1 章 - Azure RTOS LevelX の概要
+description: Azure RTOS LevelX は、埋め込みアプリケーションに対して、NAND と NOR フラッシュのウェア レベリング機能を提供します。
+author: philmea
+ms.author: philmea
+ms.date: 05/19/2020
+ms.topic: article
+ms.service: rtos
+ms.openlocfilehash: 045446fec74164f125bc0ad27e8b7a904be14ab2
+ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104811090"
+---
+# <a name="chapter-1---overview-of-azure-rtos-levelx"></a><span data-ttu-id="f1e53-103">第 1 章 - Azure RTOS LevelX の概要</span><span class="sxs-lookup"><span data-stu-id="f1e53-103">Chapter 1 - Overview of Azure RTOS LevelX</span></span>
+
+<span data-ttu-id="f1e53-104">Azure RTOS LevelX は、埋め込みアプリケーションに対して、NAND と NOR フラッシュのウェア レベリング機能を提供します。</span><span class="sxs-lookup"><span data-stu-id="f1e53-104">Azure RTOS LevelX provides NAND and NOR flash wear leveling facilities to embedded applications.</span></span> <span data-ttu-id="f1e53-105">NAND と NOR のフラッシュ メモリはどちらも、消去できる回数が限られているため、フラッシュ メモリの使用を均等に分散させることが重要です。</span><span class="sxs-lookup"><span data-stu-id="f1e53-105">Since both NAND and NOR flash memory can only be erased a finite number of times, it's critical to distribute the flash memory use evenly.</span></span> <span data-ttu-id="f1e53-106">これは、一般に "ウェア レベリング" と呼ばれ、LevelX の背後にある目的です。</span><span class="sxs-lookup"><span data-stu-id="f1e53-106">This is typically called "wear leveling" and is the purpose behind LevelX.</span></span>
+
+<span data-ttu-id="f1e53-107">再利用するフラッシュ ブロックを選択するアルゴリズムは、主に消去カウントに基づいていますが、完全ではありません。</span><span class="sxs-lookup"><span data-stu-id="f1e53-107">The algorithm that chooses which flash block to reuse is primarily based on the erase count, but not entirely.</span></span> <span data-ttu-id="f1e53-108">消去カウントが最小のブロックであっても、それとは別に、消去カウントが最小消去カウントからの許容デルタ内にあり、古いマッピングの数がいっそう多いブロックがある場合、選択されない可能性があります。</span><span class="sxs-lookup"><span data-stu-id="f1e53-108">The block with the lowest erase count might not be chosen if there is another block that has an erase count within an acceptable delta from the minimal erase count and that has a greater number of obsolete mappings.</span></span> <span data-ttu-id="f1e53-109">このような場合は、古いマッピングの数が最も多いブロックが消去されて再利用されて、有効なマッピング エントリを移動するオーバーヘッドが削減されます。</span><span class="sxs-lookup"><span data-stu-id="f1e53-109">In such cases, the block with the greatest number of obsolete mappings will be erased and reused, thus saving overhead in moving valid mapping entries.</span></span>
+
+<span data-ttu-id="f1e53-110">LevelX では、NAND や NOR のパーツの複数のインスタンスがサポートされています。つまり、同じアプリケーション内で異なる LevelX のインスタンスを利用できます。</span><span class="sxs-lookup"><span data-stu-id="f1e53-110">LevelX supports multiple instances of NAND and/or NOR parts, i.e., the application can utilize separate instances of LevelX within the same application.</span></span> <span data-ttu-id="f1e53-111">各インスタンスには、アプリケーションによって提供される専用の制御ブロックと、専用のフラッシュ ドライバーが必要です。</span><span class="sxs-lookup"><span data-stu-id="f1e53-111">Each instance requires its own control block provided by the application as well as its own flash driver.</span></span>
+
+<span data-ttu-id="f1e53-112">LevelX によってユーザーに示される論理セクターの配列は、LevelX 内の物理フラッシュ メモリにマップされています。</span><span class="sxs-lookup"><span data-stu-id="f1e53-112">LevelX presents to the user an array of logical sectors that are mapped to physical flash memory inside of LevelX.</span></span> <span data-ttu-id="f1e53-113">パフォーマンスを向上させるため、LevelX には最新の論理セクター マッピングのキャッシュも用意されています。</span><span class="sxs-lookup"><span data-stu-id="f1e53-113">To enhance performance, LevelX also provides a cache of the most recent logical sector mappings.</span></span> <span data-ttu-id="f1e53-114">このキャッシュのサイズは、プログラマが定義します。</span><span class="sxs-lookup"><span data-stu-id="f1e53-114">The size of this cache is defined by the programmer.</span></span> <span data-ttu-id="f1e53-115">アプリケーションでは、FileX と LevelX を併用することも、論理セクターの読み取りと書き込みを直接行うこともできます。</span><span class="sxs-lookup"><span data-stu-id="f1e53-115">Applications may use LevelX in conjunction with FileX or may read/write logical sectors directly.</span></span> <span data-ttu-id="f1e53-116">LevelX は FileX には依存せず、ThreadX にはほとんど依存しません (プリミティブ ThreadX データ型が使用されるだけで)。</span><span class="sxs-lookup"><span data-stu-id="f1e53-116">LevelX has no dependency on FileX and very little dependency on ThreadX (only primitive ThreadX data types are used).</span></span>
+
+<span data-ttu-id="f1e53-117">LevelX は、フォールト トレランス対応に設計されています。</span><span class="sxs-lookup"><span data-stu-id="f1e53-117">LevelX is designed for fault tolerance.</span></span> <span data-ttu-id="f1e53-118">フラッシュの更新は、複数のステップからなるプロセスで実行され、各ステップで中断できます。</span><span class="sxs-lookup"><span data-stu-id="f1e53-118">Flash updates are performed in a multiple-step process that can be interrupted in each step.</span></span> <span data-ttu-id="f1e53-119">LevelX は、次の操作の間に自動的に最適な状態に復旧されます。</span><span class="sxs-lookup"><span data-stu-id="f1e53-119">LevelX automatically recovers to the optimal state during the next operation.</span></span>
+
+<span data-ttu-id="f1e53-120">LevelX には、基になるフラッシュ メモリに物理的にアクセスするためにフラッシュ ドライバーが必要です。</span><span class="sxs-lookup"><span data-stu-id="f1e53-120">LevelX requires a flash driver for physical access to the underlying flash memory.</span></span> <span data-ttu-id="f1e53-121">NAND や NOR のシミュレートされたドライバーの例が用意されており、実際の LevelX ドライバーを実装するのに適した出発点として使用できます。</span><span class="sxs-lookup"><span data-stu-id="f1e53-121">Example NAND and NOR simulated drivers are provided and can be used as a good starting point for implementing actual LevelX drivers.</span></span> <span data-ttu-id="f1e53-122">また、ドライバーの要件については、後のドキュメントで詳しく説明されています。</span><span class="sxs-lookup"><span data-stu-id="f1e53-122">In addition, driver requirements are detailed later in this documentation.</span></span>
+
+<span data-ttu-id="f1e53-123">以降の章では、NAND と NOR での LevelX のサポートに関する機能的操作について説明します。</span><span class="sxs-lookup"><span data-stu-id="f1e53-123">The following chapters describe the functional operation for the NAND and NOR LevelX support.</span></span>
