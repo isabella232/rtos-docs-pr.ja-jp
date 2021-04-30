@@ -1,6 +1,6 @@
 - name: Microsoft Azure RTOS のドキュメント
   href: index.yml
-- name: Microsoft Azure RTOS の概要
+- name: Microsoft Azure RTOScd の概要
   href: overview-rtos.md
 - name: 概要ガイド
   href: getting-started.md

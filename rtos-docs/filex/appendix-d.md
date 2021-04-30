@@ -1,16 +1,17 @@
 ---
 title: 付録 D - Azure RTOS FileX の ASCII 文字コード
+description: この ASCII 文字コード表を確認することで、Azure RTOS FileX の文字コード (16 進数) について説明します。
 author: philmea
 ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 2f7f498ba99f7efc57e9244229e03343e22de86b
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 1c4ea55d1668d12dc8bf9e0e908899f9b76a164c
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810361"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550118"
 ---
 # <a name="appendix-d---azure-rtos-filex-ascii-character-codes"></a>付録 D - Azure RTOS FileX の ASCII 文字コード
 

@@ -1,17 +1,17 @@
 ---
 title: 第 1 章 - Azure RTOS USBX ホスト スタックの概要
-description: USBX は、深く組み込まれたアプリケーション用のフル機能の USB スタックです。 この章では、USBX の概要と、その応用および利点について説明します。
+description: この章では、USBX ホスト スタックの概要と、その応用および利点について説明します。
 author: philmea
 ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 9ee49903e764e20316438be16b47d2d9208b1363
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: a9fdd86d47bd4680409cc550c87bc6f456d146a9
+ms.sourcegitcommit: d8edbb3207fe99f8afb431597dac063e73383e68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104813361"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106377052"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-usbx-host-stack"></a>第 1 章 - Azure RTOS USBX ホスト スタックの概要
 

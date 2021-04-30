@@ -1,17 +1,17 @@
 ---
 title: 第 2 章 - Azure RTOS USBX デバイス スタックのインストール
-description: USBX のインストール方法について説明します。
+description: Azure RTOS USBX デバイス スタックのインストール、およびインストールする前に検討する必要があるホストに関する重要な考慮事項について説明します。
 author: philmea
 ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 097fdd3c6f09c666ec3ad6eda9e5ba3fa159cb4d
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: dd58f77130fa252be9163bd70c29f7deee400d30
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104813265"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106549778"
 ---
 # <a name="chapter-2---azure-rtos-usbx-device-stack-installation"></a>第 2 章 - Azure RTOS USBX デバイス スタックのインストール
 

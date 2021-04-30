@@ -1,17 +1,17 @@
 ---
 title: '第 5 章: USBX OTG'
-description: OTG 対応 USB コントローラーをハードウェア設計に使用できる場合、USBX が USB の OTG 機能をサポートします。
+description: OTG 対応 USB コントローラーをハードウェア設計に使用できる場合、USBX で USB の OTG 機能がどのようにサポートされるかを説明します。
 author: philmea
 ms.author: philmea
 ms.date: 5/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: da562fd843c6ef0fd17f0d979ca57bd37572748d
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 64a3c44f84b9ffca31d9e616d14d3d5d87c56bd7
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812230"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550322"
 ---
 # <a name="chapter-5---usbx-otg"></a>第 5 章: USBX OTG
 
@@ -40,7 +40,7 @@ USBX では、コア USB スタック内で OTG をサポートしています�
 
 USB ロール マネージャーは、USB の状態を変更するコマンドを受け取ります。 遷移を必要とする状態はいくつかあります。
 
-| State                    | 値 | 説明                                           |
+| 州                    | 値 | 説明                                           |
 | ------------------------ | ----- | ----------------------------------------------------- |
 | UX_OTG_IDLE            | 0     | デバイスはアイドル状態です。 何にも接続していません |
 | UX_OTG_IDLE_TO_HOST  | 1     | デバイスはタイプ A コネクタに接続しています             |
@@ -52,7 +52,7 @@ USB ロール マネージャーは、USB の状態を変更するコマンド�
 
 ## <a name="interrupt-handlers"></a>割り込みハンドラー
 
-OTG 用のホスト コントローラー ドライバーとデバイス コントローラー ドライバーには、従来の USB 割り込みを超える信号 (特に SRP や VBUS による信号) を監視するために、別の割り込みハンドラーが必要です。
+OTG 用のホストとデバイスのコントローラー ドライバーには、従来の USB 割り込みを超える信号 (特に SRP や VBUS による信号) を監視するために、別の割り込みハンドラーが必要です。
 
 ここでは、USB OTG コントローラーを初期化する方法の例として、 NXP LPC3131 を使用します。
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b44822b9d8f16208cf470a84013be5a5ff833325
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 8f2ef697f68a269b24a34147a4bc076b8a2b1660
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811354"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550084"
 ---
 # <a name="chapter-5---io-drivers-for-azure-rtos-filex"></a>第 5 章 - Azure RTOS FileX 用 I/O ドライバー
 
@@ -23,7 +23,7 @@ FileX では、複数のメディア デバイスがサポートされていま�
 
 ## <a name="io-driver-entry"></a>I/O ドライバーのエントリ
 
-各 FileX I/O ドライバーには、***fx_media_open*** サービス呼び出しによって定義されている 1 つのエントリ関数があります。 ドライバー エントリ関数の形式は次のとおりです:
+各 FileX I/O ドライバーには、***fx_media_open*** サービス呼び出しによって定義されている 1 つのエントリ関数があります。 ドライバー エントリ関数の形式は次のとおりです。
 
 ```c
 void my_driver_entry(FX_MEDIA *media_ptr);
@@ -43,7 +43,7 @@ FileX により、I/O ドライバーのエントリ関数が呼び出されて�
 
 I/O ドライバーの初期化要求には、次の FX_MEDIA メンバーが使用されます。
 
-|FX_MEDIA メンバー|意味|
+|FX_MEDIA メンバー|説明|
 |-----------|-----------|
 |fx_media_driver_request|FX_DRIVER_INIT|
 
@@ -55,7 +55,7 @@ FileX には、セクターが使用されなくなったときにアプリケ�
 
 標準の読み取り要求を使用する代わりに、メディアのブート セクターを読み取る特定の要求が FileX によって行われます。 I/O ドライバーのブート セクター読み取り要求には、次の **FX_MEDIA** メンバーが使用されます。
 
-|FX_MEDIA メンバー|意味|
+|FX_MEDIA メンバー|説明|
 |-----------|-----------|
 |fx_media_driver_request| FX_DRIVER_BOOT_READ|
 |fx_media_driver_buffer| ブート セクターの読み取り先のアドレス。|
@@ -64,7 +64,7 @@ FileX には、セクターが使用されなくなったときにアプリケ�
 
 標準の書き込み要求を使用する代わりに、メディアのブート セクターを書き込む特定の要求が FileX によって行われます。 I/O ドライバーのブート セクター書き込み要求には、次の **FX_MEDIA** メンバーが使用されます。
 
-|FX_MEDIA メンバー|意味|
+|FX_MEDIA メンバー|説明|
 |-----------|-----------|
 |fx_media_driver_request| FX_DRIVER_BOOT_WRITE|
 |fx_media_driver_buffer| ブート セクターの書き込み元のアドレス。|
@@ -73,7 +73,7 @@ FileX には、セクターが使用されなくなったときにアプリケ�
 
 FileX により、I/O ドライバーに読み取り要求を発行することにより、1 つ以上のセクターがメモリに読み取られます。 I/O ドライバーの読み取り要求には、次の **FX_MEDIA** メンバーが使用されます。
 
-|FX_MEDIA メンバー|意味|
+|FX_MEDIA メンバー|説明|
 |-----------|-----------|
 |fx_media_driver_request| FX_DRIVER_READ|
 |fx_media_driver_logical_sector|読み取る論理セクター|
@@ -86,21 +86,20 @@ FileX により、I/O ドライバーに読み取り要求を発行すること�
 
 FileX により、I/O ドライバーへの書き込み要求を発行することで、物理メディアに 1 つ以上のセクターが書き込まれます。 I/O ドライバーの書き込み要求には、次の FX_MEDIA メンバーが使用されます。
 
-|FX_MEDIA メンバー| 意味|
+|FX_MEDIA メンバー| 説明|
 |-----------|-----------|
 |fx_media_driver_request|FX_DRIVER_WRITE|
 |fx_media_driver_logical_sector|書き込む論理セクター|
 |fx_media_driver_sectors|書き込むセクターの数|
 |fx_media_driver_buffer|書き込むセクターの書き込み元バッファー|
 |fx_media_driver_system_write| システム セクター (FAT またはディレクトリ セクター) を要求する場合は、FX_TRUE に設定します。 それ以外で、ファイル データ セクターを要求する場合は、FX_FALSE に設定します。|
-|fx_media_driver_sector_type|要求するセクターの明示的な種類を次のように定義します。
-FX_FAT_SECTOR (2) FX_DIRECTORY_SECTOR (3) FX_DATA_SECTOR (4)|
+|fx_media_driver_sector_type|要求するセクターの明示的な種類を次のように定義します。<br> <br>FX_FAT_SECTOR (2) <br> FX_DIRECTORY_SECTOR (3) <br>FX_DATA_SECTOR (4)|
 
 ### <a name="driver-flush"></a>ドライバーのフラッシュ
 
 FileX によって、I/O ドライバーへのフラッシュ要求を発行することで、現在ドライバーのセクター キャッシュにあるすべてのセクターが物理メディアにフラッシュされます。 もちろん、ドライバーでセクターがキャッシュされていない場合、この要求にドライバーの処理は必要ありません。 I/O ドライバーのフラッシュ要求には、次の FX_MEDIA メンバーが使用されます。
 
-|FX_MEDIA メンバー| 意味|
+|FX_MEDIA メンバー| 説明|
 |-----------|-----------|
 |fx_media_driver_request|FX_DRIVER_FLUSH|
 
@@ -108,7 +107,7 @@ FileX によって、I/O ドライバーへのフラッシュ要求を発行す�
 
 FileX により、I/O ドライバーに中止要求を発行することで、物理メディアとのそれ以降のすべての物理 I/O アクティビティを中止するように、ドライバーに通知されます。 ドライバーでは、再初期化されるまで、I/O を再度実行しないでください。 I/O ドライバーの中止要求には、次の FX_MEDIA メンバーが使用されます。
 
-|FX_MEDIA メンバー| 意味|
+|FX_MEDIA メンバー| 説明|
 |-----------|-----------|
 |fx_media_driver_request| FX_DRIVER_ABORT|
 
@@ -116,7 +115,7 @@ FileX により、I/O ドライバーに中止要求を発行することで、�
 
 前の初期化の間にドライバーによって選択された場合、FileX により、1 つ以上の連続するセクターが空くたびにドライバーに通知されます。 ドライバーが実際には FLASH マネージャーである場合、この情報を使用して、これらのセクターが不要になったことを FLASH マネージャーに通知できます。 I/O ドライバーのセクター解放要求には、次の **FX_MEDIA** メンバーが使用されます。
 
-|FX_MEDIA メンバー| 意味|
+|FX_MEDIA メンバー| 説明|
 |-----------|-----------|
 |fx_media_driver_request|FX_DRIVER_RELEASE_SECTORS|
 |fx_media_driver_logical_sector|空きセクターの開始|

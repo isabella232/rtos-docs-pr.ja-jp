@@ -1,17 +1,17 @@
 ---
 title: 第 1 章 - Azure RTOS USBX デバイス スタックの概要
-description: USBX は、深く組み込まれたアプリケーション用のフル機能の USB スタックです。 この章では、USBX の概要と、その応用および利点について説明します。
+description: USBX は、深く組み込まれたアプリケーション用のフル機能の USB スタックです。 この章では、USBX の概要と、その利点および応用について説明します。
 author: philmea
 ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 6965303f1fbf19212b9f7ff20f811a71fb207f54
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 8b1e08130d4531fd82629378761cd5b1752f0a07
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104813439"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550288"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-usbx-device-stack"></a>第 1 章 - Azure RTOS USBX デバイス スタックの概要
 
