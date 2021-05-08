@@ -6,26 +6,18 @@ ms.author: philmea
 ms.date: 6/9/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: acee58d9c48cb7a66993aaa5dc4a565dfe96234d
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: e786e5bf1f434ec9543823dee8784b677a2b371f
+ms.sourcegitcommit: 19d50693d8f5287ba6938ae1d23eef88435ed7b1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812161"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108171388"
 ---
 # <a name="overview-of-azure-rtos-threadx"></a>Azure RTOS ThreadX の概要
 
 Azure RTOS ThreadX は、深く埋め込まれたリアルタイム IoT アプリケーション向けに特別に設計された、Microsoft の高度な商用リアルタイム オペレーティング システム (RTOS) です。 Azure RTOS ThreadX では、高度なスケジューリング、通信、同期、タイマー、メモリ管理、および割り込み管理機能が提供されます。 さらに、Azure RTOS ThreadX には、picokernel™ アーキテクチャ、プリエンプションしきい値™ スケジューリング、イベントチェーン™、実行プロファイル、パフォーマンス メトリック、システム イベント トレースなど、優れた機能が多数用意されています。 使いやすさの面でも非常に優れているため、Azure RTOS ThreadX は、最も要件の厳しい埋め込みアプリケーションに最適な選択肢と言えます。 2017 年時点で、Azure RTOS ThreadX は、コンシューマー デバイス、医療エレクトロニクス、工業用制御機器など、62 億点以上の幅広い製品に展開されています。
 
 ## <a name="api-protocols"></a>API プロトコル
-
-### <a name="azure-rtos-threadx-api"></a>Azure RTOS ThreadX API
-
-* 直感的で一貫性のある API
-* 名詞 - 動詞の名前付け規則
-* すべての API の先頭を *tx_* にして、Azure RTOS ThreadX として簡単に識別
-* ブロックしている API にオプションのスレッド タイムアウトがある
-* 多数の API をアプリケーション ISR から直接利用可能
 
 ### <a name="azure-rtos-threadx-services"></a>Azure RTOS ThreadX のサービス
 
@@ -220,34 +212,6 @@ Azure RTOS ThreadX の典型的なパフォーマンス特性を次に示しま�
 
     **パフォーマンスの数値は、200MHz で実行されている典型的なプロセッサに基づいたものです*。
 
-## <a name="pre-certified-by-tuv-and-ul-to-many-safety-standards"></a>TUV と UL による多くの安全性標準による事前認定
-
-Azure RTOS ThreadX と Azure RTOS ThreadX SMP は、IEC-61508 SIL 4、IEC-62304 SW セーフティ クラス C、ISO 26262 ASIL D、および EN 50128 に従って、安全性が重要なシステムでの使用が SGS-TUV Saar によって認定されています。 この認定により、「電気、電子、プログラマブル電子安全関連系の機能安全」に関する IEC-61508、IEC-62304、ISO 26262、および EN 50128 の最高の安全性整合性レベルに対応する安全性関連ソフトウェアの開発で Azure RTOS ThreadX と Azure RTOS ThreadX SMP を使用できることが確認されます。 ドイツの SGS-Group と TUV Saarland の共同事業を通じて結成された SGS-TUV Saar は、世界中の安全関連システムのための組み込みソフトウェアのテスト、監査、検証、認定を行う、世界有数の公認された独立系企業になりました。 工業安全規格の IEC 61508 と、それから派生したすべての標準 (IEC-62304、ISO 26262 および EN 50128 を含む) は、電気・電子・プログラマブル電子安全関連の医療機器、プロセス制御システム、工業機械、自動車および鉄道制御システムの機能安全を保証するために使用されます。
-
-:::image type="content" source="media/overview-threadx/partener-logo-sgs-tuv-saar-2.png" alt-text="SGS TUV SAAR 認定":::
-
-Azure RTOS ThreadX と Azure RTOS ThreadX SMP は、プログラム可能なコンポーネント内のソフトウェアに対する UL 60730-1 付属文書 H、CSA E60730-1 付属文書 H、IEC 60730-1 付属文書 H、UL 60335-1 付属文書 R、IEC 60335-1 付属文書 R、UL 1998 の各安全標準に準拠しているものとして UL によって承認されています。 UL は、独立した安全科学のグローバル企業であり、電気の公的な選定からサステナビリティ、再生可能エネルギー、およびナノテクノロジーにおける革新まで、さまざまな安全性ソリューションの革新を 1 世紀以上にわたって専門としてきました。
-
-:::image type="content" source="media/overview-threadx/cru-logo-certification.png" alt-text="UL 認定":::
-
-TUV および UL 認定に関連付けられている成果物 (証明書、安全性マニュアル、テスト レポートなど) は、販売されています。
-
-## <a name="eal4-common-criteria-security-certification"></a>EAL4+ コモン クライテリア セキュリティ認定
-
-Azure RTOS は、EAL4+ のコモン クライテリア セキュリティ認定を達成しました。 評価対象 (TOE) は、Azure RTOS ThreadX、Azure RTOS NetX-Duo、Azure RTOS NetX Secure TLS、および Azure RTOS NetX MQTT です。 これは、深い埋め込み型センサー、デバイス、エッジ ルーター、およびゲートウェイに必要な最も一般的な IoT プロトコルを表します。
-
-:::image type="content" border="false" source="media/overview-threadx/eal-logo-certification.png" alt-text="EAL 認定":::
-
-Azure RTOS セキュリティ認定に使用される IT セキュリティ評価機関は Brightsight BV で、証明機関は SERTIT です。
-
-## <a name="simple-easy-to-use"></a>シンプルで優れた操作性
-
-Azure RTOS ThreadX は、非常に簡単に使用できます。 Azure RTOS ThreadX API は直感的で高機能です。 API 名は、略語や、他の RTOS 製品で一般的な大幅に省略された名前ではなく、実際の言葉で構成されています。 すべての Azure RTOS ThreadX API は、先頭に `tx_` が付き、名詞 - 動詞の名前付け規則に従っています。 さらに、API 全体で機能に一貫性があります。 たとえば、中断を実行するすべての API には、API 用の同様に機能するオプションのタイムアウトがあります。
-
-Azure RTOS ThreadX アプリケーションの構築は簡単です。 アプリケーションで必要なことは、*tx_api.h* を含め、main から `tx_kernel_enter` を呼び出し、`tx_application_define` 関数を定義して 1 つのスレッドを作成し、スレッド エントリ ポイント関数を定義し、Azure RTOS ThreadX ライブラリ (通常は *tx.a*) にリンクするということです。
-
-Azure RTOS ThreadX では、非常に充実した内容のドキュメントが提供されています。 
-
 ## <a name="advanced-technology"></a>高度なテクノロジ
 
 Azure RTOS ThreadX は高度なテクノロジであり、その最も注目すべき機能は、プリエンプションしきい値によるスケジューリングです。 この機能は Azure RTOS ThreadX に固有のものであり、広範な学術研究の対象となってきたものです。 例については、「[How to localize reference titles.docx (プリエンプションしきい値を使った固定優先度タスクのスケジューリング)](https://www.cs.utah.edu/~regehr/reading/open_papers/preempt_thresh.pdf)」(コンコーディア大学 Yun Wang、ピッツバーグ大学 Manas Saksena 共著) を参照してください。
@@ -307,27 +271,6 @@ Azure RTOS ThreadX モジュールと呼ばれるアドオン製品を使用す�
 
 モジュールには、Azure RTOS ThreadX 自体から完全に分離されたアドレス空間もあります。 これにより、Azure RTOS ThreadX ではモジュールの周囲にメモリ保護 (MPU または MMU を使用) を配置できるようになっているので、モジュールの外部からの偶発的なアクセスによって、他のソフトウェア コンポーネントが破損するのを防止できます。
 
-## <a name="fastest-time-to-market"></a>市場投入までの時間を最短化
-
-Azure RTOS ThreadX は、インストール、習得、使用、デバッグ、検証、認定、保守が簡単です。 その結果、Azure RTOS ThreadX は過去 7 年間、市場投入時間の短縮性において、RTOS 業界をリードしています (Embedded Market Forecasters (EMF) の調査に基づく)。 この調査によると、Azure RTOS ThreadX を使って設計された製品の 70% が、スケジュールどおりに市場に投入されています。これは、他のどの RTOS よりも優れた結果です。
-
-一貫した市場投入まで時間が利点となる理由は、次のとおりです。
-
-* 高品質のドキュメント
-* 完全なソース コードを提供
-* 使いやすい API
-* 包括的かつ高度な機能セット
-* 広範なサードパーティ製ツールの統合 – 特に IAR の Embedded Workbench™
-
-## <a name="royalty-free"></a>ロイヤリティ フリー
-
-ソース コードの使用とテストにコストはかかりません。事前にライセンスされたデバイスに展開する場合は、運用環境ライセンスのコストもかかりません。他のすべてのデバイスには、シンプルな年間ライセンスが必要です。
-
-## <a name="full-highest-quality-source-code"></a>最高品質の完全なソース コード
-
-Azure RTOS ThreadX は開発当初から、完全な C ソースコードで配布される、産業用の RTOS として設計されました。 Azure RTOS ThreadX のソース コードは、品質とわかりやすさに一定の基準を設けてきました。 また、ファイルごとに 1 つの関数を使用するという規則により、簡単なソース ナビゲーションが実現されます。
-
-Azure RTOS ThreadX は厳密なコーディング規則に準拠しており、C コードのすべての行に意味のわかるコメントを記述するという要件も設けられていいます。 さらに、Azure RTOS ThreadX のソースは最高クラスの標準で認定を受けています。
 
 ## <a name="misra-compliant"></a>MISRA 準拠
 

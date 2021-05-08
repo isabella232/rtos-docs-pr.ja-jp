@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: c9e91244856b322d53f85bdd572bd317a055776a
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: f70b8890be6b12f917ac1724a29559afab33b88d
+ms.sourcegitcommit: 0520b2afb6b7f8ae1ea48581e160459fc9292ca7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811360"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108297498"
 ---
 # <a name="chapter-4--description-of-azure-rtos-filex-services"></a>第 4 章 - Azure RTOS FileX サービスの説明
 
@@ -4105,6 +4105,9 @@ UINT fx_media_exFAT_format(
 
 > [!WARNING]
 > *既にフォーマットされたメディアをフォーマットすると、メディア上のすべてのファイルとディレクトリが実質的に消去されます。*
+
+> [!IMPORTANT]
+> *exFAT ボリューム サイズは、MBR または GPT レイアウトがある場合はパーティションのサイズと、または、パーティション レイアウトがない場合 (MBR または GPT がない場合) はデバイス全体のサイズと一致する必要があります。Windows には、使用可能なセクターよりも少ない合計セクターの値を使用してフォーマットした場合に exFAT Disk が認識されないという制限があります。*
 
 ### <a name="input-parameters"></a>入力パラメーター
 
