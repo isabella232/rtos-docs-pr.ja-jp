@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 7a17ab0d2500d021bb9397dbf673427362c45173
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: b07e275468484ccc905655dcd13197de42b2ac86
+ms.sourcegitcommit: 4ebe7c51ba850951c6a9d0f15e22d07bb752bc28
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811267"
+ms.lasthandoff: 05/20/2021
+ms.locfileid: "110223411"
 ---
 # <a name="chapter-4---description-of-guix-services"></a>第 4 章 - GUIX サービスの説明
 
@@ -27,7 +27,7 @@ ms.locfileid: "104811267"
 | gx_accordion_menu_position          | メニュー項目を配置します                                                                          |
 | gx_animation_canvas_define          | 後続のアニメーションに使用されるキャンバスのアニメーション コントローラーにメモリを提供します。 |
 | gx_animation_create                  | アニメーション コントローラーを作成します                                                               |
-| gx_animation_delete                  | アニメーション コントローラーを削除します                                                               |
+| gx_animation_delete                  | 1 つ以上のアニメーション コントローラーを削除します |
 | gx_animation_drag_disable           | 画面のドラッグ アニメーションのフックを無効にします                                                           |
 | gx_animation_drag_enable            | 画面のドラッグ アニメーションのフックを有効にします                                                            |
 | gx_animation_landing_speed_set     | 画面のドラッグ アニメーションのランディング速度を設定します                                                  |
@@ -128,6 +128,12 @@ ms.locfileid: "104811267"
 | gx_drop_list_open                        | ドロップダウン リストを開きます                                                        |
 | gx_drop_list_pixelmap_set               | ピクセルマップをドロップダウン リストに設定します                                             |
 | gx_drop_list_popup_set                  | ポップアップをドロップダウン リストに設定します                                                |
+| gx_generic_scroll_wheel_children_position | 汎用スクロール ホイールに子を配置します |
+| gx_generic_scroll_wheel_create| 汎用スクロール ホイール ウィジェットを作成します |
+| gx_generic_scroll_wheel_draw | 汎用スクロール ホイール ウィジェットを描画します |
+| gx_generic_scroll_wheel_event_process| 汎用スクロール ホイールのイベントを処理します|
+| gx_generic_scroll_wheel_row_height_set| 汎用スクロール ホイールの行の高さを設定します|
+| gx_generic_scroll_wheel_total_rows_set| 汎用スクロール ホイールの合計行数を設定します |
 | gx_horizontal_list_children_position    | 子ウィジェットを横方向の一覧に配置します                          |
 | gx_horizontal_list_create                | 横方向の一覧を作成します                                                |
 | gx_horizontal_list_event_process        | 横方向の一覧にあるイベントを処理します                                      |
@@ -382,7 +388,7 @@ ms.locfileid: "104811267"
 | gx_text_scroll_wheel_event_process      | テキスト スクロール ホイールのイベントを処理します                        |
 | gx_text_scroll_wheel_font_set          | テキスト スクロール ホイールのフォントを割り当てます                         |
 | gx_text_scroll_wheel_text_color_set   | テキスト スクロール ホイールのテキストの色を割り当てます                   |
-| gx_tree_view_create                    | ツリー ビューを作成します                          |
+| gx_tree_view_create                    | ツリー ビューの作成                          |
 | gx_tree_view_draw                      | ツリー ビューを描画します                              |
 | gx_tree_view_event_process            | ツリー ビューのイベントを処理します                     |
 | gx_tree-view_indentation_set           | ツリー ビューのインデントを設定します                   |
@@ -862,11 +868,11 @@ if (status == GX_SUCCESS)
 
 ### <a name="see-also"></a>参照
 
-- gx_animation_create、
+- gx_animation_create
 - gx_animation_delete
-- gx_animation_drag_disable、
+- gx_animation_drag_disable
 - gx_animation_drag_enable
-- gx_animation_landing_speed_set、
+- gx_animation_landing_speed_set
 - gx_animation_start
 - gx_animation_stop
 
@@ -911,7 +917,7 @@ gx_system_animation_get(&animation);
 
 if (animation)
 {
-    status = gx_animation_create(&animation);
+    status = gx_animation_create(animation);
 }
 
 /* If status is GX_SUCCESS the new animation controller was successfully created and initialized. */
@@ -920,8 +926,81 @@ if (animation)
 
 ### <a name="see-also"></a>参照
 
-- gx_animation_canvas_define、
+- gx_animation_canvas_define
 - gx_animation_delete
+- gx_animation_drag_disable
+- gx_animation_drag_enable
+- gx_animation_start
+- gx_animation_landing_speed_set
+- gx_animation_stop
+- gx_system_animation_get
+- gx_system_animation_free
+
+## <a name="gx_animation_delete"></a>gx_animation_delete
+
+1 つ以上のアニメーション コントローラーを削除します
+
+### <a name="prototype"></a>プロトタイプ
+
+```C
+UINT gx_animation_delete(GX_ANIMATION *animation, GX_WIDGET *parent);
+```
+
+### <a name="description"></a>説明
+
+このサービスでは、入力アニメーション ポインターが設定されている場合、アニメーション シーケンスが削除されます。それ以外の場合は、指定した親ウィジェットに属しているすべてのアニメーションが削除されます。
+
+### <a name="parameters"></a>パラメーター
+
+- **animation** アニメーション コントロール ブロックへのポインター
+- **parent** 親ウィジェットへのポインター
+
+
+### <a name="return-values"></a>戻り値
+
+- **GX_SUCCESS** (0x00) アニメーション コントローラーの削除が成功しました
+- **GX_PTR_ERROR** (0x07) ポインターが無効です
+
+### <a name="allowed-from"></a>許可元
+
+初期化とスレッド
+
+### <a name="example"></a>例
+
+- 1 つのアニメーションを削除する
+
+```C
+GX_ANIMATION *animation;
+
+/* Allocate an animaton control from system pool */
+gx_system_animation_get(&animation);
+
+if (animation)
+{
+    /* Create an animation.  */
+    gx_animation_create(animation);
+
+    /* Delete an animation.  */
+    status = gx_animation_delete(animation, GX_NULL);
+}
+
+/* If status is GX_SUCCESS the animation controller was successfully deleted and returned back to system animation pool. */
+
+```
+
+- 複数のアニメーションを削除する
+```C
+
+status = gx_animation_delete(GX_NULL, parent);
+
+/* If status is GX_SUCCESS all the animations belong to the parent were successfully deleted. */
+
+```
+
+### <a name="see-also"></a>参照
+
+- gx_animation_canvas_define、
+- gx_animation_create
 - gx_animation_drag_disable、
 - gx_animation_drag_enable
 - gx_animation_start
@@ -977,14 +1056,15 @@ status = gx_animation_drag_disable(&animation, animation_parent);
 
 ### <a name="see-also"></a>参照
 
-- gx_animation_canvas_define、
-- gx__animation_create
+- gx_animation_canvas_define
+- gx_animation_create
+- gx_animation_delete
 - gx_animation_drag_enable
-- gx_animation_landing_speed_set、
-- gx__animation_start
+- gx_animation_landing_speed_set
+- gx_animation_start
 - gx_animation_stop
-- gx_system_animation_get、
-- gx__system_animation_free
+- gx_system_animation_get
+- gx_system_animation_free
 
 ## <a name="gx_animation_drag_enable"></a>gx_animation_drag_enable
 
@@ -1056,13 +1136,14 @@ status = gx_animation_drag_enable(&animation, animation_parent,
 
 ### <a name="see-also"></a>参照
 
-- gx_animation_canvas_define、
-- gx__animation_create
-- gx_animation_drag_disable、
-- gx__animation_landing_speed_set
-- gx_animation_start、
-- gx__animation_stop、
-- gx__system_animation_get
+- gx_animation_canvas_define
+- gx_animation_create
+- gx_animation_delete
+- gx_animation_drag_disable
+- gx_animation_landing_speed_set
+- gx_animation_start
+- gx_animation_stop
+- gx_system_animation_get
 - gx_system_animation_free
 
 ## <a name="gx_animation_landing_speed_set"></a>gx_animation_landing_speed_set
@@ -1106,13 +1187,14 @@ status = gx_animation_landing_peed_set(&my_animation, 20);
 
 ### <a name="see-also"></a>参照
 
-- gx_animation_canvas_define、
-- gx__animation_create
-- gx_animation_slide_disable、
-- gx__animation_slide_enable
-- gx_animation_start、
-- gx__animation_stop、
-- gx__system_animation_get
+- gx_animation_canvas_define
+- gx_animation_create
+- gx_animation_delete
+- gx_animation_slide_disable
+- gx_animation_slide_enable
+- gx_animation_start
+- gx_animation_stop
+- gx_system_animation_get
 - gx_system_animation_free
 
 ## <a name="gx_animation_start"></a>gx_animation_start
@@ -1236,12 +1318,13 @@ status = gx_animation_stop(&animation);
 
 ### <a name="see-also"></a>参照
 
-- gx_animation_canvas_define、
-- gx__animation_create
-- gx_animation_drag_disable、
-- gx__animation_drag_enable
-- gx_animation_start、
-- gx__system_animation_get
+- gx_animation_canvas_define
+- gx_animation_create
+- gx_animation_delete
+- gx_animation_drag_disable
+- gx_animation_drag_enable
+- gx_animation_start
+- gx_system_animation_get
 - gx_system_animation_free
 
 ## <a name="gx_binres_language_count_get"></a>gx_binres_language_count_get
@@ -6587,7 +6670,7 @@ UINT gx_drop_list_create(
 - **GX_SUCCESS** (0x00) ドロップダウン リストの作成が成功しました
 - **GX_CALLER_ERROR** (0x11) この関数の呼び出し元が無効です
 - **GX_PTR_ERROR** (0x07) ポインターが無効です
-- **GX_ALREADY_CREATED** (0x13) ウィジェットが既に作成されています
+- **GX_ALREADY_CREATED** (0x13) ウィジェットは既に作成されています
 
 ### <a name="allowed-from"></a>使用可能な場所
 
@@ -6841,6 +6924,405 @@ status = gx_drop_list_popup_get(&drop_list, &vertical_list)
 - gx_drop_list_create
 - gx_drop_list_open
 - gx_drop_list_pixelmap_set
+
+## <a name="gx_generic_scroll_wheel_children_position"></a>gx_generic_scroll_wheel_children_position
+### <a name="position-children-for-the-generic-scroll-wheel"></a>汎用スクロール ホイールに子を配置します
+
+### <a name="prototype"></a>プロトタイプ
+
+```C
+UINT gx_generic_scroll_wheel_children_position(
+    GX_GENERIC_SCROLL_WHEEL *wheel)
+```
+
+### <a name="description"></a>説明
+
+この関数では、汎用スクロール ホイールの行の高さに従って、汎用スクロール ホイールの子が配置されます。 この関数は、汎用スクロール ホイールが表示されている場合に既定で呼び出されます。
+
+### <a name="parameters"></a>パラメーター
+
+- **wheel** 汎用スクロール ホイール コントロール ブロックへのポインター
+
+### <a name="return-values"></a>戻り値
+
+- **GX_SUCCESS** (0x00) 汎用スクロール ホイールの子を正常に配置しました
+- **GX_CALLER_ERROR** (0x11) この関数の呼び出し元が無効です
+- **GX_PTR_ERROR** (0x07) ポインターが無効です
+- **GX_INVALID_WIDGET** (0x12) ウィジェットが無効です
+
+### <a name="allowed-from"></a>許可元
+
+初期化とスレッド
+
+### <a name="example"></a>例
+
+```C
+/* Position children in the generic scroll wheel. */
+status = gx_generic_scroll_wheel_children_position (&wheel);
+
+/* If status is GX_SUCCESS the children in the generic scroll wheel are positioned. */
+```
+
+### <a name="see-also"></a>参照
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_create
+- gx_generic_scroll_wheel_draw
+- gx_generic_scroll_wheel_event_process
+- gx_generic_scroll_wheel_row_height_set
+- gx_generic_scroll_wheel_total_rows_set
+
+## <a name="gx_generic_scroll_wheel_create"></a>gx_generic_scroll_wheel_create
+
+
+汎用スクロール ホイール を作成します
+
+### <a name="prototype"></a>プロトタイプ
+
+```C
+UINT gx_generic_scroll_wheel_create(
+    GX_GENERIC_SCROLL_WHEEL *wheel,
+    GX_CONST GX_CHAR *name,
+    GX_WIDGET *parent,
+    INT total_rows,
+    VOID (*callback)(GX_GENERIC_SCROLL_WHEEL *, GX_WIDGET *, INT),
+    ULONG style,
+    USHORT id,
+    GX_CONST GX_RECTANGLE *size);
+```
+
+### <a name="description"></a>説明
+
+このサービスにより、汎用スクロール ホイール ウィジェットが作成されます。
+
+汎用スクロール ホイールは、子ウィジェットで構成されるスクロール ホイール ウィジェットの一種です。 その他の種類のスクロール ホイール ウィジェットも使用できます。 スクロール ホイール ウィジェットの階層、ウィジェットの種類、およびウィジェットの派生の詳細については、gx_scroll_wheel_create() API を参照してください。
+
+GX_GENERIC_SCROLL_WHEEL は GX_SCROLL_WHEEL から派生し、すべての gx_scroll_wheel サービスをサポートしています。
+
+スクロール ホイールをスクロールすると、すべてのスクロール ホイールの種類によって GX_EVENT_LIST_SELECT イベントがその親に対して生成されます。
+
+### <a name="parameters"></a>パラメーター
+
+- **wheel** 汎用スクロール ホイール コントロール ブロックへのポインター
+- **name** 汎用スクロール ホイール ウィジェットの論理名
+- **parent** 親ウィジェットへのポインター
+- **total_rows** スクロール ホイールの合計行数。
+- **callback** ウィジェットの行を作成するコールバック関数。 合計行数が子の数と一致する場合は、GX_NULL とすることができます。 子の数が合計行数よりも少ない場合、または GX_STYLE_WRAP スタイルが設定されている場合は、ウィジェットを再利用するためにこれを指定する必要があります。 その場合は、表示される行の数よりも子の数が 1 つ多いことを確認します。
+- **style** 汎用スクロール ホイールのスタイル。 **付録 D** には、ウィジェット固有のスタイルと、すべてのウィジェット用に事前に定義されている一般的なスタイルが含まれています。
+- **id** 汎用スクロール ホイールのアプリケーション定義 ID
+- **size** 汎用スクロール ホイール ウィジェットのディメンション
+
+### <a name="return-values"></a>戻り値
+
+- **GX_SUCCESS** (0x00) 汎用スクロール ホイールが正常に作成されました
+- **GX_CALLER_ERROR** (0x11) この関数の呼び出し元が無効です
+- **GX_PTR_ERROR** (0x07) ポインターが無効です
+- **GX_ALREADY_CREATED** (0x13) ウィジェットが既に作成されています
+- **GX_INVALID_SIZE** (0x19) ウィジェット コントロール ブロック サイズが無効です
+- **GX_INVALID_VALUE** (0x22) 行数が無効です
+- **GX_INVALID_WIDGET** (0x12) 親ウィジェットが無効です
+
+### <a name="allowed-from"></a>許可元
+
+初期化とスレッド
+
+### <a name="example"></a>例
+
+```C
+
+/* Define visible rows.  */
+#define VISIBLE_ROWS 5
+
+/* Define row memory.  */
+GX_NUMERIC_PROMPT row_memory[VISIBLE_ROWS + 1];
+
+/* Define callback function.  */
+VOID row_create(GX_GENERIC_SCROLL_WHEEL *wheel, GX_WIDGET *widget, INT index)
+{
+GX_NUMERIC_PROMPT *row = (GX_PROMPT *)widget;
+GX_BOOL result;
+GX_RECTANGLE size;
+
+    gx_widget_created_test(widget, &result);
+
+    if(!result)
+    {
+        gx_numeric_prompt_create(row, "", wheel, 0, GX_STYLE_ENABLED, 0, &size);
+    }
+
+    gx_numeric_prompt_value_set(row, index);
+}
+
+/* Create "generic_wheel” with 20 rows.  */
+status = gx_generic_scroll_wheel_create(&generic_wheel, “generic_wheel”, &parent, 20, row_create,
+                                       GX_STYLE_ENABLED, WHEEL_ID, &size);
+
+/* If status is GX_SUCCESS the generic scroll wheel "generic_wheel”" has been created. */
+
+/* Create children for generic scroll wheel.  */
+for(index = 0; index <= VISIBLE_ROWS; index++)
+{
+    row_create(generic_wheel, (GX_WIDGET *)&row_memory[index], index);
+}
+```
+
+### <a name="see-also"></a>参照
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_children_position
+- gx_generic_scroll_wheel_draw
+- gx_generic_scroll_wheel_event_process
+- gx_generic_scroll_wheel_row_height_set
+- gx_generic_scroll_wheel_total_rows_set
+
+## <a name="gx_generic_scroll_wheel_draw"></a>gx_generic_scroll_wheel_draw
+### <a name="draw-window"></a>ウィンドウを描画する
+
+### <a name="prototype"></a>プロトタイプ
+
+```C
+VOID gx_generic_scroll_wheel_draw(GX_GENERIC_SCROLL_WHEEL *wheel);
+```
+
+### <a name="description"></a>説明
+
+このサービスにより、汎用スクロール ホイールが描画されます。 このサービスは通常、キャンバスの更新中に内部的に呼び出されますが、カスタムの汎用スクロール ホイール描画関数から呼び出すこともできます。
+
+### <a name="parameters"></a>パラメーター
+
+- **wheel** 汎用スクロール ホイール コントロール ブロックへのポインター
+
+### <a name="return-values"></a>戻り値
+
+- **なし**
+
+### <a name="allowed-from"></a>許可元
+
+Threads
+
+### <a name="example"></a>例
+
+```C
+/* Write a custom generic scroll wheel draw function. */
+
+VOID my_custom_generic_scroll_wheel_draw(GX_GENERIC_SCROLL_WHEEL *wheel)
+{
+    /* Call default generic scroll wheel draw. */
+    gx_generic_scroll_wheel_draw(wheel);
+
+    /* Add your own drawing here. */
+}
+```
+
+### <a name="see-also"></a>参照
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_children_position
+- gx_generic_scroll_wheel_create
+- gx_generic_scroll_wheel_event_process
+- gx_generic_scroll_wheel_row_height_set
+- gx_generic_scroll_wheel_total_rows_set
+
+## <a name="gx_generic_scroll_wheel_event_process"></a>gx_generic_scroll_wheel_event_process
+### <a name="process-generic-scroll-wheel-event"></a>汎用スクロール ホイールのイベントを処理します
+
+### <a name="prototype"></a>プロトタイプ
+
+```C
+UINT gx_generic_scroll_wheel_event_process(
+    GX_GENERIC_SCROLL_WHEEL *wheel, 
+    GX_EVENT *event);
+```
+
+### <a name="description"></a>説明
+
+このサービスにより、このウィンドウのイベントが処理されます。
+
+### <a name="parameters"></a>パラメーター
+
+- **wheel** 汎用スクロール ホイール コントロール ブロックへのポインター
+- **event** 処理するイベントへのポインター
+
+### <a name="return-values"></a>戻り値
+
+- **GX_SUCCESS** (0x00) 汎用スクロール ホイールのイベント処理が成功しました
+- **GX_CALLER_ERROR** (0x11) この関数の呼び出し元が無効です
+- **GX_PTR_ERROR** (0x07) ポインターが無効です
+- **GX_INVALID_WIDGET** (0x12) ウィジェットが無効です
+
+### <a name="allowed-from"></a>許可元
+
+Threads
+
+### <a name="example"></a>例
+
+```C
+/* Call generic generic scroll wheel event processing as part of custom event processing function. */
+
+UINT custom_generic_scroll_wheel_event_process(GX_GENERIC_SCROLL_WHEEL *wheel,
+                                               GX_EVENT *event)
+{
+    UINT status = GX_SUCCESS;
+
+    switch(event->gx_event_type)
+    {
+        case xyz:
+
+            /* Insert custom event handling here */
+            break;
+
+        default:
+
+            /* Pass all other events to the default generic scroll wheel
+            event processing */
+            status = gx_generic_scroll_wheel_event_process(wheel, event);
+            break;
+        }
+        return status;
+}
+```
+
+### <a name="see-also"></a>参照
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_children_position
+- gx_generic_scroll_wheel_create
+- gx_generic_scroll_wheel_draw
+- gx_generic_scroll_wheel_row_height_set
+- gx_generic_scroll_wheel_total_rows_set
+
+## <a name="gx_generic_scroll_wheel_row_height_set"></a>gx_generic_scroll_wheel_row_height_set
+
+
+各ホイール行に行の高さを割り当てる
+
+### <a name="prototype"></a>プロトタイプ
+
+```C
+UINT gx_generic_scroll_wheel_row_height_set(
+    GX_GENERIC_SCROLL_WHEEL *wheel,
+    GX_VALUE row_height);
+```
+
+### <a name="description"></a>説明
+
+このサービスでは、スクロール ホイールの各行に行の高さが割り当てられます。
+
+### <a name="parameters"></a>パラメーター
+
+- **wheel** 汎用スクロール ホイール コントロール ブロックへのポインター
+- **row_height** 行の高さの値 (ピクセル単位)。
+
+### <a name="return-values"></a>戻り値
+
+- **GX_SUCCESS** (0x00) スクロール ホイールの高さが正常に設定されました
+- **GX_CALLER_ERROR** (0x11) この関数の呼び出し元が無効です
+- **GX_PTR_ERROR** (0x07) ポインターが無効です
+- **GX_INVALID_WIDGET** (0x12) ウィジェットが無効です
+- **GX_INVALID_VALUE** (0x22) 行の高さが無効です
+
+### <a name="allowed-from"></a>許可元
+
+初期化とスレッド
+
+### <a name="example"></a>例
+
+```C
+status = gx_generic_scroll_wheel_row_height_set(&wheel, 40);
+
+/* if status == GX_SUCCESS the wheel row height has been set to 40
+pixels. */
+```
+
+### <a name="see-also"></a>参照
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_children_position
+- gx_generic_scroll_wheel_create
+- gx_generic_scroll_wheel_draw
+- gx_generic_scroll_wheel_event_process
+- gx_generic_scroll_wheel_total_rows_set
+
+## <a name="gx_generic_scroll_wheel_total_rows_set"></a>gx_generic_scroll_wheel_total_rows_set
+
+
+使用可能な合計スクロール ホイール行数を割り当てます
+
+### <a name="prototype"></a>プロトタイプ
+
+```C
+UINT gx_generic_scroll_wheel_total_rows_set(
+    GX_GENERIC_SCROLL_WHEEL *wheel,
+    INT total_rows);
+```
+
+### <a name="description"></a>説明
+
+このサービスにより、汎用スクロール ホイールの合計行数の割り当てまたは変更が行われます。
+
+### <a name="parameters"></a>パラメーター
+
+- **wheel** 汎用スクロール ホイール コントロール ブロックへのポインター
+- **total_rows** ユーザーに表示されるホイール行の合計数。
+
+### <a name="return-values"></a>戻り値
+
+- **GX_SUCCESS** (0x00) 汎用スクロール ホイールの合計行が正常に設定されました
+- **GX_CALLER_ERROR** (0x11) この関数の呼び出し元が無効です
+- **GX_PTR_ERROR** (0x07) ポインターが無効です
+- **GX_INVALID_WIDGET** (0x12) ウィジェットが無効です
+- **GX_INVALID_VALUE** (0x22) 合計行数が無効です
+
+### <a name="allowed-from"></a>許可元
+
+初期化とスレッド
+
+### <a name="example"></a>例
+
+```C
+status = gx_generic_scroll_wheel_total_rows_set(&wheel, 20);
+
+/* if status == GX_SUCCESS the scroll wheel has been changed to
+display 20 total rows */
+```
+### <a name="see-also"></a>参照
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_children_position
+- gx_generic_scroll_wheel_create
+- gx_generic_scroll_wheel_draw
+- gx_generic_scroll_wheel_event_process
+- gx_generic_scroll_wheel_row_height_set
 
 ## <a name="gx_horizontal_list_children_position"></a>gx_horizontal_list_children_position
 
@@ -7841,7 +8323,7 @@ UINT gx_image_reader_create(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化とスレッド
+初期化、スレッド
 
 ### <a name="example"></a>例
 
@@ -7900,7 +8382,7 @@ UINT gx_image_reader_palette_set(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化とスレッド
+初期化、スレッド
 
 ### <a name="example"></a>例
 
@@ -7948,7 +8430,7 @@ UINT gx_image_reader_start(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化とスレッド
+初期化、スレッド
 
 ### <a name="example"></a>例
 
@@ -14821,7 +15303,7 @@ VOID gx_radial_progress_bar_text_draw(GX_RADIAL_PROGRESS_BAR *progress_bar);
 
 ### <a name="allowed-from"></a>許可元
 
-初期化とスレッド
+初期化、スレッド
 
 ### <a name="example"></a>例
 
@@ -16460,9 +16942,9 @@ UINT gx_scroll_wheel_create(
 
 ### <a name="description"></a>説明
 
-このサービスにより、汎用スクロール ホイール ウィジェットが作成されます。
+このサービスにより、基本のスクロール ホイール ウィジェットが作成されます。
 
-汎用スクロール ホイールは、すべてのスクロール ホイール ウィジェットの種類の基本ウィジェットで、*gx_numeric_scroll_wheel*** と *gx_string_scroll_wheel*** のベースである *gx_text_scroll_wheel*** を含みます。 基本スクロール ホイール ウィジェットは、すべてのスクロール ホイール ウィジェットの種類について、イベント処理、スクロール アニメーション、および選択された行の計算を提供します。
+基本のスクロール ホイールは、すべてのスクロール ホイール ウィジェットの種類の基本ウィジェットで、**gx_numeric_scroll_wheel** と **gx_string_ scroll_wheel** ウィジェットのベースである **gx_generic_scroll_wheel** と **gx_text_scroll_wheel** を含みます。 基本スクロール ホイール ウィジェットは、すべてのスクロール ホイール ウィジェットの種類について、イベント処理、スクロール アニメーション、および選択された行の計算を提供します。
 
 通常、アプリケーションでは、汎用スクロール ホイール ウィジェットのインスタンスは作成しません。このウィジェットの種類では描画関数が提供されないためです。 ただし、カスタム スクロール ホイール ウィジェットの種類を作成する必要があるアプリケーションを支援するために、この API へのアクセスが用意されています。
 

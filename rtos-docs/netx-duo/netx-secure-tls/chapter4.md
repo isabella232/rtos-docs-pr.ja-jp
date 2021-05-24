@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 89761ec3438b1b16c1a603764bf7d4e1eac1b4ea
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 80ec22058ab64ed0c6258bb3d9364ec44f9a741b
+ms.sourcegitcommit: 4ebe7c51ba850951c6a9d0f15e22d07bb752bc28
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811765"
+ms.lasthandoff: 05/20/2021
+ms.locfileid: "110223394"
 ---
 # <a name="chapter-4---description-of-azure-rtos-netx-secure-services"></a>第 4 章 - Azure RTOS NetX Secure サービスの説明
 
@@ -538,7 +538,7 @@ None
 
 ### <a name="return-values"></a>戻り値
 
-None
+なし
 
 ### <a name="allowed-from"></a>許可元
 
@@ -787,43 +787,6 @@ status =  nx_secure_tls_metadata_size_calculate(&nx_crypto_tls_ciphers,
 
 /* If status is NX_SUCCESS then crypto_metadata_size contains the size of the
    metadata buffer for the table nx_crypto_tls_ciphers.  */
-```
-
-### <a name="see-also"></a>参照
-
-- nx_secure_tls_session_create
-
-## <a name="nx_secure_module_hash_compute"></a>nx_secure_module_hash_compute
-
-NetX Secure ライブラリ ルーチンのハッシュ値を計算します
-
-### <a name="prototype"></a>プロトタイプ
-
-```C
-VOID nx_secure_module_hash_compute(VOID);
-```
-
-### <a name="description"></a>説明
-
-このサービスは、NetX Secure TLS モジュールを初期化します。 これは、他の NetX Secure サービスにアクセスする前に呼び出す必要があります。
-
-### <a name="parameters"></a>パラメーター
-
-None
-
-### <a name="return-values"></a>戻り値
-
-None
-
-### <a name="allowed-from"></a>許可元
-
-初期化、スレッド
-
-### <a name="example"></a>例
-
-```C
-/* Initializes the TLS module. */
-Nx_secure_tls_initialize();
 ```
 
 ### <a name="see-also"></a>参照

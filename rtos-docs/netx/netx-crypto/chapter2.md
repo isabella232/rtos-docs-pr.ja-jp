@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 1616667c5efd73229ed69bcd4e5de5f80e5826f9
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: cd736cf6bbe15e1f407d1812072a4308435c8007
+ms.sourcegitcommit: c2f5da5d6c7b230799f8fbd77885e9940acfbab4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811633"
+ms.lasthandoff: 05/21/2021
+ms.locfileid: "110236154"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-crypto"></a>第 2 章 - Azure RTOS NetX Crypto のインストールと使用
 
@@ -36,12 +36,12 @@ NetX Crypto をスタンドアロン モードで使用するには、前述し�
 
 ## <a name="using-netx-crypto"></a>NetX Crypto の使用
 
-NetX Crypto の使用は簡単です。 基本的に、アプリケーション コードで *nx_crypto.h* をインクルードする必要があります。  *nx_crypto.h* をインクルードすると、このガイドで後述する NetX Crypto 関数呼び出しを、アプリケーション コードで行えるようになります。
+このチャプターでは、Azure RTOS NetX コンポーネントのインストール、セットアップ、使用方法について説明します。 基本的に、アプリケーション コードで *nx_crypto.h* をインクルードする必要があります。  *nx_crypto.h* をインクルードすると、このガイドで後述する NetX Crypto 関数呼び出しを、アプリケーション コードで行えるようになります。
 
 ## <a name="configuration-options"></a>構成オプション
 
 NetX Crypto のビルド時にはいくつかの構成オプションがあります。 以下に、すべてのオプションの一覧と、それぞれの詳細な説明を示します。
 
-- **NX_CRYPTO_MAX_RSA_MODULUS_SIZE**: このオプションが定義されている場合、予期される最大の RSA モジュラスがビット単位で示されます。 4096 ビット モジュラスの既定値は 4096 です。 その他の値として 3072、2048、1024 (非推奨) を指定できます。
-- **NX_CRYPTO_FIPS**: このオプションが定義されている場合、FIPS に準拠した使用のために必要な追加のセキュリティ機能が有効になります。 このオプションは、FIPS でないビルドに対しては有効になりません。
+- **NX_CRYPTO_MAX_RSA_MODULUS_SIZE**: このオプションが定義されている場合、予期される最大の RSA モジュラスがビット単位で示されます。 4096 ビット モジュラスの既定値は 4096 です。 他に 3072、2048、または 1024 の値を指定できます (推奨されません)。
+- **NX_CRYPTO_SELF_TEST**: 定義されていると場合、NetX Crypto モジュールの自己テストが有効になります。 **NX_CRYPTO_FIPS** シンボルは非推奨となり、名前が **NX_CRYPTO_SELF_TEST** に変更されました。
 - **NX_CRYPTO_STANDALONE_ENABLE**: 定義されている場合、NetX Crypto をスタンドアロン モード (Azure RTOS なし) で使用できるようになります。 既定では、このシンボルは定義されません。
