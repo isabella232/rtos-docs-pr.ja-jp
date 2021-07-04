@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/14/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 30168ad5a564b0f4c0a8c999046c5103385f4f90
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 6bb2743f05c5b56331d1c0e948601ad23bf340d1
+ms.sourcegitcommit: 95f4ae0842a486fec8f10d1480203695faa9592d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811801"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111875274"
 ---
 # <a name="chapter-3---description-of-http-services"></a>章 3 章 - HTTP サービスの説明
 
@@ -79,7 +79,7 @@ nx_web_http_client_connect(&my_client, &server_ip_address,
 /* Create a new GET request on the HTTP client instance. */
 nx_web_http_client_request_initialize(&my_client,
     NX_WEB_HTTP_METHOD_GET,
-    "https://192.168.1.150/test.txt ",
+    "https://192.168.1.150/test.txt ", "host.com",
     0, /* Used by PUT and POST only */
     NX_FALSE,
     NX_NULL, /* username */
@@ -94,7 +94,7 @@ status = nx_web_http_client_request_header_add(&my_client, "Server", 6,
 status = nx_web_http_client_request_send(&my_client, 1000);
 
 /* At this point, we need to handle the response from the server by repeatedly
-    calling *nx_web_http_client_response_body_get* until the entire response is retrieved. *./
+    calling *nx_web_http_client_response_body_get* until the entire response is retrieved. */
 
 get_status = NX_SUCCESS;
 
@@ -124,15 +124,15 @@ UINT nx_web_http_client_create(NX_WEB_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
-- **client_name** HTTP Client インスタンスの名前。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
+- **client_name** HTTP クライアント インスタンスの名前。
 - **ip_ptr** IP インスタンスへのポインター。
 - **pool_ptr** 既定のパケット プールへのポインター。 このプール内のパケットはペイロードが応答ヘッダー全体を処理するのに十分な大きさである必要があることに注意してください。 これは *nx_web_http_client.h* の *NX_WEB_HTTP_CLIENT_MIN_PACKET_SIZE* によって定義されます。
 - **window_size** クライアントの TCP ソケット受信ウィンドウのサイズ。
 
 ### <a name="return-values"></a>戻り値
 
-- **NX_SUCCESS** (0x00) HTTP Client が正常に作成されました
+- **NX_SUCCESS** (0x00) HTTP クライアントが正常に作成されました
 - NX_PTR_ERROR (0x16) HTTP、ip_ptr、またはパケット プール ポインターが無効です
 - NX_WEB_HTTP_POOL_ERROR (0x30009) パケット プールのペイロードのサイズが無効です
 
@@ -162,15 +162,15 @@ UINT nx_web_http_client_delete(NX_WEB_HTTP_CLIENT *client_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスでは、以前に作成された HTTP Client インスタンスが削除されます。
+このサービスは、以前に作成された HTTP クライアント インスタンスを削除します。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
-- **NX_SUCCESS** (0x00) HTTP Client が正常に削除されました
+- **NX_SUCCESS** (0x00) HTTP クライアントが正常に削除されました
 - NX_PTR_ERROR (0x16) HTTP ポインターが無効です
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です
 
@@ -213,14 +213,14 @@ UINT nx_web_http_client_delete_start(NX_WEB_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server のポート。
 - **host** サーバーのドメイン名の Null 終端の文字列。 この文字列は、HTTP ホスト ヘッダー フィールドで送信されます。 ホスト文字列を NULL にすることはできません。
 - **resource** 要求されたリソースの URL 文字列へのポインター。
-- **username** 省略可能な認証用のユーザー名へのポインター。
-- **password** 省略可能な認証用のパスワードへのポインター。
-- **wait_option** サービスで HTTP Client の GET 開始要求を待機する時間を定義します。 この待機オプションは次のように定義します。
+- **username** 認証用の省略可能なユーザー名へのポインター。
+- **password** 認証用の省略可能なパスワードへのポインター。
+- **wait_option** サービスが HTTP クライアントの GET 開始要求を待機する時間を定義します。 この待機オプションは次のように定義します。
   - **timeout value** (0x00000001 から 0xFFFFFFFE) 数値 (0x1 から 0xFFFFFFFE) を選択すると、HTTP Server の応答を待機して中断を続ける時間 (タイマー刻みの最大数) が指定されます。
   - **NX_WAIT_FOREVER** (0xFFFFFFFF) NX_WAIT_FOREVER を選択すると、HTTP Server で要求に対して応答が行われるまで、呼び出し元のスレッドが無期限に一時停止になります。
 
@@ -285,7 +285,7 @@ resource、host、username、password の文字列は NULL 終端で、各文字
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server のポート。
 - **resource** 要求されたリソースの URL 文字列へのポインター。
@@ -364,7 +364,7 @@ UINT nx_web_http_client_delete_secure_start(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server のポート。
 - **resource** 要求されたリソースの URL 文字列へのポインター。 リソースは NULL 終端である必要があります。
@@ -438,7 +438,7 @@ resource、host、username、password の文字列は NULL 終端である必要
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server のポート。
 - **resource** 要求されたリソースの URL 文字列へのポインター。 リソースは NULL 終端である必要があります。
@@ -514,14 +514,14 @@ UINT nx_web_http_client_get_start(NX_WEB_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server のポート。
 - **resource** 要求されたリソースの URL 文字列へのポインター。
 - **host** サーバーのドメイン名の Null 終端の文字列。 この文字列は、HTTP ホスト ヘッダー フィールドで送信されます。 ホスト文字列を NULL にすることはできません。
 - **username** 省略可能な認証用のユーザー名へのポインター。
-- **password** 省略可能な認証用のパスワードへのポインター。
-- **wait_option** サービスで HTTP Client の GET 開始要求を待機する時間を定義します。 この待機オプションは次のように定義します。
+- **password** 認証用の省略可能なパスワードへのポインター。
+- **wait_option** サービスが HTTP クライアントの GET 開始要求を待機する時間を定義します。 この待機オプションは次のように定義します。
   - **timeout value** (0x00000001 から 0xFFFFFFFE) 数値 (0x1 から 0xFFFFFFFE) を選択すると、HTTP Server の応答を待機して中断を続ける時間 (タイマー刻みの最大数) が指定されます。
   - **NX_WAIT_FOREVER** (0xFFFFFFFF) NX_WAIT_FOREVER を選択すると、HTTP Server で要求に対して応答が行われるまで、呼び出し元のスレッドが無期限に一時停止になります。
 
@@ -586,7 +586,7 @@ resource、host、username、password の文字列は NULL 終端で、各文字
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server のポート。
 - **resource** 要求されたリソースの URL 文字列へのポインター。
@@ -664,7 +664,7 @@ UINT nx_web_http_client_get_secure_start(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server のポート。
 - **resource** 要求されたリソースの URL 文字列へのポインター。
@@ -740,7 +740,7 @@ resource、host、username、password の文字列は NULL 終端で、各文字
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server のポート。
 - **resource** 要求されたリソースの URL 文字列へのポインター。
@@ -817,14 +817,14 @@ UINT nx_web_http_client_head_start(NX_WEB_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server のポート。
 - **resource** 要求されたリソースの URL 文字列へのポインター。
 - **host** サーバーのドメイン名の Null 終端の文字列。 この文字列は、HTTP ホスト ヘッダー フィールドで送信されます。 ホスト文字列を NULL にすることはできません。
 - **username** 省略可能な認証用のユーザー名へのポインター。
-- **password** 省略可能な認証用のパスワードへのポインター。
-- **wait_option** サービスで HTTP Client の GET 開始要求を待機する時間を定義します。 この待機オプションは次のように定義します。
+- **password** 認証用の省略可能なパスワードへのポインター。
+- **wait_option** サービスが HTTP クライアントの GET 開始要求を待機する時間を定義します。 この待機オプションは次のように定義します。
   - **timeout value** (0x00000001 から 0xFFFFFFFE) 数値 (0x1 から 0xFFFFFFFE) を選択すると、HTTP Server の応答を待機して中断を続ける時間 (タイマー刻みの最大数) が指定されます。
   - **NX_WAIT_FOREVER** (0xFFFFFFFF) NX_WAIT_FOREVER を選択すると、HTTP Server で要求に対して応答が行われるまで、呼び出し元のスレッドが無期限に一時停止になります。
 
@@ -889,7 +889,7 @@ resource、host、username、password の文字列は NULL 終端である必要
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server のポート。
 - **resource** 要求されたリソースの URL 文字列へのポインター。
@@ -967,7 +967,7 @@ UINT nx_web_http_client_head_secure_start(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server のポート。
 - **resource** 要求されたリソースの URL 文字列へのポインター。
@@ -1042,7 +1042,7 @@ resource、host、username、password の文字列は NULL 終端である必要
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server のポート。
 - **resource** 要求されたリソースの URL 文字列へのポインター。
@@ -1169,13 +1169,13 @@ UINT nx_web_http_client_post_start(NX_WEB_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server 上の TCP ポート。
 - **resource** サーバーに送信するリソースの URL 文字列へのポインター。
 - **host** サーバーのドメイン名の Null 終端の文字列。 この文字列は、HTTP ホスト ヘッダー フィールドで送信されます。 ホスト文字列を NULL にすることはできません。
 - **username** 省略可能な認証用のユーザー名へのポインター。
-- **password** 省略可能な認証用のパスワードへのポインター。
+- **password** 認証用の省略可能なパスワードへのポインター。
 - **total_bytes** 送信されるリソースの合計バイト数。 後続の *nx_web_http_client_put_packet()* の呼び出しを介して送信されるすべてのパケットの合計長が、この値と等しくなる必要があることに注意してください。
 - **wait_option** サービスで HTTP Client の GET 開始要求を待機する時間を定義します。 この待機オプションは次のように定義します。
   - **timeout value** (0x00000001 から 0xFFFFFFFE) 数値 (0x1 から 0xFFFFFFFE) を選択すると、HTTP Server の応答を待機して中断を続ける時間 (タイマー刻みの最大数) が指定されます。
@@ -1241,7 +1241,7 @@ resource、host、username、password の文字列は NULL 終端である必要
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server 上の TCP ポート。
 - **resource** 要求されたリソースの URL 文字列へのポインター。
@@ -1320,13 +1320,13 @@ UINT nx_web_http_client_post_secure_start(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server 上の TCP ポート。
 - **resource** サーバーに送信するリソースの URL 文字列へのポインター。
 - **host** サーバーのドメイン名の Null 終端の文字列。 この文字列は、HTTP ホスト ヘッダー フィールドで送信されます。 ホスト文字列を NULL にすることはできません。
 - **username** 省略可能な認証用のユーザー名へのポインター。
-- **password** 省略可能な認証用のパスワードへのポインター。
+- **password** 認証用の省略可能なパスワードへのポインター。
 - **total_bytes** 送信されるリソースの合計バイト数。 後続の *nx_web_http_client_put_packet()* の呼び出しを介して送信されるすべてのパケットの合計長が、この値と等しくなる必要があることに注意してください。
 - **tls_setup** TLS 構成を設定するために使用されるコールバック。 アプリケーションでは、このコールバックを定義して TLS の暗号化と資格情報 (証明書など) を初期化します。
 - **wait_option** サービスで HTTP Client の GET 開始要求を待機する時間を定義します。 この待機オプションは次のように定義します。
@@ -1396,7 +1396,7 @@ resource、host、username、password の文字列は NULL 終端である必要
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server 上の TCP ポート。
 - **resource** 要求されたリソースの URL 文字列へのポインター。
@@ -1474,13 +1474,13 @@ UINT nx_web_http_client_put_start(NX_WEB_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server 上の TCP ポート。
 - **resource** サーバーに送信するリソースの URL 文字列へのポインター。
 - **host** サーバーのドメイン名の Null 終端の文字列。 この文字列は、HTTP ホスト ヘッダー フィールドで送信されます。 ホスト文字列を NULL にすることはできません。
 - **username** 省略可能な認証用のユーザー名へのポインター。
-- **password** 省略可能な認証用のパスワードへのポインター。
+- **password** 認証用の省略可能なパスワードへのポインター。
 - **total_bytes** 送信されるリソースの合計バイト数。 後続の *nx_web_http_client_put_packet()* の呼び出しを介して送信されるすべてのパケットの合計長が、この値と等しくなる必要があることに注意してください。
 - **wait_option** サービスで HTTP Client の GET 開始要求を待機する時間を定義します。 この待機オプションは次のように定義します。
   - **timeout value** (0x00000001 から 0xFFFFFFFE) 数値 (0x1 から 0xFFFFFFFE) を選択すると、HTTP Server の応答を待機して中断を続ける時間 (タイマー刻みの最大数) が指定されます。
@@ -1547,7 +1547,7 @@ resource、host、username、password の文字列は NULL 終端である必要
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server 上の TCP ポート。
 - **resource** 要求されたリソースの URL 文字列へのポインター。
@@ -1627,13 +1627,13 @@ UINT nx_web_http_client_put_secure_start(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server 上の TCP ポート。
 - **resource** サーバーに送信するリソースの URL 文字列へのポインター。
 - **host** サーバーのドメイン名の Null 終端の文字列。 この文字列は、HTTP ホスト ヘッダー フィールドで送信されます。 ホスト文字列を NULL にすることはできません。
 - **username** 省略可能な認証用のユーザー名へのポインター。
-- **password** 省略可能な認証用のパスワードへのポインター。
+- **password** 認証用の省略可能なパスワードへのポインター。
 - **total_bytes** 送信されるリソースの合計バイト数。 後続の *nx_web_http_client_put_packet()* の呼び出しを介して送信されるすべてのパケットの合計長が、この値と等しくなる必要があることに注意してください。
 - **tls_setup** TLS 構成を設定するために使用されるコールバック。 アプリケーションでは、このコールバックを定義して TLS の暗号化と資格情報 (証明書など) を初期化します。
 - **wait_option** サービスで HTTP Client の GET 開始要求を待機する時間を定義します。 この待機オプションは次のように定義します。
@@ -1703,7 +1703,7 @@ resource、host、username、password の文字列は NULL 終端である必要
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **ip_address** HTTP Server の IP アドレス。
 - **server_port** リモート HTTP Server 上の TCP ポート。
 - **resource** 要求されたリソースの URL 文字列へのポインター。
@@ -1774,7 +1774,7 @@ UINT nx_web_http_client_put_packet(NX_WEB_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **packet_ptr** HTTP Server に送信されるリソースの次のコンテンツへのポインター。
 - **wait_option** サービスで HTTP Client の GET 開始要求を待機する時間を定義します。 この待機オプションは次のように定義します。
   - **timeout value** (0x00000001 から 0xFFFFFFFE) 数値 (0x1 から 0xFFFFFFFE) を選択すると、HTTP Server の応答を待機して中断を続ける時間 (タイマー刻みの最大数) が指定されます。
@@ -1853,7 +1853,8 @@ nx_web_http_client_secure_connect(&my_client, IP_ADDRESS(1,2,3,5),
 
 /* Create a PUT request on the HTTP client instance. */
 nx_web_http_client_request_initialize(&my_client,
-    NX_WEB_HTTP_METHOD_PUT, "https://192.168.1.150/test.txt ",
+    NX_WEB_HTTP_METHOD_PUT,
+    "https://192.168.1.150/test.txt ", "host.com",
     0, /* Used by PUT and POST only */
     NX_TRUE,
     NX_NULL, /* username */
@@ -1871,7 +1872,7 @@ nx_web_http_client_request_packet_allocate(&my_client,
 /* Set the chunked transfer. */
 status = nx_web_http_client_request_chunked_set(&my_client, 128, my_packet);
 
-/* At this point, user can fill the data into my_packet. *./
+/* At this point, user can fill the data into my_packet. */
 nx_packet_data_append(my_packet, data_ptr, data_size,
     packet_pool, NX_WAIT_FOREVER);
 
@@ -1935,7 +1936,7 @@ nx_web_http_client_secure_connect(&my_client, IP_ADDRESS(1,2,3,5),
 
 nx_web_http_client_request_initialize(&my_client,
     NX_WEB_HTTP_METHOD_GET,
-    "https://192.168.1.150/test.txt ",
+    "https://192.168.1.150/test.txt ", "host.com",
     0, /* Used by PUT and POST only */
     NX_FALSE,
     NX_NULL, /* username */
@@ -1951,7 +1952,7 @@ status = nx_web_http_client_request_send(&my_client, 1000);
 
 /* At this point, we need to handle the response from the server
     by repeatedly calling *nx_web_http_client_response_body_get()*
-    until the entire response is retrieved. *./
+    until the entire response is retrieved. */
 
 get_status = NX_SUCCESS;
 
@@ -2042,7 +2043,7 @@ nx_web_http_client_request_initialize(&my_client,
 status = nx_web_http_client_request_send(&my_client, 1000);
 
 /* At this point, we need to handle the response from the server by repeatedly
-    calling *nx_web_http_client_response_body_get()* until the entire response is retrieved. *./
+    calling *nx_web_http_client_response_body_get()* until the entire response is retrieved. */
 get_status = NX_SUCCESS;
 
 while(get_status != NX_WEB_HTTP_GET_DONE)
@@ -2061,11 +2062,13 @@ while(get_status != NX_WEB_HTTP_GET_DONE)
 ### <a name="prototype"></a>プロトタイプ
 
 ```C
-UINT nx_web_http_client_request_initialize(
-    NX_WEB_HTTP_CLIENT *client_ptr,
-    UINT method, CHAR *resource, CHAR *host,
+UINT nx_web_http_client_request_initialize_extended(
+    NX_WEB_HTTP_CLIENT *client_ptr, UINT method,
+    CHAR *resource, UINT resource_length,
+    CHAR *host, UINT host_length,
     UINT input_size, UINT transfer_encoding_trunked,
-    CHAR *username, CHAR *password, UINT wait_option);
+    CHAR *username, UINT username_length,
+    CHAR *password, UINT password_length, UINT wait_option);
 ```
 
 ### <a name="description"></a>説明
@@ -2141,7 +2144,7 @@ status = nx_web_http_client_request_send(&my_client, 1000);
 
 
 /* At this point, we need to handle the response from the server by repeatedly
-    calling *nx_web_http_client_response_body_get()* until the entire response is retrieved. *./
+    calling *nx_web_http_client_response_body_get()* until the entire response is retrieved. */
 get_status = NX_SUCCESS;
 while(get_status != NX_WEB_HTTP_GET_DONE)
 {
@@ -2197,7 +2200,7 @@ nx_web_http_client_secure_connect(&my_client, IP_ADDRESS(1,2,3,5),
 /* Create a PUT request on the HTTP client instance. */
 nx_web_http_client_request_initialize(&my_client,
     NX_WEB_HTTP_METHOD_PUT,
-    "https://192.168.1.150/test.txt ",
+    "https://192.168.1.150/test.txt ", "host.com",
     128, /* Used by PUT and POST only */
     NX_FALSE,
     NX_NULL, /* username */
@@ -2212,7 +2215,7 @@ nx_web_http_client_request_packet_allocate(&my_client,
     &my_packet,
     NX_WAIT_FOREVER);
 
-/* At this point, user can fill the data into my_packet. *./
+/* At this point, user can fill the data into my_packet. */
 nx_packet_data_append(my_packet, data_ptr, data_size,
     packet_pool, NX_WAIT_FOREVER);
 
@@ -2270,7 +2273,7 @@ nx_web_http_client_secure_connect(&my_client, IP_ADDRESS(1,2,3,5),
 /* Create a new GET request on the HTTP client instance. */
 nx_web_http_client_request_initialize(&my_client,
     NX_WEB_HTTP_METHOD_GET,
-    "https://192.168.1.150/test.txt ",
+    "https://192.168.1.150/test.txt ", "host.com",
     0, /* Used by PUT and POST only */
     NX_FALSE,
     NX_NULL, /* username */
@@ -2282,7 +2285,7 @@ status = nx_web_http_client_request_send(&my_client, 1000);
 
 /* At this point, we need to handle the response from the server by
     repeatedly calling *nx_web_http_client_response_body_get* until
-    the entire response is retrieved. *./
+    the entire response is retrieved. */
 
 get_status = NX_SUCCESS;
 
@@ -2314,7 +2317,7 @@ UINT nx_web_http_client_response_body_get(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **client_ptr** HTTP Client の制御ブロックへのポインター。
+- **client_ptr** HTTP クライアントの制御ブロックへのポインター。
 - **packet_ptr** 部分的なリソース コンテンツを含むパケット ポインターの宛先。
 - **wait_option** サービスで HTTP Client の GET 開始要求を待機する時間を定義します。 この待機オプションは次のように定義します。
   - **timeout value** (0x00000001 から 0xFFFFFFFE) 数値 (0x1 から 0xFFFFFFFE) を選択すると、HTTP Server の応答を待機して中断を続ける時間 (タイマー刻みの最大数) が指定されます。
@@ -2513,7 +2516,7 @@ nx_web_http_client_secure_connect(&my_client, &server_ip_addr,
 /* Create a new GET request on the HTTP client instance. */
 nx_web_http_client_request_initialize(&my_client,
     NX_WEB_HTTP_METHOD_GET,
-    "https://192.168.1.150/test.txt ",
+    "https://192.168.1.150/test.txt ", "host.com",
     0, /* Used by PUT and POST only */
     NX_FALSE,
     NX_NULL, /* username */
@@ -2528,7 +2531,7 @@ status = nx_web_http_client_request_header_add(&my_client, "Server", 6,
 status = nx_web_http_client_request_send(&my_client, 1000);
 
 /* At this point, we need to handle the response from the server by repeatedly
-    calling *nx_web_http_client_response_body_get* until the entire response is retrieved. *./
+    calling *nx_web_http_client_response_body_get* until the entire response is retrieved. */
 
 get_status = NX_SUCCESS;
 
@@ -2558,14 +2561,14 @@ UINT nx_web_http_server_cache_info_callback_set(
 
 ### <a name="description"></a>説明
 
-このサービスでは、指定されたリソースの最大有効期間と最終更新日を取得するために呼び出されるコールバック サービスが設定されます。
+このサービスは、指定されたリソースの最大有効期間と最終更新日を取得するために呼び出されるコールバック サービスを設定します。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **server_ptr** HTTP Server の制御ブロックへのポインター。
+- **server_ptr** HTTP サーバーの制御ブロックへのポインター。
 - **cache_info_get** コールバックへのポインター
 - **max_age** リソースの最大有効期間へのポインター
-- **data** 返される最終更新日へのポインター。
+- **data** 返された最終更新日へのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -2605,11 +2608,11 @@ UINT nx_web_http_server_callback_data_send(
 
 ### <a name="description"></a>説明
 
-このサービスでは、アプリケーションのコールバック ルーチンから、指定されたパケット内のデータが送信されます。 これは通常、GET または POST 要求に関連付けられた動的データを送信するために使用されます。 この関数を使用する場合、応答全体を適切な形式で送信するのはコールバック ルーチンの責任であることに注意してください。 また、コールバック ルーチンによって NX_WEB_HTTP_CALLBACK_COMPLETED という状態が返される必要があります。
+このサービスは、アプリケーションのコールバック ルーチンから、指定されたパケット内のデータを送信します。 これは通常、GET または POST 要求に関連付けられた動的データを送信するために使用されます。 この関数を使用する場合、応答全体を適切な形式で送信するのはコールバック ルーチンの責任であることに注意してください。 また、コールバック ルーチンによって NX_WEB_HTTP_CALLBACK_COMPLETED という状態が返される必要があります。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **server_ptr** HTTP Server の制御ブロックへのポインター。
+- **server_ptr** HTTP サーバーの制御ブロックへのポインター。
 - **data_ptr** 送信するデータへのポインター。
 - **data_length** 送信するバイト数。
 
@@ -2673,7 +2676,7 @@ UINT nx_web_http_server_callback_generate_response_header(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **server_ptr** HTTP Server の制御ブロックへのポインター。
+- **server_ptr** HTTP サーバーの制御ブロックへのポインター。
 - **packet_pptr** メッセージに割り当てられたパケット ポインターへのポインター
 - **status_code** リソースの状態を示します。 次に例を示します。
   - **NX_WEB_HTTP_STATUS_OK**
@@ -2776,7 +2779,7 @@ UINT nx_web_http_server_callback_generate_response_header_extended(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **server_ptr** HTTP Server の制御ブロックへのポインター。
+- **server_ptr** HTTP サーバーの制御ブロックへのポインター。
 - **packet_pptr** メッセージに割り当てられたパケット ポインターへのポインター
 - **status_code** リソースの状態を示します。 次に例を示します。
   - **NX_WEB_HTTP_STATUS_OK**
@@ -2926,16 +2929,16 @@ UINT nx_web_http_server_callback_response_send(
 
 ### <a name="description"></a>説明
 
-このサービスでは、アプリケーションのコールバック ルーチンから、指定された応答情報が送信されます。 通常、これは GET または POST 要求に関連付けられたカスタム応答を送信するために使用されます。 この関数を使用する場合、コールバック ルーチンによって NX_WEB_HTTP_CALLBACK_COMPLETED という状態が返される必要がある点に注意してください。
+このサービスは、アプリケーションのコールバック ルーチンから、指定された応答情報を送信します。 通常、これは GET または POST 要求に関連付けられたカスタム応答を送信するために使用されます。 この関数を使用する場合、コールバック ルーチンによって NX_WEB_HTTP_CALLBACK_COMPLETED という状態が返される必要がある点に注意してください。
 
 このサービスは推奨されなくなりました。 開発者には、*nx_web_http_server_callback_response_send_extended()* を使用することをお勧めします。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **server_ptr** HTTP Server の制御ブロックへのポインター。
-- **header** 応答ヘッダーの文字列へのポインター。
-- **information** 情報の文字列へのポインター。
-- **additional_info** 追加の情報の文字列へのポインター。
+- **server_ptr** HTTP サーバーの制御ブロックへのポインター。
+- **header** 応答ヘッダー文字列へのポインター。
+- **information** 情報文字列へのポインター。
+- **additional_info** 追加の情報文字列へのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -2988,7 +2991,7 @@ UINT nx_web_http_server_callback_response_send_extended(
 
 ### <a name="description"></a>説明
 
-このサービスでは、アプリケーションのコールバック ルーチンから、指定された応答情報が送信されます。 通常、これは GET または POST 要求に関連付けられたカスタム応答を送信するために使用されます。 この関数を使用する場合、コールバック ルーチンによって NX_WEB_HTTP_CALLBACK_COMPLETED という状態が返される必要がある点に注意してください。
+このサービスは、アプリケーションのコールバック ルーチンから、指定された応答情報を送信します。 通常、これは GET または POST 要求に関連付けられたカスタム応答を送信するために使用されます。 この関数を使用する場合、コールバック ルーチンによって NX_WEB_HTTP_CALLBACK_COMPLETED という状態が返される必要がある点に注意してください。
 
 header、information、additional_info の文字列は NULL 終端で、各文字列の長さは引数リストで指定された長さと一致している必要があります。
 
@@ -2996,13 +2999,13 @@ header、information、additional_info の文字列は NULL 終端で、各文�
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **server_ptr** HTTP Server の制御ブロックへのポインター。
-- **header** 応答ヘッダーの文字列へのポインター。
-- **header_length** 応答ヘッダーの文字列の長さ。
+- **server_ptr** HTTP サーバーの制御ブロックへのポインター。
+- **header** 応答ヘッダー文字列へのポインター。
+- **header_length** 応答ヘッダー文字列の長さ。
 - **information** 情報の文字列へのポインター。
 - **information_length** 情報の文字列の長さ。
 - **additional_info** 追加の情報の文字列へのポインター。
-- **additional_info_length** 追加の情報の文字列の長さ。
+- **additional_info_length** 追加の情報文字列の長さ。
 
 ### <a name="return-values"></a>戻り値
 
@@ -3060,8 +3063,8 @@ UINT nx_web_http_server_content_get(NX_WEB_HTTP_SERVER *server_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **server_ptr** HTTP Server の制御ブロックへのポインター。
-- **packet_ptr** HTTP Client 要求パケットへのポインター。 このパケットは要求通知コールバックで解放してはいけないことに注意してください。
+- **server_ptr** HTTP サーバーの制御ブロックへのポインター。
+- **packet_ptr** HTTP クライアント要求パケットへのポインター。 このパケットは要求通知コールバックで解放してはならないことに注意してください。
 - **byte_offset** コンテンツ領域にオフセットするバイト数。
 - **destination_ptr** コンテンツのコピー先領域へのポインター。
 - **destination_size** コピー先領域の使用可能な最大バイト数。
@@ -3117,8 +3120,8 @@ UINT nx_web_http_server_content_get_extended(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **server_ptr** HTTP Server の制御ブロックへのポインター。
-- **packet_ptr** HTTP Client 要求パケットへのポインター。 このパケットは要求通知コールバックで解放してはいけないことに注意してください。
+- **server_ptr** HTTP サーバーの制御ブロックへのポインター。
+- **packet_ptr** HTTP クライアント要求パケットへのポインター。 このパケットは要求通知コールバックで解放してはならないことに注意してください。
 - **byte_offset** コンテンツ領域にオフセットするバイト数。
 - **destination_ptr** コンテンツのコピー先領域へのポインター。
 - **destination_size** コピー先領域の使用可能な最大バイト数。
@@ -3168,8 +3171,8 @@ UINT nx_web_http_server_content_length_get(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **packet_ptr** HTTP Client 要求パケットへのポインター。 このパケットは要求通知コールバックで解放してはいけないことに注意してください。
-- **content_length** Content Length フィールドから取得される値へのポインター
+- **packet_ptr** HTTP クライアント要求パケットへのポインター。 このパケットは要求通知コールバックで解放してはならないことに注意してください。
+- **content_length** Content Length フィールドから取得した値へのポインター
 
 ### <a name="return-values"></a>戻り値
 
@@ -3214,25 +3217,25 @@ UINT nx_web_http_server_create(NX_WEB_HTTP_SERVER *http_server_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスでは、それ自体の ThreadX スレッドのコンテキスト内で実行される HTTP Server インスタンスが作成されます。 オプションの *authentication_check* および *request_notify* アプリケーション コールバック ルーチンを使用すると、アプリケーション ソフトウェアから HTTP Server の基本的な操作を制御できます。
+このサービスは、専用の ThreadX スレッドのコンテキスト内で実行される HTTP サーバー インスタンスを作成します。 オプションの *authentication_check* および *request_notify* アプリケーション コールバック ルーチンを使用すると、アプリケーション ソフトウェアから HTTP Server の基本的な操作を制御できます。
 
 このサービスは、プレーンテキストの HTTP Server と TLS で保護された HTTPS Server の両方を作成するために使用されます。 TLS を使用して HTTPS を有効にする方法については、サービス *nx_web_http_server_secure_configure()* を参照してください。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **http_server_ptr** HTTP Server の制御ブロックへのポインター。
-- **http_server_name** HTTP Server の名前へのポインター。
+- **http_server_ptr** HTTP サーバーの制御ブロックへのポインター。
+- **http_server_name** HTTP サーバーの名前へのポインター。
 - **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **server_port** サーバー インスタンスの TCP リスニング ポート。
 - **media_ptr** 以前に作成された FileX メディア インスタンスへのポインター。
-- **stack_ptr** HTTP Server のスレッド スタック領域へのポインター。
-- **stack_size** HTTP Server のスレッド スタック サイズへのポインター。
-- **authentication_check** アプリケーションの認証確認ルーチンへの関数ポインター。 指定した場合、このルーチンは HTTP Client 要求ごとに呼び出されます。 このパラメーターが null 値の場合、認証は実行されません。 このパラメーターは非推奨となりました。 代わりに *nx_web_http_server_authenticate_check_set*() を呼び出してください。
-- **request_notify** アプリケーションの要求通知ルーチンへの関数ポインター。 指定した場合、このルーチンは要求の HTTP Server 処理の前に呼び出されます。 これにより、HTTP Client 要求が完了する前に、リソース名をリダイレクトしたり、リソース内のフィールドを更新したりすることができます。
+- **stack_ptr** HTTP サーバーのスレッド スタック領域へのポインター。
+- **stack_size** HTTP サーバーのスレッド スタック サイズへのポインター。
+- **authentication_check** アプリケーションの認証確認ルーチンへの関数ポインター。 指定した場合、このルーチンは HTTP クライアント要求ごとに呼び出されます。 このパラメーターが null 値の場合、認証は実行されません。 このパラメーターは非推奨となりました。 代わりに *nx_web_http_server_authenticate_check_set*() を呼び出してください。
+- **request_notify** アプリケーションの要求通知ルーチンへの関数ポインター。 指定した場合、このルーチンは要求の HTTP サーバー処理の前に呼び出されます。 これにより、HTTP クライアント要求が完了する前に、リソース名をリダイレクトしたり、リソース内のフィールドを更新したりすることができます。
 
 ### <a name="return-values"></a>戻り値
 
-- **NX_SUCCESS** (0x00) HTTP Server が正常に作成されました。
+- **NX_SUCCESS** (0x00) HTTP サーバーが正常に作成されました。
 - NX_PTR_ERROR (0x07) HTTP Server、IP、メディア、スタック、またはパケット プール ポインターが無効です。
 - NX_WEB_HTTP_POOL_ERROR (0x30009) プールのパケット ペイロードが HTTP 要求全体を格納するのに十分な大きさではありません。
 
@@ -3264,16 +3267,16 @@ UINT nx_web_http_server_delete(NX_WEB_HTTP_SERVER *http_server_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスでは、以前に作成された HTTP Server インスタンスが削除されます。
+このサービスは、以前に作成された HTTP サーバー インスタンスを削除します。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **http_server_ptr** HTTP Server の制御ブロックへのポインター。
+- **http_server_ptr** HTTP サーバーの制御ブロックへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
-- **NX_SUCCESS** (0x00) HTTP Server が正常に削除されました
-- NX_PTR_ERROR (0x07) HTTP Server のポインターが無効です
+- **NX_SUCCESS** (0x00) HTTP サーバーが正常に削除されました
+- NX_PTR_ERROR (0x07) HTTP サーバー ポインターが無効です
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です
 
 ### <a name="allowed-from"></a>許可元
@@ -3313,7 +3316,7 @@ UINT nx_web_http_server_get_entity_content(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **server_ptr** HTTP Server へのポインター
+- **server_ptr** HTTP サーバーへのポインター
 - **packet_pptr** パケット ポインターの位置へのポインター。 アプリケーションでこのパケットを解放しないように注意してください
 - **available_offset** パケットのプリペンド ポインターからのエンティティ データのオフセットへのポインター
 - **available_length** エンティティ データの長さへのポインター
@@ -3362,13 +3365,13 @@ UINT nx_web_http_server_get_entity_header(
 
 ### <a name="description"></a>説明
 
-このサービスでは、エンティティ ヘッダーが取得され、指定されたバッファーに格納されます。 複数のエンティティ ヘッダーを含むクライアント データグラム内の次のマルチパート エンティティを見つけるために、HTTP Server 自体のポインターが内部的に更新されます。 クライアント メッセージはマルチパケット データグラムであり、パケット ポインターが次のパケットに更新されます。
+このサービスは、エンティティ ヘッダーを取得して、指定されたバッファーに格納します。 複数のエンティティ ヘッダーを含むクライアント データグラム内の次のマルチパート エンティティを見つけるために、HTTP サーバー自体のポインターが内部的に更新されます。 クライアント メッセージはマルチパケット データグラムであり、パケット ポインターが次のパケットに更新されます。
 
 このサービスを使用するには NX_WEB_HTTP_MULTIPART_ENABLE を有効にする必要があることに注意してください。 また、packet_pptr が指しているパケットをアプリケーションで解放しないようにしてください。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **server_ptr** HTTP Server へのポインター
+- **server_ptr** HTTP サーバーへのポインター
 - **packet_pptr** パケット ポインターの位置へのポインター。 アプリケーションでこのパケットを解放しないように注意してください
 - **entity_header_buffer** エンティティ ヘッダーを格納する場所へのポインター
 - **buffer_size** 入力バッファーのサイズ
@@ -3459,11 +3462,11 @@ UINT nx_web_http_server_gmt_callback_set(
 
 ### <a name="description"></a>説明
 
-このサービスでは、以前に作成された HTTP Server を使用して GMT の日付と時刻を取得するコールバックが設定されます。 このサービスは、HTTP Server でクライアントに対する HTTP Server 応答のヘッダーが作成されているときに呼び出されます。
+このサービスは、以前に作成された HTTP サーバーを使用して GMT の日付と時刻を取得するコールバックを設定します。 このサービスは、HTTP サーバーがクライアントに対する HTTP サーバー応答のヘッダーを作成しているときに呼び出されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **server_ptr** HTTP Server へのポインター
+- **server_ptr** HTTP サーバーへのポインター
 - **gmt_get** GMT コールバックへのポインター
 - **date** 取得される日付へのポインター
 
@@ -3509,14 +3512,14 @@ UINT nx_web_http_server_invalid_userpassword_notify_set(
 
 ### <a name="description"></a>説明
 
-このサービスでは、クライアントの GET、PUT、または DELETE 要求のダイジェスト認証または基本認証で無効なユーザー名とパスワードを受信したときに呼び出されるコールバックが設定されます。 HTTP Server を先に作成しておく必要があります。
+このサービスは、ダイジェストまたは基本認証のいずれかによって、クライアントの GET、PUT、または DELETE 要求で無効なユーザー名とパスワードを受信したときに呼び出されるコールバックを設定します。 HTTP サーバーを先に作成しておく必要があります。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **server_ptr** HTTP Server へのポインター
-- **invalid_username_password_callback** 無効なユーザー/パスワードのコールバックへのポインター
+- **server_ptr** HTTP サーバーへのポインター
+- **invalid_username_password_callback** 無効なユーザーまたはパス コールバックへのポインター
 - **resource** クライアントによって指定されたリソースへのポインター
-- **client_address** クライアントのアドレス
+- **client_address** クライアント アドレス
 - **request_type** クライアント要求の種類を示します。 次を指定できます。
   - *NX_WEB_HTTP_SERVER_GET_REQUEST*
   - *NX_WEB_HTTP_SERVER_POST_REQUEST NX_WEB_HTTP_SERVER_HEAD_REQUEST*
@@ -3525,7 +3528,7 @@ UINT nx_web_http_server_invalid_userpassword_notify_set(
 ### <a name="return-values"></a>戻り値
 
 - **NX_SUCCESS** (0x00) コールバックが正常に設定されました
-- NX_PTR_ERROR: (0x07) ポインターの入力が無効です
+- NX_PTR_ERROR (0x07) ポインター入力が無効です
 
 ### <a name="allowed-from"></a>許可元
 
@@ -3574,14 +3577,14 @@ GET 要求などのクライアント要求を受信すると、HTTP Server で�
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **server_ptr** HTTP Server インスタンスへのポインター
-- **mime_maps** MIME マップの配列へのポインター
+- **server_ptr** HTTP サーバー インスタンスへのポインター
+- **mime_maps** MIME マップ配列へのポインター
 - **mime_map_num** 配列内の MIME マップの数
 
 ### <a name="return-values"></a>戻り値
 
-- **NX_SUCCESS** (0x00) HTTP Server の MIME マップが正常に設定されました
-- NX_PTR_ERROR: (0x07) ポインターの入力が無効です
+- **NX_SUCCESS** (0x00) HTTP サーバーの MIME マップが正常に設定されました
+- NX_PTR_ERROR (0x07) ポインター入力が無効です
 
 ### <a name="allowed-from"></a>許可元
 
@@ -3671,7 +3674,7 @@ UINT nx_web_http_server_packet_content_find(
 
 ### <a name="description"></a>説明
 
-このサービスでは、HTTP ヘッダーからコンテンツの長さが抽出されます。 また、指定されたパケットを次のように更新します。パケットのプリペンド ポインター (書き込み先のパケット バッファーの開始位置) が、HTTP ヘッダーのすぐ先にある HTTP コンテンツ (データ) に設定されます。
+このサービスは、HTTP ヘッダーからコンテンツの長さを抽出します。 また、指定されたパケットを次のように更新します。パケットのプリペンド ポインター (書き込み先のパケット バッファーの開始位置) が、HTTP ヘッダーのすぐ先にある HTTP コンテンツ (データ) に設定されます。
 
 コンテンツの先頭が現在のパケット内に見つからない場合、この関数では、NX_WEB_HTTP_SERVER_TIMEOUT_RECEIVE 待機オプションを使用して、次のパケットを受信するまで待機します。
 
@@ -3679,8 +3682,8 @@ UINT nx_web_http_server_packet_content_find(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **server_ptr** HTTP Server インスタンスへのポインター
-- **packet_ptr** 更新されたプリペンド ポインターでパケットを返すためのパケット ポインターへのポインター
+- **server_ptr** HTTP サーバー インスタンスへのポインター
+- **packet_ptr** 先頭追加ポインターが更新されたパケットを返すためのパケット ポインターへのポインター
 - **content_length** 抽出される content_length へのポインター
 
 ### <a name="return-values"></a>戻り値
@@ -3729,7 +3732,7 @@ UINT nx_web_http_server_packet_get(NX_WEB_HTTP_SERVER *server_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **server_ptr** HTTP Server インスタンスへのポインター
+- **server_ptr** HTTP サーバー インスタンスへのポインター
 - **packet_ptr** 受信したパケットへのポインター
 
 ### <a name="return-values"></a>戻り値
@@ -3772,7 +3775,7 @@ UINT nx_web_http_server_param_get(NX_PACKET *packet_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **packet_ptr** HTTP Client の要求パケットへのポインター。 アプリケーションでこのパケットを解放しないように注意してください。
+- **packet_ptr** HTTP クライアントの要求パケットへのポインター。 アプリケーションでこのパケットを解放しないように注意してください。
 - **param_number** パラメーター リストの左から右に向かって 0 から始まるパラメーターの論理番号。
 - **param_ptr** パラメーターのコピー先領域。
 - **param_size** パラメーター データの合計長 (バイト単位) が返されます。
@@ -3824,8 +3827,8 @@ UINT nx_web_http_server_query_get(NX_PACKET *packet_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **packet_ptr** HTTP Client の要求パケットへのポインター。 アプリケーションでこのパケットを解放しないように注意してください。
-- **query_number** クエリ リストの左から右に向かって 0 から始まるパラメーターの論理番号。
+- **packet_ptr** HTTP クライアントの要求パケットへのポインター。 アプリケーションでこのパケットを解放しないように注意してください。
+- **query_number** クエリ リストの左から右に向かって 0 から始まるクエリの論理番号。
 - **query_ptr** クエリのコピー先領域。
 - **query_size** クエリ データのサイズ (バイト単位) が返されます。
 - **max_query_size** クエリのコピー先の最大サイズ
@@ -3907,7 +3910,7 @@ nx_web_http_server_response_packet_allocate(&my_server, &my_packet, NX_WAIT_FORE
 /* Set the chunked transfer. */
 status = nx_web_http_server_response_chunked_set(&my_server, 128, my_packet)
 
-/* At this point, user can fill the data into my_packet. *./
+/* At this point, user can fill the data into my_packet. */
 nx_packet_data_append(my_packet, data_ptr, data_size,
     packet_pool, NX_WAIT_FOREVER);
 
@@ -3972,10 +3975,10 @@ UINT nx_web_http_server_secure_configure(
 
 ### <a name="return-values"></a>戻り値
 
-- **NX_SUCCESS** (0x00) TLS セッションが正常に初期化されました。
-- **NX_NOT_CONNECTED** (0x38) 基になる TCP ソケットの接続が解除されています。
-- **NX_SECURE_TLS_UNRECOGNIZED_MESSAGE_TYPE** (0x102) 受信した TLS メッセージの種類が正しくありません。
-- **NX_SECURE_TLS_UNSUPPORTED_CIPHER** (0x106) リモート ホストによって提供された暗号はサポートされていません。
+- **NX_SUCCESS** （0x00） TLS セッションの初期化に成功。
+- **NX_NOT_CONNECTED** （0x38） 基になる TCP ソケットの接続が解除されています。
+- **NX_SECURE_TLS_UNRECOGNIZED_MESSAGE_TYPE** （0x102） 受信した TLS メッセージの種類が正しくありません。
+- **NX_SECURE_TLS_UNSUPPORTED_CIPHER** （0x106） リモート ホストによって提供された暗号はサポートされていません。
 - **NX_SECURE_TLS_HANDSHAKE_FAILURE** (0x107) TLS ハンドシェイク中のメッセージの処理に失敗しました。
 - **NX_SECURE_TLS_HASH_MAC_VERIFY_FAILURE** (0x108) 受信メッセージのハッシュ MAC チェックに失敗しました。
 - **NX_SECURE_TLS_TCP_SEND_FAILE** (0x109) 基になる TCP ソケットの送信に失敗しました。
@@ -3983,11 +3986,11 @@ UINT nx_web_http_server_secure_configure(
 - **NX_SECURE_TLS_BAD_CIPHERSPE** (0x10B) 受信 ChangeCipherSpec メッセージが正しくありませんでした。
 - **NX_SECURE_TLS_INVALID_SERVER_CER** (0x10C) 受信 TLS 証明書を、リモート TLS サーバーの識別に使用できません。
 - **NX_SECURE_TLS_UNSUPPORTED_PUBLIC_CIPHER** (0x10D) リモート ホストによって提供された公開キー暗号はサポートされていません。
-- **NX_SECURE_TLS_NO_SUPPORTED_CIPHERS** (0x10E) リモート ホストでは、NetX Secure TLS スタックによってサポートされている暗号スイートがないことを示しています。
-- **NX_SECURE_TLS_UNKNOWN_TLS_VERSION** (0x10F) 受信した TLS メッセージのヘッダーの TLS バージョンが不明です。
-- **NX_SECURE_TLS_UNSUPPORTED_TLS_VERSION** (0x110) 受信した TLS メッセージのヘッダーの TLS バージョンは、既知ですがサポートされていません。
-- **NX_SECURE_TLS_ALLOCATE_PACKET_FAILED** (0x111) 内部 TLS パケットの割り当てに失敗しました。
-- **NX_SECURE_TLS_INVALID_CERTIFICATE** (0x112) リモート ホストによって無効な証明書が提示されました。
+- **NX_SECURE_TLS_NO_SUPPORTED_CIPHERS** （0x10E） リモート ホストは、NetX Secure TLS スタックによってサポートされている暗号スイートがないことを示しています。
+- **NX_SECURE_TLS_UNKNOWN_TLS_VERSION** （0x10F） 受信した TLS メッセージのヘッダーに不明な TLS バージョンがありました。
+- **NX_SECURE_TLS_UNSUPPORTED_TLS_VERSION** （0x110） 受信した TLS メッセージのヘッダーに既知だがサポートされていない TLS バージョンがありました。
+- **NX_SECURE_TLS_ALLOCATE_PACKET_FAILED** （0x111） 内部 TLS パケットの割り当てに失敗しました。
+- **NX_SECURE_TLS_INVALID_CERTIFICATE** （0x112） リモート ホストが無効な証明書を提供しました。
 - **NX_SECURE_TLS_ALERT_RECEIVED** (0x114) リモート ホストによって、エラーを通知して TLS セッションを終了するアラートが送信されました。
 - **NX_PTR_ERROR** (0x07) 無効なポインターを使用することが試みられました。
 
@@ -4043,7 +4046,7 @@ HTTPS Server では、HTTP と同じ API が共有されます。 HTTP Server �
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **http_server_ptr** HTTP Server インスタンスへのポインター。
+- **http_server_ptr** HTTP サーバー インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -4075,11 +4078,11 @@ UINT nx_web_http_server_stop(NX_WEB_HTTP_SERVER *http_server_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスでは、以前に作成された HTTP Server インスタンスが停止されます。 このルーチンは、HTTP Server インスタンスを削除する前に呼び出す必要があります。
+このサービスは、以前に作成された HTTP サーバー インスタンスを停止します。 このルーチンは、HTTP サーバー インスタンスを削除する前に呼び出す必要があります。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **http_server_ptr** HTTP Server インスタンスへのポインター。
+- **http_server_ptr** HTTP サーバー インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -4130,7 +4133,7 @@ UINT nx_web_http_server_type_get(NX_WEB_HTTP_SERVER *http_server_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **http_server_ptr** HTTP Server インスタンスへのポインター
+- **http_server_ptr** HTTP サーバー インスタンスへのポインター
 - **name** 検索するバッファーへのポインター
 - **http_type_string** 抽出される HTML の種類の文字列へのポインター
 - **string_size** 抽出された HTML の種類の文字列長を返すためのポインター。
@@ -4195,7 +4198,7 @@ UINT nx_web_http_server_type_get_extended(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **http_server_ptr** HTTP Server インスタンスへのポインター
+- **http_server_ptr** HTTP サーバー インスタンスへのポインター
 - **name** 検索するバッファーへのポインター
 - **name_length** 名前の長さ
 - **http_type_string** 抽出される HTML の種類の文字列へのポインター
@@ -4256,17 +4259,17 @@ UINT nx_web_http_server_digest_authenticate_notify_set(
 
 ### <a name="description"></a>説明
 
-このサービスでは、ダイジェスト認証の実行時に呼び出されるコールバックが設定されます。
+このサービスは、ダイジェスト認証の実行時に呼び出されるコールバックを設定します。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
-- **http_server_ptr** HTTP Server インスタンスへのポインター
-- **digest_authenticate_callback** ダイジェスト認証のコールバックへのポインター
+- **http_server_ptr** HTTP サーバー インスタンスへのポインター
+- **digest_authenticate_callback** ダイジェスト認証コールバックへのポインター
 
 ### <a name="return-values"></a>戻り値
 
 - **NX_SUCCESS** (0x00) コールバックが正常に設定されました
-- NX_PTR_ERROR: (0x07) ポインターの入力が無効です
+- NX_PTR_ERROR (0x07) ポインター入力が無効です
 - NX_NOT_SUPPORTED (0x4B) ダイジェスト認証が有効になっていません
 
 ### <a name="allowed-from"></a>許可元
@@ -4328,7 +4331,7 @@ UINT nx_web_http_server_digest_authenticate_notify_set(
 ### <a name="return-values"></a>戻り値
 
 - **NX_SUCCESS** (0x00) コールバックが正常に設定されました
-- NX_PTR_ERROR: (0x07) ポインターの入力が無効です
+- NX_PTR_ERROR (0x07) ポインター入力が無効です
 
 ### <a name="allowed-from"></a>許可元
 
