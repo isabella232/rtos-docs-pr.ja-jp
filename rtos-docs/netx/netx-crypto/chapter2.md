@@ -6,16 +6,16 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: cd736cf6bbe15e1f407d1812072a4308435c8007
-ms.sourcegitcommit: c2f5da5d6c7b230799f8fbd77885e9940acfbab4
+ms.openlocfilehash: 3323af5eaf31ac9c167966522df6477c82e99fdc
+ms.sourcegitcommit: c98e5360c9cedbe773af5a44f5163f563c85b570
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2021
-ms.locfileid: "110236154"
+ms.lasthandoff: 05/24/2021
+ms.locfileid: "110337008"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-crypto"></a>第 2 章 - Azure RTOS NetX Crypto のインストールと使用
 
-この章では、Azure RTOS NetX Crypto コンポーネントのインストール、設定、使用に関連するさまざまな問題について説明します。
+このチャプターでは、Azure RTOS NetX コンポーネントのインストール、セットアップ、使用方法について説明します。
 
 ## <a name="product-distribution"></a>製品の配布
 
@@ -36,7 +36,7 @@ NetX Crypto をスタンドアロン モードで使用するには、前述し�
 
 ## <a name="using-netx-crypto"></a>NetX Crypto の使用
 
-このチャプターでは、Azure RTOS NetX コンポーネントのインストール、セットアップ、使用方法について説明します。 基本的に、アプリケーション コードで *nx_crypto.h* をインクルードする必要があります。  *nx_crypto.h* をインクルードすると、このガイドで後述する NetX Crypto 関数呼び出しを、アプリケーション コードで行えるようになります。
+アプリケーション コードには *nx_crypto.h* をインクルードする必要があります。  *nx_crypto.h* をインクルードすると、このガイドで後述する NetX Crypto 関数呼び出しを、アプリケーション コードで行えるようになります。
 
 ## <a name="configuration-options"></a>構成オプション
 

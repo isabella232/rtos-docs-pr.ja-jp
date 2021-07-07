@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: e3fe3bcc602f409cc76f3be47aca865bf8116697
-ms.sourcegitcommit: 19d50693d8f5287ba6938ae1d23eef88435ed7b1
+ms.openlocfilehash: 6112ab5cb711ca1a5c83fd5cd4b43abc0302c6c5
+ms.sourcegitcommit: f9d8cf23becf96d5bd6d31dd54f89c48962fd09b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108171337"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111549334"
 ---
 # <a name="overview-of-azure-rtos-netx-duo"></a>Azure RTOS NetX Duo の概要
 
@@ -83,7 +83,7 @@ Azure RTOS NetX Duo 埋め込み型 TCP/IP ネットワーク スタックは、
 * クライアントのサポート
 * mDNS と DNS-SD は、Azure RTOS NetX Duo でのみ使用可能
 
-### <a name="p0p3"></a>P0P3
+### <a name="pop3"></a>POP3
 
 * Post Office Protocol Version 3 (POP3)
 * 最小 8.1 KB と 1.4 KB の RAM フットプリント
@@ -294,7 +294,30 @@ Azure RTOS NetX Duo は次の機能を備えた高度なテクノロジです。
 
 ## <a name="related-services"></a>関連サービス
 
-Azure Security Center for IoT RTOS セキュリティ モジュールでは、Azure RTOS デバイス向けの包括的なセキュリティ ソリューションが提供されます。 Azure RTOS のセキュリティ モジュールは、悪意のあるネットワーク アクティビティの検出、カスタム アラート ベースのデバイス動作での基準設定、およびデバイス セキュリティ検疫の強化に役立ちます。 [Azure RTOS のセキュリティ モジュール](https://docs.microsoft.com/azure/asc-for-iot/iot-security-azure-rtos)の詳細を確認するか、[Azure RTOS 用セキュリティ モジュールの構成](https://docs.microsoft.com/azure/asc-for-iot/quickstart-azure-rtos-security-module)に関するクイックスタートを開始してください。
+### <a name="azure-iot"></a>Azure IoT
+
+NetX Duo には [Azure RTOS 用の Azure IoT ミドルウェア](https://github.com/azure-rtos/netxduo/blob/master/addons/azure_iot/docs/README.md)が含まれています。これは、Azure RTOS と Azure SDK for Embedded C の間のバインド層として機能し、Azure IoT サービスへの接続を容易にするプラットフォーム固有のライブラリです。 Azure IoT ミドルウェアの目的は次のとおりです。
+* 開発者がアプリケーションに必要とするスマートなクライアント インターフェイス (IoTHub_Client、DeviceProvisioning_Client) を提供する。
+* Embedded C SDK とプラットフォーム間の対話を調整する。
+* Azure RTOS プラットフォームの初期化を提供する。
+* IoT Plug and Play のサポート。
+* セキュリティ機能。
+* リソース制限への対応。
+* プロトコルのサポート。
+
+![Azure RTOS NetX Duo 関連のサービス](./media/overview-netx-duo/related-services.png)
+
+### <a name="azure-defender"></a>Azure Defender
+
+Azure Defender for IoT セキュリティ モジュールでは、Azure RTOS デバイス向けの包括的なセキュリティ ソリューションが提供されます。 Azure RTOS のセキュリティ モジュールは、悪意のあるネットワーク アクティビティの検出、カスタム アラート ベースのデバイス動作での基準設定、およびデバイス セキュリティ検疫の強化に役立ちます。 [Azure RTOS のセキュリティ モジュール](https://docs.microsoft.com/azure/asc-for-iot/iot-security-azure-rtos)の詳細を確認するか、[Azure RTOS 用セキュリティ モジュールの構成](https://docs.microsoft.com/azure/asc-for-iot/quickstart-azure-rtos-security-module)に関するクイックスタートを開始してください。
+
+### <a name="device-update-for-iot-hub"></a>Device Update for IoT Hub
+
+[Azure Device Update for IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/understand-device-update) は、IoT デバイスの Over-the-Air (OTA) 更新をデプロイできるようにするサービスです。 Device Update for IoT Hub モジュールは、Azure RTOS NetX Duo での Device Update for IoT Hub エージェントの実装です。 これは、デバイス開発者がアプリケーションにデバイス更新機能を統合するための簡単な API を提供します。
+
+主要な半導体評価ボードのサンプルをご覧ください。デバイスへの無線 (OTA) での更新を構成、構築、デプロイする方法が学べるファースト ステップ ガイドが含まれています。
+
+さらに、[Azure RTOS を使用した Device Update for IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-azure-real-time-operating-system) に関する記事で詳細を確認できます。
 
 ## <a name="next-steps"></a>次のステップ
 

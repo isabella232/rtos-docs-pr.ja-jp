@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: f70b8890be6b12f917ac1724a29559afab33b88d
-ms.sourcegitcommit: 0520b2afb6b7f8ae1ea48581e160459fc9292ca7
+ms.openlocfilehash: 39b31c1abae8613eb54382162504aaadc07ceebf
+ms.sourcegitcommit: 97f6724d6eee7b9c251a50c191911050c52b1c69
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108297498"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112025923"
 ---
 # <a name="chapter-4--description-of-azure-rtos-filex-services"></a>第 4 章 - Azure RTOS FileX サービスの説明
 
@@ -4120,6 +4120,9 @@ UINT fx_media_exFAT_format(
 - **hidden_sectors**: このメディアのブート セクターの前に隠されたセクターの数。 これは複数のパーティションが存在する場合に一般的です。
 - **total_sectors**: メディア内のセクターの合計数。
 - **bytes_per_sector**: 1 セクターあたりのバイト数 (通常は 512)。 FileX では 32 の倍数である必要があります。
+> [!IMPORTANT]
+> *仕様を参照すると、セクターあたりのバイト数は、512、1024、2048、または 4096 の値のみを取ることができます。*
+
 - **sectors_per_cluster**: 各クラスター内のセクター数。 クラスターは FAT ファイル システムの最小のアロケーション ユニットです。
 - **volumne_serial_number**: このボリュームに使用するシリアル番号。
 - **boundary_unit**: 物理データ領域の配置サイズ (セクターの数)。
@@ -4360,6 +4363,9 @@ UINT fx_media_format(
 - **hidden_sectors**: このメディアのブート セクターの前に隠されたセクターの数。 これは複数のパーティションが存在する場合に一般的です。
 - **total_sectors**: メディア内のセクターの合計数。
 - **bytes_per_sector**: 1 セクターあたりのバイト数 (通常は 512)。 FileX では 32 の倍数である必要があります。
+> [!IMPORTANT]
+> *仕様を参照すると、セクターあたりのバイト数は、512、1024、2048、または 4096 の値のみを取ることができます。*
+
 - **sectors_per_cluster**: 各クラスター内のセクター数。 クラスターは FAT ファイル システムの最小のアロケーション ユニットです。
 - **head**: 物理ヘッドの数。
 - **sectors_per_track**: 1 トラックあたりのセクター数。

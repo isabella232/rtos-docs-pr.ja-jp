@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 6/9/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: e786e5bf1f434ec9543823dee8784b677a2b371f
-ms.sourcegitcommit: 19d50693d8f5287ba6938ae1d23eef88435ed7b1
+ms.openlocfilehash: 0fb861c2291046c2ac6edf1d03014996daa09a8e
+ms.sourcegitcommit: c1b00341e0c5ab71372f3d9cc4ee3bdd3702b805
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108171388"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111988364"
 ---
 # <a name="overview-of-azure-rtos-threadx"></a>Azure RTOS ThreadX の概要
 
@@ -271,7 +271,6 @@ Azure RTOS ThreadX モジュールと呼ばれるアドオン製品を使用す�
 
 モジュールには、Azure RTOS ThreadX 自体から完全に分離されたアドレス空間もあります。 これにより、Azure RTOS ThreadX ではモジュールの周囲にメモリ保護 (MPU または MMU を使用) を配置できるようになっているので、モジュールの外部からの偶発的なアクセスによって、他のソフトウェア コンポーネントが破損するのを防止できます。
 
-
 ## <a name="misra-compliant"></a>MISRA 準拠
 
 Azure RTOS ThreadX と Azure RTOS ThreadX SMP のソース コードは、MISRA-C:2004 と MISRA C:2012 に準拠しています。 MISRA C は、C プログラミング言語を使用した重要なシステム用の一連のプログラミング ガイドラインです。 元の MISRA C ガイドラインは主に自動車アプリケーションを対象としていましたが、今では MISRA C は安全性が重要な任意のアプリケーションに適用可能なものとして広く認識されています。 Azure RTOS ThreadX は、MISRA-C:2004 と MISRA C:2012 のすべての必要規則と必須規則に準拠しています。
@@ -306,3 +305,7 @@ Azure RTOS ThreadX は、すぐに利用可能で完全なテストとサポー�
 ## <a name="supports-most-popular-tools"></a>最も一般的なツールをサポート
 
 Azure RTOS ThreadX では、一般的な埋め込み開発ツールがサポートされています。これには、最も包括的な Azure RTOS ThreadX カーネル認識が利用できる、IAR のEmbedded Workbench™ も含まれています。 その他のツール統合としては、GNU (GCC)、ARM DS-5/uVision®、Green Hills MULTI®、Wind River Workbench™、Imagination Codescape、Renesas e2studio、Metaware SeeCode™、NXP CodeWarrior、Lauterbach TRACE32®、TI Code-Composer Studio、CrossCore などがサポートされています。
+
+## <a name="adaptation-layer-for-threadx"></a>ThreadX の適合レイヤー
+
+Azure RTOS ThreadX は、特に深く組み込まれたアプリケーション向けに設計された高度なリアルタイム オペレーティング システム (RTOS) です。 Azure RTOS にアプリケーションを簡単に移行できるようにするために、ThreadX は、さまざまなレガシ RTO API (FreeRTOS、POSIX、OSEK など) のための[適合レイヤー](https://github.com/azure-rtos/threadx/tree/master/utility/rtos_compatibility_layers)を提供しています。
