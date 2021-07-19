@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: 8f4a1578fcabdabfb213ced9c6593f6cffc964aa
-ms.sourcegitcommit: 19d50693d8f5287ba6938ae1d23eef88435ed7b1
+ms.openlocfilehash: 0a6ac2c7a76893d516b9beae9b893c9764de60ba
+ms.sourcegitcommit: dbbec3ba6a7eb6097c7888b235c433a2efd6e5b9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108171405"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113754932"
 ---
 # <a name="overview-of-azure-rtos-guix-and-azure-rtos-guix-studio"></a>Azure RTOS GUIX および Azure RTOS GUIX Studio の概要
 
@@ -134,7 +134,7 @@ Azure RTOS GUIX および Azure RTOS GUIX Studio には、洗練された独自�
 
 すべての出力ファイルを生成して、Azure RTOS GUIX 用の C コードを生成します。 そして、ターゲット アプリケーションをリビルドし、変更された参照デザインを確認するだけです。
 
-### <a name="memory-footprint"></a>メモリ専有領域
+### <a name="guix-memory-footprint"></a>GUIX のメモリ占有領域
 
 Azure RTOS GUIX の最小メモリ専有領域は非常に小さく、キャンバスに必要なメモリを含まない基本サポートの場合、フラッシュは 13.2 KB、RAM は 4 KB です。
 

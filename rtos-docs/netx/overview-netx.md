@@ -6,18 +6,19 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: 7c864c23f019e4841ddb3096fde663c8039baf44
-ms.sourcegitcommit: 19d50693d8f5287ba6938ae1d23eef88435ed7b1
+ms.openlocfilehash: 63fd212249da6154926684f9bc844d2c2a78e84e
+ms.sourcegitcommit: dbbec3ba6a7eb6097c7888b235c433a2efd6e5b9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108171320"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113754847"
 ---
 # <a name="overview-of-azure-rtos-netx"></a>Azure RTOS NetX の概要
 
 Azure RTOS NetX は、深く組み込まれたリアルタイム IoT アプリケーション専用に設計された、産業用 TCP/IP IPv4 組み込みネットワーク スタックです。 Azure RTOS NetX は、Microsoft 独自の IPv4 ネットワーク スタックであり、本質的に Azure RTOS のサブセットです。 NetX は、IPv4、TCP、UDP などのコア ネットワーク プロトコルと、その他の高度なアドオン プロトコルの完全なスイートを組み込みアプリケーションに提供します。 小さなフットプリント、高速実行、優れた操作性により、Azure RTOS NetX は、最も要求の厳しい組み込み IoT アプリケーションに最適な選択肢となっています。
 
 ## <a name="api-protocols"></a>API のプロトコル
+Azure RTOS NetX では、次の機能がサポートされています。
 
 ### <a name="telnet"></a>Telnet
 

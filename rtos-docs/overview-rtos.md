@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: c902289b487c439da4ef5138319fe09d74a2347f
-ms.sourcegitcommit: 19d50693d8f5287ba6938ae1d23eef88435ed7b1
+ms.openlocfilehash: b099a5f18accfbe467a2a8fa680c0c76666a9ff3
+ms.sourcegitcommit: dbbec3ba6a7eb6097c7888b235c433a2efd6e5b9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108171277"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113754915"
 ---
 # <a name="what-is-microsoft-azure-rtos"></a>Microsoft Azure RTOS とは
 
@@ -27,43 +27,49 @@ Azure RTOS プラットフォームは、Azure RTOS ThreadX、Azure RTOS FileX�
 
 ### <a name="azure-rtos-threadx"></a>Azure RTOS ThreadX
 
-Azure RTOS ThreadX は、特に深く組み込まれたアプリケーション向けに設計された高度なリアルタイム オペレーティング システム (RTOS) です。 Azure RTOS ThreadX によって提供されるさまざまな利点としては、高度なスケジュール機能、メッセージ パッシング、割り込み管理、メッセージング サービスなどがあります。 Azure RTOS ThreadX には、ピコカーネル アーキテクチャ、優先しきい値のスケジュール設定、イベント チェーン、豊富なシステム サービスのセットなど、高度な機能が多数用意されています。
+Azure [RTOS ThreadX](threadx/overview-threadx.md) は、特に深く組み込まれたアプリケーション向けに設計された高度なリアルタイム オペレーティング システム (RTOS) です。 Azure RTOS ThreadX によって提供されるさまざまな利点としては、高度なスケジュール機能、メッセージ パッシング、割り込み管理、メッセージング サービスなどがあります。 Azure RTOS ThreadX には、ピコカーネル アーキテクチャ、優先しきい値のスケジュール設定、イベント チェーン、豊富なシステム サービスのセットなど、高度な機能が多数用意されています。
 
 ### <a name="azure-rtos-filex"></a>Azure RTOS FileX
 
-Azure RTOS FileX は、高パフォーマンスの FAT 互換ファイル システムです。 Azure RTOS ThreadX と完全に統合されており、サポートされているすべてのプロセッサで利用できます。 Azure RTOS ThreadX と同様に、Azure RTOS FileX は、小さい専有領域でハイ パフォーマンスを実現するように設計されているため、ファイル操作を必要とする昨今の深い埋め込み型のアプリケーションに最適です。 Azure RTOS FileX により、RAM ディスク、USBX、SD カード、および Azure RTOS LevelX 経由の NAND と NOR フラッシュ メモリなど、ほとんどの物理メディアがサポートされています。
+Azure [RTOS FileX](filex/overview-filex.md) は、高パフォーマンスの FAT 互換ファイル システムです。 Azure RTOS ThreadX と完全に統合されており、サポートされているすべてのプロセッサで利用できます。 Azure RTOS ThreadX と同様に、Azure RTOS FileX は、小さい専有領域でハイ パフォーマンスを実現するように設計されているため、ファイル操作を必要とする昨今の深い埋め込み型のアプリケーションに最適です。 Azure RTOS FileX により、RAM ディスク、USBX、SD カード、および Azure RTOS LevelX 経由の NAND と NOR フラッシュ メモリなど、ほとんどの物理メディアがサポートされています。
 
 ### <a name="azure-rtos-guix"></a>Azure RTOS GUIX
 
-Azure RTOS GUIX は、埋め込みシステム開発者のニーズに対応するために作成された、プロフェッショナル品質のグラフィカル ユーザー インターフェイス パッケージです。 代替製品とは異なり、Azure RTOS GUIX は小さく高速で、グラフィカル出力をサポートできる事実上すべてのハードウェア構成に簡単に移植できます。 また、Azure RTOS GUIX には、魅力的な外観と、アプリケーション レベルのユーザー インターフェイス開発用の直感的で強力な API も用意されています。
+Azure [RTOS GUIX](guix/overview-guix.md) は、埋め込みシステム開発者のニーズに対応するために作成された、プロフェッショナル品質のグラフィカル ユーザー インターフェイス パッケージです。 代替製品とは異なり、Azure RTOS GUIX は小さく高速で、グラフィカル出力をサポートできる事実上すべてのハードウェア構成に簡単に移植できます。 また、Azure RTOS GUIX には、魅力的な外観と、アプリケーション レベルのユーザー インターフェイス開発用の直感的で強力な API も用意されています。
 
 ### <a name="azure-rtos-netx"></a>Azure RTOS NetX
 
-Azure RTOS NetX は、TCP/IP プロトコル標準の高パフォーマンスの実装です。 Azure RTOS ThreadX と完全に統合されており、サポートされているすべてのプロセッサで利用できます。 Azure RTOS NetX は、独自の Piconet アーキテクチャを備えています。 ゼロコピー API と組み合わせることで、ネットワーク接続を必要とする今日の深く組み込まれたアプリケーションに最適なものになります。
+Azure [RTOS NetX](netx/overview-netx.md) は、TCP/IP プロトコル標準の高パフォーマンスの実装です。 Azure RTOS ThreadX と完全に統合されており、サポートされているすべてのプロセッサで利用できます。 Azure RTOS NetX は、独自の Piconet アーキテクチャを備えています。 ゼロコピー API と組み合わせることで、ネットワーク接続を必要とする今日の深く組み込まれたアプリケーションに最適なものになります。
 
 ### <a name="azure-rtos-netx-duo"></a>Azure RTOS NetX Duo
 
-Azure RTOS NetX Duo は、特に深く組み込まれたリアルタイムの IoT アプリケーション用に設計された、高度な商用 TCP/IP ネットワーク スタックです。 Azure RTOS NetX Duo が IPv4 と IPv6 のデュアル ネットワーク スタックであるのに対し、NetX は元の IPv4 ネットワーク スタックで、実質的には Azure RTOS NetX Duo のサブセットです。
+Azure [RTOS NetX](netx-duo/overview-netx-duo.md) Duo は、特に深く組み込まれたリアルタイムの IoT アプリケーション用に設計された、高度な商用 TCP/IP ネットワーク スタックです。 Azure RTOS NetX Duo が IPv4 と IPv6 のデュアル ネットワーク スタックであるのに対し、NetX は元の IPv4 ネットワーク スタックで、実質的には Azure RTOS NetX Duo のサブセットです。
 
 ### <a name="azure-rtos-usbx"></a>Azure RTOS USBX
 
-Azure RTOS USBXは、ハイ パフォーマンスの USB ホスト、デバイス、On-The-Go (OTG) の埋め込みスタックです。 ThreadX と完全に統合されており、Azure RTOS ThreadX でサポートされているすべてのプロセッサで利用できます。 Azure RTOS ThreadX と同様に、Azure RTOS USBX は、小さいフットプリントでハイパフォーマンスを実現するように設計されているため、USB デバイスとのインターフェイスを必要とする深く組み込まれたアプリケーションに最適です。
+Azure [RTOS USBX](usbx/overview-usbx.md) は、ハイ パフォーマンスの USB ホスト、デバイス、On-The-Go (OTG) の埋め込みスタックです。 ThreadX と完全に統合されており、Azure RTOS ThreadX でサポートされているすべてのプロセッサで利用できます。 Azure RTOS ThreadX と同様に、Azure RTOS USBX は、小さいフットプリントでハイパフォーマンスを実現するように設計されているため、USB デバイスとのインターフェイスを必要とする深く組み込まれたアプリケーションに最適です。
 
 ### <a name="windows-tools"></a>Windows ツール
 
-Azure RTOS GUIX には完全な GUI アプリケーション デザイン環境が用意されており、アプリケーションの GUI のすべてのグラフィカル要素を容易に作成および保守できます。 Azure RTOS GUIX Studio によって、Azure RTOS GUIX ライブラリと互換性がある C コードが自動的に生成されます。これはターゲット上でコンパイルおよび実行できます。
+Azure [RTOS GUIX Studio](guix/about-guix-studio.md) には完全な GUI アプリケーション デザイン環境が用意されており、アプリケーションの GUI のすべてのグラフィカル要素を容易に作成および保守できます。 Azure RTOS GUIX Studio によって、Azure RTOS GUIX ライブラリと互換性がある C コードが自動的に生成されます。これはターゲット上でコンパイルおよび実行できます。
 
-Azure RTOS TraceX は、開発者がリアルタイム システムのイベントをグラフィカルに表示し、リアルタイム システムの動作への理解を深めることができる、ホストベースの分析ツールです。
+Azure [RTOS TraceX](tracex/overview-tracex.md) は、開発者がリアルタイム システムのイベントをグラフィカルに表示し、リアルタイム システムの動作への理解を深めることができる、ホストベースの分析ツールです。
 
 ## <a name="the-azure-rtos-advantage"></a>Azure RTOS の利点
 Azure RTOS には、他のリアルタイム オペレーティング システムに比べて次のような利点があります。
+
+### <a name="most-deployed-rtos"></a>最も多く展開されている RTOS
+
+大手 M2M 市場インテリジェンス企業である VDC Research によると、Azure RTOS は全世界で 62 億件以上展開されています。 Azure RTOS の人気は、その信頼性、品質、サイズ、パフォーマンス、先進的機能、使いやすさ、および全体的な市場投入時間が高く評価されていることの証明と言えます。
+
+> *「私たちは、会社の設立以来、ワイヤレスおよび IoT 市場における THREADX の成長の軌跡を見てきましたが、THREADX が幅広い業界で導入されていることに、改めて感心しています。」* – VDC Research 取締役副社長 Chris Rommel 氏
 
 ### <a name="intuitive-and-consistent-api-design"></a>直感的で一貫性のある API のデザイン
 
 * 直感的で一貫性のある API。
 * 名詞 - 動詞の名前付け規則。
-* すべての API には、ThreadX の *tx_* や FileX の *nx_* など、先頭にプレフィックスが付けられており、それらが所属する Azure RTOS コンポーネントを簡単に識別可能。
-* ブロックしている API にオプションのスレッド タイムアウトがある
+* すべての API には、ThreadX の *tx_* や FileX の *fx_* など、先頭にプレフィックスが付けられており、それらが所属する Azure RTOS コンポーネントを簡単に識別可能です。
+* API 全体の機能の整合性。 たとえば、中断を実行するすべての API 関数には、同様に機能するオプションのタイムアウトがあります。
 * 多数の API をアプリケーション ISR から直接利用可能。
 - メディアとファイルを操作するための省略可能なユーザー通知コールバック。
 * イベントドリブン プログラミング モデル (API)。
@@ -73,7 +79,7 @@ Azure RTOS には、他のリアルタイム オペレーティング システ�
 - 小さいコード フットプリント。
 - 使用されるサービスに基づいたスケーラブルなコード フットプリント。
 - TUV および UL による IEC 61508 SIL 4、IEC 62304 クラス C、ISO 26262 ASIL D、および EN 50128 SW-SIL4 に対する事前認定。
-- 高速実行。
+- 高速実行。 Azure RTOS は速度を目的として設計され、可能な限り最速のパフォーマンスを実現するために最小限の内部関数呼び出しレイヤーで構成されています。
 
 ### <a name="fastest-time-to-market"></a>市場投入までの時間を最短化
 
@@ -82,6 +88,7 @@ Azure RTOS は、インストール、習得、使用、デバッグ、検証、
 * 完全なソース コードを提供。
 * 使いやすい API。
 * 包括的かつ高度な機能セット。
+* 高品質のドキュメント
 
 ### <a name="one-simple-license"></a>シンプルな 1 つのライセンス
 
@@ -123,45 +130,45 @@ Azure RTOS Crypt ライブラリに使用される情報セキュリティ評価
 
 Azure RTOS は、完全にテストされ、サポートされている、すぐに使える最も一般的な 32 および 64 ビット マイクロプロセッサで動作します。これには、次の高度なアーキテクチャが含まれます。
 
-**Analog Devices**: SHARC、Blackfin、CM4xx
+- **Analog Devices**: SHARC、Blackfin、CM4xx
 
-**Andes Core**: RISC-V
+- **Andes Core**: RISC-V
 
-**Ambiqmicro**: Apollo MCU
+- **Ambiqmicro**: Apollo MCU
 
-**ARM**: ARM7、ARM9、ARM11、Cortex-M0/M3/M4/M7/A15/A5/A7/A8/A9/A5x 64 ビット/A7x 64 ビット/R4/R5、TrustZone ARMv8-M
+- **ARM**: ARM7、ARM9、ARM11、Cortex-M0/M3/M4/M7/A15/A5/A7/A8/A9/A5x 64 ビット/A7x 64 ビット/R4/R5、TrustZone ARMv8-M
 
-**Cadence**: Xtensa、Diamond
+- **Cadence**: Xtensa、Diamond
 
-**CEVA**: PSoC、PSoC 4、PSoC 5、PSoC 6、FM0+、FM3、MF4、WICED WiFi
+- **CEVA**: PSoC、PSoC 4、PSoC 5、PSoC 6、FM0+、FM3、MF4、WICED WiFi
 
-**Cypress**: RISC-V
+- **Cypress**: RISC-V
 
-**EnSilica**: eSi-RISC
+- **EnSilica**: eSi-RISC
 
-**Infineon**: XMC1000、XMC4000、TriCore
+- **Infineon**: XMC1000、XMC4000、TriCore
 
-**Intel および Intel FPGA**: x36/Pentium、XScale、NIOS II、Cyclone、Arria 10
+- **Intel および Intel FPGA**: x36/Pentium、XScale、NIOS II、Cyclone、Arria 10
 
-**Microchip**: AVR32、ARM7、ARM9、Cortex-M3/M4/M7、SAM3/4/7/9/A/C/D/E/G/L/SV、PIC24/PIC32
+- **Microchip**: AVR32、ARM7、ARM9、Cortex-M3/M4/M7、SAM3/4/7/9/A/C/D/E/G/L/SV、PIC24/PIC32
 
-**Microsemi**: RISC-V
+- **Microsemi**: RISC-V
 
-**NXP**: LPC、ARM7、ARM9、PowerPC、68 K、i.MX、ColdFire、Kinetis Cortex-M3/M4
+- **NXP**: LPC、ARM7、ARM9、PowerPC、68 K、i.MX、ColdFire、Kinetis Cortex-M3/M4
 
-**Renesas**: SH、HS、V850、RX、RZ、Synergy
+- **Renesas**: SH、HS、V850、RX、RZ、Synergy
 
-**Silicon Labs**: EFM32
+- **Silicon Labs**: EFM32
 
-**Synopsys**: ARC 600、700、ARC EM、ARC HS
+- **Synopsys**: ARC 600、700、ARC EM、ARC HS
 
-**ST**: STM32、ARM7、ARM9、Cortex-M3/M4/M7
+- **ST**: STM32、ARM7、ARM9、Cortex-M3/M4/M7
 
-**Tl**: C5xxx、C6xxx、Stellaris、Sitara、Tiva-C
+- **Tl**: C5xxx、C6xxx、Stellaris、Sitara、Tiva-C
 
-**Wave Computing**: MIPS32 4K、24 K、34 K、1004 K、MIPS64 5K、microAptiv、interAptiv、proAptiv、M-Class
+- **Wave Computing**: MIPS32 4K、24 K、34 K、1004 K、MIPS64 5K、microAptiv、interAptiv、proAptiv、M-Class
 
-**Xilinx**: MicroBlaze、PowerPC 405、ZYNQ、ZYNQ UltraSCALE
+- **Xilinx**: MicroBlaze、PowerPC 405、ZYNQ、ZYNQ UltraSCALE
 
 *記載されているタイミングとサイズの数値はすべて推定値であり、開発プラットフォームによって異なる場合があります。*
 

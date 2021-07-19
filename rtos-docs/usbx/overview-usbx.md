@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: 87eb6ee9f8733db3201280d377aa832b87131871
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 3c214a49f7dd1af20c20f07412fb072dd785b16f
+ms.sourcegitcommit: dbbec3ba6a7eb6097c7888b235c433a2efd6e5b9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104813286"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113754830"
 ---
 # <a name="overview-of-azure-rtos-usbx"></a>Azure RTOS USBX の概要
 
@@ -21,21 +21,13 @@ Azure RTOS USBXは、ハイ パフォーマンスの USB ホスト、デバイ�
 
 Azure RTOS USBX ホストまたはデバイス埋め込み USB プロトコル スタックは、リアルタイムの深い埋め込み型 IoT アプリケーション用に設計された産業用埋め込み USB ソリューションです。 Azure RTOS USBX は、ホスト、デバイス、および OTG のサポートに加えて、広範なクラスのサポートを提供しています。 Azure RTOS USBX は、ThreadX Real-Time オペレーティング システム、Azure RTOS FileX 埋め込み FAT 互換ファイル システム、Azure RTOS NetX、および Azure RTOS NetX Duo 埋め込み TCP/IP スタックと完全に統合されています。 これらすべてを非常に小さなフットプリント、高速な処理、優れた使いやすさと組み合わせることで、Azure RTOS USBX は、USB 接続を必要とする最も要求の厳しい埋め込み型 IoT アプリケーションに最適な選択肢となります。
 
-### <a name="small-footprint"></a>小さなフットプリント
+### <a name="usbx-memory-footprint"></a>USBX のメモリ占有領域
 
 Azure RTOS USBX では、Azure RTOS USBX デバイスの CDC/ACM サポートのために、10.5 KB のフラッシュと 5.1 KB の RAM という非常に小さなフットプリントを実現しています。 Azure RTOS USBX ホストには、CDC/ACM のサポートのために最低 18 KB のフラッシュと 25 KB の RAM が必要です。
 
 TCP 機能を使用するには、追加で 10 KB から 13 KB の命令領域メモリが必要です。 Azure RTOS USBX の RAM の使用率は、通常、2.6 KB から 3.6 KB に、アプリケーションによって定義されるパケット プール メモリを加えた分になります。
 
 ThreadX と同様に、Azure RTOS USBX のサイズは、アプリケーションで実際に使用されるサービスに基づいて自動的にスケーリングされます。 これにより、複雑な構成やビルド パラメーターが実質的に不要になるため、開発者の作業がより簡単になります。
-
-### <a name="fast-execution"></a>高速実行
-
-Azure RTOS USBX は、速度を重視して設計されており、最小限の内部関数呼び出しのレイヤーを備え、キャッシュと DMA の使用率をサポートしています。 このように設計された一般的な考え方はすべて、Azure RTOS USBX が最高のパフォーマンスを実現するのに役立ちます。
-
-### <a name="simple-easy-to-use"></a>シンプルで優れた操作性
-
-Azure RTOS USBX は簡単に使用できます。 Azure RTOS USBX API は直感的で高機能です。 API 名は、略語や、他のファイル システム製品で一般的な大幅に省略された名前ではなく、実際の言葉で構成されています。 すべての Azure RTOS USBX API は、先頭に "ux_" が付き、名詞 - 動詞の名前付け規則に従っています。 さらに、API 全体で機能に一貫性があります。 たとえば、中断を実行するすべての API には、API 用の同様に機能するオプションのタイムアウトがあります。
 
 ### <a name="usb-interoperability-verification"></a>USB 相互運用性の検証
 
@@ -57,7 +49,7 @@ Azure RTOS USBX デバイスは、CDC/ACM、CDC/ECM、DFU、HID、PIMA (PTP/MTP)
 
 ### <a name="pictbridge-support"></a>Pictbridge のサポート
 
-Azure RTOS USBX では、ホストとデバイスの両方で完全な Pictbridge 実装がサポートされています。 Pictbridge は、両方の側の Azure RTOS USBX PIMA (PTP/MTP) クラスの上に配置されます。 PictBridge 標準では、PC を使用せずに、デジタル スチル カメラまたはスマートフォンを直接プリンターに接続できるので、特定の Pictbridge 対応プリンターに直接印刷できます。 カメラまたはスマートフォンがプリンターに接続されている場合、プリンターは USB ホストであり、カメラは USB デバイスです。 ただし、Pictbridge では、カメラはホストとして表示され、コマンドはカメラから取得されます。 カメラはストレージ サーバーであり、プリンターはストレージ クライアントです。 カメラはプリント クライアントであり、プリンターはもちろんプリント サーバーです。 Pictbridge は、トランスポート層として USB を使用しますが、通信プロトコルとしては PTP (Picture Transfer Protocol) に依存します。
+Azure RTOS USBX では、ホストとデバイスの両方で完全な Pictbridge 実装がサポートされています。 Pictbridge は、両方の側の Azure RTOS USBX PIMA (PTP/MTP) クラスの上に配置されます。 PictBridge 標準では、PC を使用せずに、デジタル スチル カメラまたはスマートフォンを直接プリンターに接続できるので、特定の Pictbridge 対応プリンターに直接印刷できます。 カメラまたはスマートフォンがプリンターに接続されている場合、プリンターは USB ホストであり、カメラは USB デバイスです。 ただし、Pictbridge では、カメラはホストとして表示され、コマンドはカメラから実行されます。 カメラはストレージ サーバーであり、プリンターはストレージ クライアントです。 カメラはプリント クライアントであり、プリンターはもちろんプリント サーバーです。 Pictbridge は、トランスポート層として USB を使用しますが、通信プロトコルとしては PTP (Picture Transfer Protocol) に依存します。
 
 ### <a name="custom-class-support"></a>カスタム クラスのサポート
 
@@ -70,46 +62,6 @@ Azure RTOS USBX ホストとデバイスはカスタム クラスをサポート
 * ThreadX、Azure RTOS FileX、Azure RTOS NetX との完全な統合
 * オプションのパフォーマンス メトリック
 * Azure RTOS TraceX システム分析のサポート
-
-### <a name="fastest-time-to-market"></a>市場投入までの時間を最短化
-
-Azure RTOS USBX では、基本的な IP および UDP のサポートに、9 KB から 15 KB の非常に小さなフットプリントが実現されています。 Azure RTOS USBX は、インストール、習得、使用、デバッグ、検証、認定、保守が簡単です。 その結果、Azure RTOS USBX は、埋め込み IoT デバイス向けの最も普及している USB ソリューションの 1 つになっています。 一貫した市場投入までの時間の優位性は、次の要素を基にして構築されています。
-
-* 品質のドキュメント – Azure RTOS USBX ホストとデバイスのユーザー ガイドを参照して確認してください。
-* 完全なソース コードを使用可能
-* 使いやすい API
-* 包括的かつ高度な機能セット
-
-## <a name="one-simple-license"></a>シンプルな 1 つのライセンス
-
-ソース コードの使用とテストにコストはかかりません。事前にライセンスされたデバイスに展開する場合は、運用環境ライセンスのコストもかかりません。他のすべてのデバイスには、シンプルな年間ライセンスが必要です。
-
-## <a name="full-highest-quality-source-code"></a>最高品質の完全なソース コード
-
-長年にわたり、Azure RTOS NetX のソース コードは、品質とわかりやすさに一定の基準を設けてきました。 また、ファイルごとに 1 つの関数を使用するという規則により、簡単なソース ナビゲーションが実現されます。
-
-### <a name="supports-most-popular-architectures"></a>最も一般的なアーキテクチャをサポート
-
-Azure RTOS USBX は、すぐに利用可能で完全なテストとサポートが実現されている、次のような最も一般的な 32/64 ビットのマイクロプロセッサで動作します。
-
-* **Analog Devices**: SHARC、Blackfin、CM4xx
-* **Andes Core**: RISC-V
-* **Ambiqmicro**: Apollo MCU
-* **ARM**: ARM7、ARM9、ARM11、Cortex-M0/M3/M4/M7/A15/A5/A7/A8/A9/A5x 64 ビット/A7x 64 ビット/R4/R5、TrustZone ARMv8-M
-* **Cadence**: Xtensa、Diamond
-* **CEVA**: PSoC、PSoC 4、PSoC 5、PSoC 6、FM0+、FM3、MF4、WICED WiFi
-* **Cypress**: RISC-V
-* **EnSilica**: eSi-RISC
-* **Infineon**: XMC1000、XMC4000、TriCore
-* **Intel および Intel FPGA**: x36/Pentium、XScale、NIOS II、Cyclone、Arria 10
-* **Microchip**: AVR32、ARM7、ARM9、Cortex-M3/M4/M7、SAM3/4/7/9/A/C/D/E/G/L/SV、PIC24/PIC32
-* **Microsemi**: RISC-V
-* **NXP**: LPC、ARM7、ARM9、PowerPC、68 K、i.MX、ColdFire、Kinetis Cortex-M3/M4
-* **Renesas**: SH、HS、V850、RX、RZ、Synergy Silicon Labs: EFM32
-* **Synopsys**: ARC 600、700、ARC EM、ARC HS
-* **ST**: STM32、ARM7、ARM9、Cortex-M3/M4/M7
-* **Tl**: C5xxx、C6xxx、Stellaris、Sitara、Tiva-C
-* **Wave Computing**: MIPS32 4K、24 K、34 K、1004 K、MIPS64 5K、microAptiv、interAptiv、proAptiv、M-Class **Xilinx**: MicroBlaze、PowerPC 405、ZYNQ、ZYNQ UltraSCALE
 
 ## <a name="azure-rtos-usbx-apis"></a>Azure RTOS USBX API
 
