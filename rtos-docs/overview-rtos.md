@@ -6,18 +6,18 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: b099a5f18accfbe467a2a8fa680c0c76666a9ff3
-ms.sourcegitcommit: dbbec3ba6a7eb6097c7888b235c433a2efd6e5b9
+ms.openlocfilehash: a6f9cfd772c81340a90b7dc217c0ccc160c7f957
+ms.sourcegitcommit: 7993d2c3b0711ae2c246561a0c8bf963d8e0324a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113754915"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114661200"
 ---
 # <a name="what-is-microsoft-azure-rtos"></a>Microsoft Azure RTOS とは
 
 Azure RTOS は、マイクロコントローラー ユニット (MCU) を搭載したモノのインターネット (IoT) およびエッジ デバイスのためのリアル タイム オペレーティング システム (RTOS) です。 Azure RTOS は、非常に制約の厳しいデバイス (バッテリ駆動で、フラッシュ メモリが 64 KB 未満) をサポートするように設計されています。
 
-Azure RTOS は、さまざまな安全性標準に対する認定をあらかじめ受けています。 これには、IEC 61508 SIL 4、IEC 62304 Class C、ISO 26262 ASIL D の各認定が含まれます。 Azure RTOS ThreadX は、DO-178 の認定も受けています。
+Azure RTOS は、さまざまな安全性標準に対する認定をあらかじめ受けています。 これには、IEC 61508 SIL 4、IEC 62304 Class C、ISO 26262 ASIL D の各認定が含まれます。
 
 Azure RTOS により、IPsec による完全な IP 層セキュリティおよび TLS と DTLS によるソケット層セキュリティを含む、EAL4+ の情報セキュリティ国際評価基準認定環境が提供されます。 Microsoft のソフトウェア暗号化ライブラリは、FIPS 140-2 の認定を受けています。 また、ハードウェア暗号化機能、ThreadX MODULES によるメモリ保護、ARM の TrustZone ARMv8-M セキュリティ機能のサポートも利用しています。
 
