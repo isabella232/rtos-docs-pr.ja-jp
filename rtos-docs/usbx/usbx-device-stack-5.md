@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 84f215ad990a2fe185a08f3876276528787ef8bc
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: ea348d94e83863c0e2652df29f92d952f2242661
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811357"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115178019"
 ---
 # <a name="chapter-5---usbx-device-class-considerations"></a>第 5 章 - USBX デバイス クラスに関する考慮事項
 
@@ -59,6 +59,12 @@ VOID tx_demo_hid_instance_deactivate(VOID *hid_instance)
 ```
 
 これらの関数内では何も行わず、クラスのインスタンスを記憶して、アプリケーションの他の部分と同期することだけが推奨されます。
+
+## <a name="general-considerations-for-bulk-transfer"></a>一括転送に関する一般的な考慮事項
+
+USB 2.0 仕様に従って、エンドポイントでは、エンドポイントの報告された wMaxPacketSize 値以下のデータ フィールを含むデータ ペイロードを常に送信する必要があります。 データ パケットのサイズは bMaxPacketSize に制限されています。 転送は、次の場合に完了できます。
+1. エンドポイントで、必要なデータ量が正確に転送された場合。
+2. デバイスまたはホストのエンドポイントで、最大パケット サイズ (wMaxPacketSize) よりも小さいサイズのパケットが受信された場合。 この短いパケットは、残っているデータ パケットがなくなり、転送が完了したことを示します。または、転送されるデータ パケットがすべて wMaxPacketSize に等しい場合は、転送の終了を特定できません。 転送を完了するために、長さ 0 のパケット (ZLP) を送信する必要があります。短いパケットと長さ 0 のパケットは、一括データ転送の終了を示します。 上記の考慮事項は、生の一括データ転送 API (ux_device_class_cdc_acm_read() など) に適用されます。
 
 ## <a name="usb-device-storage-class"></a>USB デバイス ストレージ クラス
 
@@ -846,6 +852,9 @@ UINT ux_device_class_cdc_acm_read(
 ### <a name="description"></a>説明
 
 この関数は、アプリケーションで OUT データ パイプから読み取る必要があるときに呼び出されます (OUT はホストから、IN はデバイスから)。 ブロッキングです。
+
+> [!Note]
+> この関数により、ホストから生の一括データが読み取られます。したがって、バッファーがいっぱいになるか、ホストで短いパケット (長さ 0 のパケットを含む) による転送が終了するまで、保留状態が維持されます。 詳細については、「[**一括転送に関する一般的な考慮事項**](#general-considerations-for-bulk-transfer)」セクションを参照してください。
 
 ### <a name="parameters"></a>パラメーター
 

@@ -7,12 +7,12 @@ ms.date: 6/9/2021
 ms.service: rtos
 ms.topic: overview
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 8c0bec2bb3b699b3a8d39d85eb322f3bbd95515a
-ms.sourcegitcommit: 8b03df42920bdd544fb4195ab818043f6c71969e
+ms.openlocfilehash: 4b6c8df5133f16cf3ed4006c12433ac426453cb5
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114436748"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115178206"
 ---
 # <a name="overview-of-azure-rtos-threadx"></a>Azure RTOS ThreadX の概要
 
@@ -61,7 +61,7 @@ Azure RTOS ThreadX の典型的なパフォーマンス特性を次に示しま�
 
 ## <a name="advanced-technology"></a>高度なテクノロジ
 
-Azure RTOS ThreadX のプリエプションしきい値のスケジューリングは非常に優れています。 この機能は Azure RTOS ThreadX に固有のものであり、広範な学術研究の対象となってきたものです。 詳細については、「[Scheduling Fixed-Priority Tasks with Preemption Threshold (プリエンプションしきい値を使った固定優先度タスクのスケジューリング)](https://www.cs.utah.edu/~regehr/reading/open_papers/preempt_thresh.pdf)」(コンコーディア大学 Yun Wang、ピッツバーグ大学 Manas Saksena 共著) を参照してください。
+Azure RTOS ThreadX のプリエプションしきい値のスケジューリングは非常に優れています。 この機能は Azure RTOS ThreadX に固有のものであり、広範な学術研究の対象となってきたものです。 詳細については、「[Scheduling Fixed-Priority Tasks with Preemption Threshold (プリエンプションしきい値を使った固定優先度タスクのスケジューリング)](https://ieeexplore.ieee.org/document/811269)」(コンコーディア大学 Yun Wang、ピッツバーグ大学 Manas Saksena 共著) を参照してください。
 
 Azure RTOS ThreadX の主要な機能:
 

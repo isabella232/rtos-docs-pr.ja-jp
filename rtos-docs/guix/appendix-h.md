@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 65095e326bc6809eba6e9472e2d74325351354ca
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 2b48491e3c601aeb68ecef00fd0f25d93cda6e64
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811231"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115177764"
 ---
 # <a name="appendix-h---guix-build-time-configuration-flags"></a>付録 H - GUIX のビルド時の構成フラグ
 
@@ -28,10 +28,6 @@ GX_SYSTEM_TIMER_MS
 TX_TIMER_TICKS_PER_SECOND
 - 既定値は100
 - 説明: この値は、TX タイマーの割り込み周波数の数を定義します。 既定の ThreadX 間隔タイマーは 10 ミリ秒であるため、この値の既定値は 100 Hz 周波数です。
-
-GX_SYSTEM_TIMER_TICKS
-- 既定値: ((GX_SYSTEM_TIMER_MS * TX_TIMER_TICKS_PER_SECOND)/1000)
-- 説明: この値は、GUIX タイマー刻みあたりの基本 RTO タイマー刻みの数を定義します。 既定値は 2 で、これは GUIX タイマー間隔が 2 ThreadX タイマー割り込み間隔 (既定では 20 ミリ秒) であることを意味します。
 
 GX_DISABLE_MULTITHREAD_SUPPORT
 - 既定値: 定義されていません
