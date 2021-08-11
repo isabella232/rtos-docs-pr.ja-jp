@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: bf5876042e08a59979adcd429917bfc3fbfdbc20
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 2e9e2e0286300b3f79f7f9e6ad2d7fab96ba7337
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104813436"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115177747"
 ---
 # <a name="chapter-5---usbx-host-classes-api"></a>第 5 章: USBX ホスト クラス API
 
@@ -685,6 +685,9 @@ UINT ux_host_class_cdc_acm_read(
 ### <a name="description"></a>説明
 
 この関数は、cdc_acm インターフェイスからの読み取りを実行します。 呼び出しはブロック状態であり、エラーが発生した場合または転送が完了した場合にのみ復帰します。
+
+> [!Note]
+> この関数により、デバイスから生の一括データが読み取られます。したがって、バッファーがいっぱいになるか、デバイスで短いパケット (長さ 0 のパケットを含む) による転送が終了するまで、保留状態が維持されます。 詳細については、「[**一括転送に関する一般的な考慮事項**](usbx-device-stack-5.md#general-considerations-for-bulk-transfer)」を参照してください。
 
 ### <a name="parameters"></a>パラメーター
 

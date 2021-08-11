@@ -6,12 +6,12 @@ ms.author: kemaxwel
 ms.date: 9/30/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 3194a1b8c8965bf821631a8c34ac5e9961f8c8ff
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 374471df85c4cd0fffae5b5cc7ad31d2237877f2
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811942"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115178283"
 ---
 # <a name="chapter-8-notes-on-editing-specific-widget-types"></a>第 8 章: 特定のウィジェットの種類の編集に関する注意事項
 
@@ -118,3 +118,10 @@ GUIX Studio 内からリッチ テキスト文字列を編集するには、2 �
 [Delay period]\(遅延期間\) では、次のスプライト フレームに移動するまでの遅延時間を指定します。 この値はティック単位です。既定の GUIX/ThreadX タイマー構成では、各ティックは 50 ミリ秒を表します。
 
 [Edit Sprite Frames]\(スプライト フレームの編集\) ダイアログで変更を保存すると、GUIX Studio は、出力仕様ファイル生成の一環として、完全なフレーム リスト配列を生成できます。
+
+### <a name="assign-a-sprite-widget-with-gif-resource"></a>スプライト ウィジェットに GIF リソースを割り当てる
+GIF リソースを **ピクセルマップ** リソース グループに追加し、その GIF リソースをスプライト ウィジェットに直接割り当てることができます。 GIF リソースを設定すると、フレーム リストが自動的に生成され、スプライトの編集ダイアログを使用してフレーム リストの各フレームをさらに編集できます。
+
+![GIF リソースに関する GUIX Studio の [Edit Sprite Frames]\(スプライト フレームの編集\) ダイアログのスクリーンショット。](./media/guix-studio/edit_sprite_gif_frames.jpg)
+
+**図 8.4**
