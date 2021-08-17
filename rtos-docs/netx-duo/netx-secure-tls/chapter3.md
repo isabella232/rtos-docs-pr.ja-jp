@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: c28ad0255f99986a4ddfe5faefad81e70840e5e0
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 711195e60771ebd467c69df49ef7665f32e13a17c21ca839404e829449cf1401
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810502"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797983"
 ---
 # <a name="chapter-3---functional-description-of-azure-rtos-netx-secure"></a>第 3 章 - Azure RTOS NetX Secure の機能の説明
 
@@ -695,13 +695,13 @@ NetX Secure TLS に、この機能をサポートするための特別な構成�
 クライアント証明書認証の TLS サーバーでのケースは、この機能がオプションであるため、TLS クライアントのケースより少し複雑です。 この場合 TLS サーバーでは、リモート TLS クライアントに証明書を要求してから CertificateVerify メッセージを処理し、リモート クライアントが一致する秘密キーを所有していることを検証する必要があります。その後サーバーで、クライアントから提供された証明書を、ローカルの信頼された証明書ストア内の証明書まで追跡できることを確認する必要があります。
 
 NetX Secure TLS サーバー インスタンスでは、クライアント証明書認証は <br>
-*nx <span class="underline"> _</span>secure <span class="underline">_</span>tls <span class="underline"> _</span>session <span class="underline">_</span>client <span class="underline"> _</span>verify<span class="underline">_</span>enable* サービスと<br>
-*nx <span class="underline"> _</span>secure <span class="underline">_</span>tls <span class="underline"> _</span>session <span class="underline">_</span>client <span class="underline"> _</span>verify<span class="underline">_</span>disable* サービスによって制御されます。
+*nx <span class="underline"> _</span>secure <span class="underline">_</span>tls <span class="underline"> _</span>session <span class="underline">_</span>client <span class="underline"> _</span>verify <span class="underline">_</span>enable* サービスと<br>
+*nx <span class="underline"> _</span>secure <span class="underline">_</span>tls <span class="underline"> _</span>session <span class="underline">_</span>client <span class="underline"> _</span>verify <span class="underline">_</span>disable* サービスによって制御されます。
 
 クライアント証明書認証を有効にするには、アプリケーションで、<br>
-*nx_secure_tls_session_start* を呼び出す前に TLS サーバー セッションを使用して、*nx <span class="underline"> _</span>secure <span class="underline">_</span>tls <span class="underline"> _</span>session <span class="underline">_</span>client <span class="underline"> _</span>verify<span class="underline">_</span>enable* を呼び出す必要があります。 TLS クライアント接続に使用される TLS セッションでこのサービスを呼び出しても何の影響もないことに注意してください。
+*nx_secure_tls_session_start* を呼び出す前に TLS サーバー セッションを使用して、*nx <span class="underline"> _</span>secure <span class="underline">_</span>tls <span class="underline"> _</span>session <span class="underline">_</span>client <span class="underline"> _</span>verify <span class="underline">_</span>enable* を呼び出す必要があります。 TLS クライアント接続に使用される TLS セッションでこのサービスを呼び出しても何の影響もないことに注意してください。
 
-クライアント証明書認証が有効になっているときには、TLS ハンドシェイク中に、TLS サーバーからリモート TLS クライアントに証明書が要求されます。 NetX Secure TLS サーバーでは、X.509 発行者チェーンをたどり、*nx <span class="underline"> _</span>secure_tls <span class="underline">_</span>trusted <span class="underline"> _</span>certificate<span class="underline">_</span>add* を使用して作成された、信頼された証明書のストアに対して、クライアント証明書がチェックされます。 リモート クライアントでは、その ID 証明書が、信頼されたストア内の証明書につながるチェーンを提供する必要があります。そうしないと TLS ハンドシェイクが失敗します。 さらに、CertificateVerify メッセージの処理が失敗した場合、TLS ハンドシェイクも失敗します。
+クライアント証明書認証が有効になっているときには、TLS ハンドシェイク中に、TLS サーバーからリモート TLS クライアントに証明書が要求されます。 NetX Secure TLS サーバーでは、X.509 発行者チェーンをたどり、*nx <span class="underline"> _</span>secure_tls <span class="underline">_</span>trusted <span class="underline"> _</span>certificate <span class="underline">_</span>add* を使用して作成された、信頼された証明書のストアに対して、クライアント証明書がチェックされます。 リモート クライアントでは、その ID 証明書が、信頼されたストア内の証明書につながるチェーンを提供する必要があります。そうしないと TLS ハンドシェイクが失敗します。 さらに、CertificateVerify メッセージの処理が失敗した場合、TLS ハンドシェイクも失敗します。
 
 CertificateVerify メソッドに使用される署名方法は、TLS バージョン 1.0 および TLS バージョン 1.1 では固定されており、TLS バージョン 1.2 では、TLS サーバーによって指定されます。 TLS 1.2 の場合、サポートされる署名方法は、一般に、暗号化方式のテーブルで指定されている関連方式に従っていますが、通常は RSA が SHA-256 と共に使用されます (暗号化方式を使用した TLS の初期化の詳細については、「NetX Secure TLS での暗号化」を参照してください)。
 

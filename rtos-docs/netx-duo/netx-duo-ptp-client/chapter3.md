@@ -6,12 +6,12 @@ ms.author: v-condav
 ms.date: 01/27/2021
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b4cdeca81c157934e35a219cd5535ec38f2c0746
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 686db68181e3712f9f6a09a9f471626eff610fd7f45ec5b83ba56f8b7aa378cc
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810619"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116798012"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-ptp-client-services"></a>第 3 章 - Azure RTOS NetX Duo PTP クライアント サービスの説明
 
@@ -214,7 +214,7 @@ VOID nx_ptp_client_packet_timestamp_notify(
 * **timestamp_ptr**: PTP パケットのタイムスタンプへのポインター
 
 ### <a name="return-values"></a>戻り値
-None
+なし
 
 ### <a name="allowed-from"></a>許可元
 Threads

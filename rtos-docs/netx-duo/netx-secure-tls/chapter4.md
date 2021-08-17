@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 80ec22058ab64ed0c6258bb3d9364ec44f9a741b
-ms.sourcegitcommit: 4ebe7c51ba850951c6a9d0f15e22d07bb752bc28
+ms.openlocfilehash: b10260778f7f5e1a5bd0a38aded2339008b066cca77f2439a5881d28a0489524
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/20/2021
-ms.locfileid: "110223394"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797757"
 ---
 # <a name="chapter-4---description-of-azure-rtos-netx-secure-services"></a>第 4 章 - Azure RTOS NetX Secure サービスの説明
 
@@ -534,7 +534,7 @@ VOID nx_secure_tls_initialize(VOID);
 
 ### <a name="parameters"></a>パラメーター
 
-None
+なし
 
 ### <a name="return-values"></a>戻り値
 
@@ -2625,10 +2625,10 @@ UINT  nx_secure_tls_session_start(NX_SECURE_TLS_SESSION *session_ptr,
 - **NX_NOT_CONNECTED** （0x38） 基になる TCP ソケットの接続が解除されています。
 - **NX_SECURE_TLS_UNRECOGNIZED_MESSAGE_TYPE** （0x102） 受信した TLS メッセージの種類が正しくありません。
 - **NX_SECURE_TLS_UNSUPPORTED_CIPHER** （0x106） リモート ホストによって提供された暗号はサポートされていません。
-- **NX_SECURE_TLS_HANDSHAKE_FAILURE** （0x107） TLS ハンドシェイク中のメッセージの処理に失敗しました。
+- **NX_SECURE_TLS_HANDSHAKE_FAILURE** (0x107) TLS ハンドシェイク中のメッセージの処理に失敗しました。
 - **NX_SECURE_TLS_HASH_MAC_VERIFY_FAILURE** （0x108） 受信メッセージがハッシュ MAC チェックに失敗しました。
 - **NX_SECURE_TLS_TCP_SEND_FAILED** （0x109） 基になる TCP ソケットの送信に失敗しました。
-- **NX_SECURE_TLS_INCORRECT_MESSAGE_LENGTH** （0x10A） 受信メッセージに無効な長さのフィールドがありました。
+- **NX_SECURE_TLS_INCORRECT_MESSAGE_LENGTH** (0x10A) 受信メッセージに無効な長さのフィールドがありました。
 - **NX_SECURE_TLS_BAD_CIPHERSPEC** （0x10B） 受信 ChangeCipherSpec メッセージが正しくありませんでした。
 - **NX_SECURE_TLS_INVALID_SERVER_CERT** （0x10C） 受信 TLS 証明書を、リモート TLS サーバーの識別に使用できません。
 - **NX_SECURE_TLS_UNSUPPORTED_PUBLIC_CIPHER** （0x10D） リモート ホストによって提供された公開キー暗号はサポートされていません。
@@ -2637,7 +2637,7 @@ UINT  nx_secure_tls_session_start(NX_SECURE_TLS_SESSION *session_ptr,
 - **NX_SECURE_TLS_UNSUPPORTED_TLS_VERSION** （0x110） 受信した TLS メッセージのヘッダーに既知だがサポートされていない TLS バージョンがありました。
 - **NX_SECURE_TLS_ALLOCATE_PACKET_FAILED** （0x111） 内部 TLS パケットの割り当てに失敗しました。
 - **NX_SECURE_TLS_INVALID_CERTIFICATE** （0x112） リモート ホストが無効な証明書を提供しました。
-- **NX_SECURE_TLS_ALERT_RECEIVED** （0x114） リモート ホストが、エラーを通知して TLS セッションを終了するアラートを送信しました。
+- **NX_SECURE_TLS_ALERT_RECEIVED** (0x114) リモート ホストによって、エラーを通知して TLS セッションを終了するアラートが送信されました。
 - **NX_SECURE_TLS_MISSING_CRYPTO_ROUTINE** （0x13B） 暗号スイート テーブル内のエントリに NULL 関数ポインターがありました。
 - **NX_SECURE_TLS_INAPPROPRIATE_FALLBACK** （0x146） リモート TLS ClientHello にフォールバック SCSV が含まれており、バージョン フォールバックを試行しました。
 - **NX_PTR_ERROR** （0x07） 無効なポインターを使用しようとしました。

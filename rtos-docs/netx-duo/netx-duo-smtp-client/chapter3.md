@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/09/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: f590ba5a4c020b4a0aec6628a89c0e5f0f8579d9
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: bc54e7763c4a3977ef4d760bc92025b1cda792b979d741fc7b82f8f1a3f2901b
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810604"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797808"
 ---
 # <a name="chapter-3---client-description-of-smtp-client-services"></a>3 章 - SMTP クライアント サービスのクライアントの説明
 
@@ -128,8 +128,8 @@ UINT nx_smtp_client_delete(NX_SMTP_CLIENT *client_ptr);
 
 ### <a name="return-values"></a>戻り値
 
-- **NX_SUCCESS** (0x00) クライアントが正常に削除されました
-- NX_PTR_ERROR (0x07) 入力ポインター パラメーターが無効です
+- **NX_SUCCESS**: (0x00) クライアントが正常に削除されました
+- NX_PTR_ERROR: (0x07) 入力ポインター パラメーターが無効です
 
 ### <a name="allowed-from"></a>許可元
 

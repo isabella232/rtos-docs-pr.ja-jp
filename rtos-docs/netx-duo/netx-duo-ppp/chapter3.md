@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 90c24cad5e595087ba27178243f9dda0dab11029
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 1174d7fdc470bc91278413d56948789cc210aab9d7389a5ecad5baf4f6ad7a7f
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810640"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116798080"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-point-to-point-protocol-ppp-services"></a>第 3 章 - Azure RTOS NetX Duo Point-to-Point プロトコル (PPP) サービスの説明
 
@@ -45,7 +45,7 @@ ms.locfileid: "104810640"
 
 ## <a name="nx_ppp_byte_receive"></a>nx_ppp_byte_receive
 
-シリアル ISR からバイトを受信する
+シリアル ISR からバイトを受信します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -84,7 +84,7 @@ status =  nx_ppp_byte_receive(&my_ppp, new_byte);
 
 ## <a name="nx_ppp_chap_challenge"></a>nx_ppp_chap_challenge
 
-CHAP チャレンジを生成する
+CHAP チャレンジを生成します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -94,7 +94,7 @@ UINT nx_ppp_chap_challenge(NX_PPP *ppp_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスでは、PPP 接続が稼働状態になった後に CHAP チャレンジを開始します。 これにより、アプリケーションは接続の信頼性を定期的に確認できます。 チャレンジが失敗すると、PPP リンクは閉じられます。
+このサービスを使用すると、PPP 接続が稼働状態になった後に CHAP チャレンジが開始されます。 これにより、アプリケーションは接続の信頼性を定期的に確認できます。 チャレンジが失敗すると、PPP リンクは閉じられます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -124,7 +124,7 @@ initiated. */
 
 ## <a name="nx_ppp_chap_enable"></a>nx_ppp_chap_enable
 
-CHAP 認証を有効にする
+CHAP 認証を有効にします
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -137,7 +137,7 @@ UINT nx_ppp_chap_enable(NX_PPP *ppp_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスでは、指定された PPP インスタンスのチャレンジ ハンドシェイク認証プロトコル (CHAP) を有効にします。
+このサービスを使用すると、指定した PPP インスタンスのチャレンジ ハンドシェイク認証プロトコル (CHAP) が有効になります。
 
 関数ポインター "***get_challenge_values** _" と "_ *_get_verification_values_**" が指定されている場合、この PPP インスタンスに CHAP が必要になります。 それ以外の場合、CHAP はピアのチャレンジ要求にのみ応答します。
 
@@ -254,7 +254,7 @@ UINT  get_verification_values(CHAR *system, CHAR *name, CHAR *secret)
 ```
 ## <a name="nx_ppp_create"></a>nx_ppp_create
 
-PPP インスタンスを作成する
+PPP インスタンスを作成します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -282,7 +282,7 @@ UINT  nx_ppp_create(NX_PPP *ppp_ptr, CHAR *name, NX_IP *ip_ptr,
 - **stack_size**: スレッドのスタックのサイズ (バイト単位)。
 - **pool_ptr**: 既定のパケット プールへのポインター。
 - **thread_priority**: 内部 PPP スレッドの優先順位 (1 - 31)。
-- **ppp_invalid_packet_handler**: PPP 以外のすべてのパケットに対するアプリケーションのハンドラーへの関数ポインター。 通常、NetX PPP は初期化中にこのルーチンを呼び出します。 ここで、アプリケーションはモデムのコマンドに応答できます。Windows XP の場合、NetX PPP アプリケーションでは、Windows XP によって送信された最初の "CLIENT" に "CLIENT SERVER" で応答することで PPP を開始できます。
+- **ppp_invalid_packet_handler**: PPP 以外のすべてのパケットに対するアプリケーションのハンドラーへの関数ポインター。 通常、このルーチンは初期化の間に NetX PPP によって呼び出されます。 ここで、アプリケーションはモデムのコマンドに応答できます。Windows XP の場合、NetX PPP アプリケーションでは、Windows XP によって送信された最初の "CLIENT" に "CLIENT SERVER" で応答することで PPP を開始できます。
 - **ppp_byte_send**: アプリケーションのシリアル バイト出力ルーチンへの関数ポインター。
 
 
@@ -309,7 +309,7 @@ status =  nx_ppp_create(&my_ppp, “my PPP”, &my_ip, stack_start, 1024, 2,
 
 ## <a name="nx_ppp_delete"></a>nx_ppp_delete
 
-PPP インスタンスを削除する
+PPP インスタンスを削除します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -319,7 +319,7 @@ UINT nx_ppp_delete(NX_PPP *ppp_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスでは、以前に作成された PPP インスタンスを削除します。
+このサービスを使用すると、以前に作成された PPP インスタンスが削除されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -388,7 +388,7 @@ status =  nx_ppp_dns_address_get(&my_ppp, &my_dns_address);
 
 ## <a name="nx_ppp_secondary_dns_address_get"></a>nx_ppp_secondary_dns_address_get
 
-セカンダリ DNS サーバーの IP アドレスを取得する
+セカンダリ DNS サーバーの IP アドレスを取得します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -398,12 +398,12 @@ UINT nx_ppp_secondary_dns_address_get(NX_PPP *ppp_ptr, ULONG *dns_address_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスでは、IPCP ハンドシェイクでピアによって提供されたセカンダリ DNS IP アドレスを取得します。 ピアから IP アドレスが提供されていない場合は、IP アドレスとして 0 が返されます。
+このサービスを使用すると、IPCP ハンドシェイクでピアによって提供されたセカンダリ DNS IP アドレスが取得されます。 ピアから IP アドレスが提供されていない場合は、IP アドレスとして 0 が返されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
 - **ppp_ptr**: PPP 制御ブロックへのポインター。
-- **dns_address_ptr**: セカンダリ DNS サーバー アドレスの宛先。
+- **dns_address_ptr**: セカンダリ DNS サーバーのアドレスの格納先
 
 ### <a name="return-values"></a>戻り値
 
@@ -428,7 +428,7 @@ status =  nx_ppp_secondary_dns_address_get(&my_ppp, &my_dns_address);
 
 ## <a name="nx_ppp_dns_address_set"></a>nx_ppp_dns_address_set
 
-プライマリ DNS サーバーの IP アドレスを設定する
+プライマリ DNS サーバーの IP アドレスを設定します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -438,7 +438,7 @@ UINT nx_ppp_dns_address_set(NX_PPP *ppp_ptr, ULONG dns_address);
 
 ### <a name="description"></a>説明
 
-このサービスでは、DNS サーバーの IP アドレスを設定します。 ピアが IPCP 状態で DNS サーバー オプション要求を送信すると、このホストが情報を提供します。
+このサービスを使用すると、DNS サーバーの IP アドレスが設定されます。 ピアが IPCP 状態で DNS サーバー オプション要求を送信すると、このホストが情報を提供します。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -470,7 +470,7 @@ status =  nx_ppp_dns_address_set(&my_ppp, my_dns_address);
 
 ## <a name="nx_ppp_secondary_dns_address_set"></a>nx_ppp_secondary_dns_address_set
 
-セカンダリ DNS サーバーの IP アドレスを設定する
+セカンダリ DNS サーバーの IP アドレスを設定します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -480,12 +480,12 @@ UINT nx_ppp_secondary_dns_address_set(NX_PPP *ppp_ptr, ULONG dns_address);
 
 ### <a name="description"></a>説明
 
-このサービスは、セカンダリ DNS サーバーの IP アドレスを設定します。 ピアが IPCP 状態でセカンダリ DNS サーバー オプション要求を送信すると、このホストが情報を提供します。
+このサービスを使用すると、セカンダリ DNS サーバーの IP アドレスが設定されます。 ピアが IPCP 状態でセカンダリ DNS サーバー オプション要求を送信すると、このホストが情報を提供します。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
 - **ppp_ptr**: PPP 制御ブロックへのポインター。
-- **dns_address**: セカンダリ DNS サーバー アドレス。
+- **dns_address**: セカンダリ DNS サーバー アドレス
 
 ### <a name="return-values"></a>戻り値
 
@@ -510,7 +510,7 @@ status =  nx_ppp_secondary_dns_address_set(&my_ppp, my_dns_address);
 ```
 ## <a name="nx_ppp_interface_index_get"></a>nx_ppp_interface_index_get
 
-IP インターフェイス インデックスを取得する
+IP インターフェイスのインデックスを取得します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -520,12 +520,12 @@ UINT nx_ppp_interface_index_get(NX_PPP *ppp_ptr, UINT *index_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスでは、この PPP インスタンスに関連付けられている IP インターフェイス インデックスを取得します。 これは、PPP インスタンスが IP インスタンスのプライマリ インターフェイスではない場合にのみ役立ちます。
+このサービスを使用すると、この PPP インスタンスに関連付けられている IP インターフェイスのインデックスが取得されます。 これは、PPP インスタンスが IP インスタンスのプライマリ インターフェイスではない場合にのみ役立ちます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
 - **ppp_ptr**: PPP 制御ブロックへのポインター。
-- **index_ptr**: インターフェイス インデックスの参照先。
+- **index_ptr**: インターフェイスのインデックスの格納先
 
 ### <a name="return-values"></a>戻り値
 
@@ -551,7 +551,7 @@ status =  nx_ppp_interface_index_get(&my_ppp, &my_index);
 ```
 ## <a name="nx_ppp_ip_address_assign"></a>nx_ppp_ip_address_assign
 
-IPCP 用の IP アドレスを割り当てる
+IPCP 用の IP アドレスを割り当てます
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -593,7 +593,7 @@ IP_ADDRESS(256,2,2,188));
 
 ## <a name="nx_ppp_link_down_notify"></a>nx_ppp_link_down_notify
 
-リンクダウン時にアプリケーションに通知する
+リンク ダウン時にアプリケーションに通知します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -604,12 +604,12 @@ UINT nx_ppp_link_down_notify(NX_PPP *ppp_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスでは、アプリケーションのリンクダウン通知コールバックを、指定された PPP インスタンスに登録します。 NULL 以外の場合、リンクがダウンするたびに、アプリケーションのリンクダウン コールバック関数が呼び出されます。
+このサービスを使用すると、アプリケーションのリンク ダウン通知コールバックが、指定した PPP インスタンスに登録されます。 NULL 以外の場合、リンクがダウンするたびに、アプリケーションのリンクダウン コールバック関数が呼び出されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
 - **ppp_ptr**: PPP 制御ブロックへのポインター。
-- **link_down_callback**: アプリケーションのリンクダウン通知関数ポインター。 NULL の場合、リンクダウン通知は無効になります。
+- **link_down_callback**: アプリケーションのリンク ダウン通知関数へのポインター。 NULL の場合、リンクダウン通知は無効になります。
 
 ### <a name="return-values"></a>戻り値
 
@@ -640,7 +640,7 @@ VOID my_link_down_callback(NX_PPP *ppp_ptr)
 ```
 ## <a name="nx_ppp_link_up_notify"></a>nx_ppp_link_up_notify
 
-リンクアップ時にアプリケーションに通知する
+リンク アップ時にアプリケーションに通知します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -650,12 +650,12 @@ UINT nx_ppp_link_up_notify(NX_PPP *ppp_ptr,
 ```
 ### <a name="description"></a>説明
 
-このサービスでは、アプリケーションのリンクアップ通知コールバックを、指定された PPP インスタンスに登録します。 NULL 以外の場合、リンクがアップするたびに、アプリケーションのリンクアップ コールバック関数が呼び出されます。
+このサービスを使用すると、アプリケーションのリンク アップ通知コールバックが、指定した PPP インスタンスに登録されます。 NULL 以外の場合、リンクがアップするたびに、アプリケーションのリンクアップ コールバック関数が呼び出されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
 - **ppp_ptr**: PPP 制御ブロックへのポインター。
-- **link_down_callback**: アプリケーションのリンク アップ通知関数ポインター。 NULL の場合、リンクアップ通知は無効になります。**
+- **link_down_callback**: アプリケーションのリンク アップ通知関数へのポインター。 NULL の場合、リンクアップ通知は無効になります。**
 
 ### <a name="return-values"></a>戻り値
 
@@ -686,7 +686,7 @@ VOID my_link_up_callback(NX_PPP *ppp_ptr)
 
 ## <a name="nx_ppp_nak_authentication_notify"></a>nx_ppp_nak_authentication_notify
 
-認証 NAK を受信した場合にアプリケーションに通知する
+認証 NAK を受信した場合にアプリケーションに通知します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -697,7 +697,7 @@ UINT    nx_ppp_nak_authentication_notify(NX_PPP *ppp_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスは、アプリケーションの認証 NAK 通知コールバックを、指定された PPP インスタンスに登録します。 NULL 以外の場合、PPP インスタンスが認証時に NAK を受信するたびに、このコールバック関数が呼び出されます。
+このサービスを使用すると、アプリケーションの認証 NAK 通知コールバックが、指定した PPP インスタンスに登録されます。 NULL 以外の場合、PPP インスタンスが認証時に NAK を受信するたびに、このコールバック関数が呼び出されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -732,7 +732,7 @@ VOID my_nak_auth_callback(NX_PPP *ppp_ptr)
 
 ## <a name="nx_ppp_pap_enable"></a>nx_ppp_pap_enable
 
-PAP 認証を有効にする
+PAP 認証を有効にします
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -745,7 +745,7 @@ UINT  nx_ppp_pap_enable(NX_PPP *ppp_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスは、指定された PPP インスタンスのパスワード認証プロトコル (PAP) を有効にします。 "***verify_login***" 関数ポインターが指定されている場合は、この PPP インスタンスに PAP が必要になります。 それ以外の場合、PAP は、LCP ネゴシエーション中に指定された、ピアの PAP 要件にのみ応答します。
+このサービスを使用すると、指定した PPP インスタンスでパスワード認証プロトコル (PAP) が有効になります。 "***verify_login***" 関数ポインターが指定されている場合は、この PPP インスタンスに PAP が必要になります。 それ以外の場合、PAP は、LCP ネゴシエーション中に指定された、ピアの PAP 要件にのみ応答します。
 
 必要なコールバック関数で参照されるデータ項目がいくつかあります。 *name* データ項目は、最大サイズが NX_PPP_NAME_SIZE-1 の NULL 終端文字列である必要があります。 *password* データ項目も、最大サイズが NX_PPP_PASSWORD_SIZE-1 の NULL 終端文字列である必要があります。
 
@@ -811,7 +811,7 @@ return(NX_SUCCESS);
 
 ## <a name="nx_ppp_ping_request"></a>nx_ppp_ping_request
 
-LCP ping 要求を送信する
+LCP ping 要求を送信します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -868,7 +868,7 @@ while(my_ppp.nx_ppp_lcp_echo_reply_id > 0)
 
 ## <a name="nx_ppp_raw_string_send"></a>nx_ppp_raw_string_send
 
-生の ASCII 文字列を送信する
+生の ASCII 文字列を送信します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -907,7 +907,7 @@ status =  nx_ppp_raw_string_send(&my_ppp, “CLIENTSERVER”);
 ```
 ## <a name="nx_ppp_restart"></a>nx_ppp_restart
 
-PPP の処理を再開する
+PPP の処理を再開します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -917,7 +917,7 @@ UINT  nx_ppp_restart(NX_PPP *ppp_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスは PPP の処理を再開します。 通常、リンクを再確立する必要がある場合に、リンクダウン コールバックから呼び出されるか、通信が失われたことを示す PPP 以外のモデム メッセージによって呼び出されます。
+このサービスを使用すると、PPP の処理が再開されます。 通常、リンクを再確立する必要がある場合に、リンクダウン コールバックから呼び出されるか、通信が失われたことを示す PPP 以外のモデム メッセージによって呼び出されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -944,7 +944,7 @@ status =  nx_ppp_restart(&my_ppp);
 
 ## <a name="nx_ppp_start"></a>nx_ppp_start
 
-PPP の処理を開始する
+PPP の処理を開始します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -954,7 +954,7 @@ UINT  nx_ppp_start(NX_PPP *ppp_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスは PPP の処理を開始します。 通常は、nx_ppp_stop() が呼び出された後に呼び出されます。
+このサービスを使用すると、PPP の処理が開始されます。 通常は、nx_ppp_stop() が呼び出された後に呼び出されます。
 
 >[!NOTE]
 > PPP では、リンクが有効になると、PPP の処理が自動的に開始されます。
@@ -985,7 +985,7 @@ status =  nx_ppp_start(&my_ppp);
 
 ## <a name="nx_ppp_status_get"></a>nx_ppp_status_get
 
-PPP の現在の状態を取得する
+PPP の現在の状態を取得します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -994,12 +994,12 @@ UINT  nx_ppp_status_get(NX_PPP *ppp_ptr, UINT *status_ptr);
 ```
 ### <a name="description"></a>説明
 
-このサービスは、指定された PPP インスタンスの現在の状態を取得します。
+このサービスを使用すると、指定した PPP インスタンスの現在の状態が取得されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
 - **ppp_ptr**: PPP 制御ブロックへのポインター。
-- **status_ptr**: PPP の状態の参照先。使用可能な状態値は次のとおりです。
+- **status_ptr**: PPP の状態の格納先。可能性のある状態値は次のとおりです。
     - **NX_PPP_STATUS_ESTABLISHED**
     - **NX_PPP_STATUS_LCP_IN_PROGRESS**
     - **NX_PPP_STATUS_LCP_FAILED**
@@ -1037,7 +1037,7 @@ status =  nx_ppp_status_get(&my_ppp, &ppp_status);
 ```
 ## <a name="nx_ppp_stop"></a>nx_ppp_stop
 
-PPP の処理を停止する
+PPP の処理を開始します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -1047,7 +1047,7 @@ UINT  nx_ppp_stop(NX_PPP *ppp_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスは PPP の処理を停止します。 ユーザーは、必要に応じて nx_ppp_start() を呼び出して、PPP の処理を開始することもできます。
+このサービスを使用すると、PPP の処理が停止されます。 ユーザーは、必要に応じて nx_ppp_start() を呼び出して、PPP の処理を開始することもできます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -1055,10 +1055,10 @@ UINT  nx_ppp_stop(NX_PPP *ppp_ptr);
 
 ### <a name="return-values"></a>戻り値
 
-- **NX_SUCCESS**: (0x00) PPP が正常に停止されました。 
+- **NX_SUCCESS**: (0x00) PPP が正常に開始されました。 
 - **NX_PPP_ALREADY_STOPPED**: (0xb8) PPP は既に停止しています。
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
-- NX_CALLER_ERROR: (0x11) このサービスの呼び出し元が無効です。
+- NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
 ### <a name="allowed-from"></a>許可元
 
@@ -1074,7 +1074,7 @@ status =  nx_ppp_stop(&my_ppp);
 ```
 ## <a name="nx_ppp_packet_receive"></a>nx_ppp_packet_receive
 
-PPP パケットを受信する
+PPP パケットを受信します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -1085,7 +1085,7 @@ UINT  nx_ppp_packet_receive(NX_PPP *ppp_ptr, NX_PACKET *packet_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスは PPP パケットを受信します。
+このサービスを使用すると、PPP パケットが受信されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -1113,7 +1113,7 @@ status =  nx_ppp_packet_receive(&my_ppp, packet_ptr);
 ```
 ## <a name="nx_ppp_packet_send_set"></a>nx_ppp_packet_send_set
 
-PPP パケット送信関数を設定する
+PPP パケット送信関数を設定します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -1125,7 +1125,7 @@ UINT  nx_ppp_packet_send_set(NX_PPP *ppp_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスは、PPP パケット送信関数を設定します。
+このサービスを使用すると、PPP パケット送信関数が設定されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 

@@ -6,12 +6,12 @@ ms.service: rtos
 ms.topic: article
 ms.date: 5/19/2020
 ms.author: philmea
-ms.openlocfilehash: ce355d86d7db0b7e259ae58e306d990277b77a8f
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: f785b421ffc6d588080eb45a50dad949daf1ca6a9bf36770110f0450cd465bf1
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104813169"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116805299"
 ---
 # <a name="chapter-8---azure-rtos-netx-trace-events"></a>第 8 章 - Azure RTOS NetX トレース イベント
 
@@ -558,7 +558,7 @@ ms.locfileid: "104813169"
 
 **説明**
 
-このイベントは、内部 NetX TCP 再試行イベントを表します。
+NetX の TCP 再試行イベントです。
 
 **情報フィールド**
 - 情報フィールド 1: IP インスタンスへのポインター
@@ -614,7 +614,7 @@ ms.locfileid: "104813169"
 
 - 情報フィールド 1: IP インスタンスへのポインター。
 - 情報フィールド 2: 使用されていません。
-- 情報フィールド 3: 使用されていません。
+- 情報フィールド 3: 使用されません。
 - 情報フィールド 4: 使用されていません。
 
 ### <a name="internal-io-driver-link-enable"></a>内部 I/O ドライバー リンクの有効化 
@@ -631,7 +631,7 @@ ms.locfileid: "104813169"
 
 - 情報フィールド 1: IP インスタンスへのポインター。
 - 情報フィールド 2: 使用されていません。
-- 情報フィールド 3: 使用されていません。
+- 情報フィールド 3: 使用されません。
 - 情報フィールド 4: 使用されていません。
 
 ### <a name="internal-io-driver-link-disable"></a>内部 I/O ドライバー リンクの無効化 
@@ -897,7 +897,7 @@ ms.locfileid: "104813169"
 
 **説明**
 
-このイベントは、内部 NetX I/O ドライバーの遅延処理イベントを表します。
+NetX の I/O ドライバーの遅延処理イベントです。
 
 **情報フィールド**
 
@@ -2013,7 +2013,7 @@ ms.locfileid: "104813169"
 
 **説明**
 
-このイベントは、nx_packet_allocate を使用したパケットの割り当てを表します。
+nx_packet_allocate でパケットを割り当てるイベントです。
 
 **情報フィールド**
 
@@ -2233,7 +2233,7 @@ ms.locfileid: "104813169"
 
 **説明**
 
-このイベントは、nx_rarp_info_get を使用した RARP 情報の取得を表します。
+nx_rarp_info_get で RARP 情報を取得するイベントです。
 
 **情報フィールド**
 
