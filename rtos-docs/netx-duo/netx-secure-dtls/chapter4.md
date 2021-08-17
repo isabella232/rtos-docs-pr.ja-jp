@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: e795a5fa35a4590e508c7fe2eec53f5494809657
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 45966e7c8ea9be18bf294e8a7540e7226e803f29ae4f3ad3faaa29e4939c2ed8
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810505"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801845"
 ---
 # <a name="chapter-4-description-of-azure-rtos-netx-secure-dtls-services"></a>第 4 章: Azure RTOS NetX Secure DTLS サービスの説明
 
@@ -85,8 +85,8 @@ UINT nx_secure_dtls_client_session_start(
 - **NX_SECURE_TLS_UNRECOGNIZED_MESSAGE_TYPE** (0x102) 受信した TLS/DTLS メッセージの種類が正しくありません。
 - **NX_SECURE_TLS_UNSUPPORTED_CIPHER** (0x106) リモート ホストによって提供された暗号はサポートされていません。
 - **NX_SECURE_TLS_HANDSHAKE_FAILURE** (0x107) TLS ハンドシェイク中のメッセージの処理に失敗しました。
-- **NX_SECURE_TLS_HASH_MAC_VERIFY_FAILURE** (0x108) 受信メッセージのハッシュ MAC チェックに失敗しました。
-- **NX_SECURE_TLS_TCP_SEND_FAILED** (0x109) 基になる TCP ソケットの送信に失敗しました。
+- **NX_SECURE_TLS_HASH_MAC_VERIFY_FAILURE** （0x108） 受信メッセージがハッシュ MAC チェックに失敗しました。
+- **NX_SECURE_TLS_TCP_SEND_FAILED** （0x109） 基になる TCP ソケットの送信に失敗しました。
 - **NX_SECURE_TLS_INCORRECT_MESSAGE_LENGTH** (0x10A) 受信メッセージに無効な長さのフィールドがありました。
 - **NX_SECURE_TLS_BAD_CIPHERSPEC** (0x10B) 受信した ChangeCipherSpec メッセージが正しくありませんでした。
 - **NX_SECURE_TLS_INVALID_SERVER_CERT** (0x10C) 受信した TLS 証明書は、リモート DTLS サーバーの識別に使用できません。
@@ -95,7 +95,7 @@ UINT nx_secure_dtls_client_session_start(
 - **NX_SECURE_TLS_UNKNOWN_TLS_VERSION** (0x10F) 受信した DTLS メッセージのヘッダーの DTLS バージョンが不明です。
 - **NX_SECURE_TLS_UNSUPPORTED_TLS_VERSION** (0x110) 受信した DTLS メッセージのヘッダーの DTLS バージョンは、既知ですがサポートされていません。
 - **NX_SECURE_TLS_ALLOCATE_PACKET_FAILED** (0x111) 内部 TLS パケットの割り当てに失敗しました。
-- **NX_SECURE_TLS_INVALID_CERTIFICATE** (0x112) リモート ホストによって無効な証明書が提示されました。
+- **NX_SECURE_TLS_INVALID_CERTIFICATE** （0x112） リモート ホストが無効な証明書を提供しました。
 - **NX_SECURE_TLS_ALERT_RECEIVED** (0x114) リモート ホストによって、エラーを通知して TLS セッションを終了するアラートが送信されました。
 - **NX_SECURE_TLS_MISSING_CRYPTO_ROUTINE** (0x13B) 暗号スイート テーブル内のエントリに NULL 関数のポインターがありました。
 - **NX_PTR_ERROR** (0x07) セッション、ソケット、またはアドレス ポインターが無効です。
@@ -230,13 +230,13 @@ UINT  nx_secure_dtls_packet_allocate(
 
 - **session_ptr** DTLS Session インスタンスへのポインター。
 - **pool_ptr** パケットの割り当て元である NX_PACKET_POOL へのポインター。
-- **packet_ptr** 新しく割り当てられるパケットへの出力ポインター。
+- **packet_ptr** 新しく割り当てられたパケットへの出力ポインター。
 - **wait_option** パケット割り当ての中断オプション。
 
 
 ### <a name="return-values"></a>戻り値
 
-- **NX_SUCCESS** (0x00) パケットが正常に割り当てられました。
+- **NX_SUCCESS** （0x00） パケットの割り当てに成功。
 - **NX_SECURE_TLS_ALLOCATE_PACKET_FAILED** (0x111) 基になるパケットの割り当てに失敗しました。
 - **NX_SECURE_TLS_SESSION_UNINITIALIZED** (0x101) 指定された DTLS セッションは初期化されていませんでした。
 
@@ -289,7 +289,7 @@ UINT  nx_secure_dtls_psk_add(NX_SECURE_DTLS_SESSION *session_ptr,
 - **pre_shared_key** 実際の PSK 値。
 - **psk_length** PSK 値の長さ。
 - **psk_identity** この PSK 値を識別するために使用される文字列。
-- **identity_length** PSK の ID の長さ。
+- **identity_length** PSK ID の長さ。
 - **hint** TLS サーバー上のどの PSK グループから選択するかを示すために使用される文字列。
 - **hint_length** ヒントの文字列の長さ。
 
@@ -1069,7 +1069,7 @@ UINT  nx_secure_dtls_server_psk_add(
 - **pre_shared_key** 実際の PSK 値。
 - **psk_length** PSK 値の長さ。
 - **psk_identity** この PSK 値を識別するために使用される文字列。
-- **identity_length** PSK の ID の長さ。
+- **identity_length** PSK ID の長さ。
 - **hint** TLS サーバー上のどの PSK グループから選択するかを示すために使用される文字列。
 - **hint_length** ヒントの文字列の長さ。
 
@@ -2504,7 +2504,7 @@ UINT nx_secure_dtls_session_create(
 
 ### <a name="description"></a>説明
 
-このサービスでは、DTLS セッションを作成して構成します。 DTLS Server セッションは DTLS Server のメカニズムで管理されるため、通常、これは DTLS Client のセッションを作成するために使用されます (*nx_secure_dtls_server_create* を参照してください)。ただし、アプリケーションで 1 つのスタンドアロン DTLS Server セッション インスタンスを作成する必要がある場合に、このサービスを使用できます<sup>7</sup>。
+このサービスでは、DTLS セッションを作成して構成します。 DTLS Server セッションは DTLS Server のメカニズムで管理されるため、通常、これは DTLS Client のセッションを作成するために使用されます (*nx_secure_dtls_server_create* を参照してください)。ただし、アプリケーションで 1 つのスタンドアロン DTLS Server セッション インスタンスを作成する必要がある場合に、このサービスを使用できます <sup>7</sup>。
 
 パラメーターによって、DTLS セッションをインスタンス化するために必要な情報とメモリの割り当てが構成されます。 crypto_table パラメーターは、TLS/DTLS の暗号化と認証に必要なすべての暗号化ルーチンを含む TLS テーブルです。 metadata_buffer は、暗号化の計算に使用されます (『NetX Secure TLS ユーザー ガイド』の nx_secure_tls_metadata_size_calculate を参照してください)。また、packet_reassembly_buffer は、暗号化の解除で UDP データグラムを完全な DTLS レコードに再構築するために使用されます。
 

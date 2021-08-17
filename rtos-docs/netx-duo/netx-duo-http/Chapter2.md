@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/15/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 9a3ea37b180ab57a8dcd269092638fa74589836a
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 8739603d4a387ff3f3f42c979bd00fcebe4f08efaab42ecade462adf1fb4906a
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810781"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116783494"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-duo-http"></a>第 2 章 - Azure RTOS NetX Duo HTTP のインストールと使用
 
@@ -32,7 +32,7 @@ Azure RTOS NetX Duo は、[https://github.com/azure-rtos/netxduo/](https://githu
 
 ## <a name="http-installation"></a>HTTP のインストール
 
-NetX Duo 用 HTTP を使用するには、前述のディストリビューション全体を、NetX Duo がインストールされているのと同じディレクトリにコピーする必要があります。 たとえば、NetX Duo が " *\threadx\arm7\green*" ディレクトリにインストールされている場合は、NetX Duo HTTP クライアント アプリケーションの *nxd_http_client.h* と *nxd_http_client.c*、NetX Duo HTTP サーバー アプリケーションの *nxd_http_server.h* と *nxd_http_server.c*、および *nx_md5.c* をこのディレクトリにコピーする必要があります。 <bpt id="p1">*</bpt>nx_md5.c<ept id="p1">*</ept> should be copied into this directory. デモの "ram driver" アプリケーションの場合、NetX Duo HTTP クライアントとサーバーのファイルを同じディレクトリにコピーする必要があります。
+NetX Duo 用 HTTP を使用するには、前述のディストリビューション全体を、NetX Duo がインストールされているのと同じディレクトリにコピーする必要があります。 たとえば、NetX Duo が " *\threadx\arm7\green*" ディレクトリにインストールされている場合は、NetX Duo HTTP クライアント アプリケーションの *nxd_http_client.h* と *nxd_http_client.c*、NetX Duo HTTP サーバー アプリケーションの *nxd_http_server.h* と *nxd_http_server.c*、および *nx_md5.c* をこのディレクトリにコピーする必要があります。 *nx_md5.c* をこのディレクトリにコピーする必要があります。 デモの "ram driver" アプリケーションの場合、NetX Duo HTTP クライアントとサーバーのファイルを同じディレクトリにコピーする必要があります。
 
 ## <a name="using-http"></a>HTTP の使用
 

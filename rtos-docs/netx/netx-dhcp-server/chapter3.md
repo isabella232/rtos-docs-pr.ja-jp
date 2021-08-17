@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: d24c69cf6b8c2bb84b7155e49a54e8296ee662f0
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 702499184b12484fa5862ba83ff3fadb8fccea31089b6bf8b71daf267e8c84a3
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811600"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116799525"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-dhcp-server-services"></a>第 3 章 - Azure RTOS NetX DHCP サーバー サービスの説明
 
@@ -141,7 +141,7 @@ UINT nx_dhcp_clear_client_record (NX_DHCP_SERVER *dhcp_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスにより、サーバー データベースからクライアント レコードがクリアされます。
+このサービスを使用すると、サーバー データベースからクライアント レコードがクリアされます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -182,7 +182,7 @@ UINT nx_dhcp_set_interface_network_parameters(NX_DHCP_SERVER *dhcp_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスにより、指定されたインターフェイスのネットワーク クリティカルなパラメーターの既定値が設定されます。 DHCP サーバーによって、これらのオプションが DHCP クライアントへの OFFER および ACK 応答に含められます。 DHCP サーバーが実行されているホストによってインターフェイス パラメーターが設定された場合、パラメーターの既定値は次のようになります: ルーターは DHCP サーバー自体のプライマリ インターフェイス ゲートウェイに設定され、DNS サーバー アドレスは DHCP サーバー自体で、サブネット マスクは DHCP サーバー インターフェイスで構成されているものと同じです。
+このサービスを使用すると、指定したインターフェイスのネットワーク クリティカルなパラメーターに既定値が設定されます。 DHCP サーバーによって、これらのオプションが DHCP クライアントへの OFFER および ACK 応答に含められます。 DHCP サーバーが実行されているホストによってインターフェイス パラメーターが設定された場合、パラメーターの既定値は次のようになります: ルーターは DHCP サーバー自体のプライマリ インターフェイス ゲートウェイに設定され、DNS サーバー アドレスは DHCP サーバー自体で、サブネット マスクは DHCP サーバー インターフェイスで構成されているものと同じです。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -226,7 +226,7 @@ UINT nx_dhcp_server_delete(NX_DHCP_SERVER *dhcp_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスにより、以前に作成された DHCP サーバー インスタンスが削除されます。
+このサービスを使用すると、以前に作成した DHCP サーバー インスタンスが削除されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -254,7 +254,7 @@ status = nx_dhcp_server_delete(&dhcp_server);
 
 ## <a name="nx_dhcp_server_start"></a>nx_dhcp_server_start
 
-DHCP サーバー処理を開始します
+DHCP サーバーの処理を開始します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -264,7 +264,7 @@ UINT nx_dhcp_server_start(NX_DHCP_SERVER *dhcp_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスにより、DHCP サーバーの処理が開始されます。これには、サーバー UDP ソケットの作成、DHCP ポートのバインド、およびクライアント DHCP 要求の受信の待機が含まれます。
+このサービスを使用すると、DHCP サーバーの処理が開始されます。これには、サーバー UDP ソケットの作成、DHCP ポートのバインド、クライアント DHCP 要求の受信の待機が含まれます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -297,7 +297,7 @@ nx_dhcp_create、nx_dhcp_delete、nx_dhcp_release、nx_dhcp_state_change_notify�
 
 ## <a name="nx_dhcp_server_stop"></a>nx_dhcp_server_stop
 
-DHCP サーバー処理を停止します
+DHCP サーバーの処理を停止します
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -307,7 +307,7 @@ UINT nx_dhcp_server_stop(NX_DHCP_SERVER *dhcp_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスにより、DHCP クライアント要求の受信を含む DHCP サーバーの処理が停止されます。
+このサービスを使用すると、DHCP クライアント要求の受信など、DHCP サーバーの処理が停止されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 

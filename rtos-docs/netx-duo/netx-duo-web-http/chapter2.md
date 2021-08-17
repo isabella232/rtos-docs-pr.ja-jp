@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/24/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 99e649781588b56e72b509c2aa077c38423379d1
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: fd8ab093d15c5413b0d5dac6d35b080674c3a332ec7a028fc462237135880d34
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810520"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116783426"
 ---
 # <a name="chapter-2---installation-and-use-of-http-and-https"></a>第 2 章 - HTTP と HTTPS のインストールと使用
 
@@ -380,7 +380,7 @@ void    thread_0_entry(ULONG thread_input)
 
 ## <a name="configuration-options"></a>構成オプション
 
-HTTP for NetX を構築するための構成オプションがいくつかあります。 すべてのオプションの一覧を以下に示します。それぞれのオプションが詳細に説明されています。 既定値は示されていますが、*nx_web_http_client.h と nx_web_http_server.h* をインクルードする前に再定義することができます。
+NetX 用 HTTP を構築するための構成オプションがいくつかあります。 すべてのオプションの一覧を以下に示します。それぞれのオプションが詳細に説明されています。 既定値は示されていますが、*nx_web_http_client.h と nx_web_http_server.h* をインクルードする前に再定義することができます。
 
 - **NX_DISABLE_ERROR_CHECKING** このオプションを定義すると、基本的な HTTP エラー チェックが削除されます。 通常は、アプリケーションがデバッグされた後に使用します。
 - **NX_WEB_HTTP_DIGEST_ENABLE** 定義した場合、MD5 ダイジェストを使用した認証が HTTPS Server で有効になります。 これは、既定では定義されていません。
@@ -410,4 +410,4 @@ HTTP for NetX を構築するための構成オプションがいくつかあり
 - **NX_WEB_HTTP_SERVER_RETRY_SECONDS** サーバー ソケットの再転送タイムアウトを秒単位で設定します。 既定値では 2 に設定されます。
 - **NX_WEB_HTTP_ SERVER_RETRY_MAX** サーバー ソケットの再転送の最大数を設定します。 既定値では 10 に設定されます。
 - **NX_WEB_HTTP_ SERVER_RETRY_SHIFT** この値は、次の再送信タイムアウトを設定するために使用されます。 現在のタイムアウトには、これまでの再転送回数が乗算され、ソケット タイムアウト シフトの値によってシフトされます。 既定値では 1 に設定され、タイムアウトが 2 倍になります。
-- **NX_WEB_HTTP_SERVER_RETRY_TRANSMIT_QUEUE_DEPTH** これは、サーバー ソケット再転送キューに登録できるパケットの最大数を指定します。 エンキューされたパケットの数がこの数に達した場合、1 つまたは複数のエンキューされたパケットが解放されるまで、これ以上パケットを送信することはできません。 既定値では 20 に設定されます。
+- **NX_WEB_HTTP_SERVER_RETRY_TRANSMIT_QUEUE_DEPTH** これは、サーバー ソケット再転送キューに登録できるパケットの最大数を指定します。 エンキューされたパケットの数がこの数に達した場合、1 つまたは複数のエンキューされたパケットが解放されるまで、これ以上パケットを送信することはできません。 既定値は 20 に設定されています。

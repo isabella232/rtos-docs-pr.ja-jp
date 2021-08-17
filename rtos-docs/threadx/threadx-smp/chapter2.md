@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: cc352ebd7965c84c341d25dfa7bff2671dfb5e66
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: d0a63f3798adbc634a43cdda7e9d44941de655d9333f9ae0fb4181f1a6c0566e
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550254"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801905"
 ---
 # <a name="chapter-2---installation--use-of-azure-rtos-threadx-smp"></a>第 2 章 - Azure RTOS ThreadX SMP のインストールと使用
 
@@ -23,7 +23,7 @@ ms.locfileid: "106550254"
 
 通常、ターゲットのダウンロードは、開発ツールのデバッガー内から実行されます。 ダウンロード後、デバッガーは、メモリおよびプロセッサ レジスタへのアクセスだけでなく、ターゲットの実行制御 (移動、停止、ブレークポイントなど) を提供します。
 
-開発ツール デバッガーのほとんどが、JTAG (IEEE 1149.1) やバックグラウンド デバッグ モード (BDM) などのオンチップ デバッグ (OCD) 接続を介してターゲット ハードウェアと通信します。 また、デバッガーは、インサーキット エミュレーション (ICE) 接続を使用してターゲット ハードウェアと通信することもあります。 OCD 接続と ICE 接続はどちらも、ターゲットの常駐ソフトウェアへの侵入を最小限に抑えた堅牢なソリューションを提供します。
+ほとんどの開発ツールのデバッガーでは、JTAG (IEEE 1149.1) やバックグラウンド デバッグ モード (BDM) などのオンチップ デバッグ (OCD) 接続でターゲット ハードウェアと通信します。 また、デバッガーは、インサーキット エミュレーション (ICE) 接続を使用してターゲット ハードウェアと通信します。 OCD 接続と ICE 接続はどちらも、ターゲットの常駐ソフトウェアへの侵入を最小限に抑えた堅牢なソリューションを提供します。
 
 ホスト上で使用されるリソースについては、ThreadX SMP のソースコードは ASCII 形式で提供され、ホスト コンピューターのハード ディスク上に約 1 MB の空き領域が必要です。
 

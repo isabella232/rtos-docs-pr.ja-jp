@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 720e573b53070a754618830134f63a8421b9fd29
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: f1ebbd4d78f96a257fc6cf62474917a1d618524ff6f27f99c108f904589f84fe
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810457"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801939"
 ---
 # <a name="chapter-4---description-of-azure-rtos-netx-services"></a>第 4 章 - Azure RTOS NetX サービスの説明
 
@@ -38,7 +38,7 @@ UINT nx_arp_dynamic_entries_invalidate(NX_IP *ip_ptr);
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -90,7 +90,7 @@ UINT nx_arp_dynamic_entry_set(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **ip_address** マップする IP アドレス。
 - **physical_msw** 物理アドレスの上位 16 ビット (47-32)。
 - **physical_lsw** 物理アドレスの下位 32 ビット (31-0)。
@@ -149,7 +149,7 @@ UINT nx_arp_enable(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **arp_cache_memory** ARP キャッシュを配置するメモリ領域を指すポインター。
 - **arp_cache_size** 各 ARP エントリは 52 バイトであるため、ARP の合計数は 52 で割ることのできる数になります。
 
@@ -203,7 +203,7 @@ UINT nx_arp_gratuitous_send(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **response_handler** 応答処理関数を指すポインター。 NX_NULL が指定されている場合、応答は無視されます。
 
 ### <a name="return-values"></a>戻り値
@@ -259,7 +259,7 @@ UINT nx_arp_hardware_address_find(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **ip_address** 検索する IP アドレス。
 - **physical_msw** 物理アドレスの上位 16 ビット (47-32) を返すための変数を指すポインター。
 - **physical_lsw** 物理アドレスの下位 32 ビット (31-0) を返すための変数を指すポインター。
@@ -331,7 +331,7 @@ UINT nx_arp_info_get(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **arp_requests_sent** この IP インスタンスから送信された ARP 要求の合計の宛先を指すポインター。
 - **arp_requests_received** ネットワークから受信した ARP 要求の合計の宛先を指すポインター。
 - **arp_responses_sent** この IP インスタンスから送信された ARP 要求の合計の宛先を指すポインター。
@@ -402,7 +402,7 @@ UINT nx_arp_ip_address_find(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **ip_address** マップされた IP アドレスが見つかった場合は、それを返すためのポインター。
 - **physical_msw** 検索対象の物理アドレスの上位 16 ビット (47-32)。
 - **physical_lsw** 検索対象の物理アドレスの下位 32 ビット (31-0)。
@@ -460,7 +460,7 @@ UINT nx_arp_static_entries_delete(NX_IP *ip_ptr);
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -517,7 +517,7 @@ UINT nx_arp_static_entry_create(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **ip_address** マップする IP アドレス。
 - **physical_msw** マップする物理アドレスの上位 16 ビット (47-32)。
 - **physical_lsw** マップする物理アドレスの下位 32 ビット (31-0)。
@@ -583,7 +583,7 @@ UINT nx_arp_static_entry_delete(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **ip_address** 静的にマップされた IP アドレス。
 - **physical_msw** 静的にマップされた物理アドレスの上位 16 ビット (47 - 32)。
 - **physical_msw** 静的にマップされた物理アドレスの下位 32 ビット (31 - 0)。
@@ -642,7 +642,7 @@ UINT nx_icmp_enable(NX_IP *ip_ptr);
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -697,7 +697,7 @@ UINT nx_icmp_info_get(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **pings_sent** 送信された ping の合計数の宛先を指すポインター。
 - **ping_timeouts** ping タイムアウトの合計数の宛先を指すポインター。
 - **ping_threads_suspended** ping 要求で中断されているスレッドの合計数の宛先を指すポインター。
@@ -764,7 +764,7 @@ UINT nx_icmp_ping(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **ip_address** ping する IP アドレス (ホストのバイト順)。 ping メッセージのデータ領域へのデータ ポインター。
 - **data_size** ping データ内のバイト数
 - **response_ptr** ping 応答メッセージを返すパケット ポインターを指すポインター。
@@ -829,7 +829,7 @@ IGMP コンポーネントは、IP マルチキャスト グループ管理操�
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -884,7 +884,7 @@ UINT nx_igmp_info_get(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **igmp_reports_sent** 送信された ICMP レポートの合計数の宛先を指すポインター。
 - **igmp_queries_received** マルチキャスト ルーターによって受信されたクエリの合計数の宛先を指すポインター。
 - **igmp_checksum_errors** 受信パケットの IGMP チェックサム エラーの合計数の宛先を指すポインター。
@@ -941,7 +941,7 @@ UINT nx_igmp_loopback_disable(NX_IP *ip_ptr);
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 - **NX_SUCCESS** (0x00) IGMP ループバックの無効化に成功しました。
@@ -988,7 +988,7 @@ UINT nx_igmp_loopback_enable(NX_IP *ip_ptr);
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 - **NX_SUCCESS** (0x00) IGMP ループバックの無効化に成功しました。
@@ -1038,7 +1038,7 @@ UINT nx_igmp_multicast_interface_join(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **group_address** 参加するクラス D IP マルチキャスト グループ アドレス (ホストのバイト順)。
 - **interface_index** NetX インスタンスに接続されているインターフェイスのインデックス。
 
@@ -1157,7 +1157,7 @@ UINT nx_igmp_multicast_leave(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **group_address** 脱退するマルチキャスト グループ。
 
 ### <a name="return-values"></a>戻り値
@@ -1213,7 +1213,7 @@ UINT nx_ip_address_change_notify(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **change_notify** IP 変更通知関数を指すポインター。 このパラメーターが NX_NULL の場合、IP アドレスの変更通知は無効になります。
 - **additional_info** IP アドレスが変更されたときに通知関数にも提供されるオプションの追加情報を指すポインター。
 
@@ -1272,7 +1272,7 @@ UINT nx_ip_address_get(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **ip_address** IP アドレスの宛先を指すポインター。
 - **network_mask** ネットワーク マスクの宛先を指すポインター。
 
@@ -1332,7 +1332,7 @@ UINT nx_ip_address_set(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **ip_address** 新しい IP アドレス。
 - **network_mask** 新しいネットワーク マスク。
 
@@ -1469,7 +1469,7 @@ UINT nx_ip_delete(NX_IP *ip_ptr);
 このサービスを使用すると、以前に作成した IP インスタンスが削除され、その IP インスタンスによって所有されていたすべてのシステム リソースが解放されます。
 
 ### <a name="parameters"></a>パラメーター
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -1527,7 +1527,7 @@ UINT nx_ip_driver_direct_command(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **command** 数値コマンド コード。 標準コマンドは次のように定義されています。
 
 - NX_LINK_GET_STATUS (10)
@@ -1600,7 +1600,7 @@ UINT nx_ip_driver_interface_direct_command(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **command** 数値コマンド コード。 標準コマンドは次のように定義されています。
 - NX_LINK_GET_STATUS (10)
 - NX_LINK_GET_SPEED (11)
@@ -1670,7 +1670,7 @@ UINT nx_ip_forwarding_disable(NX_IP *ip_ptr);
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -1720,7 +1720,7 @@ UINT nx_ip_forwarding_enable(NX_IP *ip_ptr);
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 - **NX_SUCCESS** (0x00) IP 転送の有効化に成功しました。
@@ -1769,7 +1769,7 @@ UINT nx_ip_fragment_disable(NX_IP *ip_ptr);
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 - **NX_SUCCESS** (0x00) IP フラグメントの無効化に成功しました。
@@ -1819,7 +1819,7 @@ UINT nx_ip_fragment_enable(NX_IP *ip_ptr);
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -1872,7 +1872,7 @@ UINT nx_ip_gateway_address_set(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **ip_address** ゲートウェイの IP アドレス。
 
 ### <a name="return-values"></a>戻り値
@@ -1933,7 +1933,7 @@ UINT nx_ip_info_get(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **ip_total_packets_sent** 送信された IP パケットの合計数の宛先を指すポインター。
 - **ip_total_bytes_sent** 送信された合計バイト数の宛先を指すポインター。
 - **ip_total_packets_received** IP 受信パケットの合計数の宛先を指すポインター。
@@ -2009,7 +2009,7 @@ UINT nx_ip_interface_address_get (
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **interface_index** インターフェイス インデックス。IP インスタンスに接続されているネットワーク インターフェイスのインデックスと同じ値です。
 - **ip_address** デバイス インターフェイスの IP アドレスの宛先を指すポインター。
 - **network_mask** デバイス インターフェイスのネットワーク マスクの宛先を指すポインター。
@@ -2140,7 +2140,7 @@ IP スレッドがまだ実行中でない場合は、このセカンダリ イ�
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **interface_name** インターフェイス名の文字列を指すポインター。
 - **ip_address** デバイスの IP アドレス (ホストのバイト順)。
 - **network_mask** デバイスのネットワーク マスク (ホストのバイト順)。
@@ -2210,7 +2210,7 @@ UINT nx_ip_interface_info_get(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **interface_index** ネットワーク インターフェイスを指定するインデックス。
 - **interface_name** ネットワーク インターフェイスの名前を保持するバッファーを指すポインター。
 - **ip_address** インターフェイスの IP アドレスの宛先を指すポインター。
@@ -2404,7 +2404,7 @@ UINT nx_ip_raw_packet_disable(NX_IP *ip_ptr);
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -2452,7 +2452,7 @@ UINT nx_ip_raw_packet_enable(NX_IP *ip_ptr);
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -2572,7 +2572,7 @@ UINT nx_ip_raw_packet_receive(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **packet_ptr** 受信した生 IP パケットを格納するポインターを指すポインター。
 - **wait_option** 使用可能な生 IP パケットがない場合のサービスの動作を定義します。 この待機オプションは次のように定義されます。
 - NX_NO_WAIT (0x00000000)
@@ -2636,7 +2636,7 @@ UINT nx_ip_raw_packet_send(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **packet_ptr** 送信する生 IP パケットを指すポインター。
 - **destination_ip** 宛先 IP アドレス。特定のホスト IP アドレス、ネットワーク ブロードキャスト、内部ループバック、またはマルチキャスト アドレスを指定できます。
 - **type_of_service** 送信のためのサービスの種類を定義します。有効な値は次のとおりです。
@@ -2706,7 +2706,7 @@ UINT nx_ip_static_route_add(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **network_address** ターゲット ネットワーク アドレス (ホストのバイト順)
 - **net_mask** ターゲット ネットワーク マスク (ホストのバイト順)
 - **next_hop** ターゲット ネットワークのネクスト ホップ アドレス (ホストのバイト順)
@@ -2766,7 +2766,7 @@ UINT nx_ip_static_route_delete(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **network_address** ターゲット ネットワーク アドレス (ホストのバイト順)。
 - **net_mask** ターゲット ネットワーク マスク (ホストのバイト順)。
 
@@ -2813,7 +2813,7 @@ UINT nx_ip_status_check(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **needed_status** 要求された IP 状態。ビットマップ形式で次のように定義されます。
 - NX_IP_INITIALIZE_DONE (0x0001)
 - NX_IP_ADDRESS_RESOLVED (0x0002)
@@ -2973,7 +2973,7 @@ UINT nx_packet_copy(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -3102,7 +3102,7 @@ UINT nx_packet_data_extract_offset(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -3162,7 +3162,7 @@ UINT nx_packet_data_retrieve(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -3212,7 +3212,7 @@ UINT nx_packet_length_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -3534,7 +3534,7 @@ UINT nx_rarp_disable(NX_IP *ip_ptr);
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -3580,7 +3580,7 @@ UINT nx_rarp_enable(NX_IP *ip_ptr);
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -3634,7 +3634,7 @@ UINT nx_rarp_info_get(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **rarp_requests_sent** 送信された RARP 要求の合計数の宛先を指すポインター。
 - **rarp_responses_received** 受信した RARP 応答の合計数の宛先を指すポインター。
 - **rarp_invalid_messages** 無効なメッセージの合計数の宛先を指すポインター。
@@ -3687,11 +3687,11 @@ VOID nx_system_initialize(VOID);
 
 ### <a name="parameters"></a>パラメーター
 
-None
+なし
 
 ### <a name="return-values"></a>戻り値
 
-None
+なし
 
 ### <a name="allowed-from"></a>許可元
 
@@ -4001,7 +4001,7 @@ UINT nx_tcp_enable(NX_IP *ip_ptr);
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -4060,7 +4060,7 @@ UINT nx_tcp_free_port_find(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **port** 検索を開始するポート番号 (1 から 0xFFFF)。
 - **free_port_ptr** 宛先の空きポートの戻り値を指すポインター。
 
@@ -4135,7 +4135,7 @@ UINT nx_tcp_info_get(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **tcp_packets_sent** 送信された TCP パケットの合計数の宛先を指すポインター。
 - **tcp_bytes_sent** 送信された TCP バイトの合計数の宛先を指すポインター。
 - **tcp_packets_received** 受信した TCP パケットの合計数の宛先を指すポインター。
@@ -4377,7 +4377,7 @@ UINT nx_tcp_server_socket_listen(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **port** リッスンするポート番号 (1 から 0xFFFF)。
 - **socket_ptr** 接続に使用するソケットを指すポインター。
 - **listen_queue_size** キューに入れることができるクライアント接続要求の数。
@@ -4535,7 +4535,7 @@ UINT nx_tcp_server_socket_relisten(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **port** 再リッスンするポート番号 (1 から 0xFFFF)。
 - **socket_ptr** 次のクライアント接続に使用するソケット。
 
@@ -4822,7 +4822,7 @@ UINT nx_tcp_server_socket_unlisten(NX_IP *ip_ptr, UINT port);
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **port** リッスンを無効にするポートの数 (0 から 0xFFFF)。
 
 ### <a name="return-values"></a>戻り値
@@ -5032,7 +5032,7 @@ UINT nx_tcp_socket_create(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **socket_ptr** 新しい TCP ソケット制御ブロックを指すポインター。
 - **name** この TCP ソケットのアプリケーション名。
 - **type_of_service** 送信のためのサービスの種類を定義します。有効な値は次のとおりです。
@@ -5058,7 +5058,7 @@ UINT nx_tcp_socket_create(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化およびスレッド
+初期化、スレッド
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -5468,7 +5468,7 @@ UINT nx_tcp_socket_mss_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化およびスレッド
+初期化とスレッド
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -5585,7 +5585,7 @@ UINT nx_tcp_socket_mss_set(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化およびスレッド
+初期化とスレッド
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -6143,7 +6143,7 @@ UINT nx_udp_enable(NX_IP *ip_ptr);
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -6202,7 +6202,7 @@ UINT nx_udp_free_port_find(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **port** 検索を開始するポート番号 (1 から 0xFFFF)。
 - **free_port_ptr** 宛先の空きポートの戻り変数を指すポインター。
 
@@ -6272,7 +6272,7 @@ UINT nx_udp_info_get(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **udp_packets_sent** 送信された UDP パケットの合計数の宛先を指すポインター。
 - **udp_bytes_sent** 送信された UDP バイトの合計数の宛先を指すポインター。
 - **udp_packets_received** 受信した UDP パケットの合計数の宛先を指すポインター。
@@ -6648,7 +6648,7 @@ UINT nx_udp_socket_create(
 
 ### <a name="parameters"></a>パラメーター
 
-- **ip_ptr** 以前に作成された IP インスタンスを指すポインター。
+- **ip_ptr** 以前に作成された IP インスタンスへのポインター。
 - **socket_ptr** 新しい UDP ソケット制御ブロックを指すポインター。
 - **name** この UDP ソケットのアプリケーション名。
 - **type_of_service** 送信のためのサービスの種類を定義します。有効な値は次のとおりです。
@@ -6671,7 +6671,7 @@ UINT nx_udp_socket_create(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化およびスレッド
+初期化、スレッド
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -6970,7 +6970,7 @@ UINT nx_udp_socket_receive_notify(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 

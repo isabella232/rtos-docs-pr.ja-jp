@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 4432001b773b4ef4f99b1b34193e90863966aad4
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 71b964963968b0ec6fa3c8cc70cc46576e8ff33e2cfad0315182afe1f1afcc5b
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812839"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116802160"
 ---
 # <a name="chapter-4---description-of-azure-rtos-threadx-smp-services"></a>第 4 章 - Azure RTOS ThreadX SMP サービスの説明
 
@@ -3912,7 +3912,7 @@ TX_THREAD* tx_thread_identify(VOID);
 
 ### <a name="parameters"></a>パラメーター
 
-None
+なし
 
 ### <a name="return-values"></a>戻り値
 
@@ -4420,11 +4420,11 @@ VOID tx_thread_relinquish(VOID);
 
 ### <a name="parameters"></a>パラメーター
 
-None
+なし
 
 ### <a name="return-values"></a>戻り値
 
-None
+なし
 
 ### <a name="allowed-from"></a>許可元
 
@@ -4782,7 +4782,7 @@ UINT  tx_thread_smp_core_get(void);
 
 ### <a name="parameters"></a>パラメーター
 
-None
+なし
 
 ### <a name="return-values"></a>戻り値
 
@@ -5167,7 +5167,7 @@ ULONG tx_time_get(VOID);
 
 ### <a name="parameters"></a>パラメーター
 
-None
+なし
 
 ### <a name="return-values"></a>戻り値
 
@@ -5218,7 +5218,7 @@ VOID tx_time_set(ULONG new_time);
 
 ### <a name="return-values"></a>戻り値
 
-None
+なし
 
 ### <a name="allowed-from"></a>許可元
 

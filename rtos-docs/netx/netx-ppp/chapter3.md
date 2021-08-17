@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: f24d7366d27a8223b069a54ef7b93f6b3e38bf3a
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 980348b5c50acfb82b2d8fda8786a1d48bf59c69e7949b6f62b64515b59bf42d
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811468"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116798760"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-point-to-point-protocol-ppp-services"></a>第 3 章 - Azure RTOS NetX Point-to-Point プロトコル (PPP) のサービスの説明
 
@@ -68,7 +68,7 @@ UINT nx_ppp_byte_receive(NX_PPP *ppp_ptr, UCHAR byte);
 - **NX_PPP_BUFFER_FULL**: (0xB1) PPP シリアル バッファーが既にいっぱいになっています。
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 スレッド、ISR
 
@@ -108,7 +108,7 @@ UINT nx_ppp_chap_challenge(NX_PPP *ppp_ptr);
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 - NX_CALLER_ERROR: (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -160,7 +160,7 @@ UINT nx_ppp_chap_enable(NX_PPP *ppp_ptr,
 - NX_PTR_ERROR: (0x07) PPP ポインターまたはコールバック関数ポインターが無効です。 *get_challenge_values* が指定されている場合は、*get_verification_values* 関数も指定する必要があることに注意してください。
 - NX_CALLER_ERROR: (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 初期化、スレッド
 
@@ -292,7 +292,7 @@ UINT  nx_ppp_create(NX_PPP *ppp_ptr, CHAR *name, NX_IP *ip_ptr,
 - NX_PTR_ERROR: (0x07) PPP、IP、またはバイト出力関数ポインターが無効です。
 - NX_CALLER_ERROR: (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 初期化、スレッド
 
@@ -331,7 +331,7 @@ UINT nx_ppp_delete(NX_PPP *ppp_ptr);
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 - NX_CALLER_ERROR: (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -369,7 +369,7 @@ UINT nx_ppp_dns_address_get(NX_PPP *ppp_ptr, ULONG *dns_address_ptr);
 - **NX_PPP_NOT_ESTABLISHED**: (0xB5) PPP はピアとのネゴシエーションを完了していません。
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、ISR
 
@@ -411,7 +411,7 @@ UINT nx_ppp_secondary_dns_address_get(NX_PPP *ppp_ptr, ULONG *dns_address_ptr);
 - **NX_PPP_NOT_ESTABLISHED**: (0xB5) PPP はピアとのネゴシエーションを完了していません。
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、ISR
 
@@ -451,7 +451,7 @@ UINT nx_ppp_dns_address_set(NX_PPP *ppp_ptr, ULONG dns_address);
 - **NX_PPP_NOT_ESTABLISHED**: (0xB5) PPP はピアとのネゴシエーションを完了していません。
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 初期化、スレッド
 
@@ -493,7 +493,7 @@ UINT nx_ppp_secondary_dns_address_set(NX_PPP *ppp_ptr, ULONG dns_address);
 - **NX_PPP_NOT_ESTABLISHED**: (0xB5) PPP はピアとのネゴシエーションを完了していません。
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 初期化、スレッド
 
@@ -533,7 +533,7 @@ UINT nx_ppp_interface_index_get(NX_PPP *ppp_ptr, UINT *index_ptr);
 - **NX_IN_PROGRESS**: (0x37) PPP は初期化を完了していません。
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、ISR
 
@@ -577,7 +577,7 @@ UINT nx_ppp_ip_address_assign(NX_PPP *ppp_ptr, ULONG local_ip_address,
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 - NX_CALLER_ERROR: (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 初期化、スレッド
 
@@ -617,7 +617,7 @@ UINT nx_ppp_link_down_notify(NX_PPP *ppp_ptr,
 - **NX_SUCCESS**: (0x00) リンクダウン通知コールバックが正常に登録されました。
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、ISR
 
@@ -663,7 +663,7 @@ UINT nx_ppp_link_up_notify(NX_PPP *ppp_ptr,
 - **NX_SUCCESS**: (0x00) リンクアップ通知コールバックが正常に登録されました。
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、ISR
 
@@ -710,7 +710,7 @@ UINT    nx_ppp_nak_authentication_notify(NX_PPP *ppp_ptr,
 - **NX_SUCCESS**: (0x00) 通知コールバックが正常に登録されました。
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、ISR
 
@@ -766,7 +766,7 @@ UINT  nx_ppp_pap_enable(NX_PPP *ppp_ptr,
 - NX_PTR_ERROR: (0x07) PPP ポインターまたはアプリケーション関数ポインターが無効です。
 - NX_CALLER_ERROR: (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 初期化、スレッド
 
@@ -842,7 +842,7 @@ UINT  nx_ppp_ping_request(NX_PPP *ppp_ptr, CHAR *data,
 - NX_PTR_ERROR: (0x07) PPP ポインターまたはアプリケーション関数ポインターが無効です。
 - NX_CALLER_ERROR: (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 アプリケーション スレッド
 
@@ -892,7 +892,7 @@ UINT  nx_ppp_raw_sting_send(NX_PPP *ppp_ptr, CHAR *string_ptr);
 - NX_PTR_ERROR: (0x07) PPP ポインターまたは文字列ポインターが無効です。
 - NX_CALLER_ERROR: (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -930,7 +930,7 @@ UINT  nx_ppp_restart(NX_PPP *ppp_ptr);
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 - NX_CALLER_ERROR: (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -971,7 +971,7 @@ UINT  nx_ppp_start(NX_PPP *ppp_ptr);
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 - NX_CALLER_ERROR: (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -1019,7 +1019,7 @@ UINT  nx_ppp_status_get(NX_PPP *ppp_ptr, UINT *status_ptr);
 - **NX_SUCCESS**: (0x00) PPP 状態要求が正常に実行されました。
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、ISR
 
@@ -1061,7 +1061,7 @@ UINT  nx_ppp_stop(NX_PPP *ppp_ptr);
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -1098,7 +1098,7 @@ UINT  nx_ppp_packet_receive(NX_PPP *ppp_ptr, NX_PACKET *packet_ptr);
 - **NX_SUCCESS**: (0x00) PPP 状態要求が正常に実行されました。
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 初期化、スレッド
 
@@ -1138,7 +1138,7 @@ UINT  nx_ppp_packet_send_set(NX_PPP *ppp_ptr,
 - **NX_SUCCESS**: (0x00) PPP 状態要求が正常に実行されました。
 - NX_PTR_ERROR: (0x07) PPP ポインターが無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 初期化、スレッド
 

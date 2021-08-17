@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 4be5049fca40d6d57961e692661d8df6706eac28
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 63b3f17aae95cb00a338db423c94e4846c589787027401d3e33a29bbfafdd966
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812110"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116784718"
 ---
 # <a name="about-this-guix-studio-user-guide"></a>この GUIX Studio ユーザー ガイドについて
 
@@ -33,7 +33,7 @@ ThreadX Real-Time Operating System (RTOS) と Azure RTOS GUIX UI ランタイム
 
 ## <a name="customer-support-center"></a>カスタマー サポート センター
 
-ご質問がある場合、サポートが必要な場合は、次の手順で Azure Portal からサポート チケットを提出します。 サポート リクエストを効率的に解決できるように、次の情報をメールでお送りください。
+質問やこちらの手順に関するお問い合わせについては、Azure portal からサポート チケットを送信してください。 サポート リクエストを効率的に解決できるように、次の情報をメールでお送りください。
 
 - どのくらいの頻度で発生するか、どのくらい正確に再現できるかという情報を含む、問題の詳しい説明。
 - 問題の原因となっているトレース ファイルを添付します。

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 60ecc96df07b1f77b9b448814c4420133f3e2afc
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: dabc1603423d8422ed6f8f540f8a06e80d14ec0098c886ca8731ac8ce981f15d
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810274"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116783409"
 ---
 # <a name="chapter-4---description-of-azure-rtos-threadx-services"></a>第 4 章 - Azure RTOS ThreadX サービスの説明
 
@@ -19,7 +19,7 @@ ms.locfileid: "104810274"
 
 ## <a name="tx_block_allocate"></a>tx_block_allocate
 
-固定サイズのメモリ ブロックの割り当て
+固定サイズのメモリ ブロックを割り当てます
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -58,7 +58,7 @@ UINT tx_block_allocate(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -134,7 +134,7 @@ UINT tx_block_pool_create(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化およびスレッド
+初期化とスレッド
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -264,7 +264,7 @@ UINT tx_block_pool_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -339,7 +339,7 @@ UINT tx_block_pool_performance_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -408,7 +408,7 @@ UINT tx_block_pool_performance_system_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -462,7 +462,7 @@ UINT tx_block_pool_prioritize(TX_BLOCK_POOL *pool_ptr);
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -504,7 +504,7 @@ UINT tx_block_release(VOID *block_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、以前に割り当てられたブロックを、関連付けられているメモリ プールに解放します。 このプールからのメモリ ブロックを待機している中断中のスレッドが 1 つ以上ある場合、中断された最初のスレッドにこのメモリ ブロックが割り当てられ、再開されます。
+このサービスを使用すると、以前に割り当てられたブロックが、関連付けられているメモリ プールに解放されます。 このプールからのメモリ ブロックを待機している中断中のスレッドが 1 つ以上ある場合、中断された最初のスレッドにこのメモリ ブロックが割り当てられ、再開されます。
 
 >[!IMPORTANT]
 >*アプリケーションは、プールに解放された後にメモリ ブロック領域使用しないようにする必要があります。*
@@ -520,7 +520,7 @@ UINT tx_block_release(VOID *block_ptr);
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -600,7 +600,7 @@ UINT tx_byte_allocate(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化およびスレッド
+初期化とスレッド
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -647,7 +647,7 @@ UINT tx_byte_pool_create(
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、指定した領域にメモリ バイト プールが作成されます。 プールは最初、基本的に 1 つの非常に大きな空きブロックで構成されています。 ただし、割り当てが行われると、プールは小さいブロックに分割されます。
+このサービスを使用すると、指定した領域にメモリ バイト プールが作成されます。 最初のプールは、基本的に 1 つの非常に大きな空きブロックで構成されています。 ただし、割り当てが行われると、プールは小さいブロックに分割されます。
 
 ### <a name="parameters"></a>パラメーター
 
@@ -666,7 +666,7 @@ UINT tx_byte_pool_create(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化およびスレッド
+初期化とスレッド
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -794,7 +794,7 @@ UINT tx_byte_pool_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -880,7 +880,7 @@ UINT tx_byte_pool_performance_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -958,7 +958,7 @@ UINT tx_byte_pool_performance_system_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
- 初期化、スレッド、タイマー、ISR
+ 初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -1016,7 +1016,7 @@ UINT tx_byte_pool_prioritize(TX_BYTE_POOL *pool_ptr);
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -1060,7 +1060,7 @@ UINT tx_byte_release(VOID *memory_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、以前に割り当てられたメモリ領域を、関連付けられているプールに解放します。 このプールからのメモリを待機しているスレッドが 1 つ以上ある場合、メモリが使い果たされるか、中断されたスレッドがなくなるまで、中断された各スレッドにメモリが割り当てられて再開されます。 中断されたスレッドにメモリを割り当てるこのプロセスは、常に中断された最初のスレッドから開始されます。
+このサービスを使用すると、以前に割り当てられたメモリ領域が、関連付けられているプールに解放されます。 このプールからのメモリを待機しているスレッドが 1 つ以上ある場合、中断された各スレッドにはメモリが割り当てられ、メモリが使い果たされるか、中断されたスレッドがなくなるまで再開されます。 中断されたスレッドにメモリを割り当てるこのプロセスは、常に中断された最初のスレッドから開始されます。
 
 > [!IMPORTANT]
 > *アプリケーションは、解放された後にメモリ領域を使用しないようにする必要があります。*
@@ -1077,7 +1077,7 @@ UINT tx_byte_release(VOID *memory_ptr);
 
 ### <a name="allowed-from"></a>許可元
 
-初期化およびスレッド
+初期化とスレッド
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -1121,7 +1121,7 @@ UINT tx_event_flags_create(
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、32 個のイベント フラグのグループが作成されます。 グループ内の 32 個すべてのイベント フラグが 0 に初期化されます。 各イベント フラグは、1 つのビットで表されます。
+このサービスを使用すると、32 イベント フラグのグループが作成されます。 グループ内の 32 イベント フラグすべてが 0 に初期化されます。 各イベント フラグは、1 つのビットで表されます。
 
 ### <a name="parameters"></a>パラメーター
 
@@ -1136,7 +1136,7 @@ UINT tx_event_flags_create(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化およびスレッド
+初期化とスレッド
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -1243,7 +1243,7 @@ UINT tx_event_flags_get(
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、指定したイベント フラグ グループからイベント フラグが取得されます。 各イベント フラグ グループに 32 個のイベント フラグが含まれています。 各フラグは、1 つのビットで表されます。 このサービスを使用すると、入力パラメーターでの選択に従って、さまざまなイベント フラグの組み合わせを取得できます。
+このサービスを使用すると、指定したイベント フラグ グループからイベント フラグが取得されます。 各イベント フラグ グループには 32 イベント フラグが含まれています。 各フラグは、1 つのビットで表されます。 このサービスを使用すると、入力パラメーターで選択されているように、さまざまなイベント フラグの組み合わせが取得されます。
 
 ### <a name="parameters"></a>パラメーター
 
@@ -1277,7 +1277,7 @@ UINT tx_event_flags_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -1349,7 +1349,7 @@ UINT tx_event_flags_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -1425,7 +1425,7 @@ UINT tx_event_flags_performance_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -1521,7 +1521,7 @@ successfully retrieved. */
 
 ## <a name="tx_event_flags_set"></a>tx_event_flags_set
 
-イベント フラグ グループのイベント フラグの設定
+イベント フラグ グループでのイベント フラグの設定
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -1534,7 +1534,7 @@ UINT tx_event_flags_set(
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、指定した set オプションに応じて、イベント フラグ グループ内のイベント フラグが設定またはクリアされます。 イベント フラグ要求が現在満たされているすべての中断スレッドが再開されます。
+このサービスを使用すると、指定したセット オプションに応じて、イベント フラグ グループ内のイベント フラグが設定またはクリアされます。 イベント フラグ要求が満たされている、中断されたスレッドが再開されます。
 
 ### <a name="parameters"></a>パラメーター
 
@@ -1544,7 +1544,7 @@ UINT tx_event_flags_set(
   - **TX_AND** (0x02)
   - **TX_OR** (0x00)
 
-  TX_AND を選択すると、指定されたイベント フラグがグループの現在のイベント フラグへ **AND** 演算することが指定されます。 このオプションは、グループ内のイベント フラグをクリアするためによく使用されます。 あるいは、TX_OR が指定されている場合、指定されたイベント フラグは、グループ内の現在のイベントへ **OR** 演算されます。
+  TX_AND を選択すると、指定されたイベント フラグがグループの現在のイベント フラグへ **AND** 演算することが指定されます。 このオプションは、グループ内のイベント フラグをクリアするためによく使用されます。 あるいは、TX_OR が指定されている場合、指定されたイベント フラグは、グループ内の現在のイベントで **OR** 演算されます。
 
 ### <a name="return-values"></a>戻り値
 - **TX_SUCCESS** (0x00) イベント フラグの設定に成功しました。
@@ -1634,7 +1634,7 @@ void my_event_flags_set_notify(TX_EVENT_FLAGS_GROUP *group_ptr)
 
 ## <a name="tx_interrupt_control"></a>tx_interrupt_control
 
-割り込みを有効または無効にする
+割り込みの有効化と無効化
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -1661,7 +1661,7 @@ UINT tx_interrupt_control(UINT new_posture);
 
 ### <a name="allowed-from"></a>許可元
 
-スレッド、タイマー、ISR
+スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -1707,7 +1707,7 @@ UINT tx_mutex_create(
 
 - **mutex_ptr** ミューテックス制御ブロックへのポインター。
 - **name_ptr** ミューテックスの名前へのポインター。
-- **priority_inherit** このミューテックスが優先度の継承をサポートするかどうかを指定します。 この値が TX_INHERIT の場合、優先度の継承がサポートされます。 ただし、TX_NO_INHERIT が指定された場合、このミューテックスでは優先度の継承がサポートされません。
+- **priority_inherit** このミューテックスが優先度の継承をサポートするかどうかを指定します。 この値が TX_INHERIT の場合、優先度の継承がサポートされます。 ただし、TX_NO_INHERIT が指定されている場合、優先度の継承はこのミューテックスではサポートされません。
 
 ### <a name="return-values"></a>戻り値
 
@@ -1718,7 +1718,7 @@ UINT tx_mutex_create(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化およびスレッド
+初期化とスレッド
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -1822,7 +1822,7 @@ UINT tx_mutex_get(
 
 ### <a name="description"></a>説明
 
-このサービスは、指定したミューテックスの排他的所有権の取得を試みます。 呼び出し元のスレッドによって既にミューテックスが所有されている場合は、内部カウンターがインクリメントされ、成功ステータスが返されます。
+このサービスを使用すると、指定したミューテックスの排他的所有権の取得が試みられます。 呼び出し元のスレッドによって既にミューテックスが所有されている場合は、内部カウンターがインクリメントされ、成功ステータスが返されます。
 
 ミューテックスが別のスレッドによって所有されており、このスレッドの優先度が高く、優先度の継承がミューテックス作成時に指定されている場合、低優先度スレッドの優先度は一時的に呼び出し元スレッドの優先度まで上昇します。
 
@@ -1918,7 +1918,7 @@ UINT tx_mutex_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -1959,7 +1959,7 @@ valid. */
 
 ## <a name="tx_mutex_performance_info_get"></a>tx_mutex_performance_info_get
 
-ミューテックス パフォーマンス情報の取得
+ミューテックスのパフォーマンス情報の取得
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -2002,7 +2002,7 @@ UINT tx_mutex_performance_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -2076,7 +2076,7 @@ UINT tx_mutex_performance_system_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -2120,7 +2120,7 @@ UINT tx_mutex_prioritize(TX_MUTEX *mutex_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、このミューテックスの所有権に対して中断された最も優先度の高いスレッドが、中断リストの先頭に配置されます。 他のすべてのスレッドは、中断された時と同じ FIFO の順序で保持されます。
+このサービスを使用すると、このミューテックスの所有権をめぐって中断された最も優先度の高いスレッドが、中断リストの先頭に配置されます。 他のすべてのスレッドは、中断された時と同じ FIFO の順序で保持されます。
 
 ### <a name="parameters"></a>パラメーター
 
@@ -2133,7 +2133,7 @@ UINT tx_mutex_prioritize(TX_MUTEX *mutex_ptr);
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -2168,7 +2168,7 @@ up. */
 
 ## <a name="tx_mutex_put"></a>tx_mutex_put
 
-ミューテックスの所有権を解放
+ミューテックスの所有権の解放
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -2263,7 +2263,7 @@ UINT tx_queue_create(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化およびスレッド
+初期化とスレッド
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -2389,7 +2389,7 @@ UINT tx_queue_flush(TX_QUEUE *queue_ptr);
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -2438,7 +2438,7 @@ UINT tx_queue_front_send(
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、メッセージが指定したメッセージ キューの先頭の場所に送られます。 メッセージは、ソース ポインターによって指定されたメモリ領域からキューの先頭に **コピー** されます。
+このサービスを使用すると、指定したメッセージ キューの前の場所にメッセージが送信されます。 メッセージは、ソース ポインターによって指定されたメモリ領域からキューの先頭に **コピー** されます。
 
 ### <a name="parameters"></a>パラメーター
 
@@ -2461,7 +2461,7 @@ UINT tx_queue_front_send(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -2539,7 +2539,7 @@ UINT tx_queue_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -2583,7 +2583,7 @@ valid. */
 
 ## <a name="tx_queue_performance_info_get"></a>tx_queue_performance_info_get
 
-キュー パフォーマンス情報の取得
+キューに関するパフォーマンス情報の取得
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -2626,7 +2626,7 @@ UINT tx_queue_performance_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -2664,7 +2664,7 @@ successfully retrieved. */
 
 ## <a name="tx_queue_performance_system_info_get"></a>tx_queue_performance_system_info_get
 
-キュー システム パフォーマンス情報の取得
+キュー システムに関するパフォーマンス情報の取得
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -2704,7 +2704,7 @@ UINT tx_queue_performance_system_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -2751,7 +2751,7 @@ UINT tx_queue_prioritize(TX_QUEUE *queue_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、メッセージで中断された (またはメッセージを配置する) 最も優先度の高いスレッドがこのキューで中断リストの先頭に配置されます。
+このサービスを使用すると、このキューにメッセージを入れるために (またはメッセージを配置するために) 中断された最優先のスレッドが、中断リストの先頭に配置されます。
 
 他のすべてのスレッドは、中断された時と同じ FIFO の順序で保持されます。
 
@@ -2766,7 +2766,7 @@ UINT tx_queue_prioritize(TX_QUEUE *queue_ptr);
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -2816,7 +2816,7 @@ UINT tx_queue_receive(
 
 ### <a name="description"></a>説明
 
-このサービスは、指定されたメッセージ キューからメッセージを取得します。 取得されたメッセージは、キューから目標ポインターによって指定されたメモリ領域に **コピー** されます。 そのメッセージは、その後キューから削除されます。
+このサービスを使用すると、指定したメッセージ キューからメッセージが取得されます。 取得されたメッセージは、キューから、宛先ポインターによって指定されたメモリ領域に **コピー** されます。 そのメッセージは、その後キューから削除されます。
 
 > [!IMPORTANT]
 > *指定された目標メモリ領域は、メッセージを保持できるだけの大きさでなければなりません。つまり、*  ***destination_ptr** _ _によりポイントされるメッセージ送信先は、少なくともこのキューのメッセージ サイズと同じでなければなりません。 それ以外の場合、目標の容量が十分でないと、メモリ破損が次のメモリ領域で発生します。*
@@ -2842,7 +2842,7 @@ UINT tx_queue_receive(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -2894,7 +2894,7 @@ UINT tx_queue_send(
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、指定したメッセージ キューにメッセージが送信されます。 送信されたメッセージは、ソース ポインターによって指定されたメモリ領域からキューに **コピー** されます。
+このサービスを使用すると、指定したメッセージ キューにメッセージが送られます。 送信されたメッセージは、ソース ポインターによって指定されたメモリ領域からキューに **コピー** されます。
 
 ### <a name="parameters"></a>パラメーター
 - **queue_ptr** <br>以前に作成されたメッセージ キューへのポインター。
@@ -2916,7 +2916,7 @@ UINT tx_queue_send(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -2953,7 +2953,7 @@ queue. */
 
 ## <a name="tx_queue_send_notify"></a>tx_queue_send_notify
 
-メッセージがキューに送信されるときアプリケーションに通知
+メッセージをキューに送信するときにアプリケーションに通知
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -2983,7 +2983,7 @@ UINT tx_queue_send_notify(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -3016,7 +3016,7 @@ void my_queue_send_notify(TX_QUEUE *queue_ptr)
 
 ## <a name="tx_semaphore_ceiling_put"></a>tx_semaphore_ceiling_put
 
-シーリングがあるカウント セマフォにインスタンスを配置する
+上限が設定されたカウント セマフォへのインスタンスの配置
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -3044,7 +3044,7 @@ UINT tx_semaphore_ceiling_put(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -3086,7 +3086,7 @@ UINT tx_semaphore_create(
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、スレッド間同期のためのカウント セマフォが作成されます。 初期セマフォ数は、入力パラメーターとして指定されます。
+このサービスを使用すると、スレッド間同期のカウント セマフォが作成されます。 初期のセマフォ数は、入力パラメーターとして指定されます。
 
 ### <a name="parameters"></a>パラメーター
 
@@ -3102,7 +3102,7 @@ UINT tx_semaphore_create(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化およびスレッド
+初期化とスレッド
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -3232,7 +3232,7 @@ UINT tx_semaphore_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -3305,7 +3305,7 @@ UINT tx_semaphore_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -3347,7 +3347,7 @@ valid. */
 
 ## <a name="tx_semaphore_performance_info_get"></a>tx_semaphore_performance_info_get
 
-セマフォ パフォーマンス情報の取得
+セマフォに関するパフォーマンス情報の取得
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -3386,7 +3386,7 @@ UINT tx_semaphore_performance_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -3420,7 +3420,7 @@ successfully retrieved. */
 
 ## <a name="tx_semaphore_performance_system_info_get"></a>tx_semaphore_performance_system_info_get
 
-セマフォ システム パフォーマンス情報の取得
+セマフォ システムに関するパフォーマンス情報の取得
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -3456,7 +3456,7 @@ UINT tx_semaphore_performance_system_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -3499,7 +3499,7 @@ UINT tx_semaphore_prioritize(TX_SEMAPHORE *semaphore_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、セマフォのインスタンスに対して中断されている最も優先度の高いスレッドが、中断リストの先頭に配置されます。 他のすべてのスレッドは、中断された時と同じ FIFO の順序で保持されます。
+このサービスを使用すると、セマフォのインスタンスをめぐって中断された最も優先度の高いスレッドが、中断リストの先頭に配置されます。 他のすべてのスレッドは、中断された時と同じ FIFO の順序で保持されます。
 
 ### <a name="parameters"></a>パラメーター
 
@@ -3512,7 +3512,7 @@ UINT tx_semaphore_prioritize(TX_SEMAPHORE *semaphore_ptr);
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -3570,7 +3570,7 @@ UINT tx_semaphore_put(TX_SEMAPHORE *semaphore_ptr);
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -3634,7 +3634,7 @@ UINT tx_semaphore_put_notify(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -3687,7 +3687,7 @@ UINT tx_thread_create(
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、指定されたタスク エントリ関数で実行を開始するアプリケーション スレッドが作成されます。 入力パラメーターによって指定される属性の中には、スタック、優先度、プリエンプションしきい値、およびタイムスライスがあります。 さらに、スレッドの初期実行状態も指定されます。
+このサービスを使用すると、指定されたタスク エントリ関数で実行が開始されるアプリケーション スレッドが作成されます。 スタック、優先度、プリエンプションしきい値、およびタイムスライスは、入力パラメーターによって指定される属性の中にあります。 さらに、スレッドの初期実行状態も指定されます。
 
 **パラメーター**
 
@@ -3719,7 +3719,7 @@ UINT tx_thread_create(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化およびスレッド
+初期化とスレッド
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -3797,7 +3797,7 @@ UINT tx_thread_delete(TX_THREAD *thread_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、指定されたアプリケーション スレッドが削除されます。 指定されたスレッドは終了または完了した状態でなければならないため、このサービスは、自身を削除しようとしているスレッドから呼び出すことはできません。
+このサービスを使用すると、指定したアプリケーション スレッドが削除されます。 指定されたスレッドは終了または完了した状態でなければならないため、このサービスは、自身を削除しようとしているスレッドから呼び出すことはできません。
 
 > [!NOTE]
 > *スレッドのスタックに関連付けられているメモリ領域を管理するのはアプリケーションの役割です。これは、このサービスの完了後に利用できます。また、このアプリケーションでは削除されたスレッドの使用を防ぐ必要があります。*
@@ -3888,7 +3888,7 @@ UINT tx_thread_entry_exit_notify(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -3934,7 +3934,7 @@ void my_entry_exit_notify(TX_THREAD *thread_ptr, UINT condition)
 
 ## <a name="tx_thread_identify"></a>tx_thread_identify
 
-現在実行中のスレッドへのポインターを取得
+現在実行中のスレッドを指すポインターを取得
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -3943,7 +3943,7 @@ TX_THREAD* tx_thread_identify(VOID);
 ```
 ### <a name="description"></a>説明
 
-このサービスを使用すると、現在実行中のスレッドへのポインターが返されます。 実行中のスレッドがない場合、このサービスは null ポインターを返します。
+このサービスを使用すると、現在実行中のスレッドを指すポインターが返されます。 実行中のスレッドがない場合、このサービスは null ポインターを返します。
 
 > [!NOTE]
 > *このサービスが ISR から呼び出された場合、戻り値は、実行中の割り込みハンドラーの前に実行されているスレッドを表します。*
@@ -4058,7 +4058,7 @@ UINT tx_thread_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -4112,7 +4112,7 @@ valid. */
 
 ## <a name="tx_thread_performance_info_get"></a>tx_thread_performance_info_get
 
-スレッド パフォーマンス情報の取得
+スレッドに関するパフォーマンス情報の取得
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -4162,7 +4162,7 @@ UINT tx_thread_performance_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -4215,7 +4215,7 @@ successfully retrieved. */
 
 ## <a name="tx_thread_performance_system_info_get"></a>tx_thread_performance_system_info_get
 
-スレッド システムのパフォーマンス情報の取得
+スレッド システムに関するパフォーマンス情報の取得
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -4266,7 +4266,7 @@ UINT tx_thread_performance_system_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -4332,7 +4332,7 @@ UINT tx_thread_preemption_change(
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、指定されたスレッドのプリエンプションしきい値が変更されます。 プリエンプションしきい値により、そのプリエンプションしきい値以下のスレッドにより、指定されたスレッドがプリエンプションされることがなくなります。
+このサービスを使用すると、指定したスレッドのプリエンプションしきい値を変更できます。 プリエンプションしきい値により、そのプリエンプションしきい値以下のスレッドにより、指定されたスレッドがプリエンプションされることがなくなります。
 
 >[!NOTE]
 > *プリエンプションしきい値を使用すると、指定されたスレッドのタイム スライシングが無効になります。*
@@ -4495,11 +4495,11 @@ VOID tx_thread_relinquish(VOID);
 
 ### <a name="parameters"></a>パラメーター
 
-None
+なし
 
 ### <a name="return-values"></a>戻り値
 
-None
+なし
 
 ### <a name="allowed-from"></a>許可元
 
@@ -4581,7 +4581,7 @@ UINT tx_thread_reset(TX_THREAD *thread_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、スレッドの作成時に定義されたエントリ ポイントで実行するように、指定されたスレッドをリセットします。 スレッドは、リセットするためには **TX_COMPLETED** または **TX_TERMINATED** の状態である必要があります。
+このサービスを使用すると、スレッドの作成時に定義されたエントリ ポイントで実行するよう指定されたスレッドがリセットされます。 スレッドは、リセットするためには **TX_COMPLETED** または **TX_TERMINATED** の状態である必要があります。
 
 > [!IMPORTANT]
 > *スレッドは、再実行するためには再開する必要があります。*
@@ -4637,7 +4637,7 @@ status = tx_thread_reset(&my_thread);
 
 ## <a name="tx_thread_resume"></a>tx_thread_resume
 
-中断されたアプリケーション スレッドの再開
+中断したアプリケーション スレッドの再開
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -4647,7 +4647,7 @@ UINT tx_thread_resume(TX_THREAD *thread_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、***tx_thread_suspend*** 呼び出しによって以前に中断されたスレッドの実行が再開または準備されます。 さらに、このサービスは、自動開始なしで作成されたスレッドを再開します。
+このサービスを使用すると、***tx_thread_suspend*** 呼び出しによって以前に中断されたスレッドの実行が再開または準備されます。 また、このサービスを使用すると、自動開始なしで作成されたスレッドが再開されます。
 
 ### <a name="parameters"></a>パラメーター
 
@@ -4662,7 +4662,7 @@ UINT tx_thread_resume(TX_THREAD *thread_ptr);
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -4715,7 +4715,7 @@ UINT tx_thread_sleep(ULONG timer_ticks);
 
 ### <a name="description"></a>説明
 
-このサービスによって、呼び出し元のスレッドは、指定したタイマー刻み数だけ中断されます。 タイマー刻みに関連付けられている物理時間の量は、アプリケーション固有です。 このサービスを呼び出せるのはアプリケーション スレッドからだけです。
+このサービスによって、呼び出し元のスレッドは、指定したタイマー ティック数だけ中断されます。 タイマー刻みに関連付けられている物理時間の量は、アプリケーション固有です。 このサービスは、アプリケーション スレッドからのみ呼び出すことができます。
 
 ### <a name="parameters"></a>パラメーター
 
@@ -4795,7 +4795,7 @@ UINT tx_thread_stack_error_notify(VOID (*error_handler)(TX_THREAD *));
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -4841,7 +4841,7 @@ UINT tx_thread_suspend(TX_THREAD *thread_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、指定されたアプリケーション スレッドが中断されます。 スレッドがこのサービスを呼び出して自身を中断する場合があります。
+このサービスを使用すると、指定したアプリケーション スレッドが中断されます。 スレッドがこのサービスを呼び出して自身を中断する場合があります。
 
 > [!NOTE]
 > *指定されたスレッドが既に別の理由で中断されている場合、この中断は、前の中断が解除されるまで内部的に保持されます。この場合、指定されたスレッドの無条件の中断が実行されます。後続の無条件中断要求は無効です。*
@@ -4861,7 +4861,7 @@ UINT tx_thread_suspend(TX_THREAD *thread_ptr);
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -4911,7 +4911,7 @@ UINT tx_thread_terminate(TX_THREAD *thread_ptr);
 ```
 ### <a name="description"></a>説明
 
-このサービスを使用すると、指定されたアプリケーションスレッドを、スレッドが中断されているかどうかに関係なく終了します。 スレッドはこのサービスを呼び出して自身を終了する場合があります。
+このサービスを使用すると、指定したアプリケーション スレッドが、スレッドが中断されているかどうかに関係なく終了します。 スレッドはこのサービスを呼び出して自身を終了する場合があります。
 
 > [!NOTE]
 > *スレッドが終了に適した状態になるようにするのは、アプリケーションの責任です。たとえば、スレッドは、重要なアプリケーションの処理中、または他のミドルウェア コンポーネント内で終了して、その処理が不明な状態のままになるようにしてはなりません。*
@@ -4970,7 +4970,7 @@ and cannot execute again until it is reset. */
 
 ## <a name="tx_thread_time_slice_change"></a>tx_thread_time_slice_change
 
-アプリケーション スレッドのタイムスライスを変更します
+アプリケーション スレッドのタイムスライスの変更
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -5051,7 +5051,7 @@ in "my_old_time_slice." */
 
 ## <a name="tx_thread_wait_abort"></a>tx_thread_wait_abort
 
-指定されたスレッドの中断を中止
+指定したスレッドの中断の停止
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -5078,7 +5078,7 @@ UINT tx_thread_wait_abort(TX_THREAD *thread_ptr);
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 はい
@@ -5146,7 +5146,7 @@ None
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 いいえ
@@ -5169,7 +5169,7 @@ clock. */
 
 ## <a name="tx_time_set"></a>tx_time_set
 
-現在の時刻を設定します。
+現在の時刻の設定
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -5179,7 +5179,7 @@ VOID tx_time_set(ULONG new_time);
 
 ### <a name="description"></a>説明
 
-このサービスは、内部システム クロックを指定された値に設定します。 タイマー刻みごとに内部システム クロックが 1 つ増えます。
+このサービスを使用すると、内部システム クロックを指定した値に設定できます。 タイマー刻みごとに内部システム クロックが 1 つ増えます。
 
 > [!NOTE]
 > *各タイマー刻みが表す実際の時間は、アプリケーションに固有です。*
@@ -5190,11 +5190,11 @@ VOID tx_time_set(ULONG new_time);
 
 ### <a name="return-values"></a>戻り値
 
-None
+なし
 
 ### <a name="allowed-from"></a>許可元
 
-スレッド、タイマー、ISR
+スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -5226,7 +5226,7 @@ UINT tx_timer_activate(TX_TIMER *timer_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、指定されたアプリケーション タイマーがアクティブになります。 同じ時刻に期限が切れるタイマーの期限切れルーチンは、アクティブになった順序で実行されます。
+このサービスを使用すると、指定したアプリケーション タイマーがアクティブになります。 同じ時刻に期限が切れるタイマーの期限切れルーチンは、アクティブになった順序で実行されます。
 
 > [!NOTE]
 > *期限切れになったワンショット タイマーは、再びアクティブにする前に*  ***tx_timer_change** _ _によってリセットしなければなりません。*
@@ -5243,7 +5243,7 @@ UINT tx_timer_activate(TX_TIMER *timer_ptr);
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -5288,7 +5288,7 @@ UINT tx_timer_change(
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、指定されたアプリケーション タイマーの有効期限特性が変更されます。 このサービスを呼び出す前に、タイマーを非アクティブにする必要があります。
+このサービスを使用すると、指定したアプリケーション タイマーの有効期限特性が変更されます。 このサービスを呼び出す前に、タイマーを非アクティブにする必要があります。
 
 > [!NOTE]
 > *このサービスの後に、タイマーを再び開始するために*  ***tx_timer_activate** _ _サービスの呼び出しが必要になります。*
@@ -5312,7 +5312,7 @@ UINT tx_timer_change(
 
 ### <a name="allowed-from"></a>許可元
 
-スレッド、タイマー、ISR
+スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -5365,7 +5365,7 @@ UINT tx_timer_create(
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、有効期限関数が指定された定期的なアプリケーション タイマーが作成されます。
+このサービスを使用すると、指定した有効期限関数と期間でアプリケーション タイマーが作成されます。
 
 ### <a name="parameters"></a>パラメーター
 
@@ -5379,7 +5379,7 @@ UINT tx_timer_create(
   > [!NOTE]
   > *ワンショット タイマーが期限切れになったら、再びアクティブにする前に tx_timer_change によってリセットしなければなりません。*
 
-- **auto_activate** タイマーを作成時に自動的にアクティブにするかどうかを決定します。 この値が **TX_AUTO_ACTIVATE** (0x01) の場合、タイマーはアクティブになります。 それ以外の場合、値 **TX_NO_ACTIVATE** (0x00) を選択すると、タイマーは非アクティブ状態で作成されます。 この場合、タイマーを実際に開始するために、その後に **_tx_timer_activate_** サービスの呼び出しが必要になります。
+- **auto_activate** タイマーを作成時に自動的にアクティブにするかどうかを決定します。 この値が **TX_AUTO_ACTIVATE** (0x01) の場合、タイマーはアクティブになります。 それ以外の場合、値 **TX_NO_ACTIVATE** (0x00) を選択すると、タイマーは非アクティブ状態で作成されます。 この場合、その後にタイマーを実際に開始するには、**_tx_timer_activate_** サービスを呼び出す必要があります。
 
 ### <a name="return-values"></a>戻り値
 
@@ -5391,7 +5391,7 @@ UINT tx_timer_create(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化およびスレッド
+初期化とスレッド
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -5439,7 +5439,7 @@ UINT tx_timer_deactivate(TX_TIMER *timer_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、指定されたアプリケーション タイマーが非アクティブになります。 タイマーが既に非アクティブ化されている場合、このサービスは無効になります。
+このサービスを使用すると、指定したアプリケーション タイマーが非アクティブになります。 タイマーが既に非アクティブ化されている場合、このサービスによる影響はありません。
 
 ### <a name="parameters"></a>パラメーター
 
@@ -5452,7 +5452,7 @@ UINT tx_timer_deactivate(TX_TIMER *timer_ptr);
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -5580,7 +5580,7 @@ UINT tx_timer_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="preemption-possible"></a>プリエンプション可能
 
@@ -5621,7 +5621,7 @@ valid. */
 
 ## <a name="tx_timer_performance_info_get"></a>tx_timer_performance_info_get
 
-タイマー パフォーマンス情報の取得
+タイマーに関するパフォーマンス情報の取得
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -5660,7 +5660,7 @@ UINT tx_timer_performance_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 
@@ -5732,7 +5732,7 @@ UINT tx_timer_performance_system_info_get(
 
 ### <a name="allowed-from"></a>許可元
 
-初期化、スレッド、タイマー、ISR
+初期化、スレッド、タイマー、およびISR
 
 ### <a name="example"></a>例
 

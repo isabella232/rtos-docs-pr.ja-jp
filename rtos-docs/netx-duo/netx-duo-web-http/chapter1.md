@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/24/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: c784843e4d3f11ee306e866223c0a19bfcba3b85
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: e5f50419be3171d3df8544d1b34d603822f339785923f8a8199dc5b5ddcac281
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811810"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801754"
 ---
 # <a name="chapter-1---introduction-to-http-and-https"></a>第 1 章 - HTTP と HTTPS の概要
 
@@ -44,22 +44,22 @@ TLS の構成オプションの詳細については、NetX Secure のドキュ�
 NetX Web HTTP では、HTTP 1.1 標準が実装されます。 ただし、次の制約があります。
 
 1. 要求パイプライン処理はサポートされません
-1. HTTP Server では、基本認証と MD5 ダイジェスト認証の両方がサポートされますが、MD5-sess はサポートされません。 現時点では、HTTP Client では基本認証のみがサポートされます。 HTTPS のために TLS を使用する場合でも、HTTP 認証を使用できます。
+1. HTTP サーバーでは、基本認証と MD5 ダイジェスト認証の両方がサポートされますが、MD5-sess はサポートされません。 現時点では、HTTP Client では基本認証のみがサポートされます。 HTTPS のために TLS を使用する場合でも、HTTP 認証を使用できます。
 1. コンテンツの圧縮はサポートされません。
 1. TRACE、OPTIONS、CONNECT 要求はサポートされません。
-1. HTTP Server またはクライアントに関連付けられるパケット プールは、完全な HTTP ヘッダーを保持するのに十分な大きさである必要があります。
-1. HTTP Client サービスは、コンテンツの転送のみを対象としています。このパッケージでは、表示ユーティリティは提供されません。
+1. HTTP サーバーまたはクライアントに関連付けられるパケット プールは、完全な HTTP ヘッダーを保持するのに十分な大きさである必要があります。
+1. HTTP クライアント サービスは、コンテンツの転送のみを対象としています。このパッケージでは、表示ユーティリティは提供されません。
 
 ## <a name="http-url-resource-names"></a>HTTP の URL (リソース名)
 
-HTTP プロトコルは、Web 上でコンテンツを転送するように設計されています。 要求されるコンテンツは、ユニバーサル リソース ロケーター (URL) によって指定されます。 これは、すべての HTTP 要求の主要なコンポーネントです。 URL は必ず "/" 文字で始まり、通常は HTTP Server 上のファイルに対応しています。 一般的な HTTP ファイルの拡張子を以下に示します。
+HTTP プロトコルは、Web 上でコンテンツを転送するように設計されています。 要求されるコンテンツは、ユニバーサル リソース ロケーター (URL) によって指定されます。 これは、すべての HTTP 要求の主要なコンポーネントです。 URL は必ず "/" 文字で始まり、通常は HTTP サーバー上のファイルに対応しています。 一般的な HTTP ファイルの拡張子を以下に示します。
 
 - **.htm** (または **.html**) ハイパーテキスト マークアップ言語 (HTML)
 - **.txt** プレーン ASCII テキスト
-- **.gif** バイナリ GIF イメージ
-- **.xbm** バイナリ Xbitmap イメージ
+- **.gif**: バイナリ GIF 画像
+- **.xbm**: バイナリ Xbitmap 画像
 
-## <a name="http-client-requests"></a>HTTP Client の要求
+## <a name="http-client-requests"></a>HTTP クライアントの要求
 
 HTTP には、Web コンテンツを要求するための単純なメカニズムがあります。 TCP の "*ウェルノウン ポート 80 (HTTPS の場合はポート 443)* " で接続が正常に確立された後に、クライアントによって発行される標準の一連の HTTP コマンドがあります。 基本的な HTTP コマンドの一部を次に示します。
 
@@ -75,7 +75,7 @@ HTTP Client アプリケーションでは、ポート 80 (HTTPS を使用する
 
 ## <a name="http-server-responses"></a>HTTP Server の応答
 
-HTTP Server では、同じ "*ウェルノウン TCP ポート 80 (HTTPS の場合は 443)* " を使用して、クライアント コマンドの応答を送信します。 HTTP Server でクライアント コマンドが処理されると、3 桁の数値のステータス コードを含む ASCII 応答文字列が返されます。 この数値の応答は、操作が成功したかまたは失敗したかを判断するために、HTTP Client ソフトウェアによって使用されます。 クライアント コマンドに対するさまざまな HTTP Server の応答の一覧を次に示します。
+HTTP Server では、同じ "*ウェルノウン TCP ポート 80 (HTTPS の場合は 443)* " を使用して、クライアント コマンドの応答を送信します。 HTTP Server でクライアント コマンドが処理されると、3 桁の数値のステータス コードを含む ASCII 応答文字列が返されます。 この数値の応答は、操作が成功したか失敗したかを判断するために、HTTP Client ソフトウェアによって使用されます。 クライアント コマンドに対するさまざまな HTTP Server の応答の一覧を次に示します。
 
 - **200** 要求は成功しました
 - **400** 要求の形式が正しくありませんでした
@@ -144,9 +144,9 @@ UINT nx_web_http_server_authentication_check(NX_WEB_HTTP_SERVER *server_ptr,
   - **NX_WEB_HTTP_SERVER_PUT_REQUEST**
   - **NX_WEB_HTTP_SERVER_DELETE_REQUEST**
 - **resource** 要求された特定のリソース。
-- **name** 必要なユーザー名へのポインターの宛先。
-- **password** 必要なパスワードへのポインターの宛先。
-- **realm** この認証の領域へのポインターの宛先。
+- **name**: 必要なユーザー名へのポインターの宛先。
+- **password**: 必要なパスワードへのポインターの宛先。
+- **realm**: この認証の領域へのポインターの宛先。
 
 認証ルーチンの戻り値は、認証が必要かどうかを示します。 認証コールバックルーチンによって **NX_WEB_HTTP_DONT_AUTHENTICATE** が返される場合、name、password、realm のポインターは使用されません。 それ以外の場合、HTTP Server の開発者は、*nx_web_http_server.h* で定義される **NX_WEB_HTTP_MAX_USERNAME** と **NX_WEB_HTTP_MAX_PASSWORD** が、認証コールバックに指定されるユーザー名とパスワードに対して十分な大きさであることを確認する必要があります。 これらの両方の既定のサイズは 20 文字です。
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 2a53da048b18d35b6b15a4ad8d4138e1a2acd4e8
-ms.sourcegitcommit: 95f4ae0842a486fec8f10d1480203695faa9592d
+ms.openlocfilehash: 37c1103d6b690350b6fa0794b9c719f31a112ff3babf88f125d3735f8ef935b6
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111875250"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116785233"
 ---
 # <a name="chapter-3---functional-overview-of-guix"></a>第 3 章 - GUIX の機能の概要
 

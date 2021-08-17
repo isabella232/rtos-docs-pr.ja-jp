@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 1a0ab96a454bea9f56ced0d7aa8de5d481b284e9
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: f68d6ac942c829dbf6eb9be334328b1b58a47ea370a73d37f471ec32cd46a360
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811477"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116782389"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-pop3-client-services"></a>第 3 章 - Azure RTOS NetX POP3 クライアント サービスの説明
 
@@ -102,7 +102,7 @@ UINT nx_pop3_client_delete(NX_POP3_CLIENT *client_ptr)
 
 ### <a name="description"></a>説明
 
-このサービスでは、以前に作成された POP3 クライアントを削除します。 このサービスでは、POP3 クライアントのパケット プールは削除されません。 パケット プールを使用しなくなった場合は、デバイス アプリケーションでこのリソースを個別に削除する必要があります。
+このサービスは、以前に作成された POP3 クライアントを削除します。 このサービスでは、POP3 クライアントのパケット プールは削除されません。 パケット プールを使用しなくなった場合は、デバイス アプリケーションでこのリソースを個別に削除する必要があります。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -128,7 +128,7 @@ status = nx_pop3_client_delete (&demo_client);
 
 ## <a name="nx_pop3_client_mail_item_delete"></a>nx_pop3_client_mail_item_delete
 
-指定されたメール アイテムをクライアントの maildrop から削除する
+指定されたメール アイテムをクライアントのメールドロップから削除する
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -139,7 +139,7 @@ UINT nx_pop3_client_mail_items_delete(NX_POP3_CLIENT *client_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスでは、指定されたメール アイテムをクライアントの maildrop から削除します。 これはメール アイテムのダウンロード後を対象としていますが、クライアントから要求された後にメール アイテムを自動的に削除する POP3 サーバーもあります。
+このサービスは、指定されたメール アイテムをクライアントのメールドロップから削除します。 これはメール アイテムのダウンロード後を対象としていますが、クライアントから要求された後にメール アイテムを自動的に削除する POP3 サーバーもあります。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -184,7 +184,7 @@ UINT nx_pop3_client_mail_item_get(NX_POP3_CLIENT *client_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスでは RETR 要求を行って、クライアントの maildrop から、インデックス mail_item で指定されたメール アイテムを取得します。 RETR 要求を行い、サーバーから肯定応答を受信したら、クライアントは *nx_pop3_client_mail_item_message_get* サービスを使用して、メール メッセージのダウンロードを開始できます。 このサービスでは、サーバーの応答から抽出された、要求されたメール アイテムのサイズも提供します。
+このサービスは RETR 要求を行って、クライアントのメールドロップから、インデックス mail_item で指定されたメール アイテムを取得します。 RETR 要求を行い、サーバーから肯定応答を受信したら、クライアントは *nx_pop3_client_mail_item_message_get* サービスを使用して、メール メッセージのダウンロードを開始できます。 このサービスは、サーバーの応答から抽出された、要求されたメール アイテムのサイズも提供します。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -218,7 +218,7 @@ status = nx_pop3_client_mail_item_get (&demo_client, 1, &item_size);
 
 ## <a name="nx_pop3_client_mail_items_get"></a>nx_pop3_client_mail_items_get
 
-maildrop 内のメール アイテムの数を取得する
+メールドロップ内のメール アイテムの数を取得する
 
 ### <a name="prototype"></a>プロトタイプ
 
@@ -230,7 +230,7 @@ UINT nx_pop3_client_mail_items_get(NX_POP3_CLIENT *client_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスでは STAT 要求を行って、クライアントの maildrop からメール アイテムの数とメール メッセージ データの合計サイズを取得します。
+このサービスは STAT 要求を行って、クライアントのメールドロップからメール アイテムの数とメール メッセージ データの合計サイズを取得します。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -326,7 +326,7 @@ UINT nx_pop3_client_mail_item_size_get(
 
 ### <a name="description"></a>説明
 
-このサービスでは LIST 要求を行って、指定されたメール アイテムのサイズを取得します。
+このサービスは LIST 要求を行って、指定されたメール アイテムのサイズを取得します。
 
 ### <a name="input-parameters"></a>入力パラメーター
 

@@ -6,12 +6,12 @@ ms.author: v-condav
 ms.date: 01/22/2021
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 24b7ff66fb4d060075eb6bc81bed45b3479e18dc
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: be6d9d854ce89140ce749fbeb0364678077337bf19ddc1055d286d0f624e8bd5
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810754"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116783460"
 ---
 # <a name="chapter-3--functional-description-of-lwm2m-client"></a>第 3 章  LWM2M クライアントの機能の説明
 
@@ -19,15 +19,15 @@ ms.locfileid: "104810754"
 
 ## <a name="lwm2m-client-initialization"></a>LWM2M クライアントの初期化
 
-LWM2M クライアントは、***nx_lwm2m_client_create*** サービスを呼び出すことによって初期化されます。 LWM2M クライアントは独自のスレッドで実行され、コールバックを使用するか、アプリケーションによって実装されたカスタム オブジェクトのメソッドを呼び出すことによって、アプリケーションにいくつかのイベントを報告できます。
+LWM2M クライアントは、***nx_lwm2m_client_create*** サービスを呼び出すことによって初期化されます。 LWM2M クライアントは独自のスレッドで実行され、コールバックを使用するか、アプリケーションによって実装されたカスタム オブジェクトのメソッドを呼び出すことによって、アプリケーションにイベントをレポートできます。
 
-さらに、1 つ以上のサーバーとの通信を有効にするために、***nx_lwm2m_client_session_create*** を呼び出すことによって、LWM2M クライアント セッションを作成する必要があります。 セッションは、ブートストラップ サーバーまたは LWM2M サーバー (デバイス管理) という 2 つの異なる種類のサーバーと通信できます。
+また、1 つ以上のサーバーとの通信を有効にするために、***nx_lwm2m_client_session_create*** を呼び出して、LWM2M クライアント セッションを作成する必要があります。 セッションでは、ブートストラップ サーバーおよび LWM2M サーバー (デバイス管理) の 2 種類のサーバーと通信できます。
 
 ### <a name="bootstrap-server-session"></a>ブートストラップ サーバー セッション
 
 ブートストラップ サーバーとの通信セッションを使用して、LWM2M クライアントに重要な情報を提供し、LWM2M クライアントが 1 つ以上の LWM2M サーバーに対して "登録" 操作を実行できるようにします。 この種類のサーバーは、クライアントによって開始され、サーバーによって開始されたブートストラップ モードで使用されます。
 
-アプリケーションから ***nx_lwm2m_client_session_bootstrap** _ または _*_nx_lwm2m_client_session_bootstrap_dtls_*_ を呼び出すことによってブートストラップ セッションを開始できます。サーバーの IP アドレスとポート番号、およびオプションのセキュリティ オブジェクト インスタンス ID を指定する必要があります。 _*_nx_lwm2m_client_session_bootstrap_*_ 関数は、セキュリティで保護されていない通信を使用します。一方、_ *_nx_lwm2m_client_session_bootstrap_dtls_** は、サーバーとのセキュリティで保護された dtls 接続を確立します。
+アプリケーションでは、***nx_lwm2m_client_session_bootstrap** _ または _*_nx_lwm2m_client_session_bootstrap_dtls_*_ を呼び出すことによってブートストラップ セッションを開始できます。サーバーの IP アドレスとポート番号、およびオプションのセキュリティ オブジェクト インスタンス ID を指定する必要があります。 _*_nx_lwm2m_client_session_bootstrap_*_ 関数では、セキュリティで保護されていない通信が使用されます。一方、_ *_nx_lwm2m_client_session_bootstrap_dtls_** では、サーバーとのセキュリティで保護された DTLS 接続が確立されます。
 
 ブートストラップ操作が成功した場合、ブートストラップ サーバーでは、ブートストラップ サーバーと LWM2M サーバーのセキュリティ オブジェクト インスタンス、および LWM2M サーバーのサーバー オブジェクト インスタンスが作成されている必要があります。 アプリケーションから ***nx_lwm2m_client_session_register_info_get*** が呼び出されて LWM2M サーバーの情報が取得され、この情報を使用して LWM2M サーバーとのセッションが確立されます。
 
@@ -35,7 +35,7 @@ LWM2M クライアントは、***nx_lwm2m_client_create*** サービスを呼び
 
 ### <a name="lwm2m-server-session"></a>LWM2M サーバー セッション
 
-LWM2M サーバーとの通信セッションは、登録、デバイス管理、およびサービスの有効化に使用されます。
+LWM2M サーバーとの通信セッションは、登録、デバイス管理、サービスの有効化に使用されます。
 
 アプリケーションから ***nx_lwm2m_client_session_register** _ または _*_nx_lwm2m_client_session_register_dtls_*_ が呼び出されることによって LWM2M クライアントがサーバーに登録されます。また、サーバーの IP アドレスとポート番号、および既存のサーバー オブジェクト インスタンスに対応する短いサーバー ID を指定する必要があります。 _*_nx_lwm2m_client_session_register_*_ 関数では、セキュリティで保護されていない通信が使用されます。一方、_ *_nx_lwm2m_client_session_register_dtls_** によって、サーバーとのセキュリティで保護された dtls 接続が確立されます。
 
@@ -121,7 +121,7 @@ typedef VOID (\*NX_LWM2M_CLIENT_SESSION_STATE_CALLBACK)(NX_LWM2M_CLIENT_SESSION 
 
 ## <a name="object-implementation"></a>オブジェクトの実装
 
-LWM2M クライアントによって、必須の OMA LWM2M オブジェクトが実装されます: セキュリティ (0)、サーバー (1)、アクセス制御 (2)、デバイス (3)。 その他のデバイス固有のオブジェクトは、アプリケーションによって実装される必要があります。
+LWM2M クライアントは、必須の OMA LWM2M オブジェクト (セキュリティ (0)、サーバー (1)、アクセス制御 (2)、デバイス (3)) を実装します。 その他のデバイス固有のオブジェクトは、アプリケーションによって実装される必要があります。
 
 オブジェクトを定義するには、2 つのデータ構造体を使用します。NX_LWM2M_CLIENT_OBJECT 構造体は、オブジェクト ID とオブジェクト メソッドを含むオブジェクトの実装を定義し、NX_LWM2M_CLIENT_OBJECT_INSTANCE 構造体はオブジェクト インスタンスのデータを含んでいます。
 
@@ -253,7 +253,7 @@ typedef UINT (*NX_LWM2M_CLIENT_OBJECT_OPERATION_CALLBACK)(
 
 次のコードは、温度センサーとライト スイッチで構成されるカスタム デバイスを実装する単純な LWM2M クライアント アプリケーションの例です。
 
-このデバイスを使用すると、サーバーは、温度センサーの値とライト スイッチのブール値を読み取り、ライトスイッチのオン/オフに設定できます。
+このデバイスを使用すると、サーバーは、温度センサーの値とライト スイッチのブール値を読み取り、ライト スイッチをオン/オフに設定できます。
 
 ```c
 #include "nx_lwm2m_client.h"

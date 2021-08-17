@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b05d03c45607c45acf32474cf8e40861532c5fae
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 1aec01088236dcae359c0273a0206c10ea09201eb486478ebd678529413badae
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811537"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116799457"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-ftp-services"></a>第 3 章 - Azure RTOS NetX FTP サービスの説明
 
@@ -105,7 +105,7 @@ UINT nx_ftp_client_create(NX_FTP_CLIENT *ftp_client_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスにより、FTP クライアント インスタンスが作成されます。
+このサービスを使用すると、FTP クライアント インスタンスが作成されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -147,7 +147,7 @@ UINT nx_ftp_client_delete(NX_FTP_CLIENT *ftp_client_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスにより、FTP クライアント インスタンスが削除されます。
+このサービスを使用すると、FTP クライアント インスタンスが削除されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -187,7 +187,7 @@ UINT nx_ftp_client_directory_create(NX_FTP_CLIENT *ftp_client_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスにより、指定された FTP クライアントに接続されている FTP サーバー上に、指定されたディレクトリが作成されます。
+このサービスを使用すると、指定した FTP クライアントに接続されている FTP サーバー上に、指定したディレクトリが作成されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -278,7 +278,7 @@ UINT nx_ftp_client_directory_delete(NX_FTP_CLIENT *ftp_client_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスにより、指定された FTP クライアントに接続されている FTP サーバー上の指定されたディレクトリが削除されます。
+このサービスを使用すると、指定した FTP クライアントに接続されている FTP サーバー上の指定したディレクトリが削除されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -324,7 +324,7 @@ UINT nx_ftp_client_directory_listing_get(NX_FTP_CLIENT *ftp_client_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスにより、指定された FTP クライアントに接続されている FTP サーバー上の指定されたディレクトリのコンテンツが取得されます。 指定されたパケット ポインターには、1 つ以上のディレクトリ エントリが含まれます。 それぞれのエントリは、&lt;cr/lf\ の組み合わせで区切られます。 ディレクトリの取得操作を完了するには、***nx_ftp_client_directory_listing_continue*** を呼び出す必要があります。
+このサービスを使用すると、指定した FTP クライアントに接続されている FTP サーバー上の指定したディレクトリのコンテンツが取得されます。 指定されたパケット ポインターには、1 つ以上のディレクトリ エントリが含まれます。 それぞれのエントリは、&lt;cr/lf\ の組み合わせで区切られます。 ディレクトリの取得操作を完了するには、***nx_ftp_client_directory_listing_continue*** を呼び出す必要があります。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -375,7 +375,7 @@ UINT nx_ftp_client_directory_listing_continue(NX_FTP_CLIENT
 
 ### <a name="description"></a>説明
 
-このサービスにより、指定された FTP クライアントに接続されている FTP サーバー上の指定されたディレクトリのコンテンツの取得が続行されます。 直前に ***nx_ftp_client_directory_listing_get*** の呼び出しが必要です。 成功した場合、指定されたパケット ポインターには、1 つ以上のディレクトリ エントリが含まれます。 このルーチンは、NX_FTP_END_OF_LISTING の状態を受信するまで呼び出す必要があります。
+このサービスを使用すると、指定した FTP クライアントに接続されている FTP サーバー上の指定したディレクトリのコンテンツの取得が続行されます。 直前に ***nx_ftp_client_directory_listing_get*** の呼び出しが必要です。 成功した場合、指定したパケット ポインターに、1 つ以上のディレクトリ エントリが格納されます。 NX_FTP_END_OF_LISTING の状態を受け取るまで、このルーチンを呼び出す必要があります。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -423,7 +423,7 @@ UINT nx_ftp_client_disconnect(NX_FTP_CLIENT *ftp_client_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスにより、指定された FTP クライアントとの間に以前に確立された FTP サーバー接続が切断されます。
+このサービスを使用すると、指定した FTP クライアントとの間に以前に確立された FTP サーバー接続が切断されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -466,7 +466,7 @@ UINT nx_ftp_client_file_close(NX_FTP_CLIENT *ftp_client_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスにより、FTP サーバー上で既に開いているファイルが閉じられます。
+このサービスを使用すると、FTP サーバーで前に開いたファイルが閉じられます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -511,7 +511,7 @@ UINT nx_ftp_client_file_delete(NX_FTP_CLIENT *ftp_client_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスにより、FTP サーバー上の指定したファイルが削除されます。
+このサービスを使用すると、FTP サーバー上の指定したファイルが削除されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -557,7 +557,7 @@ UINT nx_ftp_client_file_open(NX_FTP_CLIENT *ftp_client_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスにより、指定したクライアント インスタンスに接続済みの FTP サーバー上の指定したファイルが (読み取りまたは書き込み用に) 開かれます。
+このサービスを使用すると、指定したクライアント インスタンスに以前に接続された FTP サーバー上の指定したファイルが (読み取りまたは書き込み用に) 開かれます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -607,9 +607,9 @@ UINT nx_ftp_client_file_read(NX_FTP_CLIENT *ftp_client_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスにより、以前に開かれたファイルからパケットが読み取られます。 NX_FTP_END_OF_FILE の状態が受信されるまで繰り返し呼び出す必要があります。
+このサービスを使用すると、前に開いたファイルからパケットが読み取られます。 NX_FTP_END_OF_FILE の状態が受信されるまで繰り返し呼び出す必要があります。
 
-このサービスのパケットは呼び出し元によって割り当てられないことに注意してください。  指定する必要があるのはパケット ポインターへのポインターだけです。 このサービスにより、ソケット受信キューから取得されたパケットを指すようにそのパケット ポインターが更新されます。  正常状態が返された場合は、パケットが使用可能であったことを意味します。また、終了時にパケットを解放するのは呼び出し元の責任です。
+このサービスのパケットは、呼び出し元で割り当てるのではないことに注意してください。  指定する必要があるのはパケット ポインターへのポインターだけです。 このサービスにより、ソケット受信キューから取得されたパケットを指すようにそのパケット ポインターが更新されます。  正常状態が返された場合は、パケットが使用可能であったことを意味します。また、終了時にパケットを解放するのは呼び出し元の責任です。
 
 0 以外の状態 (エラー状態または NX_FTP_END_OF_FILE) が返された場合、パケットは呼び出し元によって解放されません。 それ以外の場合は、パケット ポインターが NULL の場合にエラーが生成されます。
 
@@ -672,7 +672,7 @@ UINT nx_ftp_client_file_rename(NX_FTP_CLIENT *ftp_ptr, CHAR *filename,
 
 ### <a name="description"></a>説明
 
-このサービスにより、FTP サーバー上のファイルの名前が変更されます。
+このサービスを使用すると、FTP サーバー上のファイルの名前が変更されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -721,7 +721,7 @@ UINT nx_ftp_client_file_write(NX_FTP_CLIENT *ftp_client_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスにより、FTP サーバー上の以前に開かれたファイルにデータのパケットが書き込まれます。
+このサービスを使用すると、FTP サーバーで前に開いたファイルにデータのパケットが書き込まれます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -818,7 +818,7 @@ UINT nx_ftp_server_create(NX_FTP_SERVER *ftp_server_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスにより、指定した作成済みの NetX IP インスタンス上に FTP サーバー インスタンスが作成されます。 操作を開始するには、***nx_ftp_server_start*** の呼び出しを使用して FTP サーバーを開始する必要があることに注意してください。
+このサービスを使用すると、指定した、以前に作成した NetX IP インスタンス上に、FTP サーバー インスタンスが作成されます。 操作を開始するには、***nx_ftp_server_start*** の呼び出しを使用して FTP サーバーを開始する必要があることに注意してください。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -866,7 +866,7 @@ UINT nx_ftp_server_delete(NX_FTP_SERVER *ftp_server_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスにより、以前に作成された FTP サーバー インスタンスが削除されます。
+このサービスを使用すると、以前に作成した FTP サーバー インスタンスが削除されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -904,7 +904,7 @@ UINT nx_ftp_server_start(NX_FTP_SERVER *ftp_server_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスにより、作成済みの FTP サーバー インスタンスが開始されます。
+このサービスを使用すると、以前に作成した FTP サーバー インスタンスが開始されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -941,7 +941,7 @@ UINT nx_ftp_server_stop(NX_FTP_SERVER *ftp_server_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスにより、以前に作成され、開始された FTP サーバー インスタンスが停止されます。
+このサービスを使用すると、以前に作成して開始した FTP サーバー インスタンスが停止されます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 

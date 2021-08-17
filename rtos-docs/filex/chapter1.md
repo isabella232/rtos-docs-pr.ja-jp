@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: be7e6f9cd9fbc69ac0908d1de733dac1c4f73bf6
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 48fab21d78ede88e84db11a4f30574ce2061d145820b819ec7846203e297f42a
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810334"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116782980"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-filex"></a>第 1 章 - Azure RTOS FileX の概要
 
@@ -66,7 +66,7 @@ SGS-TÜV Saar は、ISO 26262 標準に従って、安全性が重要な自動�
 ![SGS-TUV Saar のロゴ](./media/user-guide/sgs-tuv-saar-logo.png)
 
 - IEC 61508 (SIL 4 まで)
-- IEC 62304 (SW 安全性クラス C まで)
+- IEC 62304 （最高レベル: SW 安全性クラス C）
 - ISO 26262 ASIL D
 - EN 50128 SW-SIL 4
 

@@ -6,12 +6,12 @@ ms.author: v-condav
 ms.date: 01/22/2021
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 825a215ba756b39b6d76e6cc773c288e8b8aab01
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 0956cb43f4fcd87d5bd4d90b2288ce6f8d5295ee0be8b8a9f4719ad842e00b2a
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810745"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116783443"
 ---
 # <a name="chapter-4--description-of-lwm2m-client-services"></a>第 4 章 LWM2M クライアント サービスの説明
 
@@ -174,7 +174,7 @@ UINT nx_lwm2m_client_create(
 
 このサービスを使用すると、専用の ThreadX スレッドのコンテキスト内で実行される LWM2M クライアント インスタンスが作成されます。
 
-LWM2M クライアントは、次の OMA LWM2M オブジェクトを実装します: セキュリティ (0)、サーバー (1)、アクセス制御 (2)、デバイス (3)。 その他のオブジェクトの実装は、アプリケーションによって追加される必要があります。
+LWM2M クライアントには、次の OMA LWM2M オブジェクトが実装されています: セキュリティ (0)、サーバー (1)、アクセス制御 (2)、デバイス (3)。 その他のオブジェクトの実装は、アプリケーションによって追加される必要があります。
 
 ### <a name="parameters"></a>パラメーター
 

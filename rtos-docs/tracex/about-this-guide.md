@@ -6,12 +6,12 @@ ms.service: rtos
 ms.topic: article
 ms.date: 5/19/2020
 ms.author: philmea
-ms.openlocfilehash: 92d886b19a0c67292cd4f6a5f8bd7f9d3106374b
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 89a39112d6fc6d231408179ebb3867c21f927326930a1610529b142aa71a1027
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812686"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116784072"
 ---
 # <a name="about-this-guide"></a>このガイドについて
 
@@ -48,7 +48,7 @@ Azure RTOS ThreadX リアルタイム オペレーティング システム (RTO
 
 ## <a name="customer-support-center"></a>カスタマー サポート センター
 
-こちらの手順に関する質問やサポートについては、Azure Portal からサポート チケットを送信してください。 お客様のサポート リクエストをより効率的に解決できるように、以下の情報をメール メッセージに記載してください。
+質問やこちらの手順に関するお問い合わせについては、Azure portal からサポート チケットを送信してください。 お客様のサポート リクエストをより効率的に解決できるように、以下の情報をメール メッセージに記載してください。
 
 1. 問題の詳しい説明。発生頻度や、確実に再現できるかどうかなど。
 2. 問題が発生する前にアプリケーションや Azure RTOS ThreadX に加えた変更の詳しい説明。

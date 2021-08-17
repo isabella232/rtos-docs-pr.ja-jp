@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 034a4d74c566fbfe94981a42b7e06e7f2ee79d25
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 04cbf4c9529538c3b5db6f8045a28bbcad5861c6ce846a898fa3ba1c7d97b19f
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811606"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116799576"
 ---
 # <a name="chapter-2---installation-and-use-of-the-azure-rtos-netx-dhcp-server"></a>第 2 章 - Azure RTOS NetX DHCP サーバーのインストールと使用
 
@@ -71,7 +71,7 @@ DHCP サーバーから DHCP クライアントに送信する DHCP メッセー
 
 ### <a name="ip-address-lease-times"></a>IP アドレスのリース時間
 
-要求されたクライアントのリース時間が、構成可能なオプション NX_DHCP_DEFAULT_LEASE_TIME で指定されているサーバーの既定のリース時間より短い場合も、DHCP サーバーはそのリース時間の要求を受け入れます。 リース時間が無期限 (0xFFFFFFFF) である場合を除き、クライアントに割り当てられる更新時間と再バインド時間はそれぞれリース時間の 50% と 85% です。リース時間が無期限である場合は、更新時間と再バインド時間も無期限に設定されます。
+要求されたクライアントのリース時間が、構成可能なオプション NX_DHCP_DEFAULT_LEASE_TIME で指定されているサーバーの既定のリース時間より短い場合も、そのリース時間の要求は DHCP サーバーによって受け入れられます。 リース時間が無期限 (0xFFFFFFFF) である場合を除き、クライアントに割り当てられる更新時間と再バインド時間はそれぞれリース時間の 50% と 85% です。リース時間が無期限である場合は、更新時間と再バインド時間も無期限に設定されます。
 
 ### <a name="dhcp-server-timeouts"></a>DHCP サーバーのタイムアウト
 
@@ -109,7 +109,7 @@ NetX DHCP サーバーは IP アドレスのリースのデータを IP アド�
 
 NetX DHCP サーバーを簡単に使用する例を下の図 1.1 で説明しています。 この例では、DHCP のインクルード ファイル *nx_dhcp_server.h* が 5 行目に来ています。 DHCP サーバー スレッド、IP スレッド、およびテスト スレッドのスタック サイズは 7 から 13 行ですべて指定します。
 
-最初に 57 行目の *test_thread_entry* 関数で、DHCP サーバーの停止、再起動、その後の削除を行うための、テスト スレッドのオプションのタスクを作成します。 DHCP サーバー制御ブロック "*dhcp_server*" は、20 行目でグローバル変数として定義されています。 サーバーのパケット プールは、ペイロードが少なくとも標準の DHCP メッセージと同じ大きさ (548 バイト + IP と UDP ヘッダー) のパケットで作成されることに注意してください。 DHCP サーバー用の IP インスタンスを作成した後、アプリケーションによって 96 行目に DHCP サーバーが作成されます。 次にアプリケーションは、そのサーバーの IP インスタンスで UDP を有効にします。 DHCP サーバーを起動する前に、*nx_dhcp_create_server_ip_address_list* サービスを使用して、137 行目で使用可能な IP アドレスのリストを作成します。 ネットワーク構成パラメーターは、*nx_dhcp_set_interface_network_parameters* サービスを使用して、次の 138 行目で設定します。アプリケーションが 141 行目で *nx_dhcp_server_start* を呼び出すと DHCP サーバーのサービスが使用可能になります。 テスト スレッドのタスクでは、DHCP サーバーの停止と再起動を例示しています。
+最初に 57 行目の *test_thread_entry* 関数で、DHCP サーバーの停止、再起動、その後の削除を行うための、テスト スレッドのオプションのタスクを作成します。 DHCP サーバー制御ブロック "*dhcp_server*" は、20 行目でグローバル変数として定義されています。 サーバーのパケット プールは、ペイロードが少なくとも標準の DHCP メッセージと同じ大きさ (548 バイト + IP と UDP ヘッダー) のパケットで作成されることに注意してください。 DHCP サーバー用の IP インスタンスが正常に作成された後、アプリケーションによって DHCP サーバーが作成されます (96 行目)。 次に、アプリケーションによって、そのサーバーの IP インスタンスで UDP が有効にされます。 DHCP サーバーを起動する前に、*nx_dhcp_create_server_ip_address_list* サービスを使用して、使用可能な IP アドレスのリストが作成されます (137 行目)。 *nx_dhcp_set_interface_network_parameters* サービスを使用してネットワーク構成パラメーターが設定され (138 行目)、アプリケーションによって *nx_dhcp_server_start* が呼び出されると DHCP サーバーのサービスが使用可能になります (141 行目)。 テスト スレッドのタスクでは、DHCP サーバーの停止と再起動を例示しています。
 
 ```c
 /* This is a small demo of NetX DHCP Server for the high-performance NetX TCP/IP stack. */
@@ -317,9 +317,9 @@ UINT     keep_spinning;
 NetX DHCP サーバーを構築するための構成オプションはいくつかあります。 次のリストでは各オプションを詳しく説明しています:  
   
 - **NX_DISABLE_ERROR_CHECKING**: このオプションを使用すると、DHCP エラーの基本的な確認作業が停止されます。 通常、アプリケーションのデバッグ後に使用します。  
-- **NX_DHCP_SERVER_THREAD_PRIORITY**: このオプションを使用すると、DHCP サーバー スレッドの優先度が指定されます。 既定値では、優先度 2 で DHCP スレッドを実行します。
-- **NX_DHCP_TYPE_OF_SERVICE**: このオプションを使用すると、DHCP UDP 要求に必要なサービスの種類が指定されます。 既定値は、通常の IP パケット サービスを表す NX_IP_NORMAL です。
-- **NX_DHCP_FRAGMENT_OPTION**: DHCP UDP 要求のフラグメント化を有効にします。 既定値は、UDP フラグメント化を無効にする NX_DONT_FRAGMENT です。
+- **NX_DHCP_SERVER_THREAD_PRIORITY**: このオプションを使用すると、DHCP サーバー スレッドの優先度が指定されます。 既定では、この値により DHCP スレッドは優先順位 2 で実行するように指定されます。
+- **NX_DHCP_TYPE_OF_SERVICE**: このオプションを使用すると、DHCP UDP 要求に必要なサービスの種類が指定されます。 既定では、この値は通常の IP パケット サービスを示す NX_IP_NORMAL に定義されています。
+- **NX_DHCP_FRAGMENT_OPTION**: DHCP UDP 要求の断片化を有効にします。 既定値は、UDP 断片化を無効にする NX_DONT_FRAGMENT です。
 - **NX_DHCP_TIME_TO_LIVE**: パケットが通過できるルーターの数を指定します。この数を超えるとパケットは破棄されます。 既定値は 0x80 です。
 - **NX_DHCP_QUEUE_DEPTH**: DHCP サーバーのソケットに保持できるパケットの数を指定します。この数を超えるとキューをフラッシュします。 既定値は 5 です。
 - **NX_DHCP_PACKET_ALLOCATE_TIMEOUT**: 自身のパケット プールからパケットが割り当てられるのを待機する NetX DHCP サーバーのタイムアウト時間をタイマー ティック単位で指定します。 既定値は NX_IP_PERIODIC_RATE に設定されています。
@@ -327,7 +327,7 @@ NetX DHCP サーバーを構築するための構成オプションはいくつ�
 - **NX_DHCP_FAST_PERIODIC_TIME_INTERVAL**: DHCP サーバーの高速タイマーがセッションの残り時間を確認し、タイムアウトしたセッションを処理するためのタイムアウト時間です。タイマー ティック単位です。
 - **NX_DHCP_SLOW_PERIODIC_TIME_INTERVAL**: DHCP サーバーの低速タイマーが IP アドレスのリースの残り時間を確認し、タイムアウトしたリースを処理するためのタイムアウト時間です。タイマー ティック単位です。
 - **NX_DHCP_CLIENT_SESSION_TIMEOUT**: DHCP サーバーが次の DHCP クライアント メッセージの受信を待つ際のタイムアウト時間です。タイマー ティック単位です。
-- **NX_DHCP_DEFAULT_LEASE_TIME**: DHCP クライアントに割り当てる IP アドレスの秒単位のリース時間です。クライアントに割り当てる更新時間と再バインド時間を計算する際の基準でもあります。 既定値は 0xFFFFFFFF (無期限) に設定されています。
+- **NX_DHCP_DEFAULT_LEASE_TIME**: DHCP クライアントに割り当てる IP アドレスの秒単位のリース時間です。クライアントに割り当てる更新時間と再バインド時間を計算する際の基準でもあります。 既定値は 0xFFFFFFFF (無期限) です。
 - **NX_DHCP_IP_ADDRESS_MAX_LIST_SIZE**: クライアントに割り当てることができる IP アドレスを保持する DHCP サーバーの配列のサイズです。 既定値は 20 です。
 - **NX_DHCP_CLIENT_RECORD_TABLE_SIZE**: クライアントのレコードを保持する DHCP サーバーの配列のサイズです。 既定値は 50 です。
 - **NX_DHCP_CLIENT_OPTIONS_MAX**: パラメーター要求リストにあるすべてのオプションを現在のセッションに保持するための DHCP クライアント インスタンス上の配列のサイズです。 既定値は 12 です。

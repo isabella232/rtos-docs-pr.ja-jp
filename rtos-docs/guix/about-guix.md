@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: b7af0fba59b599c9c8db3ab80a3271eacfd11992
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: e7cc1f44648111a75cd6b28d6b98480b721af9c8521e8fcb8cdac6f24c5514e7
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812107"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116784701"
 ---
 # <a name="about-guix-user-guide"></a>GUIX ユーザー ガイドについて
 
@@ -89,7 +89,7 @@ Azure RTOS GUIX サービス呼び出しのデータ型と、それに関連付�
 
 ## <a name="customer-support-center"></a>カスタマー サポート センター
 
-ご質問がある場合、サポートが必要な場合は、次の手順で Azure Portal からサポート チケットを提出します。 お客様のサポート リクエストをより効率的に解決できるように、以下の情報をメール メッセージに記載してください。
+質問やこちらの手順に関するお問い合わせについては、Azure portal からサポート チケットを送信してください。 お客様のサポート リクエストをより効率的に解決できるように、以下の情報をメール メッセージに記載してください。
 
 1. 問題の詳しい説明。発生頻度や、確実に再現できるかどうかなど。
 
