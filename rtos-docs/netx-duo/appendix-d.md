@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 82439184d9facb6ddcc08ce81bc51182d7f34429
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: cd43c3efa18dd76f6eb996c84091024f48ad65aa5839958066161080dc02127e
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811048"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116789750"
 ---
 # <a name="appendix-d---azure-rtos-netx-duo-bsd-compatible-socket-api"></a>別表 D - Azure RTOS NetX Duo BSD-Compatible Socket API
 
@@ -20,7 +20,7 @@ BSD-Compatible Socket API は、NetX Duo&reg; の基本操作を実際の処理�
 
 構成可能なオプションにより、ホスト アプリケーションでソケットの最大数、TCP の最大ウィンドウ サイズ、リッスン キューの深さを指定できます。
 
-パフォーマンスとアーキテクチャの制約により、この BSD-Compatible Sockets API では、すべての BSD Sockets 呼び出しをサポートしてはいません。 また、BSD サービスではすべての BSD オプションを使用できるわけではありません。具体的には次のオプションが使用できません:
+パフォーマンスとアーキテクチャの制約により、この BSD 互換ソケット API は、必ずしもすべての BSD ソケット呼び出しをサポートしているとは限りません。 また、BSD サービスではすべての BSD オプションを使用できるわけではありません。具体的には次のオプションが使用できません:
 
   - ***select** _ 呼び出しは必ず fd_set \_readfds と合わせて使用します。この呼び出しでは writefds、exceptfds などの他の引数はサポートしていません。
   - int flags 引数は、***send** _、_*_recv_*_、_*_sendto_*_、_ *_recvfrom_** 呼び出しでサポートされていません。 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: acfb54a25cc8bc27b7d0aaeff48956529d90c9e1
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 706ad47b2c3e7b2979da7262a4de8d681f4fbc53cb1af59a798b34094734060b
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812833"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116792343"
 ---
 # <a name="chapter-5---device-drivers-for-azure-rtos-threadx-smp"></a>第 5 章 - Azure RTOS ThreadX SMP のデバイス ドライバー
 

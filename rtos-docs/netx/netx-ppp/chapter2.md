@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 40f09da31f5541208c3b2cc0eeb54850b3d71f7c
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: b62ca837cadd5f7bee2686ab566ff133f1088ff7ba8b572e372e5051b7bbaab9
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811471"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791093"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-point-to-point-protocol-ppp"></a>第 2 章 - Azure RTOS NetX Point-to-Point Protocol (PPP) のインストールと使用
 
@@ -201,7 +201,7 @@ NX_PACKET   *my_packet;
 
 NetX PPP を構築するための構成オプションがいくつかあります。 次の一覧で、それぞれについて詳しく説明します。
 
-- **NX_DISABLE_ERROR_CHECKING**: このオプションを定義すると、基本的な PPP エラー チェックが削除されます。 通常は、アプリケーションがデバッグされた後に使用します。
+- **NX_DISABLE_ERROR_CHECKING**: このオプションを定義すると、基本的な PPP エラー チェックが削除されます。 通常は、アプリケーションがデバッグされた後に使用されます。
 - **NX_PPP_PPPOE_ENABLE**: 定義した場合、PPP はイーサネット経由でパケットを送信できます。
 - **NX_PPP_BASE_TIMEOUT**: PPP イベントをチェックするために PPP スレッド タスクを起動する期間レート (タイマー刻み) を定義します。 既定値は、1*NX_IP_PERIODIC_RATE (100 ティック) です。
 - **NX_PPP_DISABLE_INFO**: 定義した場合、内部 PPP 情報の収集が無効になります。
@@ -223,8 +223,8 @@ NetX PPP を構築するための構成オプションがいくつかありま�
 - **NX_PPP_NAME_SIZE**: 認証で使用される "name" 文字列のサイズを指定します。 既定値は 32 バイトに設定されていますが、*nx_ppp.h をインクルードする前に再定義できます。
 - **NX_PPP_PASSWORD_SIZE**: 認証で使用される "password" 文字列のサイズを指定します。 既定値は 32 バイトに設定されていますが、*nx_ppp.h* をインクルードする前に再定義できます。
 - **NX_PPP_PROTOCOL_TIMEOUT**: PPP タスクが PPP プロトコル要求メッセージへの応答を受信するための待機オプション (秒単位) を定義します。 既定値は 4 秒です。
-- **NX_PPP_RECEIVE_TIMEOUTS**: PPP スレッド タスクが、PPP メッセージ ストリーム内の次の文字の受信を待機してタイムアウトする回数を定義します。 その後、PPP はパケットを解放し、次の PPP メッセージの受信待機を開始します。 既定値は 4 です。
+- **NX_PPP_RECEIVE_TIMEOUTS**: PPP スレッド タスクが、PPP メッセージ ストリーム内の次の文字の受信を待機してタイムアウトする回数を定義します。 その後、PPP はパケットを解放し、次の PPP メッセージの受信待機を開始します。 既定値は 4 ですが、
 - **NX_PPP_SERIAL_BUFFER_SIZE**: 受信文字のシリアル バッファーのサイズを指定します。 この値は、既定では 3,000 バイトです。 *nx_ppp.h* をインクルードする前に、アプリケーションによってこの定義を設定できます。
 - **NX_PPP_TIMEOUT**: データを送信するためのパケットを割り当て、IP 層に送信するために PPP シリアル データをパケットにバッファーするときの待機オプション (タイマー ティック単位) を定義します。 既定値は、4*NX_IP_PERIODIC_RATE (400 ティック) です。
-- **NX_PPP_THREAD_TIME_SLICE**: PPP スレッドのタイムスライス オプション。 この値は、既定では TX_NO_TIME_SLICE です。 *nx_ppp.h* をインクルードする前に、アプリケーションによってこの定義を設定できます。
+- **NX_PPP_THREAD_TIME_SLICE**: PPP スレッドのタイムスライス オプション。 この値は既定では TX_NO_TIME_SLICE です。 *nx_ppp.h* をインクルードする前に、アプリケーションによってこの定義を設定できます。
 - **NX_PPP_VALUE_SIZE**: CHAP 認証で使用される "value" 文字列のサイズを指定します。 既定値は 32 バイトに設定されていますが、nx_ppp.h をインクルードする前に再定義できます。

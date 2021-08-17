@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/15/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 703071cd5a1d0677a3e995fccfe35d8b1dbbd9f3
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 09add7bb20a8e104ba41583c0dbf4d574b8e6c9e6b3a3deed71d8fa8c8942ce2
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810784"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116796482"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-http-services"></a>第 3 章 - Azure RTOS NetX Duo HTTP サービスの説明
 
@@ -84,7 +84,7 @@ UINT nx_http_client_create(NX_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **client_ptr** HTTP クライアントの制御ブロックへのポインター。
+ - **client_ptr** HTTP Client の制御ブロックへのポインター。
  - **client_name** HTTP クライアント インスタンスの名前。
  - **ip_ptr** IP インスタンスへのポインター。
  - **pool_ptr** 既定のパケット プールへのポインター。 このプール内のパケットはペイロードが応答ヘッダー全体を処理するのに十分な大きさである必要があることに注意してください。 これは *nx_http.h* 内の NX_HTTP_CLIENT_MIN_PACKET_SIZE によって定義されています。
@@ -125,7 +125,7 @@ UINT nx_http_client_delete(NX_HTTP_CLIENT *client_ptr);
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **client_ptr** HTTP クライアントの制御ブロックへのポインター。
+ - **client_ptr** HTTP Client の制御ブロックへのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -172,14 +172,14 @@ UINT nx_http_client_get_start(NX_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **client_ptr** HTTP クライアントの制御ブロックへのポインター。
+ - **client_ptr** HTTP Client の制御ブロックへのポインター。
  - **ip_address** HTTP サーバーの IP アドレス。
  - **resource** 要求されたリソースの URL 文字列へのポインター。
  - **input_ptr** GET 要求の追加データへのポインター。 これは省略可能です。 有効な場合、指定された入力はメッセージのコンテンツ領域に配置され、GET 操作ではなく POST が使用されます。
  - **input_size** ```input_ptr``` が指す省略可能な追加入力のバイト数。
  - **username** 認証用の省略可能なユーザー名へのポインター。
- - **password** 認証用の省略可能なパスワードへのポインター。
- - **wait_option** サービスが HTTP クライアントの GET 開始要求を待機する時間を定義します。 この待機オプションは次のように定義されます。
+ - **password** 省略可能な認証用のパスワードへのポインター。
+ - **wait_option** サービスで HTTP Client の GET 開始要求を待機する時間を定義します。 この待機オプションは次のように定義されます。
 
     - **タイムアウト値** (0x00000001 から 0xFFFFFFFE)
     - **TX_WAIT_FOREVER** (0xFFFFFFFF)
@@ -253,7 +253,7 @@ UINT nx_http_client_get_start_extended(NX_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **client_ptr** HTTP クライアントの制御ブロックへのポインター。
+ - **client_ptr** HTTP Client の制御ブロックへのポインター。
  - **ip_address** HTTP サーバーの IP アドレス。
  - **resource** 要求されたリソースの URL 文字列へのポインター。
  - **resource_length** 要求されたリソースの URL 文字列の長さ。
@@ -490,7 +490,7 @@ UINT nx_http_client_get_packet(NX_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **client_ptr** HTTP クライアントの制御ブロックへのポインター。
+ - **client_ptr** HTTP Client の制御ブロックへのポインター。
  - **packet_ptr** 部分的なリソース コンテンツを含むパケット ポインターのコピー先。
  - **wait_option** サービスが HTTP クライアントのパケット取得を待機する時間を定義します。 この待機オプションは次のように定義されます。
     - **タイムアウト値** (0x00000001 から 0xFFFFFFFE)
@@ -550,11 +550,11 @@ UINT nx_http_client_put_start(NX_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **client_ptr** HTTP クライアントの制御ブロックへのポインター。
+ - **client_ptr** HTTP Client の制御ブロックへのポインター。
  - **ip_address** HTTP サーバーの IP アドレス。
  - **resource** 要求されたリソースの URL 文字列へのポインター。
- - **username** 認証用の省略可能なユーザー名へのポインター。
- - **password** 認証用の省略可能なパスワードへのポインター。
+ - **username** 省略可能な認証用のユーザー名へのポインター。
+ - **password** 省略可能な認証用のパスワードへのポインター。
  - **total_bytes** 送信されるリソースの合計バイト数。 後続の *nx_http_client_put_packet* の呼び出しを介して送信されるすべてのパケットの合計長がこの値と等しくなる必要があることに注意してください。
  - **wait_option** サービスが HTTP クライアントの PUT 開始を待機する時間を定義します。 この待機オプションは次のように定義されます。
     - **タイムアウト値** (0x00000001 から 0xFFFFFFFE)
@@ -613,7 +613,7 @@ UINT nx_http_client_put_start_extended(NX_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **client_ptr** HTTP クライアントの制御ブロックへのポインター。
+ - **client_ptr** HTTP Client の制御ブロックへのポインター。
  - **ip_address** HTTP サーバーの IP アドレス。
  - **resource** 要求されたリソースの URL 文字列へのポインター。
  - **resource_length** サーバーに送信するリソースの URL 文字列の長さ。
@@ -683,7 +683,7 @@ UINT nxd_http_client_put_start(NX_HTTP_CLIENT *client_ptr,
  - **server_ip** HTTP サーバーの IP アドレス。
  - **resource** サーバーに送信するリソースの URL 文字列へのポインター。
  - **username** 認証用の省略可能なユーザー名へのポインター。
- - **password** 認証用の省略可能なパスワードへのポインター。
+ - **password** 省略可能な認証用のパスワードへのポインター。
  - **total_bytes** 送信されるリソースの合計バイト数。 後続の *nx_http_client_put_packet* の呼び出しを介して送信されるすべてのパケットの合計長がこの値と等しくなる必要があることに注意してください。
  - **wait_option** サービスが HTTP クライアントの PUT 開始を待機する時間を定義します。 この待機オプションは次のように定義されます。
     - **タイムアウト値** (0x00000001 から 0xFFFFFFFE)
@@ -756,7 +756,7 @@ UINT nxd_http_client_put_start_extended(NX_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **client_ptr** HTTP クライアントの制御ブロックへのポインター。
+ - **client_ptr** HTTP Client の制御ブロックへのポインター。
  - **ip_address** HTTP サーバーの IP アドレス。
  - **resource** 要求されたリソースの URL 文字列へのポインター。
  - **resource_length** サーバーに送信するリソースの URL 文字列の長さ。
@@ -833,7 +833,7 @@ UINT nx_http_client_put_packet(NX_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **client_ptr** HTTP クライアントの制御ブロックへのポインター。
+ - **client_ptr** HTTP Client の制御ブロックへのポインター。
  - **packet_ptr** HTTP サーバーに送信されるリソースの次のコンテンツへのポインター。
  - **wait_option** サービスが HTTP クライアントのパケットの PUT を内部的に処理するのを待機する時間を定義します。 この待機オプションは次のように定義されます。
     - **タイムアウト値** (0x00000001 から 0xFFFFFFFE)
@@ -931,7 +931,7 @@ UINT nx_http_server_cache_info_callback_set(NX_HTTP_SERVER *server_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **server_ptr** HTTP サーバーの制御ブロックへのポインター。
+ - **server_ptr** HTTP Server の制御ブロックへのポインター。
  - **cache_info_get** コールバックへのポインター
  - **max_age** リソースの最大有効期間へのポインター
  - **data** 返された最終更新日へのポインター。
@@ -983,7 +983,7 @@ UINT nx_http_server_callback_data_send(NX_HTTP_SERVER *server_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **server_ptr** HTTP サーバーの制御ブロックへのポインター。
+ - **server_ptr** HTTP Server の制御ブロックへのポインター。
  - **data_ptr** 送信するデータへのポインター。
  - **data_length** 送信するバイト数。
 
@@ -1051,7 +1051,7 @@ UINT nx_http_server_callback_generate_response_header(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **server_ptr** HTTP サーバーの制御ブロックへのポインター。
+ - **server_ptr** HTTP Server の制御ブロックへのポインター。
  - **packet_pptr** メッセージに割り当てられたパケット ポインターへのポインター
  - **status_code** リソースの状態を示します。 次に例を示します。
     - **NX_HTTP_STATUS_OK**
@@ -1162,7 +1162,7 @@ UINT nx_http_server_callback_generate_response_header_extended(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **server_ptr** HTTP サーバーの制御ブロックへのポインター。
+ - **server_ptr** HTTP Server の制御ブロックへのポインター。
  - **packet_pptr** メッセージに割り当てられたパケット ポインターへのポインター
  - **status_code** リソースの状態を示します。 次に例を示します。
     - **NX_HTTP_STATUS_OK**
@@ -1326,10 +1326,10 @@ UINT nx_http_server_callback_response_send(NX_HTTP_SERVER *server_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **server_ptr** HTTP サーバーの制御ブロックへのポインター。
+ - **server_ptr** HTTP Server の制御ブロックへのポインター。
  - **header** 応答ヘッダー文字列へのポインター。
- - **information** 情報文字列へのポインター。
- - **additional_info** 追加の情報文字列へのポインター。
+ - **information** 情報の文字列へのポインター。
+ - **additional_info** 追加の情報の文字列へのポインター。
 
 ### <a name="return-values"></a>戻り値
 
@@ -1394,7 +1394,7 @@ UINT nx_http_server_callback_response_send_extended(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **server_ptr** HTTP サーバーの制御ブロックへのポインター。
+ - **server_ptr** HTTP Server の制御ブロックへのポインター。
  - **header** 応答ヘッダー文字列へのポインター。
  - **header_length** 応答ヘッダー文字列の長さ。
  - **information** 情報文字列へのポインター。
@@ -1461,7 +1461,7 @@ UINT nx_http_server_content_get(NX_HTTP_SERVER *server_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **server_ptr** HTTP サーバーの制御ブロックへのポインター。
+ - **server_ptr** HTTP Server の制御ブロックへのポインター。
  - **packet_ptr** HTTP クライアント要求パケットへのポインター。 このパケットは要求通知コールバックで解放してはならないことに注意してください。
  - **byte_offset** コンテンツ領域にオフセットするバイト数。
  - **destination_ptr** コンテンツのコピー先領域へのポインター。
@@ -1517,7 +1517,7 @@ UINT nx_http_server_content_get_extended(NX_HTTP_SERVER *server_ptr,
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **server_ptr** HTTP サーバーの制御ブロックへのポインター。
+ - **server_ptr** HTTP Server の制御ブロックへのポインター。
  - **packet_ptr** HTTP クライアント要求パケットへのポインター。 このパケットは要求通知コールバックで解放してはならないことに注意してください。
  - **byte_offset** コンテンツ領域にオフセットするバイト数。
  - **destination_ptr** コンテンツのコピー先領域へのポインター。
@@ -2403,7 +2403,7 @@ UINT nx_http_server_type_get_extended(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **http_server_ptr** HTTP サーバー インスタンスへのポインター
+ - **http_server_ptr** HTTP Server インスタンスへのポインター
  - **name** 検索するバッファーへのポインター
  - **name_length** 検索するバッファーの長さ
  - **http_type_string** (抽出された HTML の種類へのポインター)
@@ -2470,7 +2470,7 @@ UINT nx_http_server_digest_authenticate_notify_set(
 
 ### <a name="input-parameters"></a>入力パラメーター
 
- - **http_server_ptr** HTTP サーバー インスタンスへのポインター
+ - **http_server_ptr** HTTP Server インスタンスへのポインター
  - **digest_authenticate_callback** ダイジェスト認証コールバックへのポインター
 
 ### <a name="return-values"></a>戻り値

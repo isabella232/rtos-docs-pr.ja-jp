@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 01077e3315e87b918cdfd47423d8e0c1b6bbdbbd
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: 7d77997e8c5bac598f382e1169a56727af09ab108f57c90cc6265df0691b5926
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550271"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116796414"
 ---
 # <a name="about-the-azure-rtos-netx-user-guide"></a>Azure RTOS NetX ユーザー ガイドについて
 
@@ -58,7 +58,7 @@ Azure RTOS NetX サービス呼び出しのデータ型と、それに関連付�
 
 ## <a name="customer-support-center"></a>カスタマー サポート センター
 
-ご質問がある場合、サポートが必要な場合は、次の手順で Azure Portal からサポート チケットを提出します。 お客様のサポート リクエストをより効率的に解決できるように、以下の情報をメール メッセージに記載してください。
+質問やこちらの手順に関するお問い合わせについては、Azure portal からサポート チケットを送信してください。 お客様のサポート リクエストをより効率的に解決できるように、以下の情報をメール メッセージに記載してください。
 
 1. 問題の詳しい説明。発生頻度や、確実に再現できるかどうかなど。
 

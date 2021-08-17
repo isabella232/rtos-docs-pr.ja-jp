@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/08/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: c58d0e3d7eca86816a9d656bf2b92a896ffb96fc
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: eabb455b6e21b4fe51db944a0da12afa85ee390a78db633ee670de5aadcde07b
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811528"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791518"
 ---
 # <a name="chapter-3---description-of-netx-http-services"></a>第 3 章 - NetX HTTP サービスの説明
 
@@ -367,7 +367,7 @@ UINT nx_http_client_put_start(NX_HTTP_CLIENT *client_ptr,
 - **ip_address** HTTP サーバーの IP アドレス。
 - **resource** サーバーに送信するリソースの URL 文字列へのポインター。
 - **username** 認証用の省略可能なユーザー名へのポインター。
-- **password** 認証用の省略可能なパスワードへのポインター。
+- **password** 省略可能な認証用のパスワードへのポインター。
 - **total_bytes** 送信されるリソースの合計バイト数。 後続の *nx_http_client_put_packet* の呼び出しを介して送信されるすべてのパケットの合計長がこの値と等しくなる必要があることに注意してください。
 - **wait_option** サービスが HTTP クライアントの PUT 開始を待機する時間を定義します。 この待機オプションは次のように定義されます。
   - **タイムアウト値** (0x00000001 から 0xFFFFFFFE)
@@ -938,7 +938,7 @@ UINT nx_http_server_callback_response_send(NX_HTTP_SERVER *server_ptr,
 
 - **server_ptr** HTTP サーバーの制御ブロックへのポインター。
 - **header** 応答ヘッダー文字列へのポインター。
-- **information** 情報文字列へのポインター。
+- **information** 情報の文字列へのポインター。
 - **additional_info** 追加の情報文字列へのポインター。
 
 **戻り値**

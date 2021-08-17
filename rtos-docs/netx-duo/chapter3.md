@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 31900c7b822c88079e4b9fe28a8a388d20f819aa
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: 32af483db1f97b45bfe3d334b8c79d984dedc8470a37ce1d4164331549b6954c
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106549846"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116788964"
 ---
 # <a name="chapter-3---functional-components-of-azure-rtos-netx-duo"></a>第 3 章 - Azure RTOS NetX Duo の機能コンポーネント
 
@@ -759,7 +759,7 @@ IPv6 アドレスのホスト部分をそのインターフェイス MAC アド�
 
 IPv6 には、1 つ以上のホストにマルチキャスト メッセージを送信するための特殊なマルチキャスト アドレスがいくつかあります。
 
-| Group  | Address   | 説明  |
+| グループ  | Address   | 説明  |
 |---|---|---|
 |すべてのノード グループ |**FF02::1** |ローカル ネットワーク上のすべてのホスト|
 |すべてのルーター グループ |**FF02::2** |ローカル ネットワーク上のすべてのルーター|

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/08/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 33eb0b4bd98f808124b9a6a1f01950639243d612
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 8496d9158c06e79ed86cb2f09ed9986a4eae5ed176352ff01c317df9f2399127
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810922"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116788441"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-dhcp-server-services"></a>第 3 章 - Azure RTOS NetX Duo DHCP サーバーのサービスの説明
 
@@ -56,7 +56,7 @@ UINT nx_dhcp_server_create(NX_DHCP_SERVER *dhcp_ptr, NX_IP *ip_ptr,
 - NX_CALLER_ERROR (0x11) サービスの呼び出し元が無効です。
 - NX_PTR_ERROR (0x16) ポインターの入力が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Application
 
@@ -103,7 +103,7 @@ UINT nx_dhcp_create_server_ip_address_list(NX_DHCP_SERVER *dhcp_ptr,
 - NX_DHCP_INVALID_IP_ADDRESS (0x9B) 非論理的な開始および終了アドレス
 - NX_PTR_ERROR (0x16) ポインターの入力が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Application
 
@@ -191,7 +191,7 @@ UINT nx_dhcp_set_interface_network_parameters(NX_DHCP_SERVER *dhcp_ptr,
 - **NX_DHCP_INVALID_NETWORK_PARAMETERS** (0xA3) ネットワーク パラメーターが無効です
 - NX_PTR_ERROR (0x16) ポインターの入力が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Application
 
@@ -232,7 +232,7 @@ UINT nx_dhcp_server_delete(NX_DHCP_SERVER *dhcp_ptr);
 - NX_DHCP_PARAMETER_ERROR (0x92) 無効な非ポインター入力です
 - NX_CALLER_ERROR (0x11) サービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 

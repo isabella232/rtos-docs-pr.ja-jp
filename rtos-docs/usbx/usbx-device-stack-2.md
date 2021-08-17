@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: dd58f77130fa252be9163bd70c29f7deee400d30
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: abe3e43e090890a5e51700fc2f587c59619fcdad5b71681fd4071c614dab5ce6
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106549778"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791408"
 ---
 # <a name="chapter-2---azure-rtos-usbx-device-stack-installation"></a>第 2 章 - Azure RTOS USBX デバイス スタックのインストール
 

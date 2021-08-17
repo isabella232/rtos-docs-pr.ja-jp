@@ -6,12 +6,12 @@ ms.service: rtos
 ms.topic: article
 ms.date: 5/19/2020
 ms.author: philmea
-ms.openlocfilehash: 98561fe1d131e1d1b0893b7d89eb720881a82ac8
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 015e5feedd1d5e90c6491e156c2d0d57a9abaa47518868d375a34e618770d4aa
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104813166"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116793968"
 ---
 # <a name="chapter-9---azure-rtos-usbx-trace-events"></a>チャプター 9 - Azure RTOS USBX トレース イベント
 

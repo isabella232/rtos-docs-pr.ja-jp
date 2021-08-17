@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 64a3c44f84b9ffca31d9e616d14d3d5d87c56bd7
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: 1a0abe355f05492edb74635db2aa6607abbcf9de6b2693290b06b740d2b9286d
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550322"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791059"
 ---
 # <a name="chapter-5---usbx-otg"></a>第 5 章: USBX OTG
 
@@ -40,7 +40,7 @@ USBX では、コア USB スタック内で OTG をサポートしています�
 
 USB ロール マネージャーは、USB の状態を変更するコマンドを受け取ります。 遷移を必要とする状態はいくつかあります。
 
-| 州                    | 値 | 説明                                           |
+| State                    | 値 | 説明                                           |
 | ------------------------ | ----- | ----------------------------------------------------- |
 | UX_OTG_IDLE            | 0     | デバイスはアイドル状態です。 何にも接続していません |
 | UX_OTG_IDLE_TO_HOST  | 1     | デバイスはタイプ A コネクタに接続しています             |

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 269a3b4e9754fdc19e2cf1482d483fad2b841de9
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 9bc5ce189980dbceaf12a2f2e8429d9267e7d37f559c88d10c54e399d01ec259
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810427"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116796890"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-autoip"></a>チャプター 2 - Azure RTOS NetX AutoIP のインストールと使用
 
@@ -32,7 +32,7 @@ NetX AutoIP を使用するには、NetX がインストールされているの
 
 ## <a name="using-autoip"></a>AutoIP を使用する
 
-NetX AutoIP の使用方法は簡単です。 基本的に、ThreadX と NetX を使用するためには、アプリケーションのコードに *tx_api.h* と *nx_api.h* をインクルードしてから *nx_auto_ip.h* をインクルードする必要があります。 *nx_auto_ip* をインクルードすると、このガイドで後述する AutoIP の関数を、アプリケーションのコードで呼び出せるようになります。 アプリケーションのビルド時に *nx_auto_ip.c* もインクルードする必要があります。 これらのファイルは、アプリケーションの他のファイルと同様にコンパイルし、オブジェクトとしてアプリケーションのファイルと共にリンクする必要があります。 NetX AutoIP の使用に必要なものはこれですべてです。
+NetX AutoIP の使用方法は簡単です。 基本的に、ThreadX と NetX を使用するためには、アプリケーションのコードに *tx_api.h* と *nx_api.h* をインクルードしてから *nx_auto_ip.h* をインクルードする必要があります。 *nx_auto_ip* をインクルードすると、このガイドで後述する AutoIP の関数を、アプリケーションのコードで呼び出せるようになります。 アプリケーションのビルド時に *nx_auto_ip.c* もインクルードする必要があります。 これらのファイルは他のアプリケーション ファイルと同じ方法でコンパイルする必要があり、そのオブジェクト フォームをアプリケーションのファイルと一緒にリンクする必要があります。 NetX AutoIP の使用に必要なものはこれですべてです。
 
 > [!NOTE]
 > AutoIP は NetX ARP サービスを利用するので、AutoIP を使用する前に *nx_arp_enable* を呼び出して ARP を有効にしておく必要があります。
@@ -238,9 +238,9 @@ NetX AutoIP の簡単な使用方法の例を、下の図 1.1 に示します。
 
 ## <a name="configuration-options"></a>構成オプション
 
-NetX AutoIP を構築するための構成オプションはいくつかあります。 次のリストですべてのオプションを 1 つずつ詳述します:
+NetX AutoIP を構築するための構成オプションはいくつかあります。 以下に、すべてのオプションの一覧と、それぞれの詳細な説明を示します。
 
-- **NX_DISABLE_ERROR_CHECKING**: このオプションを有効にすると、AutoIP の基本的なエラー チェックを行いません。 通常、アプリケーションのデバッグ後に使用します。
+- **NX_DISABLE_ERROR_CHECKING**: このオプションを有効にすると、AutoIP の基本的なエラー チェックを行いません。 通常は、アプリケーションがデバッグされた後に使用します。
 - **NX_AUTO_IP_PROBE_WAIT**: 最初のプローブを送信するまでの秒単位の待機時間。 既定値は 1 です。
 - **NX_AUTO_IP_PROBE_NUM**: 送信する ARP プローブの数。 既定値は 3 です。
 - **NX_AUTO_IP_PROBE_MIN**: プローブを送信してから次のプローブを送信するまでの、秒単位の最小待機時間。 既定値は 1 です。

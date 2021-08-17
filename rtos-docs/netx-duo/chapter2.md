@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: ac41672959c0873d90bdafe0d6b959efdddf8ecc
-ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
+ms.openlocfilehash: 32a9efaac3c85d415316fba2e9536cc40939f1f6debcbe3e2fa588de613a694d
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/05/2021
-ms.locfileid: "115178223"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116788832"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-duo"></a>第 2 章 - Azure RTOS NetX Duo のインストールと使用
 
@@ -131,7 +131,7 @@ NetX Duo を使用して NetX Duo ライブラリとアプリケーションを�
 |NX_ARP_DEFEND_BY_REPLY | 定義すると、NetX Duo が ARP 応答を送信することで IP アドレスを保護できます。|
 |NX_ARP_DEFEND_INTERVAL| 競合するアドレスを示す受信 ARP メッセージへの応答として、ARP モジュールが防衛用のパケットを送信する間隔を秒単位で指定します。|
 |NX_ARP_DISABLE_AUTO_ARP_ENTRY|  ***NX_DISABLE_ARP_AUTO_ENTRY** _ に名前が変更されました。 現在もサポートされていますが、新しい設計では、_*_NX_DISABLE_ARP_AUTO_ENTRY_** を使用することをお勧めします。|
-|NX_ARP_EXPIRATION_RATE| ARP エントリの有効期限を秒単位で指定します。 既定値の 0 では ARP エントリが無期限に有効になります。既定値は ***nx_api.h** に指定されています。 アプリケーションで既定値を上書きするには、_ *_nx_api.h_* をインクルードする前に値を指定します。|
+|NX_ARP_EXPIRATION_RATE| ARP エントリの有効期限を秒単位で指定します。 既定値の 0 では ARP エントリが無期限に有効になります。既定値は ***nx_api.h** に指定されています。 アプリケーションで既定値をオーバーライドするには、_ *_nx_api.h_** が追加される前に値を定義します。|
 |NX_ARP_MAC_CHANGE_NOTIFICATION_ENABLE | ***NX_ENABLE_ARP_MAC_CHANGE_NOTIFICATION** _ に名前が変更されました。 現在もサポートされていますが、新しい設計では、_*_NX_ENABLE_ARP_MAC_CHANGE_NOTIFICATION_** を使用することをお勧めします。|
 |NX_ARP_MAX_QUEUE_DEPTH | ARP 応答を待つ間にキューに入れるパケットの最大数を指定します。 既定値は 4 であり、***nx_api.h*** に指定されています。|
 |NX_ARP_MAXIMUM_RETRIES | ARP 応答がない場合に実行する ARP 再試行の最大回数を指定します。 既定値は 18 で、***nx_api.h** _ 内で定義されています。 アプリケーションで既定値をオーバーライドするには、_ *_nx_api.h_** が追加される前に値を定義します。|
@@ -161,7 +161,7 @@ NetX Duo を使用して NetX Duo ライブラリとアプリケーションを�
 |---|---|
 |NX_DISABLE_IGMP_INFO | このオプションを有効にすると、IGMP 情報の収集を無効にします。|
 |NX_DISABLE_IGMPV2 | 定義すると、IGMPv2 サポートが無効になり、NetX Duo は IGMPv1 のみをサポートするようになります。 既定では、このオプションは設定されておらず、***nx_api.h*** 内で定義されています。|
-|NX_MAX_MULTICAST_GROUPS | 参加できるマルチキャスト グループの最大数を指定します。 既定値は 7 であり、***nx_api.h** _ に指定されています。 アプリケーションで既定値を上書きするには、_ *_nx_api.h_* をインクルードする前に値を指定します。|
+|NX_MAX_MULTICAST_GROUPS | 参加できるマルチキャスト グループの最大数を指定します。 既定値は 7 であり、***nx_api.h** _ に指定されています。 アプリケーションで既定値をオーバーライドするには、_ *_nx_api.h_** が追加される前に値を定義します。|
 
 ### <a name="ip-configuration-options"></a>IP の構成オプション
 
@@ -213,7 +213,7 @@ NetX Duo を使用して NetX Duo ライブラリとアプリケーションを�
 |NX_ENABLE_TCP_MSS_CHECK | 定義すると、TCP 接続を受け入れる前に、最小ピア MSS の検証が有効になります。 この機能を使用するには、***NX_ENABLE_TCP_MSS_MINIMUM*** シンボルを有効にする必要があります。 既定では、このオプションはオフです。|
 |NX_ENABLE_TCP_QUEUE_DEPTH_UPDATE_NOTIFY| 定義すると、アプリケーションが、TCP 送信キューの深さが最大値を超えていないときに呼び出されるコールバック関数をインストールできます。 このコールバックは、TCP ソケットがさらにデータを送信する準備ができていることを示すものです。 既定では、このオプションは有効になっていません。|
 |NX_ENABLE_TCP_WINDOW_SCALING | TCP アプリケーションのウィンドウ スケーリング オプションを有効にします。 定義すると、TCP 接続フェーズ中にウィンドウ スケーリング オプションがネゴシエートされ、アプリケーションによって 64 K を超えるウィンドウ サイズを指定できます。 既定の設定は有効になっていません (定義されていません)。|
-|NX_MAX_LISTEN_REQUESTS | サーバー リスニング要求の最大数を指定します。 既定値は 10 であり、***nx_api.h** _ に指定されています。 アプリケーションで既定値を上書きするには、_ *_nx_api.h_* をインクルードする前に値を指定します。|
+|NX_MAX_LISTEN_REQUESTS | サーバー リスニング要求の最大数を指定します。 既定値は 10 であり、***nx_api.h** _ に指定されています。 アプリケーションで既定値をオーバーライドするには、_ *_nx_api.h_** が追加される前に値を定義します。|
 |NX_TCP_ACK_EVERY_N_PACKETS | ACK を送信する前に、受信する TCP パケットの数を指定します。 ***NX_TCP_IMMEDIATE_ACK** _ が有効で、_ *_NX_TCP_ACK_EVERY_N_PACKETS_** が有効になっていない場合、この値は、旧バージョンとの互換性のために自動的に 1 に設定されます。|
 |NX_TCP_ACK_TIMER_RATE | 1 秒をいくつで割った値を、TCP 遅延 ACK 処理のタイマーで用いるシステム タイマー刻み値 (NX_IP_PERIODIC_RATE) として使用するかを指定します。 既定値は 5 で、200 ミリ秒を表し、***nx_tcp.h** _ 内で定義されています。 アプリケーションで既定値をオーバーライドするには、_ *_nx_api.h_** が追加される前に値を定義します。|
 |NX_TCP_ENABLE_KEEPALIVE | ***NX_ENABLE_TCP_KEEPALIVE** _ に名前が変更されました。 現在もサポートされていますが、新しい設計では、_*_NX_ENABLE_TCP_KEEPALIVE_** を使用することをお勧めします。|
@@ -222,8 +222,8 @@ NetX Duo を使用して NetX Duo ライブラリとアプリケーションを�
 |NX_TCP_FAST_TIMER_RATE | 高速 TCP タイマー レート計算のための NetX Duo 内部ティック数 (NX_IP_PERIODIC_RATE) の分割方法を指定します。 高速 TCP タイマーは、遅延 ACK タイマーなど、さまざまな TCP タイマーを駆動するために使用されます。 既定値は 10 で、100 ミリ秒を表します。ThreadX タイマーが 10 ミリ秒間隔で進行することを想定しています。 この値は、***nx_tcp.h** _ 内で定義されています。 アプリケーションで既定値をオーバーライドするには、_ *_nx_api.h_** が追加される前に値を定義します。|
 |NX_TCP_IMMEDIATE_ACK| 定義すると、オプションの TCP 即時 ACK 応答処理が有効になります。 このシンボルを定義することは、***NX_TCP_ACK_EVERY_N_PACKETS*** を 1 に定義することと同じです。|
 |NX_TCP_KEEPALIVE_INITIAL | Keepalive タイマーを開始するまでに経過する無操作時間を秒単位で指定します。 既定値は 7200 で、2 時間を表し、***nx_tcp.h** _ 内で定義されています。 アプリケーションで既定値をオーバーライドするには、_ *_nx_api.h_** が追加される前に値を定義します。|
-|NX_TCP_KEEPALIVE_RETRIES | 接続が途切れたとみなすまでに実行する keepalive 再試行の回数を指定します。 既定値は 10 で、10 回を表します。これは ***nx_tcp.h** _ に指定されています。 アプリケーションで既定値を上書きするには、_ *_nx_api.h_* をインクルードする前に値を指定します。|
-|NX_TCP_KEEPALIVE_RETRY | 接続のもう一方の端が応答していないことを想定して keepalive タイマーを再試行する間隔を秒単位で指定します。 既定値は 75 で、再試行の間隔が 75 秒であることを表します。これは ***nx_tcp.h** _ に指定されています。 アプリケーションで既定値を上書きするには、_ *_nx_api.h_* をインクルードする前に値を指定します。|
+|NX_TCP_KEEPALIVE_RETRIES | 接続が途切れたとみなすまでに実行する keepalive 再試行の回数を指定します。 既定値は 10 で、10 回を表します。これは ***nx_tcp.h** _ に指定されています。 アプリケーションで既定値をオーバーライドするには、_ *_nx_api.h_** が追加される前に値を定義します。|
+|NX_TCP_KEEPALIVE_RETRY | 接続のもう一方の端が応答していないことを想定して keepalive タイマーを再試行する間隔を秒単位で指定します。 既定値は 75 で、再試行の間隔が 75 秒であることを表します。これは ***nx_tcp.h** _ に指定されています。 アプリケーションで既定値をオーバーライドするには、_ *_nx_api.h_** が追加される前に値を定義します。|
 |NX_TCP_MAX_OUT_OF_ORDER_PACKETS | TCP ソケット受信キューに保持できる順不同 TCP パケットの最大数を定義するシンボル。 このシンボルを使用して、TCP 受信ソケット内のキューに入っているパケット数を制限し、パケット プールが枯渇するのを防ぐことができます。 既定ではこのシンボルが無効であるため、TCP ソケットのキューに入る異常パケットの数に上限はありません。|
 |NX_TCP_MAXIMUM_RETRIES | データ送信の再試行を許容する回数を指定します。この回数を超えると接続が途切れたと見なします。 既定値は 10 で、10 回を表します。これは ***nx_tcp.h** _ に指定されています。 アプリケーションで既定値をオーバーライドするには、_ *_nx_api.h_** が追加される前に値を定義します。|
 |NX_TCP_MAXIMUM_RX_QUEUE | TCP ソケットの最大受信キューを定義するシンボル。 この機能は ***NX_ENABLE_LOW_WATERMARK*** によって有効になります。|

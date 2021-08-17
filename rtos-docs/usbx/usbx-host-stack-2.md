@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 4c33f95b8ac268c557fd947a1303ec3af315a37e
-ms.sourcegitcommit: d8edbb3207fe99f8afb431597dac063e73383e68
+ms.openlocfilehash: 77df2c4e4bf4ef38403fe78eb98f18820de4325aadb941fc69275e4c77754212
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106377086"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790966"
 ---
 # <a name="chapter-2---azure-rtos-usbx-host-stack-installation"></a>第 2 章 - Azure RTOS USBX ホスト スタックのインストール
 
@@ -121,7 +121,7 @@ USBX ファイルは、複数のディレクトリ内に用意されています
 | ux_dcd           | USBX デバイス スタック コントローラー ドライバー ファイル |
 | ux_otg           | USBX OTG コントローラー ドライバー関連ファイル  |
 | ux_pictbridge    | USBX Pictbridge ファイル                     |
-| ux_utility       | USBXユーティリティ関数                    |
+| ux_utility       | USBX ユーティリティ関数                    |
 | demo_usbx        | USBX のデモンストレーション ファイル              |
 
 ## <a name="initialization-of-usbx-resources"></a>USBX リソースの初期化

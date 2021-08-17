@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 4fdf1e46a7123c10d17e11d09c1b16c2f68f4a31
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: 5a1bab2cb60ce5df6c0662eb1a31f542a3b1d7a87d4584d485cbd621e3342abc
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550237"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791119"
 ---
 # <a name="chapter-4---usbx-pictbridge-implementation"></a>第 4 章 - USBX Pictbridge の実装
 
@@ -19,7 +19,7 @@ USBX は、ホストとデバイスの両方で Pictbridge の完全な実装を
 
 PictBridge 標準では、PC を使用せずにデジタル スチル カメラまたはスマート フォンを直接プリンターに接続できるので、特定の Pictbridge 対応プリンターに直接印刷できます。
 
-カメラまたはスマート フォンがプリンターに接続されると、プリンターは USB ホストとなり、カメラは USB デバイスとなります。 しかし、Pictbridge ではカメラはホストとして表示され、コマンドはカメラから駆動されます。 カメラはストレージ サーバーであり、プリンターはストレージ クライアントです。 カメラはプリント クライアントであり、プリンターはもちろんプリント サーバーです。
+カメラまたはスマート フォンがプリンターに接続されると、プリンターは USB ホストとなり、カメラは USB デバイスとなります。 ただし、Pictbridge では、カメラはホストとして表示され、コマンドはカメラから実行されます。 カメラはストレージ サーバーであり、プリンターはストレージ クライアントです。 カメラはプリント クライアントであり、プリンターはもちろんプリント サーバーです。
 
 Pictbridge は、トランスポート層として USB を使用しますが、通信プロトコルとしては PTP (Picture Transfer Protocol) に依存します。
 

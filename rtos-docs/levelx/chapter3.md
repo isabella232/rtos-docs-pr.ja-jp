@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 3286e4ea7f16b28ff55fc95a87a1e0c313ec4240
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 950a4f260d032ebe032aca79ac99cc8217915a3b21b230be9475d82b267da18c
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811084"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790583"
 ---
 # <a name="chapter-3---azure-rtos-levelx-nand-support"></a>第 3 章 - Azure RTOS LevelX NAND のサポート
 
@@ -47,7 +47,7 @@ LevelX では、各 NAND ページの予備の 4 バイトを利用して、物�
 | ------ | ------- |
 | 31     | 有効なフラグ。 設定され、論理セクターがすべて 1 ではない場合、マッピングが有効であることを示します。 |
 | 30     | 廃止されたフラグ。 クリアすると、このマッピングは廃止されるか、廃止のプロセスに入れられます。 |
-| 29     | このビットが 0 の場合、マッピング エントリの書き込みが完了します。 |
+| 29     | このビットが 0 の場合、マッピング エントリの書き込みが完了します |
 | 0-28   | この物理ページにマップされている論理セクター (すべて 1 ではない場合)。 |
 
 LevelX では、ブロック消去カウントの各 NAND ブロックの最初のページ、およびブロックがいっぱいになったときのマップされたページのリストも利用されます。 LevelX の NAND ブロックの最初のページの形式を次に示します。
@@ -239,7 +239,7 @@ LevelX では、単純に RAM を使用して NAND フラッシュ部分の操�
 
 ## <a name="nand-filex-integration"></a>NAND FileX の統合
 
-前述のように、LevelX の操作では FileX が使用されません。 LevelX で提供される論理セクターに生データを格納または取得するために、すべての LevelX API は、アプリケーション ソフトウェアから直接呼び出される場合があります。 ただし、LevelX では FileX もサポートされています。
+前述のように、LevelX の操作では FileX が使用されません。 LevelX によって提供される論理セクターに生データを格納または取得するために、すべての LevelX API は、アプリケーション ソフトウェアによって直接呼び出される場合があります。 ただし、LevelX では FileX もサポートされています。
 
 ファイル ***fx_nand_flash_simulated_driver.c*** には、NAND フラッシュのシミュレーションで使用する FileX ドライバーの例が含まれています。 このドライバーの興味深い点は、2048 バイトのページを使用することで、一般に FileX で使用される 512 バイトの論理セクターと、LevelX シミュレーターへの単一の論理セクターの読み取り/書き込み要求が結合されることです。 これにより、NAND フラッシュ メモリをより効率的に使用できます。 LevelX 用の NAND フラッシュ FileX ドライバーでは、カスタム FileX ドライバーを作成するための効果的な出発点が提供されます。  
   

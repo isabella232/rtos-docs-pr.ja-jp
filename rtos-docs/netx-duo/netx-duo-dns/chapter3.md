@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 9634adab3944c29f64d26dd688b5053dc1bd9bcb
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 10368edf3cdf15d32bddbd5bd943681b3ff3dd1aa1a7042d1b9bb2bf0e71699f
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810832"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791916"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-dns-client-services"></a>第 3 章 - Azure RTOS NetX Duo DNS クライアント サービスの説明
 
@@ -75,7 +75,7 @@ ms.locfileid: "104810832"
 
 ## <a name="nx_dns_authority_zone_start_get"></a>nx_dns_authority_zone_start_get
 
-入力ホストの権限のゾーンの開始を検索します
+入力ホストの権威のゾーンの開始を検索する
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -87,7 +87,7 @@ UINT nx_dns_authority_zone_start_get (NX_DNS *dns_ptr, UCHAR *host_name,
 ```
 ### <a name="description"></a>説明
 
-NX_DNS_ENABLE_EXTENDED_RR_TYPES が定義されている場合、このサービスによって指定したドメイン名の SOA 型のクエリが送信され、入力ドメイン名の権限のゾーンの開始が取得されます。 DNS クライアントによって、DNS サーバーの応答で返された SOA レコードが *record_buffer* のメモリの場所にコピーされます。
+NX_DNS_ENABLE_EXTENDED_RR_TYPES が定義されている場合、このサービスは指定されたドメイン名で SOA タイプのクエリを送信して、入力ドメイン名の権威のゾーンの開始を取得します。 DNS クライアントは、DNS サーバー応答で返された SOA レコードを、*record_buffer* のメモリ位置にコピーします。
 
 > [!NOTE]
 > データを受信するには、*record_buffer* が 4 バイトで配置されている必要があります。
@@ -102,13 +102,13 @@ NetX Duo DNS クライアントでは、SOA レコードの種類 NX_DNS_SOA_ENT
 - **nx_dns_soa_expire** SOA の有効期限が切れるまでの期間
 - **nx_dns_soa_minmum** SOA ホスト名 DNS 応答メッセージの最小 TTL フィールド
 
-2 つの SOA レコードのストレージは次のようになります。 固定長データを含む SOA レコードは、バッファーの先頭から入力を開始されます。 ポインター MNAME および RNAME は、バッファーの末尾に格納されている可変長データ (ホスト名) を指します。 最初のレコードの後に追加の SOA レコードが入力され (“additional SOA records…”)、その可変長データが最後のエントリの可変長データの上に格納されます (“additional SOA variable length data”)
+2 つの SOA レコードのストレージは次のようになります。 固定長データを含む SOA レコードは、バッファーの先頭から入力が開始されます。 ポインター MNAME および RNAME は、バッファーの末尾に格納されている可変長データ (ホスト名) を指します。 最初のレコードの後に追加の SOA レコードが入力され (“additional SOA records…”)、その可変長データが最後のエントリの可変長データの上に格納されます (“additional SOA variable length data”)
 
 ![2 つの SOA レコードのストレージ](media/image4.png)
 
 入力 *record_buffer* にサーバー応答内のすべての SOA データを保持できない場合、*record_buffer* には収まるだけのレコードが保持され、バッファー内のレコードの数が返されます。
 
-**Record_count* で返された SOA レコードの数を使用することで、アプリケーションで *record_buffer* からのデータを解析し、ゾーンの権限ホスト名の文字列の先頭を抽出できます。
+**record_count* で返された SOA レコードの数を使用して、アプリケーションは *record_buffer* からのデータを解析し、ホスト名文字列の権威のゾーンの開始を抽出できます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -200,7 +200,7 @@ host rname = dns-admin.www.my_example.com
 
 ## <a name="nx_dns_cache_initialize"></a>nx_dns_cache_initialize
 
-DNS キャッシュを初期化します
+DNS キャッシュを初期化する
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -210,7 +210,7 @@ UINT nx_dns_cache_initialize(NX_DNS *dns_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、DNS キャッシュが作成されて初期化されます。
+このサービスは、DNS キャッシュを作成して初期化します。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -240,7 +240,7 @@ status =  nx_dns_cache_initialize(&my_dns, &dns_cache, 2048);
 
 ## <a name="nx_dns_cache_notify_clear"></a>nx_dns_cache_notify_clear
 
-DNS キャッシュの完全な通知機能をクリアします
+DNS キャッシュ満杯通知関数をクリアする
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -249,7 +249,7 @@ UINT nx_dns_cache_notify_clear(NX_DNS *dns_ptr);
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、キャッシュの完全な通知機能がクリアされます。
+このサービスは、キャッシュ満杯通知関数をクリアします。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -275,7 +275,7 @@ status =  nx_dns_cache_notify_clear(&my_dns);
 
 ## <a name="nx_dns_cache_notify_set"></a>nx_dns_cache_notify_set
 
-DNS キャッシュの完全な通知機能を設定します
+DNS キャッシュ満杯通知関数を設定する
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -285,7 +285,7 @@ UINT nx_dns_cache_notify_set(NX_DNS *dns_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、キャッシュの完全な通知機能が設定されます。
+このサービスは、キャッシュ満杯通知関数を設定します。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -312,7 +312,7 @@ status =  nx_dns_cache_notify_set(&my_dns, cache_full_notify_cb);
 
 ## <a name="nx_dns_cname_get"></a>nx_dns_cname_get
 
-入力ホスト名の正規名を検索します
+入力ホスト名の正規名を検索する
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -375,7 +375,7 @@ Test CNAME: my_example.com
 
 ##  <a name="nx_dns_create"></a>nx_dns_create
 
-DNS クライアント インスタンスを作成します
+DNS クライアント インスタンスを作成する
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -383,7 +383,7 @@ UINT nx_dns_create(NX_DNS *dns_ptr, NX_IP *ip_ptr, CHAR *domain_name);
 ```
 ### <a name="description"></a>説明
 
-このサービスを使用すると、以前に作成された IP インスタンスの DNS クライアント インスタンスが作成されます。
+このサービスでは、以前に作成された IP インスタンスの DNS クライアント インスタンスを作成します。
 
 > [!IMPORTANT]
 > アプリケーションは、DNS クライアントによって使用されるパケット プールのパケット ペイロードが、最大 512 バイトの DNS メッセージに加えて、UDP、IP、およびイーサネット ヘッダーに対して十分な大きさであることを確認する必要があります。 DNS クライアントによって独自のパケット プールが作成された場合、これは、NX_DNS_PACKET_PAYLOAD と NX_DNS_PACKET_POOL_SIZE によって定義されます。
@@ -418,7 +418,7 @@ status =  nx_dns_create(&my_dns, &my_ip, "My DNS");
 
 ## <a name="nx_dns_delete"></a>nx_dns_delete
 
-DNS クライアント インスタンスを削除します
+DNS クライアント インスタンスを削除する
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -456,7 +456,7 @@ status =  nx_dns_delete(&my_dns);
 
 ## <a name="nx_dns_domain_name_server_get"></a>nx_dns_domain_name_server_get
 
-入力ドメイン ゾーンの権限のあるネーム サーバーを検索します
+入力ドメイン ゾーンの権威ネーム サーバーを検索する
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -467,7 +467,7 @@ UINT nx_dns_domain_name_server_get(NX_DNS *dns_ptr, UCHAR *host_name,
 
 ### <a name="description"></a>説明
 
-NX_DNS_ENABLE_EXTENDED_RR_TYPES が定義されている場合、このサービスによって指定したドメイン名の NS 型のクエリが送信され、入力ドメイン名のネーム サーバーが取得されます。 DNS クライアントによって、DNS サーバーの応答で返された NS レコードが *record_buffer* のメモリの場所にコピーされます。
+NX_DNS_ENABLE_EXTENDED_RR_TYPES が定義されている場合、このサービスは指定されたドメイン名で NS タイプのクエリを送信して、入力ドメイン名のネーム サーバーを取得します。 DNS クライアントは、DNS サーバー応答で返された NS レコードを、*record_buffer* のメモリ位置にコピーします。
 
 > [!NOTE]
 > データを受信するには、*record_buffer* が 4 バイトで配置されている必要があります。
@@ -483,7 +483,7 @@ NetX Duo DNS クライアントでは、NS データ型の NX_DNS_NS_ENTRY は�
 
 入力 *record_buffer* にサーバー応答内のすべての NS データを保持できない場合、*record_buffer* には収まるだけのレコードが保持され、バッファー内のレコードの数が返されます。
 
-**record_countt* で返された NS レコードの数を使用することで、アプリケーションで *record_buffer* 内の各レコードの IP アドレスとホスト名を解析できます。
+**record_count* で返された NS レコードの数を使用して、アプリケーションは *record_buffer* 内の各レコードの IP アドレスとホスト名を解析できます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -571,7 +571,7 @@ hostname = ns4.www.my_example.com
 
 ## <a name="nx_dns_domain_mail_exchange_get"></a>nx_dns_domain_mail_exchange_get
 
-入力ホスト名のメール交換を検索します
+入力ホスト名のメール交換を検索する
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -584,7 +584,7 @@ UINT nx_dns_domain_mail_exchange_get(NX_DNS *dns_ptr, UCHAR *host_name,
 
 ### <a name="description"></a>説明
 
-NX_DNS_ENABLE_EXTENDED_RR_TYPES が定義されている場合、このサービスによって指定したドメイン名の MX 型のクエリが送信され、入力ドメイン名のメール交換が取得されます。 DNS クライアントによって、DNS サーバーの応答で返された MX レコードが *record_buffer* のメモリの場所にコピーされます。 
+NX_DNS_ENABLE_EXTENDED_RR_TYPES が定義されている場合、このサービスは指定されたドメイン名で MX タイプのクエリを送信して、入力ドメイン名のメール交換を取得します。 DNS クライアントは、DNS サーバー応答で返された MX レコードを、*record_buffer* のメモリ位置にコピーします。 
 
 > [!NOTE]
 > データを受信するには、*record_buffer* が 4 バイトで配置されている必要があります。
@@ -596,13 +596,13 @@ NetX Duo DNS クライアントでは、メール交換レコードの種類 NX_
 - **nx_dns_mx_reserved0** 予約済み (2 バイト)
 - **nx_dns_mx_hostname_ptr** メール交換サーバー ホスト名へのポインター (4 バイト)
 
-次に、4 つの MX レコードを含むバッファーを示します。 各レコードには、上記のリストの固定長データが含まれています。 メール交換サーバー ホスト名へのポインターは、バッファーの下部にある対応するホスト名を指します。
+次に、4 つの MX レコードを含むバッファーを示します。 各レコードには、上記の一覧の固定長データが含まれています。 メール交換サーバー ホスト名へのポインターは、バッファーの下部にある対応するホスト名を指します。
 
 ![4 つの MX レコードを含むバッファー](media/image6.png)
 
 入力 *record_buffer* にサーバー応答内のすべての MX データを保持できない場合、*record_buffer* には収まるだけのレコードが保持され、バッファー内のレコードの数が返されます。
 
-**record_countt* で返された MX レコードの数を使用することで、アプリケーションで *record_buffer* 内の各レコードのメール ホスト名を含む MX パラメーターの解析を行うことができます。
+**record_countt* で返された MX レコードの数を使用して、アプリケーションは *record_buffer* 内の各レコードのメール ホスト名などの MX パラメーターを解析できます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -701,7 +701,7 @@ hostname = alt2.aspmx.l.www.my_example.com
 
 ## <a name="nx_dns_domain_service_get"></a>nx_dns_domain_service_get
 
-入力ホスト名で提供されるサービスを検索します
+入力ホスト名で提供されるサービスを検索する
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -712,7 +712,7 @@ UINT nx_dns_domain_service_get (NX_DNS *dns_ptr, UCHAR *host_name,
 
 ### <a name="description"></a>説明
 
-NX_DNS_ENABLE_EXTENDED_RR_TYPES が定義されている場合、このサービスによって指定したドメイン名が使用されて SRV 型のクエリが送信され、指定したドメインに関連付けられているサービスとそのポート番号が検索されます。 DNS クライアントによって、DNS サーバーの応答で返された SRV レコードが *record_buffer* のメモリの場所にコピーされます。 
+NX_DNS_ENABLE_EXTENDED_RR_TYPES が定義されている場合、このサービスは指定されたドメイン名で SRV タイプのクエリを送信して、指定されたドメインに関連付けられているサービスとそのポート番号を検索します。 DNS クライアントは、DNS サーバー応答で返された SRV レコードを、*record_buffer* のメモリ位置にコピーします。 
 
 > [!NOTE]
 > データを受信するには、*record_buffer* が 4 バイトで配置されている必要があります。
@@ -732,7 +732,7 @@ NetX Duo DNS クライアントでは、サービス レコードの種類 NX_DN
 
 入力 *record_buffer* にサーバー応答内のすべての SRV データを保持できない場合、*record_buffer* には収まるだけのレコードが保持され、バッファー内のレコードの数が返されます。
 
-**record_count* で返された SRV レコードの数を使用することで、アプリケーションで *record_buffer* 内の各レコードのサーバー ホスト名を含む SRV パラメーターを解析できます。
+**record_count* で返された SRV レコードの数を使用して、アプリケーションは *record_buffer* 内の各レコードのサーバー ホスト名などの SRV パラメーターを解析できます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -834,7 +834,7 @@ hostname = alt1.xmpp.l.www.my_example.com
 
 ## <a name="nx_dns_get_serverlist_size"></a>nx_dns_get_serverlist_size
 
-DNS クライアントのサーバー リストのサイズを返します
+DNS クライアントのサーバー リストのサイズを返す
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -872,7 +872,7 @@ status =  nx_dns_get_serverlist_size (&my_dns, 5, &my_listsize);
 
 ## <a name="nx_dns_info_by_name_get"></a>nx_dns_info_by_name_get
 
-DNS サーバーの IP アドレスとポートをホスト名別に返します
+ホスト名に基づいて DNS サーバーの IP アドレスとポートを返す
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -883,7 +883,7 @@ UINT nx_dns_info_by_name_get(NX_DNS *dns_ptr, UCHAR *host_name,
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、DNS クエリによる入力ホスト名に基づいて、サーバーの IP とポート (サービス レコード) が返されます。 サービス レコードが見つからない場合、このルーチンは、入力アドレス ポインターでゼロの IP アドレスを返し、0 以外のエラー状態を返してエラーを通知します。
+このサービスは、DNS クエリによる入力ホスト名に基づいて、サーバーの IP とポート (サービス レコード) を返します。 サービス レコードが見つからない場合、このルーチンは入力アドレス ポインターに 0 の IP アドレスを返し、0 以外のエラー状態を返してエラーを通知します。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -919,7 +919,7 @@ status =  nx_dns_info_by_name_get(&my_dns, “www.abc1234.com”, &ip_address, &
 
 ## <a name="nx_dns_ipv4_address_by_name_get"></a>nx_dns_ipv4_address_by_name_get
 
-入力ホスト名の IPv4 アドレスを検索します
+入力ホスト名の IPv4 アドレスを検索する
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -932,18 +932,18 @@ UINT nx_ dns_ipv4_address_by_name_get (NX_DNS *dns_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、指定されたホスト名で A 型のクエリが送信され、入力ホスト名の IP アドレスが取得されます。 DNS クライアントによって、DNS サーバーの応答で返された A レコードからの IPv4 アドレスが *record_buffer* のメモリの場所にコピーされます。
+このサービスは、指定されたホスト名で A タイプのクエリを送信して、入力ホスト名の IP アドレスを取得します。 DNS クライアントは、DNS サーバー応答で返された A レコードの IPv4 アドレスを、*record_buffer* のメモリ位置にコピーします。
 
 > [!NOTE]
-> データを受信するには、*record_buffer* が 4 バイトで配置されている必要があります。
+> データを受信するには、*record_buffer* が 4 バイト アラインされている必要があります。
 
 次に示すように、複数の IPv4 アドレスが 4 バイトで配置されたバッファーに格納されます。
 
 ![複数のアドレスが 4 バイトで配置されたバッファー](media/image8.png)
 
-提供されたバッファーがすべての IP アドレス データを保持できない場合、残りの A レコードは *record_buffer* に格納されません。 これにより、アプリケーションは、サーバーの応答で使用可能な IP アドレス データの 1 つ、一部、またはすべてを取得できます。
+提供されたバッファーがすべての IP アドレス データを保持できない場合、残りの A レコードは *record_buffer* に格納されません。 これにより、アプリケーションは、サーバー応答の使用可能な IP アドレス データの 1 つ、一部、またはすべてを取得できます。
 
-**Record_count* で返される A レコードの数を使用することで、アプリケーションで *record_buffer* からの IPv4 アドレス データを解析できます。
+**record_count* で返される A レコードの数を使用して、アプリケーションは *record_buffer* 内の IPv4 アドレス データを解析できます。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -1127,7 +1127,7 @@ record 0: IP address: 2001:0db8:0000:f101: 0000: 0000: 0000:01003
 
 ## <a name="nx_dns_host_by_address_get"></a>nx_dns_host_by_address_get
 
-IP アドレスからホスト名を検索します
+IP アドレスからホスト名を検索する
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -1139,7 +1139,7 @@ UINT nx_dns_host_by_address_get(NX_DNS *dns_ptr, ULONG ip_address,
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、アプリケーションによって以前に指定された 1 つまたは複数の DNS サーバーから提供された IP アドレスの名前解決が要求されます。 成功した場合は、*host_name_ptr* によって指定された文字列で NULL で終了するホスト名が返されます。 これは *nxd_dns_host_by_address_get* サービスのラッパー関数であり、IPv6 アドレスは指定できません。
+このサービスは、アプリケーションによって以前に指定された 1 つ以上の DNS サーバーに、指定された IP アドレスの名前解決を要求します。 成功した場合は、*host_name_ptr* によって指定された文字列で NULL で終了するホスト名が返されます。 これは *nxd_dns_host_by_address_get* サービスのラッパー関数であり、IPv6 アドレスは指定できません。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -1271,7 +1271,7 @@ else
 
 ## <a name="nx_dns_host_by_name_get"></a>nx_dns_host_by_name_get
 
-ホスト名から IP アドレスを検索します
+ホスト名から IP アドレスを検索する
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -1461,7 +1461,7 @@ IP address: 192.2.2.10
 
 ## <a name="nx_dns_host_text_get"></a>nx_dns_host_text_get
 
-入力ドメイン名のテキスト文字列を検索します
+入力ドメイン名のテキスト文字列を検索する
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -1472,7 +1472,7 @@ UINT nx_dns_host_text_get(NX_DNS *dns_ptr, UCHAR *host_name,
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、指定されたドメイン名とバッファーを使用して TXT 型のクエリが送信され、任意の文字列データが取得されます。
+このサービスでは、指定されたドメイン名とバッファーを使用して TXT タイプのクエリを送信し、任意の文字列データを取得します。
 
 DNS クライアントによって、DNS サーバーの応答の TXT レコードのテキスト文字列が *record_buffer* のメモリ位置にコピーされます。 
 
@@ -1535,7 +1535,7 @@ v=spf1 include:_www.my_example.com ip4:192.2.2.10/31 ip4:192.2.2.11/31 ~all
 
 ## <a name="nx_dns_packet_pool_set"></a>nx_dns_packet_pool_set
 
-DNS クライアントのパケット プールを設定します
+DNS クライアントのパケット プールを設定する
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -1589,7 +1589,7 @@ status =  nx_dns_packet_pool_set(&my_dns, &client_pool);
 
 ## <a name="nx_dns_server_add"></a>nx_dns_server_add
 
-DNS サーバーの IP アドレスを追加します
+DNS サーバーの IP アドレスを追加する
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -1597,7 +1597,7 @@ UINT nx_dns_server_add(NX_DNS *dns_ptr, ULONG server_address);
 ```
 ### <a name="description"></a>説明
 
-このサービスを使用すると、サーバー リストに IPv4 DNS サーバーが追加されます。
+このサービスは、サーバー リストに IPv4 DNS サーバーを追加します。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -1679,7 +1679,7 @@ status =  nxd_dns_server_add(&my_dns, &server_address);
 
 ## <a name="nx_dns_server_get"></a>nx_dns_server_get
 
-クライアント リストから IPv4 DNS サーバーを返します
+クライアント リストから IPv4 DNS サーバーを返す
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -1779,7 +1779,7 @@ status =  nxd_dns_server_get(&my_dns, 5, &my_server_addres);
 
 ## <a name="nx_dns_server_remove"></a>nx_dns_server_remove
 
-クライアント リストから IPv4 DNS サーバーを削除します
+クライアントのリストから IPv4 DNS サーバーを削除する
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -1866,7 +1866,7 @@ status =  nxd_dns_server_remove(&my_dns,&server_ADDRESS);
 
 ## <a name="nx_dns_server_remove_all"></a>nx_dns_server_remove_all
 
-すべての DNS サーバーをクライアント リストから削除します
+クライアントのリストからすべての DNS サーバーを削除する
 
 ### <a name="prototype"></a>プロトタイプ
 ```C
@@ -1874,7 +1874,7 @@ UINT nx_dns_server_remove_all(NX_DNS *dns_ptr);
 ```
 ### <a name="description"></a>説明
 
-このサービスを使用すると、クライアント リストからすべての DNS サーバーが削除されます。
+このサービスは、クライアントのリストからすべての DNS サーバーを削除します。
 
 ### <a name="input-parameters"></a>入力パラメーター
 

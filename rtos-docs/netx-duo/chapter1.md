@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 91dfd0e62cb565f677faa7d52fe22abc1f0e19a1
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: c9b5e0ea82319bd369318cca753cf1db222ca29b0b4db3da150642ca007f1191
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811039"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116789867"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-netx-duo"></a>チャプター 1 - Azure RTOS NetX Duo の概要
 
@@ -120,7 +120,7 @@ NetX Duo は ANSI C だけで書かれており、ThreadX リアルタイム オ
 
 ## <a name="ipv6-ready-logo-certification"></a>IPv6 Reacy Logo 認定
 
-NetX Duo は、IPv6 Ready Organization が提供している IPv6 Core Protocol (Phase 2) Self Test パッケージを使用して、IPv6 Ready 認定を取得しました。 テストのプラットフォームおよび事例の詳しい情報は、次の IPv6-Ready プロジェクトのウェブサイトをご覧ください:[ **https://www.ipv6ready.org/** ](https://www.ipv6ready.org/)
+NetX Duo は、IPv6 Ready Organization が提供している IPv6 Core Protocol (Phase 2) Self Test パッケージを使用して、IPv6 Ready 認定を取得しました。 テストのプラットフォームおよび事例の詳しい情報は、次の IPv6-Ready プロジェクトのウェブサイトをご覧ください:[ **https://www.ipv6ready.org/**](https://www.ipv6ready.org/)
 
 Phase 2 IPv6 Core Protocol Self Test Suite では、広範なテストを実施することで、次の RFC で定める要件を IPv6 スタックが満たしていることを証明します:  
 セクション 1: RFC 2460  
@@ -131,7 +131,7 @@ Phase 2 IPv6 Core Protocol Self Test Suite では、広範なテストを実施�
 
 ## <a name="ixanvl-test"></a>IxANVL テスト
 
-NetX Duo は、イクシアの IxANVL でテストを行っています。 IxANVL は、自動ネットワークとプロトコルの検証の業界標準です。 IxANVL の詳しい情報は [ **https://www.ixiacom.com/products/ixanvl** ](https://www.ipv6ready.org/) で確認できます。
+NetX Duo は、イクシアの IxANVL でテストを行っています。 IxANVL は、自動ネットワークとプロトコルの検証の業界標準です。 IxANVL の詳しい情報は [ **https://www.ixiacom.com/products/ixanvl**](https://www.ipv6ready.org/) で確認できます。
 
 具体的には、次の NetX Duo モジュールをIxANVL でテストしています:
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/09/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: d721d8bd3e08d8cccdc13011807b4c5017c84173
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: d08d3c07f7be016ece68ff2f58b9ac5ba93ded780105bce362674ed36b5b885d
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810796"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116792368"
 ---
 # <a name="chapter-3---description-of-ftp-services"></a>章 3 章 - FTP サービスの説明
 
@@ -210,7 +210,7 @@ UINT nx_ftp_client_delete(NX_FTP_CLIENT *ftp_client_ptr);
 - NX_PTR_ERROR (0x07) FTP ポインターが無効です。
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -256,7 +256,7 @@ UINT nx_ftp_client_directory_create(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR (0x07) FTP ポインターが無効です。
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -302,7 +302,7 @@ UINT nx_ftp_client_directory_default_set(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR (0x07) FTP ポインターが無効です。
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -348,7 +348,7 @@ UINT nx_ftp_client_directory_delete(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR (0x07) FTP ポインターが無効です。
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -398,7 +398,7 @@ UINT nx_ftp_client_directory_listing_get(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR (0x07) FTP ポインターが無効です。
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -447,7 +447,7 @@ UINT nx_ftp_client_directory_listing_continue(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR (0x07) FTP ポインターが無効です。
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -494,7 +494,7 @@ UINT nx_ftp_client_disconnect(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR (0x07) FTP ポインターが無効です。
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -539,7 +539,7 @@ UINT nx_ftp_client_file_close(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR (0x07) FTP ポインターが無効です。
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -585,7 +585,7 @@ UINT nx_ftp_client_file_delete(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR (0x07) FTP ポインターが無効です。
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -635,7 +635,7 @@ UINT nx_ftp_client_file_open(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR (0x07) FTP ポインターが無効です。
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -687,7 +687,7 @@ UINT nx_ftp_client_file_read(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR (0x07) FTP ポインターが無効です。
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -750,7 +750,7 @@ UINT nx_ftp_client_file_rename(NX_FTP_CLIENT *ftp_ptr, CHAR *filename,
 - NX_PTR_ERROR (0x07) FTP ポインターが無効です。
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -796,7 +796,7 @@ UINT nx_ftp_client_file_write(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR (0x07) FTP ポインターが無効です。
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -824,7 +824,7 @@ UINT nx_ftp_client_passive_mode_set(NX_FTP_CLIENT *ftp_client_ptr,
 
 ### <a name="description"></a>説明
 
-このサービスを使用すると、以前に作成した FTP クライアント インスタンスで passive_mode_enabled 入力が NX_TRUE に設定されている場合、パッシブ転送モードが有効になります。これにより、ファイルの読み取りや書き込み (RETR、STOR) またはディレクトリ一覧のダウンロード (NLST) に対する後続の呼び出しは、転送モードで実行されます。 パッシブ モードの転送を無効にして、アクティブ転送モードの既定の動作に戻すには、passive_mode_enabled 入力を NX_FALSE に設定して、この関数を呼び出します。
+このサービスにより、以前に作成された FTP クライアント インスタンス上で passive_mode_enabled 入力が NX_TRUE に設定されている場合にパッシブ転送モードが有効化されます。これにより、ファイルの読み取りや書き込み (RETR、STOR) またはディレクトリ一覧のダウンロード (NLST) に対する後続の呼び出しは、転送モードで実行されます。 パッシブ モードの転送を無効にして、アクティブ転送モードの既定の動作に戻すには、passive_mode_enabled 入力を NX_FALSE に設定して、この関数を呼び出します。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
@@ -837,7 +837,7 @@ UINT nx_ftp_client_passive_mode_set(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR (0x07) FTP ポインターが無効です。
 - NX_INVALID_PARAMETERS (0x4D) ポインターではない無効な値の入力
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -950,7 +950,7 @@ UINT nxd_ftp_server_create(NX_FTP_SERVER *ftp_server_ptr,
 - NX_PTR_ERROR (0x07) FTP ポインターが無効です。
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 初期化、スレッド
 
@@ -991,7 +991,7 @@ UINT nx_ftp_server_delete(NX_FTP_SERVER *ftp_server_ptr);
 - NX_PTR_ERROR (0x07) FTP ポインターが無効です。
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 
@@ -1066,7 +1066,7 @@ UINT nx_ftp_server_stop(NX_FTP_SERVER *ftp_server_ptr);
 - NX_PTR_ERROR (0x07) FTP ポインターが無効です。
 - NX_CALLER_ERROR (0x11) このサービスの呼び出し元が無効です。
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 

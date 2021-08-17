@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 91377a663dfb605caa33ab019f437f2c3ed1adc7
-ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
+ms.openlocfilehash: d7a4ffca7d49a82b75ed756fc360a2f543faa8a9fe9d31e5a5ace39087c96568
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/05/2021
-ms.locfileid: "115178308"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116785783"
 ---
 # <a name="chapter-5-guix-studio-screen-designer"></a>第 5 章: GUIX Studio 画面デザイナー
 

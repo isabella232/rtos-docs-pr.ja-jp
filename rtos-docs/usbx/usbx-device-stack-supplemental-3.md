@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: c7870f1984fe3104d30e3b9efd82010218acbe27
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 7d453d9ee19b9bc7ca7809102f087f46fdde05dc62b756d9eb3f38f493805be4
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104813430"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791153"
 ---
 # <a name="chapter-3---usbx-dpump-class-considerations"></a>第 3 章 - USBX DPUMP クラスに関する考慮事項
 
@@ -23,4 +23,4 @@ USB DPUMP フロー チャート:
 
 ## <a name="usbx-dpump-device-class"></a>USBX DPUMP デバイス クラス
 
-デバイス **DPUMP** クラスではスレッドが使用されます。これは USB ホストへの接続時に開始されます。 スレッドは、一括送信エンドポイントに到着するパケットを待機します。 パケットを受信すると、その内容が一括入力エンドポイント バッファーにコピーされ、このエンドポイントにトランザクションがポストされて、ホストがこのエンドポイントからの読み取り要求を発行するのを待機します。 これにより、一括出力および一括入力エンドポイント間のループバック メカニズムが提供されます。
+デバイス **DPUMP** クラスではスレッドが使用されます。これは USB ホストへの接続時に開始されます。 スレッドは、一括送信エンドポイントに到着するパケットを待機します。 パケットが受信されると、そのコンテンツが一括入力エンドポイント バッファーにコピーされ、このエンドポイントにトランザクションがポストされて、ホストがこのエンドポイントからの読み取り要求を発行するのを待機します。 これにより、一括出力および一括入力エンドポイント間のループバック メカニズムが提供されます。

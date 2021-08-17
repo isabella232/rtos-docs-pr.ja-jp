@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: cf4c4cb0edb7deb7bd0f257f48949b5c7355426b
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: b24776c2eb25a53195ea4eb452497b23b933e4ab3f9f0a379ea64d8469c1c971
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810583"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790124"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-snmp-agent-services"></a>チャプター 3 - Azure RTOS NetX Duo SNMP エージェントのサービスの説明
 
@@ -1310,7 +1310,7 @@ UINT nx_snmp_agent_trapv2_send(NX_SNMP_AGENT *agent_ptr,
    - NX_SNMP_TRAP_EGPNEIGHBORLOSS (5)
 
    独自データを使用する場合:  
-   - NX_SNMP_TRAP_CUSTOM (0xFFFFFFFF。*nxd_snmp.h* で指定されます)
+   - NX_SNMP_TRAP_CUSTOM (0xFFFFFFFF) (*nxd_snmp.h* で指定されます)
    
 - **elapsed_time** システムの稼働時間 (sysUpTime)。
 - **object_list_ptr** SNMP トラップに組み込むオブジェクトおよびそれに関連する値の配列。 リストは NX_NULL で終わります。
@@ -1428,7 +1428,7 @@ UINT nxd_snmp_agent_trapv2_send(NX_SNMP_AGENT *agent_ptr,
 
    独自データを使用する場合:
 
-   - NX_SNMP_TRAP_CUSTOM (0xFFFFFFFF。*nxd_snmp.h* で指定されます)
+   - NX_SNMP_TRAP_CUSTOM (0xFFFFFFFF) (*nxd_snmp.h* で指定されます)
 
 - **elapsed_time** システムの稼働時間 (sysUpTime)。
 - **object_list_ptr** SNMP トラップに組み込むオブジェクトおよびそれに関連する値の配列。 リストは NX_NULL で終わります。
@@ -1557,7 +1557,7 @@ UINT nx_snmp_agent_trapv3_send(NX_SNMP_AGENT *agent_ptr,
    - NX_SNMP_TRAP_EGPNEIGHBORLOSS (5)
 
    独自データを使用する場合:
-   - NX_SNMP_TRAP_CUSTOM (0xFFFFFFFF) *nxd_snmp.h* で指定されます)
+   - NX_SNMP_TRAP_CUSTOM (0xFFFFFFFF) (*nxd_snmp.h* で指定されます)
 
 - **elapsed_time** システムの稼働時間 (sysUpTime)。
 - **object_list_ptr** SNMP トラップに組み込むオブジェクトおよびそれに関連する値の配列。 リストは NX_NULL で終わります。
@@ -1823,7 +1823,7 @@ UINT nx_snmp_object_compare(UCHAR *object, UCHAR *reference_object);
 
 ### <a name="description"></a>説明
 
-このサービスでは、指定されたオブジェクト ID と参照オブジェクト ID を比較します。 どちらのオブジェクト ID も、SMI の表記形式の ASCII 文字列です。たとえば、どちらのオブジェクトも ASCII 文字列 “1.3.6” で始まる必要があります。
+このサービスでは、指定されたオブジェクト ID と参照オブジェクトID を比較します。 どちらのオブジェクト ID も、SMI の表記形式の ASCII 文字列です。たとえば、どちらのオブジェクトも ASCII 文字列 “1.3.6” で始まる必要があります。
 
 このサービスは推奨されなくなりました。 開発者は *nx_snmp_object_compare_extended()* に移行することを推奨します。
 

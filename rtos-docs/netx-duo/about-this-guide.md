@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b1eef5bfa28f13d7a6b627792f96039b252f2355
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 032cca3ccdaa7600732d52894d63e5bef366010abaa1145417201f48cb034ab5
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811054"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790175"
 ---
 # <a name="about-the-azure-rtos-netx-duo-user-guide"></a>Azure RTOS NetX Duo ユーザー ガイドについて
 
@@ -68,7 +68,7 @@ Azure RTOS NetX Duo のカスタムの制御構造データ型に加えて、Azu
 
 ## <a name="customer-support-center"></a>カスタマー サポート センター
 
-こちらの手順に関する質問やサポートについては、Azure portal からサポート チケットを送信してください。 お客さまのサポート リクエストをより効率的に解決できるように、電子メール メッセージで次の情報をお知らせください。
+質問やこちらの手順に関するお問い合わせについては、Azure portal からサポート チケットを送信してください。 お客様のサポート リクエストをより効率的に解決できるように、以下の情報をメール メッセージに記載してください。
 
 1. 問題の詳しい説明。発生頻度や、確実に再現できるかどうかなど。
 2. 問題が発生する前にアプリケーションや Azure RTOS NetX Duo に加えた変更の詳しい説明。

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 008ca6fb0052339e188e0240cc38a81d3a6b40e8
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 5b6d01930abdf7dd9d91ebe2e60eaac69ac73d2663a10263f07380e5c2895551
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810961"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116788458"
 ---
 # <a name="appendix-a--description-of-the-restore-state-feature-for-azure-rtos-netx-duo-dhcp-client-services"></a>付録 A: Azure RTOS NetX Duo DHCP クライアント サービスの復元状態機能の説明
 

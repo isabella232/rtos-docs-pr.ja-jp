@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/08/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 32288d78ceffb74ab088a1d720dbac657f6d3ed4
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 24b814e7c2b510093b809b70b02d9a11ed39996d114f2306e0993893799453cc
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810310"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791960"
 ---
 # <a name="chapter-2---module-requirements"></a>第 2 章 - モジュールの要件
 
@@ -144,7 +144,7 @@ __txm_module_preamble
 | 0 | 0<br />1 | 特権モード実行<br />ユーザー モード実行 |
 | 1 | 0<br />1 | MPU 保護なし<br />MPU 保護 (ユーザー モードが選択されている必要があります) |
 | 2 | 0<br />1 | 共有/外部メモリ アクセスを無効にする<br />共有/外部メモリ アクセスを有効にする |
-| [23-3] | 0 | 予約済み
+| [23-3] | 0 | 予約されています。
 | [31-24] | <br />0x01<br />0x02<br />0x03 | **コンパイラ ID**<br />IAR<br />ARM<br />GNU |
 
 

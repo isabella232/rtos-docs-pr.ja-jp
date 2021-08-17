@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 73bb94768396b4b8461791a164a102d1f8ef159f
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: d92b6c10921b4d04345610e139101e93c7a439ff695a89a79245894ad9ef1fec
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811879"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790283"
 ---
 # <a name="chapter-4---azure-rtos-levelx-nand-apis"></a>第 4 章 - Azure RTOS LevelX NAND API
 
@@ -49,8 +49,8 @@ UINT lx_nand_flash_close(LX_NAND_FLASH *nand_flash);
 
 ### <a name="return-values"></a>戻り値
 
-- **LX_SUCCESS**: (0x00) 要求が成功しました。
-- **LX_ERROR**: (0x01) フラッシュ インスタンスを閉じているときにエラーが発生しました。
+- **LX_SUCCESS**: (0x00) 要求に成功。
+- **LX_ERROR**: (0x01) フラッシュ インスタンスを閉じる際のエラー。
 
 ### <a name="allowed-from"></a>許可元
 
@@ -98,8 +98,8 @@ UINT lx_nand_flash_defragment(LX_NAND_FLASH *nand_flash);
 
 ### <a name="return-values"></a>戻り値
 
-- **LX_SUCCESS**: (0x00) 要求が成功しました。
-- **LX_ERROR**: (0x01) フラッシュ インスタンスのデフラグ中にエラーが発生しました。
+- **LX_SUCCESS**: (0x00) 要求に成功。
+- **LX_ERROR**: (0x01) フラッシュ インスタンス デフラグ時のエラー。
 
 ### <a name="allowed-from"></a>許可元
 
@@ -430,8 +430,8 @@ UINT lx_nand_flash_partial_defragment(
 
 ### <a name="return-values"></a>戻り値
 
-- **LX_SUCCESS**: (0x00) 要求が成功しました。
-- **LX_ERROR**: (0x01) フラッシュ インスタンスのデフラグ中にエラーが発生しました。
+- **LX_SUCCESS**: (0x00) 要求に成功。
+- **LX_ERROR**: (0x01) フラッシュ インスタンス デフラグ時のエラー。
 
 ### <a name="allowed-from"></a>許可元
 
@@ -590,7 +590,7 @@ UINT lx_nand_flash_sector_write(
 
 ### <a name="return-values"></a>戻り値
 
-- **LX_SUCCESS**: (0x00) 要求が成功しました。
+- **LX_SUCCESS**: (0x00) 要求に成功。
 - **LX_NO_SECTORS**: (0x02) 書き込みを実行するために使用できる空きセクターがありません。
 - **LX_ERROR**: (0x01) NAND フラッシュ セクターの解放中にエラーが発生しました。
 

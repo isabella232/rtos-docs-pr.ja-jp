@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 3e642af158202bb3b2a4e2a37397b47d707b566e
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 6840f89e66d713b1839ac84427b73273b3f9601d4b6d9d39cd94908ac77a77ca
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810916"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791331"
 ---
 # <a name="appendix-a---description-of-the-restore-state-feature-for-azure-rtos-netx-duo-dhcpv6-client"></a>付録 A - Azure RTOS NetX Duo DHCPv6 クライアントの状態復元機能の説明
 
@@ -124,7 +124,7 @@ ULONG nx_dhcpv6_client_get_record(NX_DHCPV6 *dhcpv6_ptr,
 
 - **NX_PTR_ERROR** (0x16) ポインターの入力が無効です
 
-### <a name="allowed-from"></a>使用可能な場所
+### <a name="allowed-from"></a>許可元
 
 Threads
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: c8e9360c8b72adbc41f840a48e333668c489399e
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 042398377766a3e73f72d4dbba0478ba707d378a379fd33de7808675eb96f257
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810244"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116788764"
 ---
 # <a name="azure-rtos-usbx-device-stack-user-guide"></a>Azure RTOS USBX デバイス スタック ユーザー ガイド
 
@@ -35,7 +35,7 @@ USB に関する技術情報については、 https://www.USB.org/developers �
 
 ## <a name="customer-support-center"></a>カスタマー サポート センター
 
-質問やこちらの手順に関するお問い合わせについては、Azure portal からサポート チケットを送信してください。 お客様のサポート リクエストをより効率的に解決できるように、次の情報を電子メールでお知らせください。
+質問やこちらの手順に関するお問い合わせについては、Azure portal からサポート チケットを送信してください。 お客様のサポート リクエストをより効率的に解決できるように、以下の情報をメール メッセージに記載してください。
 
 1. 問題の詳しい説明。発生頻度や、確実に再現できるかどうかなど。
 2. 問題が発生する前にアプリケーションや Azure RTOS ThreadX に加えた変更の詳しい説明。
