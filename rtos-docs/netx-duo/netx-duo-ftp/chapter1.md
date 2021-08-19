@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/14/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 1d56b20b1c7d719d1b7d9c8c5b2fe234d5577da3
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: a36357ce486d5ba8a68b23c829de6c4b821dfb3cc62f47b0958ff32deaa2f7a7
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810802"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791297"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-netx-duo-ftp"></a>第 1 章 - Azure RTOS NetX Duo FTP の概要
 
@@ -129,7 +129,7 @@ FTP サーバーでは、"*ウェルノウン TCP ポート 21*" を使用して
 
 前述のように、IPv4 で実行される FTP と IPv6 で実行される FTP の唯一の違いは、IPv6 では PORT コマンドが EPRT コマンドに置き換えられていることです。
 
-IPv6 is the PORT command is replaced with the EPRT command for IPv6
+Pv6 では PORT コマンドが EPRT コマンドに置き換えられています。
 
 FTP クライアントがパッシブ転送モードで読み取り要求を行う場合、コマンド シーケンスは次のようになります (**太字** の行は、アクティブ転送モードとは異なる手順を示しています)。
 

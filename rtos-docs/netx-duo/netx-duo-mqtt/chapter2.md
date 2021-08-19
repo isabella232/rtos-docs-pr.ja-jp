@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: cde19a0e84f369f1199ea4027fa09e6bd038e837
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: faf9d84b8b2bce12a99a72198a396b121055a8eef975349f53833a180092e0a3
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810724"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797536"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-duo-mqtt-client"></a>第 2 章 - Azure RTOS NetX Duo MQTT クライアントのインストールと使用
 
@@ -47,6 +47,7 @@ NetX Duo 用 MQTT クライアントを構築するためのいくつかの構�
 このシンボルを定義するには、NetX Secure TLS モジュールをインストールする必要があります。
 *NX_SECURE_ENABLE* は既定では有効になっていません。**
 - **NXD_MQTT_REQUIRE_TLS**: 定義すると、アプリケーションは TLS を使用して MQTT ブローカーに接続する必要があります。 この機能を使用するには、*NX_SECURE_ENABLE* が定義されている必要があります。 既定では、このシンボルは定義されません。
+- **NXD_MQTT_MAXIMUM_TRANSMIT_QUEUE_DEPTH**: 定義すると、MQTT 転送キューの深さが有効になります。 正の整数でなければなりません。
 - **NXD_MQTT_MAX_TOPIC_NAME_LENGTH**: 非推奨です。
 - **NXD_MQTT_MAX_MESSAGE_LENGTH**: 非推奨です。
 - **NXD_MQTT_KEEPALIVE_TIMER_RATE**: MQTT タイマー レートを定義します (ThreadX タイマー ティック単位)。 このタイマーは、最後の MQTT 制御メッセージが送信されてからの時間を追跡するために使用され、キープアライブ時間の有効期限が切れる前に MQTT PINGREQ メッセージを送信します。 このタイマーは、クライアントがキープアライブ タイマー値を設定してブローカーに接続した場合にアクティブになります。 既定値は TX_TIMER_TICKS_PER_SECOND で、これは 1 秒のタイマーです。

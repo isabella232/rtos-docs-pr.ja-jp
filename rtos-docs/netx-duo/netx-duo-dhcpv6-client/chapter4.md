@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 40fbfa7319ca95af65c92b12582d4bbb05005dc0
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 6caf943f990f8fe5cbd2cd6139a1253fcaf47dc207141963e31a9e31864ef839
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810889"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791739"
 ---
 # <a name="chapter-4---azure-rtos-netx-duo-dhcpv6-client-services"></a>第 4 章 - Azure RTOS NetX Duo DHCPv6 クライアント サービス
 
@@ -1375,7 +1375,7 @@ UINT nx_dhcpv6_request_option_time_server(NX_DHCPV6 *dhcpv6_ptr);
 
 このサービスでは、クライアント要求メッセージのオプション要求に、タイム サーバー情報のオプションを追加します。 サーバーの応答にタイム サーバー データが含まれている場合、クライアントはタイム サーバーを保存する余地があれば保存します。 クライアントが保存できるタイム サーバーの数は、構成可能な NX_DHCPV6_NUM_TIME _SERVERS オプションによって決まります。既定値は 1 です。
 
-NX_DHCPV6_NUM_TIME _SERVERS whose default value is 1.
+NX_DHCPV6_NUM_TIME _SERVERS の既定値は 1 です。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
