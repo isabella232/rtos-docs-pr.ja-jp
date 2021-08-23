@@ -127,6 +127,14 @@
           href: netx-duo-http/chapter2.md
         - name: 章 3 章 - NetX HTTP サービスの説明
           href: netx-duo-http/chapter3.md
+    - name: NetX Duo Iperf のユーザー ガイド
+      items:
+        - name: 第 1 章 - NetX Duo Iperf の概要
+          href: netx-duo-iperf/chapter1.md
+        - name: 第 2 章 - Azure NetX Duo Iperf のインストールと使用
+          href: netx-duo-iperf/chapter2.md
+        - name: 第 3 章 - デモンストレーションの実行
+          href: netx-duo-iperf/chapter3.md
     - name: NetX Duo mDNS および DNS-SD のユーザー ガイド
       items:
         - name: 第 1 章 - NetX Duo mDNS および DNS-SD の概要
