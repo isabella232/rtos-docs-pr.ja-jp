@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: c9b5e0ea82319bd369318cca753cf1db222ca29b0b4db3da150642ca007f1191
-ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
+ms.openlocfilehash: 8f45d32afcc2edbd5b851f1b7fb03e7fa2430ebc
+ms.sourcegitcommit: 20a136b06a25e31bbde718b4d12a03ddd8db9051
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/07/2021
-ms.locfileid: "116789867"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123552366"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-netx-duo"></a>チャプター 1 - Azure RTOS NetX Duo の概要
 
@@ -35,7 +35,7 @@ NetX Duo では、TCP/IP でのゼロコピーをパケット ベースで実装
 
 NetX Duo では、<em>UDP Fast Path</em> により最速の UDP 処理を実現しています。 送信側では、UDP 処理 (オプションの UDP チェックサムを含む) は <em>**nx_udp_socket_send**</em> サービスで行います。 パケットが NetX Duo の IP 送信ルーチンによって送信できる状態になるまで、他の関数は呼び出しません。 また、このルーチンはフラットなので (つまり、関数呼び出しのネストが最小限なので)、パケットをアプリケーションのネットワーク ドライバーに渡すのも速いです。 NetX Duo では、受信した UDP パケットは、適切な UDP ソケットの受信キューに直接入れるか、UDP ソケットの受信キューからパケットを受け取るのを待って一時停止している最初のスレッドに渡します。 ThreadX ではそれ以外にコンテキスト スイッチは必要ありません。
 
-### <a name="ansi-c-source-cod"></a>ANSI C ソース コード
+### <a name="ansi-c-source-code"></a>ANSI C ソース コード
 
 NetX Duo は ANSI C だけで書かれており、ANSI C コンパイラと ThreadX サポートが存在するほとんどすべてのプロセッサ アーキテクチャにそのまま移植できます。 
 
