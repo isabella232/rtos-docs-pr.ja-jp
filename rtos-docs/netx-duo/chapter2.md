@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 32a9efaac3c85d415316fba2e9536cc40939f1f6debcbe3e2fa588de613a694d
-ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
+ms.openlocfilehash: 08697d7155c79a7850f834af2e7e88f461d48188
+ms.sourcegitcommit: 20a136b06a25e31bbde718b4d12a03ddd8db9051
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/07/2021
-ms.locfileid: "116788832"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123552349"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-duo"></a>第 2 章 - Azure RTOS NetX Duo のインストールと使用
 
@@ -23,7 +23,7 @@ ms.locfileid: "116788832"
 
 通常、ターゲットのダウンロードは、開発ツールのデバッガー内から実行されます。 ダウンロード後、デバッガーは、メモリおよびプロセッサ レジスタへのアクセスだけでなく、ターゲットの実行制御 (移動、停止、ブレークポイントなど) を提供します。
 
-ほとんどの開発ツールのデバッガーでは、JTAG (IEEE 1149.1) やバックグラウンド デバッグ モード (BDM) などのオンチップ デバッグ (OCD) 接続でターゲット ハードウェアと通信します。 また、デバッガーは、インサーキット エミュレーション (ICE) 接続を使用してターゲット ハードウェアと通信します。 OCD 接続と ICE 接続はどちらも、ターゲットの常駐ソフトウェアへの侵入を最小限に抑えた堅牢なソリューションを提供します。
+開発ツール デバッガーのほとんどが、JTAG (IEEE 1149.1) やバックグラウンド デバッグ モード (BDM) などのオンチップ デバッグ (OCD) 接続を介してターゲット ハードウェアと通信します。 また、デバッガーは、インサーキット エミュレーション (ICE) 接続を使用してターゲット ハードウェアと通信します。 OCD 接続と ICE 接続はどちらも、ターゲットの常駐ソフトウェアへの侵入を最小限に抑えた堅牢なソリューションを提供します。
 
 ホスト上で使用されるリソースについては、NetX Duo のソースコードは ASCII 形式で提供され、ホスト コンピューターのハード ディスク上に約 1 MB の空き領域が必要です。
 
@@ -182,6 +182,7 @@ NetX Duo を使用して NetX Duo ライブラリとアプリケーションを�
 |NX_IP_RAW_MAX_QUEUE_DEPTH | 生パケット受信キューに入れることができる生 IP パケットの数を制御するシンボル。 既定では、値は 20 に設定されています。| 
 |NX_IP_ROUTING_TABLE_SIZE | 定義すると、送信インターフェイスの一覧と特定の送信先アドレスのネクスト ホップ アドレスである、IPv4 静的ルーティング テーブル内のエントリの最大数が設定されます。 既定値は 8 で、***nx_api.h** _ 内で定義されています。このシンボルは、_ *_NX_ENABLE_IP_STATIC_ROUTING_** が定義されている場合にのみ使用されます。|
 |NX_IPV4_MAX_REASSEMBLY_TIME | IPv4 フラグメント再構築の最大許容時間を制御するシンボル。 この値は、NX_IP_MAX_REASSEMBLY_TIME 内で定義されている値によって上書きされることに注意してください。|
+|NX_ENABLE_TCPIP_OFFLOAD | TCP/IP オフロード機能を有効にするシンボル。 NX_ENABLE_INTERFACE_CAPABILITY を有効にするには、この機能を定義する必要があることに注意してください。|
 
 ### <a name="packet-configuration-options"></a>パケット構成オプション
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 32af483db1f97b45bfe3d334b8c79d984dedc8470a37ce1d4164331549b6954c
-ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
+ms.openlocfilehash: c96e6e422ea570085f5d7c6aeaaaa697a2393b5e
+ms.sourcegitcommit: 20a136b06a25e31bbde718b4d12a03ddd8db9051
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/07/2021
-ms.locfileid: "116788964"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123552383"
 ---
 # <a name="chapter-3---functional-components-of-azure-rtos-netx-duo"></a>第 3 章 - Azure RTOS NetX Duo の機能コンポーネント
 
@@ -682,7 +682,7 @@ NetX Duo でマルチキャスト アクティビティを実行する前に、�
 
 |ヘッダー フィールド|目的|
 |---|---|
-|**[バージョン]** |このフィールドでは、IGMP バージョンを指定します (ビット 31 ～ 28)。|
+|**Version** |このフィールドでは、IGMP バージョンを指定します (ビット 31 ～ 28)。|
 |**Type** |このフィールドでは、IGMP メッセージのタイプを指定します (ビット 27 ～ 24)。|
 |**最大応答時間** |IGMP v1 では使用されません。 IGMP v2 では、このフィールドは最大応答時間として機能します。|
 |**チェックサム** |このフィールドには、IGMP バージョンで始まる IGMP メッセージの 1 の補数和の 16 ビット チェックサムが格納されます (ビット 0 ～ 15)。|
@@ -1388,3 +1388,84 @@ TCP の受信パケット処理 (IP ヘルパー スレッドから呼び出さ�
 
 ### <a name="tcp-socket-control-block-nx_tcp_socket"></a>TCP ソケット制御ブロック NX_TCP_SOCKET      
 各 TCP ソケットの特性は、関連付けられている *NX_TCP_SOCKET* 制御ブロックにあります。これには、IP データ構造へのリンク、ネットワーク接続インターフェイス、バインドされたポート、受信パケット キューなどの有用な情報が格納されます。 この構造体は ***nx_api.h*** ファイルで定義されています。
+
+## <a name="tcpip-offload"></a>TCP/IP オフロード
+この機能により、NetX Duo では、ハードウェア上で TCP/IP サービスを提供するネットワーク インターフェイス カードをサポートできます。 特定の WiFi モジュールでは、モジュールで TCP/IP 処理が提供され、MCU 上のアプリケーションでは、その TCP/IP スタックにアクセスするために API を介してパケットが送受信されます。 この機能を有効にすると、開発者はネイティブ NetX Duo アプリケーションを直接実行できます。
+
+TCP/IP オフロード機能を有効にするには、`NX_ENABLE_TCPIP_OFFLOAD` を使用して NetX Duo を構築し、`NX_ENABLE_INTERFACE_CAPABILITY` を定義する必要があります。
+
+### <a name="tcpip-offload-handler"></a>TCP/IP オフロード ハンドラー
+NetX Duo によって、TCP または UDP ソケット操作を処理するために、コールバック関数を介してネットワーク ドライバーとの通信が行われます。 コールバック関数は、`NX_INTERFACE_STRUCT` で定義されています。 ネットワーク ドライバーは、`NX_LINK_ENABLE` ドライバー コマンド中に TCP/IP コールバック関数を設定する必要があります。 TCP/IP コールバック関数機能のプロトタイプは下記のようになります。
+
+``` C
+UINT (*nx_interface_tcpip_offload_handler)(struct NX_IP_STRUCT *ip_ptr,
+                                           struct NX_INTERFACE_STRUCT *interface_ptr,
+                                           VOID *socket_ptr, UINT operation, NX_PACKET *packet_ptr,
+                                           NXD_ADDRESS *local_ip, NXD_ADDRESS *remote_ip,
+                                           UINT local_port, UINT *remote_port, UINT wait_option);
+```
+パラメーターの説明。
+* `ip_ptr` - IP インスタンスを指すポインター
+* `interface_ptr` - インターフェイスを指すポインター
+* `socket_ptr` - `operation` の値に応じて `NX_TCP_SOCKET` または `NX_UDP_SOCKET` を指すポインター
+* `operation` - 現在の関数呼び出しの操作。 値は下記のように定義されます
+``` C
+#define NX_TCPIP_OFFLOAD_TCP_CLIENT_SOCKET_CONNECT  0
+#define NX_TCPIP_OFFLOAD_TCP_SERVER_SOCKET_LISTEN   1
+#define NX_TCPIP_OFFLOAD_TCP_SERVER_SOCKET_ACCEPT   2
+#define NX_TCPIP_OFFLOAD_TCP_SERVER_SOCKET_UNLISTEN 3
+#define NX_TCPIP_OFFLOAD_TCP_SOCKET_DISCONNECT      4
+#define NX_TCPIP_OFFLOAD_TCP_SOCKET_SEND            5
+#define NX_TCPIP_OFFLOAD_UDP_SOCKET_BIND            6
+#define NX_TCPIP_OFFLOAD_UDP_SOCKET_UNBIND          7
+#define NX_TCPIP_OFFLOAD_UDP_SOCKET_SEND            8
+```
+* `packet_ptr` - パケットを指すポインター。 `operation` が `TCP_SOCKET_SEND` または `UDP_SOCKET_SEND` のとき、値が設定されます
+* `local_ip` - ローカル IP アドレスを指すポインター。 `operation` が `UDP_SOCKET_SEND` のとき、値が設定されます
+* `remote_ip` - リモート IP アドレスを指すポインター。 `operation` が `TCP_CLIENT_SOCKET_CONNECT` または `UDP_SOCKET_SEND` のとき、値が設定されます。 操作が `TCP_SERVER_SOCKET_ACCEPT` の場合、この値はコールバック関数によって返される必要があります
+* `local_port` - ローカル ポート。 `operation` が `TCP_CLIENT_SOCKET_CONNECT`、`TCP_SERVER_SOCKET_LISTEN`、`TCP_SERVER_SOCKET_ACCEPT`、`TCP_SERVER_SOCKET_UNLISTEN`、または UDP のとき、値が設定されます
+* `remote_port` - リモート ポート。 `operation` が `TCP_CLIENT_SOCKET_CONNECT` または `UDP_SOCKET_SEND` のとき、値が設定されます。 操作が `TCP_SERVER_SOCKET_ACCEPT` の場合、この値はコールバック関数によって返される必要があります
+* `wait_option` - 待機オプション (ティック数)。 すべての操作に対して値が設定されます
+
+### <a name="tcpip-offload-context"></a>TCP/IP オフロード コンテキスト
+TCP/IP オフロード ドライバーで使用される `NX_TCP_SOCKET` 構造体にポインターが追加されます。
+```
+typedef struct NX_TCP_SOCKET_STRUCT
+{
+    // ...
+
+    /* This pointer is designed to be accessed by TCP/IP offload directly.  */
+    VOID *nx_tcp_socket_tcpip_offload_context;
+} NX_TCP_SOCKET;
+```
+
+TCP/IP オフロード ドライバーで使用される `NX_UDP_SOCKET` 構造体にポインターが追加されます。
+```
+typedef struct NX_UDP_SOCKET_STRUCT
+{
+    // ...
+
+    /* This pointer is designed to be accessed by TCP/IP offload directly.  */
+    VOID *nx_udp_socket_tcpip_offload_context;
+} NX_UDP_SOCKET;
+```
+
+### <a name="apis-for-tcpip-offload-network-driver"></a>TCP/IP オフロード ネットワーク ドライバー用 API
+``` C
+/* Invoked when TCP packet is receive or connection error.  */
+VOID _nx_tcp_socket_driver_packet_receive(NX_TCP_SOCKET *socket_ptr, NX_PACKET *packet_ptr);
+
+/* Invoked when TCP connection is establish.  */
+UINT _nx_tcp_socket_driver_establish(NX_TCP_SOCKET *socket_ptr, NX_INTERFACE *interface_ptr, UINT remote_port);
+
+/* Invoked when UDP packet is receive.  */
+VOID _nx_udp_socket_driver_packet_receive(NX_UDP_SOCKET *socket_ptr, NX_PACKET *packet_ptr,
+                                          NXD_ADDRESS *local_ip, NXD_ADDRESS *remote_ip, UINT remote_port);
+```
+### <a name="tcpip-offload-driver"></a>TCP/IP オフロード ドライバー
+各 IP インターフェイスにはドライバー関数が必要です。 NetX Duo ドライバー関数の開発方法の詳細については、[第 5 章](chapter5.md#tcpip-offload-driver-guidance)を参照してください。
+
+### <a name="tcpip-offload-known-limitations"></a>TCP/IP オフロードの既知の制限事項
+- TCP および UDP のソケットのみがサポートされます
+- DHCP は通常、NetX Duo ではなく、アンダーレイヤー TCP/IP スタックによって行われます
+- アンダーレイヤー TCP/IP スタックに関するその他の制限事項

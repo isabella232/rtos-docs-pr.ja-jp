@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: a0d18929f33f15a342e8fb8b3d01d4ce934d6ec7dc287707f960adb36fb4f44b
-ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
+ms.openlocfilehash: 7d30e14ce1865e2fbce4a6e00cff787c859b32be
+ms.sourcegitcommit: 20a136b06a25e31bbde718b4d12a03ddd8db9051
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/07/2021
-ms.locfileid: "116788849"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123552417"
 ---
 # <a name="chapter-5---azure-rtos-netx-duo-network-drivers"></a>第 5 章 - Azure RTOS NetX Duo のネットワーク ドライバー
 
@@ -503,3 +503,59 @@ IP インスタンスは、次のいずれかのコマンドを使用してネ�
 これらのコマンドの処理中、ネットワーク ドライバーは、適切なイーサネット フレーム ヘッダーを付加してから、基になるハードウェアに送信して、転送する必要があります。 転送処理中、ネットワーク ドライバーには、パケット バッファー領域の排他的な所有権があります。 そのため、データを送信したら (またはデータをドライバー内部の転送バッファーにコピーしたら)、ネットワーク ドライバーによってパケット バッファーを開放します。その際、先頭に付加したパケット バッファーをイーサネット ヘッダーの先にある IP ヘッダーに移動してから (パケットの長さもそれに合わせて調整します)、***nx_packet_transmit_release()*** サービスを呼び出してパケットを解放します。 データ転送後にパケットを解放しないと、パケットがリークします。
 
 ネットワーク デバイス ドライバーは、受信データ パケットの処理も実行します。 RAM ドライバーの例では ***_nx_ram_network_driver_receive()*** 関数で受信パケットを処理します。 デバイスにイーサネット フレームを受信したときは、このドライバーによって NX_PACKET 構造体にそのデータを保存します。 NetX Duo では、4 バイトでアラインされた位置から IP ヘッダーが始まることを前提にしています。 イーサネット ヘッダーの長さは 14 バイトなので、ドライバーは、2 バイトでアラインされた位置に先頭が来るようにイーサネット ヘッダーを配置し、4 バイトでアラインされた位置から IP ヘッダーが始まることを保証する必要があります。
+
+## <a name="tcpip-offload-driver-guidance"></a>TCP/IP オフロード ドライバーのガイダンス
+TCP/IP オフロード機能では、各 IP インターフェイスにドライバー関数が必要です。 ネットワーク ドライバーのその他のタスクの一覧を次に示します。
+
+* コマンド `NX_LINK_INITIALIZE` の場合、
+  * TCP/IP オフロード受信イベントを処理するドライバー スレッドを作成します。
+* コマンド `NX_LINK_INTERFACE_ATTACH` の場合、
+  * 機能をドライバー インターフェイスに設定します。 下のサンプル コードを参照してください。
+``` C
+driver_req_ptr -> nx_ip_driver_interface -> nx_interface_capability_flag = NX_INTERFACE_CAPABILITY_TCPIP_OFFLOAD;
+```
+* コマンド `NX_LINK_ENABLE` の場合、
+  * ドライバー スレッドを起動します。
+  * TCP/IP コールバック関数をドライバー インターフェイスに設定します。 下のサンプル コードを参照してください。
+``` C
+driver_req_ptr -> nx_ip_driver_interface -> nx_interface_tcpip_offload_handler = _nx_driver_tcpip_handler;
+```
+* コマンド `NX_LINK_DISABLE` の場合、
+  * ドライバー スレッドを停止します。
+  * ドライバー インターフェイスの TCP/IP コールバック関数をクリアします。
+* コマンド `NX_LINK_UNINITIALIZE` の場合、
+  * ドライバー スレッドを削除します。
+
+### <a name="tcpip-offload-driver-thread"></a>TCP/IP オフロード ドライバー スレッド
+ドライバー スレッドの目的は、受信 TCP または UDP パケットを受信することです。 ドライバー スレッドには、通常、受信 TCP または UDP パケットが使用可能か、または接続が確立されているかどうかを確認する while ループがあります。 データが使用可能な場合は、TCP または UDP パケットを NetX Duo に渡します。 `nx_packet_data_start` と `nx_packet_prepend_ptr` の間の領域は、TCP/IP ヘッダーを挿入するのに十分である必要があります。 TCP ソケットの場合は、`NX_TCP_PACKET` 型のパケットを割り当てます。 TCP ソケットの場合は、`NX_UDP_PACKET` 型のパケットを割り当てます。 `nx_packet_append_ptr` から `nx_packet_data_end` への受信データを入力します。 `nx_packet_append_ptr` のデータには、TCP または UDP ペイロードのみを含める必要があります。 TCP/IP ヘッダーは、パケットで入力しては **なりません**。 パケットの長さを調整し、受信インターフェイスを設定してから、TCP パケット用に `_nx_tcp_socket_driver_packet_receive` を、UDP パケット用に `_nx_udp_socket_driver_packet_receive` を呼び出します。 TCP 接続がシャットダウンされた場合は、パケットを NULL に設定して `_nx_tcp_socket_driver_packet_receive` を呼び出します。 接続が確立されたら、`_nx_tcp_socket_driver_establish` を呼び出します。
+
+### <a name="tcpip-offload-driver-handler"></a>TCP/IP オフロード ドライバー ハンドラー
+TCP/IP サービスを使用するネットワーク インターフェイスには、次のドライバー コマンドが必要です。 
+* 操作 `NX_TCPIP_OFFLOAD_TCP_CLIENT_SOCKET_CONNECT` の場合は、
+  * 必要に応じてリソースを割り当てます。
+  * ローカル TCP ポートにバインドし、サーバーに接続します。
+  * 接続が確立されると成功が返されます。 接続が進行中の場合は、`NX_IN_PROGRESS` が返されます。 それ以外の場合は、エラーが返されます。
+* 操作 `NX_TCPIP_OFFLOAD_TCP_SERVER_SOCKET_LISTEN` の場合は、
+  * 最初に重複しているリッスンを確認します。 これは、同じポートで複数回呼び出されることがあります。 最初は `nx_tcp_server_socket_listen` からで、次は `nx_tcp_server_socket_relisten` からです。
+  * 必要に応じてリソースを割り当てます。
+  * ローカル TCP ポートをリッスンします。
+* 操作 `NX_TCPIP_OFFLOAD_TCP_SERVER_SOCKET_ACCEPT` の場合は、
+  * 必要に応じてリソースを割り当てます。
+  * 接続を受け入れます。
+* 操作 `NX_TCPIP_OFFLOAD_TCP_SERVER_SOCKET_UNLISTEN` の場合は、
+  * ローカル ポートでリッスンしている TCP ソケットを見つけます。
+  * 見つかった場合は、リッスンしているソケットを閉じます。
+* 操作 `NX_TCPIP_OFFLOAD_TCP_SOCKET_DISCONNECT` の場合は、
+  * TCP/IP オフロード接続を閉じます。
+  * ローカル TCP ポートをバインド解除します。
+  * 接続中に作成されたリソースをクリーンアップします。
+* 操作 `NX_TCPIP_OFFLOAD_TCP_SOCKET_SEND` の場合は、
+  * TCP/IP オフロードを介してデータを送信します。 MSS またはパケット チェーンの状況よりも長いパケット長を処理する準備をしてください。
+* 操作 `NX_TCPIP_OFFLOAD_UDP_SOCKET_BIND` の場合は、
+  * 必要に応じてリソースを割り当てます。
+  * ローカル UDP ポートにバインドします。
+* 操作 `NX_TCPIP_OFFLOAD_UDP_SOCKET_UNBIND` の場合は、
+  * ローカル UDP ポートをバインド解除します。
+  * バインド中に作成されたリソースをクリーンアップします。
+* 操作 `NX_TCPIP_OFFLOAD_UDP_SOCKET_SEND` の場合は、
+  * TCP/IP オフロードを介してデータを送信します。 MTU またはパケット チェーンの状況よりも長いパケット長を処理する準備をしてください。
