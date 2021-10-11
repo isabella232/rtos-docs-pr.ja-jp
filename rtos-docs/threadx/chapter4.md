@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: dabc1603423d8422ed6f8f540f8a06e80d14ec0098c886ca8731ac8ce981f15d
-ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
+ms.openlocfilehash: 42ca29b0c3c4e45330b02e0b9eb93de422c8c235
+ms.sourcegitcommit: 74d1e48424370d565617f3a1e868150ab0bdbd88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/07/2021
-ms.locfileid: "116783409"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129319225"
 ---
 # <a name="chapter-4---description-of-azure-rtos-threadx-services"></a>第 4 章 - Azure RTOS ThreadX サービスの説明
 
@@ -266,6 +266,10 @@ UINT tx_block_pool_info_get(
 
 初期化、スレッド、タイマー、およびISR
 
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
+
 ### <a name="example"></a>例
 
 ```c
@@ -341,6 +345,10 @@ UINT tx_block_pool_performance_info_get(
 
 初期化、スレッド、タイマー、およびISR
 
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
+
 ### <a name="example"></a>例
 
 ```c
@@ -409,6 +417,10 @@ UINT tx_block_pool_performance_system_info_get(
 ### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、およびISR
+
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
 
 ### <a name="example"></a>例
 
@@ -500,12 +512,15 @@ next tx_block_release call will wake up this thread. */
 
 ```c
 UINT tx_block_release(VOID *block_ptr);
-``````
+```
 
 ### <a name="description"></a>説明
 
 このサービスを使用すると、以前に割り当てられたブロックが、関連付けられているメモリ プールに解放されます。 このプールからのメモリ ブロックを待機している中断中のスレッドが 1 つ以上ある場合、中断された最初のスレッドにこのメモリ ブロックが割り当てられ、再開されます。
 
+>[!NOTE]
+> *データ リークを防ぐために、メモリ ブロックを解放する前にアプリケーションでそれをクリアすることをお勧めします。*
+ 
 >[!IMPORTANT]
 >*アプリケーションは、プールに解放された後にメモリ ブロック領域使用しないようにする必要があります。*
 
@@ -882,6 +897,10 @@ UINT tx_byte_pool_performance_info_get(
 
 初期化、スレッド、タイマー、およびISR
 
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
+
 ### <a name="example"></a>例
 
 ```c
@@ -959,6 +978,10 @@ UINT tx_byte_pool_performance_system_info_get(
 ### <a name="allowed-from"></a>許可元
 
  初期化、スレッド、タイマー、およびISR
+
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
 
 ### <a name="example"></a>例
 
@@ -1061,6 +1084,9 @@ UINT tx_byte_release(VOID *memory_ptr);
 ### <a name="description"></a>説明
 
 このサービスを使用すると、以前に割り当てられたメモリ領域が、関連付けられているプールに解放されます。 このプールからのメモリを待機しているスレッドが 1 つ以上ある場合、中断された各スレッドにはメモリが割り当てられ、メモリが使い果たされるか、中断されたスレッドがなくなるまで再開されます。 中断されたスレッドにメモリを割り当てるこのプロセスは、常に中断された最初のスレッドから開始されます。
+
+>[!NOTE]
+> *データ リークを防ぐために、メモリ ブロックを解放する前にアプリケーションでそれをクリアすることをお勧めします。*
 
 > [!IMPORTANT]
 > *アプリケーションは、解放された後にメモリ領域を使用しないようにする必要があります。*
@@ -1301,7 +1327,7 @@ status = tx_event_flags_get(&my_event_flags_group, 0x111,
 actual events obtained. */
 ```
 
-**参照**
+### <a name="see-also"></a>参照
 
 - tx_event_flags_create
 - tx_event_flags_delete
@@ -1311,11 +1337,11 @@ actual events obtained. */
 - tx_event_flags_set
 - tx_event_flags_set_notify
 
-### <a name="tx_event_flags_info_get"></a>tx_event_flags_info_get
+## <a name="tx_event_flags_info_get"></a>tx_event_flags_info_get
 
 イベント フラグ グループに関する情報の取得
 
-**プロトタイプ**
+### <a name="prototype"></a>プロトタイプ
 
 ```c
 UINT tx_event_flags_info_get(
@@ -1326,11 +1352,11 @@ UINT tx_event_flags_info_get(
     TX_EVENT_FLAGS_GROUP **next_group);
 ```
 
-**説明**
+### <a name="description"></a>説明
 
 このサービスを使用すると、指定したイベント フラグ グループに関する情報が取得されます。
 
-**パラメーター**
+### <a name="parameters"></a>パラメーター
 
 - **group_ptr** イベント フラグ グループ制御ブロックへのポインター。
 - **name** イベント フラグ グループの名前へのポインターの保存先へのポインター。
@@ -1375,7 +1401,7 @@ status = tx_event_flags_info_get(&my_event_group, &name,
 /* If status equals TX_SUCCESS, the information requested is
 valid. */
 ```
-**参照**
+### <a name="see-also"></a>参照
 
 - tx_event_flags_create
 - tx_event_flags_delete
@@ -1426,6 +1452,10 @@ UINT tx_event_flags_performance_info_get(
 ### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、およびISR
+
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
 
 ### <a name="example"></a>例
 
@@ -1492,6 +1522,14 @@ UINT tx_event_flags_performance_system_info_get(
 - **TX_SUCCESS** (0x00) イベント フラグ システムのパフォーマンスの取得に成功しました。
 - **TX_FEATURE_NOT_ENABLED** (0xFF) システムがパフォーマンス情報が有効な状態でコンパイルされていません。
 
+### <a name="allowed-from"></a>許可元
+
+初期化、スレッド、タイマー、およびISR
+
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
+
 ### <a name="example"></a>例
 
 ```c
@@ -1551,6 +1589,10 @@ UINT tx_event_flags_set(
 - **TX_GROUP_ERROR** (0x06) イベント フラグ グループへのポインターが無効です。
 - **TX_OPTION_ERROR** (0x08) 無効な set オプションが指定されました。
 
+### <a name="allowed-from"></a>許可元
+
+初期化、スレッド、タイマー、およびISR
+
 ### <a name="preemption-possible"></a>プリエンプション可能
 
 はい
@@ -1605,6 +1647,14 @@ UINT tx_event_flags_set_notify(
 - **TX_SUCCESS** (0x00) イベント フラグ設定通知の登録に成功しました。
 - **TX_GROUP_ERROR** (0x06) イベント フラグ グループ ポインターが無効です。
 - **TX_FEATURE_NOT_ENABLED** (0xFF) システムが通知機能を無効にしてコンパイルされています。
+
+### <a name="allowed-from"></a>許可元
+
+初期化、スレッド、タイマー、およびISR
+
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
 
 ### <a name="example"></a>例
 
@@ -1924,7 +1974,7 @@ UINT tx_mutex_info_get(
 
 いいえ
 
-**例**
+### <a name="example"></a>例
 
 ```c
 TX_MUTEX my_mutex;
@@ -2004,6 +2054,10 @@ UINT tx_mutex_performance_info_get(
 
 初期化、スレッド、タイマー、およびISR
 
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
+
 ### <a name="example"></a>例
 
 ```c
@@ -2077,6 +2131,10 @@ UINT tx_mutex_performance_system_info_get(
 ### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、およびISR
+
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
 
 ### <a name="example"></a>例
 
@@ -2628,6 +2686,10 @@ UINT tx_queue_performance_info_get(
 
 初期化、スレッド、タイマー、およびISR
 
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
+
 ### <a name="example"></a>例
 
 ```c
@@ -2697,7 +2759,7 @@ UINT tx_queue_performance_system_info_get(
 > [!NOTE]
 > *パラメーターに TX_NULL を指定することは、そのパラメーターが必須ではないことを示します。*
 
-**戻り値**
+### <a name="return-values"></a>戻り値
 
 - **TX_SUCCESS** (0x00) キュー システムのパフォーマンスの取得に成功しました。
 - **TX_FEATURE_NOT_ENABLED** (0xFF) システムがパフォーマンス情報が有効な状態でコンパイルされていません。
@@ -2705,6 +2767,10 @@ UINT tx_queue_performance_system_info_get(
 ### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、およびISR
+
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
 
 ### <a name="example"></a>例
 
@@ -2938,7 +3004,7 @@ status = tx_queue_send(&my_queue, my_message, TX_NO_WAIT);
 queue. */
 ```
 
-**参照**
+### <a name="see-also"></a>参照
 
 - tx_queue_create
 - tx_queue_delete
@@ -2984,6 +3050,10 @@ UINT tx_queue_send_notify(
 ### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、およびISR
+
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
 
 ### <a name="example"></a>例
 
@@ -3045,6 +3115,10 @@ UINT tx_semaphore_ceiling_put(
 ### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、およびISR
+
+### <a name="preemption-possible"></a>プリエンプション可能
+
+はい
 
 ### <a name="example"></a>例
 
@@ -3185,7 +3259,7 @@ status = tx_semaphore_delete(&my_semaphore);
 deleted. */
 ```
 
-**参照**
+### <a name="see-also"></a>参照
 
 - tx_semaphore_ceiling_put
 - tx_semaphore_create
@@ -3367,7 +3441,7 @@ UINT tx_semaphore_performance_info_get(
 > [!IMPORTANT]
 > *ThreadX ライブラリとアプリケーションは、パフォーマンス情報を返すために、このサービス用に定義された*  ***TX_SEMAPHORE_ENABLE_PERFORMANCE_INFO** _ _を使用してビルドする必要があります。*
 
-**パラメーター**
+### <a name="parameters"></a>パラメーター
 
 -  **semaphore_ptr** 以前に作成されたセマフォへのポインター。
 -  **puts** このセマフォで実行される配置要求数の保存先へのポインター。
@@ -3387,6 +3461,10 @@ UINT tx_semaphore_performance_info_get(
 ### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、およびISR
+
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
 
 ### <a name="example"></a>例
 
@@ -3457,6 +3535,10 @@ UINT tx_semaphore_performance_system_info_get(
 ### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、およびISR
+
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
 
 ### <a name="example"></a>例
 
@@ -3636,6 +3718,10 @@ UINT tx_semaphore_put_notify(
 
 初期化、スレッド、タイマー、およびISR
 
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
+
 ### <a name="example"></a>例
 
 ```c
@@ -3689,7 +3775,7 @@ UINT tx_thread_create(
 
 このサービスを使用すると、指定されたタスク エントリ関数で実行が開始されるアプリケーション スレッドが作成されます。 スタック、優先度、プリエンプションしきい値、およびタイムスライスは、入力パラメーターによって指定される属性の中にあります。 さらに、スレッドの初期実行状態も指定されます。
 
-**パラメーター**
+### <a name="parameters"></a>パラメーター
 
 - **thread_ptr** スレッド制御ブロックへのポインター。
 - **name_ptr** スレッドの名前へのポインター。
@@ -3890,6 +3976,10 @@ UINT tx_thread_entry_exit_notify(
 
 初期化、スレッド、タイマー、およびISR
 
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
+
 ### <a name="example"></a>例
 
 ```c
@@ -3950,9 +4040,9 @@ TX_THREAD* tx_thread_identify(VOID);
 
 ### <a name="parameters"></a>パラメーター
 
-None
+なし
 
-### <a name="retuen-values"></a>戻り値
+### <a name="return-values"></a>戻り値
 
 - **thread pointer** 現在実行中のスレッドへのポインター。 実行しているスレッドがない場合、戻り値は **TX_NULL** です。
 
@@ -3965,9 +4055,6 @@ None
 いいえ
 
 ### <a name="example"></a>例
-
-TX_THREAD *my_thread_ptr;
-
 ```c
 TX_THREAD *my_thread_ptr;
 
@@ -4043,10 +4130,9 @@ UINT tx_thread_info_get(
 - **run_count** スレッドの実行カウントの保存先へのポインター。
 - **priority** スレッドの優先度の保存先へのポインター。
 - **preemption_threshold** スレッドのプリエンプションしきい値の保存先へのポインター。
-**time_slice** スレッドのタイムスライスの保存先へのポインター。
-**next_thread** 次に作成されるスレッド ポインターの保存先へのポインター。
-
-**suspended_thread** 中断リスト内の次のスレッドへのポインターの保存先へのポインター。
+- **time_slice** スレッドのタイムスライスの保存先へのポインター。
+- **next_thread** 次に作成されるスレッド ポインターの保存先へのポインター。
+- **suspended_thread** 中断リスト内の次のスレッドへのポインターの保存先へのポインター。
 
 > [!NOTE]
 > *パラメーターに TX_NULL を指定することは、そのパラメーターが必須ではないことを示します。*
@@ -4164,6 +4250,10 @@ UINT tx_thread_performance_info_get(
 
 初期化、スレッド、タイマー、およびISR
 
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
+
 ### <a name="example"></a>例
 
 ```c
@@ -4267,6 +4357,10 @@ UINT tx_thread_performance_system_info_get(
 ### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、およびISR
+
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
 
 ### <a name="example"></a>例
 
@@ -4509,7 +4603,7 @@ Threads
 
 はい
 
-### <a name="examples"></a>例
+### <a name="example"></a>例
 
 ```c
 ULONG run_counter_1 = 0;
@@ -4601,10 +4695,11 @@ UINT tx_thread_reset(TX_THREAD *thread_ptr);
 
 Threads
 
+### <a name="preemption-possible"></a>プリエンプション可能
+
+はい
+
 ### <a name="example"></a>例
-
-TX_THREAD my_thread;
-
 ```c
 TX_THREAD my_thread;
 
@@ -4796,6 +4891,10 @@ UINT tx_thread_stack_error_notify(VOID (*error_handler)(TX_THREAD *));
 ### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、およびISR
+
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
 
 ### <a name="example"></a>例
 
@@ -5136,9 +5235,9 @@ ULONG tx_time_get(VOID);
 > [!NOTE]
 > *各タイマー刻みが表す実際の時間は、アプリケーションに固有です。*
 
-**パラメーター**
+### <a name="parameters"></a>パラメーター
 
-None
+なし
 
 ### <a name="return-values"></a>戻り値
 
@@ -5235,7 +5334,7 @@ UINT tx_timer_activate(TX_TIMER *timer_ptr);
 
 - **timer_ptr** 以前に作成されたアプリケーション スレッドへのポインター。
 
-**戻り値**
+### <a name="return-values"></a>戻り値
 
 - **TX_SUCCESS** (0x00) アプリケーション タイマーのアクティブ化に成功しました。
 - **TX_TIMER_ERROR** (0x15) アプリケーション タイマー ポインターが無効です。
@@ -5662,6 +5761,10 @@ UINT tx_timer_performance_info_get(
 
 初期化、スレッド、タイマー、およびISR
 
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
+
 ### <a name="example"></a>例
 
 ```c
@@ -5714,7 +5817,7 @@ UINT tx_timer_performance_system_info_get(
 > [!IMPORTANT]
 > *ThreadX ライブラリとアプリケーションは、パフォーマンス情報を返すために、このサービス用に定義された* **TX_TIMER_ENABLE_PERFORMANCE_INFO** *を使用してビルドする必要があります。*
 
-**パラメーター**
+### <a name="parameters"></a>パラメーター
 
 - **activates** すべてのタイマーで実行されたアクティブ化要求の合計数の保存先へのポインター。
 - **reactivates** すべての周期的なタイマーに従って実行された自動再アクティブ化の合計回数の保存先へのポインター。
@@ -5733,6 +5836,10 @@ UINT tx_timer_performance_system_info_get(
 ### <a name="allowed-from"></a>許可元
 
 初期化、スレッド、タイマー、およびISR
+
+### <a name="preemption-possible"></a>プリエンプション可能
+
+いいえ
 
 ### <a name="example"></a>例
 
